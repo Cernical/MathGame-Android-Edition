@@ -9,6 +9,19 @@
 
 # Changelog
 
+<h2>v0.4.0</h2>
+
+<b>Features</b>
+
+- Mejoras en la interfaz
+- Se añade un mensaje que muestra el resultado real al fallar.
+
+<b>Bugs</b>
+
+- Por encontrar.
+
+<hr>
+
 <h2>v0.3.1</h2>
 
 <b>Features</b>
@@ -20,7 +33,6 @@
 - Por encontrar.
 
 <hr>
-
 
 <h2>v0.3.0</h2>
 
