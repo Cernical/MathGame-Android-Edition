@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-version = "0.3.1"
+version = "0.4.0"
 
 from kivy.app import App
 from kivy.uix.label import Label
@@ -28,6 +28,67 @@ else:
     archivo.write("0")
     archivo.close()
 #-------------------------------------------------------------------------------
+
+class MathGameComprobacion(App):
+
+    global resultadoreal
+    global comprobacion
+    global operacion
+    operacion = ""
+
+    def build(self):
+
+        global operacion
+
+        #Layout completo subdividido en dos sublayouts, uno vertical y otro horizontal
+        superBox = BoxLayout(orientation ='vertical')
+
+        #Widgets de cabecera añadidos en el plano horizontal
+        cabecera = BoxLayout(orientation ='horizontal')
+
+        if comprobacion == 0:
+
+            resultadoMostrar = str(resultadoreal)
+            consola = Label(text = "El resultado era "+resultadoMostrar)
+
+        else:
+
+            consola = Label(text = "¡Has acertado!")
+
+        cabecera.add_widget(consola)
+
+        #Widgets de pie de página añadidos en el plano vertical
+        pie = BoxLayout(orientation ='vertical')
+
+        def callback(instance):
+
+            global operacion
+
+            if operacion == "Sumas":
+                superBox.remove_widget(cabecera)
+                superBox.remove_widget(pie)
+                MathGameSumas().run()
+            else:
+                superBox.remove_widget(cabecera)
+                superBox.remove_widget(pie)
+                MathGameRestas().run()
+
+        aceptar = Button(text = "Vale",background_color = (0,0.4,1,0.8))
+        aceptar.bind(on_press=callback)
+
+        null = Label(text = "")
+        null2 = Label(text = "")
+
+        pie.add_widget(null)
+        pie.add_widget(null2)
+        pie.add_widget(aceptar)
+
+        #Salida por pantalla final
+        superBox.add_widget(cabecera)
+        superBox.add_widget(pie)
+
+        #Mostrar layout completo
+        return superBox
 
 class MathGameResultado(App):
 
@@ -165,6 +226,7 @@ class MathGameRestas(App):
 
                 global ContadorPreguntas
                 global puntuacion
+                global comprobacion
 
                 respuestaOperaciones = resultadoAintroducir #contiene el string del boton
                 print(respuestaOperaciones)
@@ -173,12 +235,14 @@ class MathGameRestas(App):
                     superBox.remove_widget(pie)
                     superBox.remove_widget(cabecera)
                     ContadorPreguntas = ContadorPreguntas + 1
-                    MathGameRestas().run() #Recursividad------------------------
+                    comprobacion = 1
+                    MathGameComprobacion().run()
                 else:
                     superBox.remove_widget(pie)
                     superBox.remove_widget(cabecera)
                     ContadorPreguntas = ContadorPreguntas + 1
-                    MathGameRestas().run() #Recursividad------------------------
+                    comprobacion = 0
+                    MathGameComprobacion().run()
 
             bienvenida = Button(text = "Seleccione la respuesta",background_color = (0,0.4,1,0.8))
             bienvenida.bind(on_press=callback)
@@ -192,8 +256,13 @@ class MathGameRestas(App):
             textinput = TextInput()
             textinput.bind(text=on_text)
 
-            pie.add_widget(bienvenida)
+            null = Label(text = "")
+            null2 = Label(text = "")
+
+            pie.add_widget(null)
+            pie.add_widget(null2)
             pie.add_widget(textinput)
+            pie.add_widget(bienvenida)
 
             #Salida por pantalla final
             superBox.add_widget(cabecera)
@@ -214,6 +283,9 @@ class MathGameSumas(App):
     puntuacion = 0
 
     def build(self):
+
+        global resultadoreal
+        resultadoreal = 0
 
         while ContadorPreguntas < numPreguntas:
 
@@ -256,6 +328,7 @@ class MathGameSumas(App):
 
                 global puntuacion
                 global ContadorPreguntas
+                global comprobacion
 
                 respuestaOperaciones = resultadoAintroducir #contiene el string del boton
                 print(respuestaOperaciones)
@@ -264,12 +337,14 @@ class MathGameSumas(App):
                     superBox.remove_widget(pie)
                     superBox.remove_widget(cabecera)
                     ContadorPreguntas = ContadorPreguntas + 1
-                    MathGameSumas().run() #Recursividad-------------------------
+                    comprobacion = 1
+                    MathGameComprobacion().run()
                 else:
                     superBox.remove_widget(pie)
                     superBox.remove_widget(cabecera)
                     ContadorPreguntas = ContadorPreguntas + 1
-                    MathGameSumas().run() #Recursividad-------------------------
+                    comprobacion = 0
+                    MathGameComprobacion().run()
 
             bienvenida = Button(text = "Seleccione la respuesta",background_color = (0,0.4,1,0.8))
             bienvenida.bind(on_press=callback)
@@ -283,8 +358,13 @@ class MathGameSumas(App):
             textinput = TextInput()
             textinput.bind(text=on_text)
 
-            pie.add_widget(bienvenida)
+            null = Label(text = "")
+            null2 = Label(text = "")
+
+            pie.add_widget(null)
+            pie.add_widget(null2)
             pie.add_widget(textinput)
+            pie.add_widget(bienvenida)
 
             #Salida por pantalla final
             superBox.add_widget(cabecera)
