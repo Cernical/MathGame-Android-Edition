@@ -14,7 +14,7 @@
 
 <b>Features</b>
 
-- Arreglado los crasheos debido a la introducción errónea en las respuestas.
+- Arreglado los cierres debido a la introducción errónea en las respuestas.
 
 <b>Bugs</b>
 
