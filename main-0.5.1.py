@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-version = "0.5.0"
+version = "0.5.1"
 
 from kivy.app import App
 from kivy.uix.label import Label
@@ -279,7 +279,7 @@ class MathGameRestas(App):
             if modo_supervivencia == 1:
 
                 vidaStr = str(vida)
-                consola = Label(text = "Tienes "+vidaStr+" vidas "+"|"+" Sumas entre dos numeros: "+mostrarnumero1+" + "+mostrarnumero2)
+                consola = Label(text = "Tienes "+vidaStr+" vidas "+"|"+" Restas entre dos numeros: "+mostrarnumero1+" - "+mostrarnumero2)
 
             else:
 
