@@ -10,6 +10,18 @@
 
 # Changelog
 
+<h2>v0.5.1</h2>
+
+<b>Features</b>
+
+- Se corrije el fallo anterior y al realizar restas se mostrará la información adecuada.
+
+<b>Bugs</b>
+
+- Por encontrar.
+
+<hr>
+
 <h2>v0.5.0</h2>
 
 <b>Features</b>
@@ -18,7 +30,7 @@
 
 <b>Bugs</b>
 
-- Por encontrar.
+- Al realizar restas se indicará que se están realizando sumas, aunque el resultado no varía.
 
 <hr>
 
