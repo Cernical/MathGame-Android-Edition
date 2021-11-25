@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-version = "0.4.0"
+version = "0.4.1"
 
 from kivy.app import App
 from kivy.uix.label import Label
@@ -38,8 +38,24 @@ class MathGameComprobacion(App):
 
     def build(self):
 
+        #Función que registra botón seleccionado--------------------------------
+        def callback(instance):
+
+            global operacion
+
+            if operacion == "Sumas":
+                superBox.remove_widget(cabecera)
+                superBox.remove_widget(pie)
+                MathGameSumas().run()
+            else:
+                superBox.remove_widget(cabecera)
+                superBox.remove_widget(pie)
+                MathGameRestas().run()
+        #-----------------------------------------------------------------------
+
         global operacion
 
+        #Interfaz---------------------------------------------------------------
         #Layout completo subdividido en dos sublayouts, uno vertical y otro horizontal
         superBox = BoxLayout(orientation ='vertical')
 
@@ -60,19 +76,6 @@ class MathGameComprobacion(App):
         #Widgets de pie de página añadidos en el plano vertical
         pie = BoxLayout(orientation ='vertical')
 
-        def callback(instance):
-
-            global operacion
-
-            if operacion == "Sumas":
-                superBox.remove_widget(cabecera)
-                superBox.remove_widget(pie)
-                MathGameSumas().run()
-            else:
-                superBox.remove_widget(cabecera)
-                superBox.remove_widget(pie)
-                MathGameRestas().run()
-
         aceptar = Button(text = "Vale",background_color = (0,0.4,1,0.8))
         aceptar.bind(on_press=callback)
 
@@ -83,12 +86,13 @@ class MathGameComprobacion(App):
         pie.add_widget(null2)
         pie.add_widget(aceptar)
 
-        #Salida por pantalla final
+        #Salida por pantalla final----------------------------------------------
         superBox.add_widget(cabecera)
         superBox.add_widget(pie)
 
-        #Mostrar layout completo
+        #Mostrar layout completo------------------------------------------------
         return superBox
+        #Fin interfaz-----------------------------------------------------------
 
 class MathGameResultado(App):
 
@@ -97,27 +101,7 @@ class MathGameResultado(App):
         global ContadorPreguntas
         global puntuacion
 
-        print(ContadorPreguntas)
-        print(puntuacion)
-
-        ContadorPreguntas = str(ContadorPreguntas)
-        puntuacion = str(puntuacion)
-
-        #Layout completo subdividido en dos sublayouts, uno vertical y otro horizontal
-        superBox = BoxLayout(orientation ='vertical')
-
-        #Widgets de cabecera añadidos en el plano horizontal
-        cabecera = BoxLayout(orientation ='horizontal')
-
-        consola = Label(text = "Has acertado "+puntuacion+" de un total de "+ContadorPreguntas)
-
-        cabecera.add_widget(consola)
-
-        #Widgets de pie de página añadidos en el plano vertical
-        pie = BoxLayout(orientation ='vertical')
-
-        bienvenida = Label(text = "¿Quieres seguir realizando operaciones?")
-
+        #Función que registra el botón seleccionado-----------------------------
         def callback(instance):
 
             global operacion
@@ -126,6 +110,7 @@ class MathGameResultado(App):
 
             respuestaSeleccionada = instance.text #contiene el string del boton
             print(instance.text)
+
             if respuestaSeleccionada == "si":
 
                 ContadorPreguntas = int(ContadorPreguntas)
@@ -157,6 +142,29 @@ class MathGameResultado(App):
                 superBox.remove_widget(pie)
                 superBox.remove_widget(cabecera)
                 MathGame().run()
+        #-----------------------------------------------------------------------
+
+        print(ContadorPreguntas)
+        print(puntuacion)
+
+        ContadorPreguntas = str(ContadorPreguntas)
+        puntuacion = str(puntuacion)
+
+        #Interfaz---------------------------------------------------------------
+        #Layout completo subdividido en dos sublayouts, uno vertical y otro horizontal
+        superBox = BoxLayout(orientation ='vertical')
+
+        #Widgets de cabecera añadidos en el plano horizontal--------------------
+        cabecera = BoxLayout(orientation ='horizontal')
+
+        consola = Label(text = "Has acertado "+puntuacion+" de un total de "+ContadorPreguntas)
+
+        cabecera.add_widget(consola)
+
+        #Widgets de pie de página añadidos en el plano vertical-----------------
+        pie = BoxLayout(orientation ='vertical')
+
+        bienvenida = Label(text = "¿Quieres seguir realizando operaciones?")
 
         aceptar = Button(text = "si",background_color = (0,0.4,1,0.8))
         aceptar.bind(on_press=callback)
@@ -168,12 +176,13 @@ class MathGameResultado(App):
         pie.add_widget(aceptar)
         pie.add_widget(rechazar)
 
-        #Salida por pantalla final
+        #Salida por pantalla final----------------------------------------------
         superBox.add_widget(cabecera)
         superBox.add_widget(pie)
 
-        #Mostrar layout completo
+        #Mostrar layout completo------------------------------------------------
         return superBox
+        #Fin interfaz-----------------------------------------------------------
 
 class MathGameRestas(App):
 
@@ -185,6 +194,38 @@ class MathGameRestas(App):
 
     def build(self):
 
+        #Función que registra el botón seleccionado-----------------------------
+        def callback(instance):
+
+            global ContadorPreguntas
+            global puntuacion
+            global comprobacion
+
+            respuestaOperaciones = resultadoAintroducir #contiene el string del boton
+            print(respuestaOperaciones)
+            if respuestaOperaciones == resultadoreal:
+                puntuacion = puntuacion + 1
+                superBox.remove_widget(pie)
+                superBox.remove_widget(cabecera)
+                ContadorPreguntas = ContadorPreguntas + 1
+                comprobacion = 1
+                MathGameComprobacion().run()
+            else:
+                superBox.remove_widget(pie)
+                superBox.remove_widget(cabecera)
+                ContadorPreguntas = ContadorPreguntas + 1
+                comprobacion = 0
+                MathGameComprobacion().run()
+        #-----------------------------------------------------------------------
+
+        #Función que registra contenido del input box---------------------------
+        def on_text(instance, value):
+            print('The widget', instance, 'have:', value)
+            global resultadoAintroducir
+            value = int(value)
+            resultadoAintroducir = value
+        #-----------------------------------------------------------------------
+
         while ContadorPreguntas < numPreguntas:
 
             #Modulo Restas
@@ -193,7 +234,7 @@ class MathGameRestas(App):
             resultadoreal = 0
             solucion = 0
             salidaOperacionRestas = 1
-            #-----------------------------------------------------------------------
+            #-------------------------------------------------------------------
 
             print("Restas entre dos numeros:")
             print("")
@@ -205,53 +246,26 @@ class MathGameRestas(App):
             resultadoreal = randomnumero1-randomnumero2           #Resultadoreal
             resultadoreal = int(resultadoreal)              #Convertir a Integer
 
-            #Debugging--------------------------------------------------------------
+            #Debugging----------------------------------------------------------
             print(resultadoreal)
-            #-----------------------------------------------------------------------
+            #-------------------------------------------------------------------
 
+            #Interfaz-----------------------------------------------------------
             #Layout completo subdividido en dos sublayouts, uno vertical y otro horizontal
             superBox = BoxLayout(orientation ='vertical')
 
-            #Widgets de cabecera añadidos en el plano horizontal
+            #Widgets de cabecera añadidos en el plano horizontal----------------
             cabecera = BoxLayout(orientation ='horizontal')
 
             consola = Label(text = "Restas entre dos numeros: "+mostrarnumero1+" - "+mostrarnumero2)
 
             cabecera.add_widget(consola)
 
-            #Widgets de pie de página añadidos en el plano vertical
+            #Widgets de pie de página añadidos en el plano vertical-------------
             pie = BoxLayout(orientation ='vertical')
-
-            def callback(instance):
-
-                global ContadorPreguntas
-                global puntuacion
-                global comprobacion
-
-                respuestaOperaciones = resultadoAintroducir #contiene el string del boton
-                print(respuestaOperaciones)
-                if respuestaOperaciones == resultadoreal:
-                    puntuacion = puntuacion + 1
-                    superBox.remove_widget(pie)
-                    superBox.remove_widget(cabecera)
-                    ContadorPreguntas = ContadorPreguntas + 1
-                    comprobacion = 1
-                    MathGameComprobacion().run()
-                else:
-                    superBox.remove_widget(pie)
-                    superBox.remove_widget(cabecera)
-                    ContadorPreguntas = ContadorPreguntas + 1
-                    comprobacion = 0
-                    MathGameComprobacion().run()
 
             bienvenida = Button(text = "Seleccione la respuesta",background_color = (0,0.4,1,0.8))
             bienvenida.bind(on_press=callback)
-
-            def on_text(instance, value):
-                print('The widget', instance, 'have:', value)
-                global resultadoAintroducir
-                value = int(value)
-                resultadoAintroducir = value
 
             textinput = TextInput()
             textinput.bind(text=on_text)
@@ -264,12 +278,13 @@ class MathGameRestas(App):
             pie.add_widget(textinput)
             pie.add_widget(bienvenida)
 
-            #Salida por pantalla final
+            #Salida por pantalla final------------------------------------------
             superBox.add_widget(cabecera)
             superBox.add_widget(pie)
 
-            #Mostrar layout completo
+            #Mostrar layout completo--------------------------------------------
             return superBox
+            #Fin interfaz-------------------------------------------------------
 
         if ContadorPreguntas == numPreguntas:
             MathGameResultado().run()
@@ -287,6 +302,38 @@ class MathGameSumas(App):
         global resultadoreal
         resultadoreal = 0
 
+        #Función que registra el botón seleccionado-----------------------------
+        def callback(instance):
+
+            global puntuacion
+            global ContadorPreguntas
+            global comprobacion
+
+            respuestaOperaciones = resultadoAintroducir #contiene el string del boton
+            print(respuestaOperaciones)
+            if respuestaOperaciones == resultadoreal:
+                puntuacion = puntuacion + 1
+                superBox.remove_widget(pie)
+                superBox.remove_widget(cabecera)
+                ContadorPreguntas = ContadorPreguntas + 1
+                comprobacion = 1
+                MathGameComprobacion().run()
+            else:
+                superBox.remove_widget(pie)
+                superBox.remove_widget(cabecera)
+                ContadorPreguntas = ContadorPreguntas + 1
+                comprobacion = 0
+                MathGameComprobacion().run()
+        #-----------------------------------------------------------------------
+
+        #Funcion que registra contenido del input-------------------------------
+        def on_text(instance, value):
+            print('The widget', instance, 'have:', value)
+            global resultadoAintroducir
+            value = int(value)
+            resultadoAintroducir = value
+        #-----------------------------------------------------------------------
+
         while ContadorPreguntas < numPreguntas:
 
             #Modulo Sumas
@@ -295,7 +342,7 @@ class MathGameSumas(App):
             resultadoreal = 0
             solucion = 0
             salidaOperacionSumas = 1
-            #-----------------------------------------------------------------------
+            #-------------------------------------------------------------------
 
             print("Sumas entre dos numeros:")
             print("")
@@ -307,53 +354,26 @@ class MathGameSumas(App):
             resultadoreal = randomnumero1+randomnumero2           #Resultadoreal
             resultadoreal = int(resultadoreal)              #Convertir a Integer
 
-            #Debugging--------------------------------------------------------------
+            #Debugging----------------------------------------------------------
             print(resultadoreal)
-            #-----------------------------------------------------------------------
+            #-------------------------------------------------------------------
 
+            #Interfaz-----------------------------------------------------------
             #Layout completo subdividido en dos sublayouts, uno vertical y otro horizontal
             superBox = BoxLayout(orientation ='vertical')
 
-            #Widgets de cabecera añadidos en el plano horizontal
+            #Widgets de cabecera añadidos en el plano horizontal----------------
             cabecera = BoxLayout(orientation ='horizontal')
 
             consola = Label(text = "Sumas entre dos numeros: "+mostrarnumero1+" + "+mostrarnumero2)
 
             cabecera.add_widget(consola)
 
-            #Widgets de pie de página añadidos en el plano vertical
+            #Widgets de pie de página añadidos en el plano vertical-------------
             pie = BoxLayout(orientation ='vertical')
-
-            def callback(instance):
-
-                global puntuacion
-                global ContadorPreguntas
-                global comprobacion
-
-                respuestaOperaciones = resultadoAintroducir #contiene el string del boton
-                print(respuestaOperaciones)
-                if respuestaOperaciones == resultadoreal:
-                    puntuacion = puntuacion + 1
-                    superBox.remove_widget(pie)
-                    superBox.remove_widget(cabecera)
-                    ContadorPreguntas = ContadorPreguntas + 1
-                    comprobacion = 1
-                    MathGameComprobacion().run()
-                else:
-                    superBox.remove_widget(pie)
-                    superBox.remove_widget(cabecera)
-                    ContadorPreguntas = ContadorPreguntas + 1
-                    comprobacion = 0
-                    MathGameComprobacion().run()
 
             bienvenida = Button(text = "Seleccione la respuesta",background_color = (0,0.4,1,0.8))
             bienvenida.bind(on_press=callback)
-
-            def on_text(instance, value):
-                print('The widget', instance, 'have:', value)
-                global resultadoAintroducir
-                value = int(value)
-                resultadoAintroducir = value
 
             textinput = TextInput()
             textinput.bind(text=on_text)
@@ -366,12 +386,13 @@ class MathGameSumas(App):
             pie.add_widget(textinput)
             pie.add_widget(bienvenida)
 
-            #Salida por pantalla final
+            #Salida por pantalla final------------------------------------------
             superBox.add_widget(cabecera)
             superBox.add_widget(pie)
 
-            #Mostrar layout completo
+            #Mostrar layout completo--------------------------------------------
             return superBox
+            #Fin interfaz-------------------------------------------------------
 
         if ContadorPreguntas == numPreguntas:
             MathGameResultado().run()
@@ -380,21 +401,7 @@ class MathGameSelOpe(App):
 
     def build(self):
 
-        #Layout completo subdividido en dos sublayouts, uno vertical y otro horizontal
-        superBox = BoxLayout(orientation ='vertical')
-
-        #Widgets de cabecera añadidos en el plano horizontal
-        cabecera = BoxLayout(orientation ='horizontal')
-
-        consola = Label(text = "¡Bienvenido a MathGame Android Edition! v"+version)
-
-        cabecera.add_widget(consola)
-
-        #Widgets de pie de página añadidos en el plano vertical
-        pie = BoxLayout(orientation ='vertical')
-
-        bienvenida = Label(text = "Seleccione tipo de problemas;")
-
+        #Función que registra el botón seleccionado-----------------------------
         def callback(instance):
 
             global operacion
@@ -411,6 +418,21 @@ class MathGameSelOpe(App):
                 superBox.remove_widget(pie)
                 superBox.remove_widget(cabecera)
                 MathGameRestas().run()
+
+        #Layout completo subdividido en dos sublayouts, uno vertical y otro horizontal
+        superBox = BoxLayout(orientation ='vertical')
+
+        #Widgets de cabecera añadidos en el plano horizontal
+        cabecera = BoxLayout(orientation ='horizontal')
+
+        consola = Label(text = "¡Bienvenido a MathGame Android Edition! v"+version)
+
+        cabecera.add_widget(consola)
+
+        #Widgets de pie de página añadidos en el plano vertical
+        pie = BoxLayout(orientation ='vertical')
+
+        bienvenida = Label(text = "Seleccione tipo de problemas;")
 
         sumas = Button(text = "Sumas",background_color = (0,0.4,1,0.8))
         sumas.bind(on_press=callback)
@@ -433,21 +455,7 @@ class MathGameP(App):
 
     def build(self):
 
-        #Layout completo subdividido en dos sublayouts, uno vertical y otro horizontal
-        superBox = BoxLayout(orientation ='vertical')
-
-        #Widgets de cabecera añadidos en el plano horizontal
-        cabecera = BoxLayout(orientation ='horizontal')
-
-        consola = Label(text = "¡Bienvenido a MathGame Android Edition! v"+version)
-
-        cabecera.add_widget(consola)
-
-        #Widgets de pie de página añadidos en el plano vertical
-        pie = BoxLayout(orientation ='vertical')
-
-        bienvenida = Label(text = "Cuantas preguntas quieres (del 1 al 5)")
-
+        #Funcion que registra el botón seleccionado-----------------------------
         def callback(instance):
 
             global numPreguntas
@@ -483,6 +491,25 @@ class MathGameP(App):
                             superBox.remove_widget(cabecera)
                             MathGameSelOpe().run()
 
+        #Interfaz---------------------------------------------------------------
+        #Layout completo subdividido en dos sublayouts, uno vertical y otro horizontal
+        superBox = BoxLayout(orientation ='vertical')
+
+        #Widgets de cabecera añadidos en el plano horizontal--------------------
+        cabecera = BoxLayout(orientation ='horizontal')
+
+        #Elementos de cabecera--------------------------------------------------
+        consola = Label(text = "¡Bienvenido a MathGame Android Edition! v"+version)
+
+        #Añadir elementos a cabecera--------------------------------------------
+        cabecera.add_widget(consola)
+
+        #Widgets de pie de página añadidos en el plano vertical-----------------
+        pie = BoxLayout(orientation ='vertical')
+
+        #Elementos del pie------------------------------------------------------
+        bienvenida = Label(text = "Cuantas preguntas quieres (del 1 al 5)")
+
         uno = Button(text = "1",background_color = (0,0.4,1,0.8))
         uno.bind(on_press=callback)
 
@@ -498,6 +525,7 @@ class MathGameP(App):
         cinco = Button(text = "5",background_color = (0,0.4,1,0.8))
         cinco.bind(on_press=callback)
 
+        #Añadir elementos a pie-------------------------------------------------
         pie.add_widget(bienvenida)
         pie.add_widget(uno)
         pie.add_widget(dos)
@@ -511,26 +539,13 @@ class MathGameP(App):
 
         #Mostrar layout completo
         return superBox
+        #Fin Interfaz-----------------------------------------------------------
 
 class MathGameS(App):
 
     def build(self):
 
-        #Layout completo subdividido en dos sublayouts, uno vertical y otro horizontal
-        superBox = BoxLayout(orientation ='vertical')
-
-        #Widgets de cabecera añadidos en el plano horizontal
-        cabecera = BoxLayout(orientation ='horizontal')
-
-        consola = Label(text = "¡Bienvenido a MathGame Android Edition! v"+version)
-
-        cabecera.add_widget(consola)
-
-        #Widgets de pie de página añadidos en el plano vertical
-        pie = BoxLayout(orientation ='vertical')
-
-        bienvenida = Label(text = "¿Quieres activar el modo supervivencia? (No funciona)")
-
+        #Función que registra el texto del botón seleccionado-------------------
         def callback(instance):
 
             global modo_supervivencia
@@ -553,42 +568,47 @@ class MathGameS(App):
                 superBox.remove_widget(cabecera)
                 MathGameP().run()
 
-        aceptar = Button(text = "Si",background_color = (0,0.4,1,0.8))
-        aceptar.bind(on_press=callback)
-
-        rechazar = Button(text = "No",background_color = (0,0.4,1,0.8))
-        rechazar.bind(on_press=callback)
-
-        pie.add_widget(bienvenida)
-        pie.add_widget(aceptar)
-        pie.add_widget(rechazar)
-
-        #Salida por pantalla final
-        superBox.add_widget(cabecera)
-        superBox.add_widget(pie)
-
-        #Mostrar layout completo
-        return superBox
-
-class MathGame(App):
-
-    def build(self):
-
-        #Layout completo subdividido en dos sublayouts, uno vertical y otro horizontal
+        #Interfaz---------------------------------------------------------------
+        #Layout global----------------------------------------------------------
         superBox = BoxLayout(orientation ='vertical')
 
-        #Widgets de cabecera añadidos en el plano horizontal
+        #Widgets de cabecera añadidos en el plano horizontal--------------------
         cabecera = BoxLayout(orientation ='horizontal')
 
         consola = Label(text = "¡Bienvenido a MathGame Android Edition! v"+version)
 
         cabecera.add_widget(consola)
 
-        #Widgets de pie de página añadidos en el plano vertical
+        #Widgets de pie de página añadidos en el plano vertical-----------------
         pie = BoxLayout(orientation ='vertical')
 
-        bienvenida = Label(text = "Seleccione dificultad")
+        #Creación de elementos--------------------------------------------------
+        bienvenida = Label(text = "¿Quieres activar el modo supervivencia? (No funciona)")
 
+        aceptar = Button(text = "Si",background_color = (0,0.4,1,0.8))
+        aceptar.bind(on_press=callback)
+
+        rechazar = Button(text = "No",background_color = (0,0.4,1,0.8))
+        rechazar.bind(on_press=callback)
+
+        #Añadir elementos a pie-------------------------------------------------
+        pie.add_widget(bienvenida)
+        pie.add_widget(aceptar)
+        pie.add_widget(rechazar)
+
+        #Salida por pantalla final----------------------------------------------
+        superBox.add_widget(cabecera)
+        superBox.add_widget(pie)
+
+        #Mostrar layout completo
+        return superBox
+        #Fin Interfaz-----------------------------------------------------------
+
+class MathGame(App):
+
+    def build(self):
+
+        #Función que detecta el texto del botón seleccionado en pantalla--------
         def callback(instance):
 
             global dificultad
@@ -623,6 +643,26 @@ class MathGame(App):
                     superBox.remove_widget(pie)
                     superBox.remove_widget(cabecera)
                     MathGameS().run()
+        #-----------------------------------------------------------------------
+
+        #Interfaz---------------------------------------------------------------
+        #Layout global de superBox cada widget dispuestos uno encima de otro----
+        superBox = BoxLayout(orientation ='vertical')
+
+        #Widgets de cabecera añadidos en el plano horizontal--------------------
+        cabecera = BoxLayout(orientation ='horizontal') #Primer div-------------
+
+        #Crear elementos de cabecera--------------------------------------------
+        consola = Label(text = "¡Bienvenido a MathGame Android Edition! v"+version)
+
+        #Añadir elementos a cabecera--------------------------------------------
+        cabecera.add_widget(consola)
+
+        #Widgets de pie de página añadidos en el plano vertical-----------------
+        pie = BoxLayout(orientation ='vertical')
+
+        #Crear elementos del pie------------------------------------------------
+        bienvenida = Label(text = "Seleccione dificultad")
 
         dificultadFacil = Button(text = "Fácil",background_color = (0,0.4,1,0.8))
         dificultadFacil.bind(on_press=callback)
@@ -633,17 +673,19 @@ class MathGame(App):
         dificultadDificil = Button(text = "Dificil",background_color = (0,0.4,1,0.8))
         dificultadDificil.bind(on_press=callback)
 
+        #Añadir elementos al pie------------------------------------------------
         pie.add_widget(bienvenida)
         pie.add_widget(dificultadFacil)
         pie.add_widget(dificultadNormal)
         pie.add_widget(dificultadDificil)
 
-        #Salida por pantalla final
+        #Añadir cada división al layout global----------------------------------
         superBox.add_widget(cabecera)
         superBox.add_widget(pie)
 
-        #Mostrar layout completo
+        #Mostrar layout completo------------------------------------------------
         return superBox
+        #Fin Interfaz-----------------------------------------------------------
 
 #Creacion de la raiz del programa
 #root = MathGame()
