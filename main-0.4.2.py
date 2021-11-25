@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-version = "0.4.1"
+version = "0.4.2"
 
 from kivy.app import App
 from kivy.uix.label import Label
@@ -194,6 +194,9 @@ class MathGameRestas(App):
 
     def build(self):
 
+        global resultadoreal
+        resultadoreal = 0
+
         #Función que registra el botón seleccionado-----------------------------
         def callback(instance):
 
@@ -220,10 +223,15 @@ class MathGameRestas(App):
 
         #Función que registra contenido del input box---------------------------
         def on_text(instance, value):
-            print('The widget', instance, 'have:', value)
+
             global resultadoAintroducir
-            value = int(value)
-            resultadoAintroducir = value
+            print('The widget', instance, 'have:', value)
+
+            try:
+                value = int(value)
+                resultadoAintroducir = value
+            except:
+                resultadoAintroducir = 998003
         #-----------------------------------------------------------------------
 
         while ContadorPreguntas < numPreguntas:
@@ -328,10 +336,15 @@ class MathGameSumas(App):
 
         #Funcion que registra contenido del input-------------------------------
         def on_text(instance, value):
-            print('The widget', instance, 'have:', value)
+
             global resultadoAintroducir
-            value = int(value)
-            resultadoAintroducir = value
+            print('The widget', instance, 'have:', value)
+
+            try:
+                value = int(value)
+                resultadoAintroducir = value
+            except:
+                resultadoAintroducir = 998003
         #-----------------------------------------------------------------------
 
         while ContadorPreguntas < numPreguntas:
