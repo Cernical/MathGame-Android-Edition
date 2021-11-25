@@ -10,6 +10,18 @@
 
 # Changelog
 
+<h2>v0.5.0</h2>
+
+<b>Features</b>
+
+- Se añade el modo supervivencia (WIP)
+
+<b>Bugs</b>
+
+- Por encontrar.
+
+<hr>
+
 <h2>v0.4.3</h2>
 
 <b>Features</b>
