@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-version = "0.4.3"
+version = "0.5.0"
 
 from kivy.app import App
 from kivy.uix.label import Label
@@ -38,6 +38,8 @@ class MathGameComprobacion(App):
 
     def build(self):
 
+        global vidaMostrar
+
         #Función que registra botón seleccionado--------------------------------
         def callback(instance):
 
@@ -63,6 +65,11 @@ class MathGameComprobacion(App):
         cabecera = BoxLayout(orientation ='horizontal')
 
         if comprobacion == 0:
+
+            if modo_supervivencia == 1:
+
+                global vida
+                vida = vida - 1
 
             resultadoMostrar = str(resultadoreal)
             consola = Label(text = "El resultado era "+resultadoMostrar)
@@ -197,6 +204,10 @@ class MathGameRestas(App):
         global resultadoreal
         resultadoreal = 0
 
+        global vidaMostrar
+        global vida
+        global vidascii
+
         #Función que registra el botón seleccionado-----------------------------
         def callback(instance):
 
@@ -234,7 +245,7 @@ class MathGameRestas(App):
                 resultadoAintroducir = 998003
         #-----------------------------------------------------------------------
 
-        while ContadorPreguntas < numPreguntas:
+        while ContadorPreguntas < numPreguntas or vida != 0:
 
             #Modulo Restas
             randomnumero1 = 0
@@ -265,7 +276,14 @@ class MathGameRestas(App):
             #Widgets de cabecera añadidos en el plano horizontal----------------
             cabecera = BoxLayout(orientation ='horizontal')
 
-            consola = Label(text = "Restas entre dos numeros: "+mostrarnumero1+" - "+mostrarnumero2)
+            if modo_supervivencia == 1:
+
+                vidaStr = str(vida)
+                consola = Label(text = "Tienes "+vidaStr+" vidas "+"|"+" Sumas entre dos numeros: "+mostrarnumero1+" + "+mostrarnumero2)
+
+            else:
+
+                consola = Label(text = "Sumas entre dos numeros: "+mostrarnumero1+" + "+mostrarnumero2)
 
             cabecera.add_widget(consola)
 
@@ -294,8 +312,13 @@ class MathGameRestas(App):
             return superBox
             #Fin interfaz-------------------------------------------------------
 
-        if ContadorPreguntas == numPreguntas:
-            MathGameResultado().run()
+        #Comprobación turnos o vidas--------------------------------------------
+        if modo_supervivencia == 0:
+            if ContadorPreguntas == numPreguntas:
+                MathGameResultado().run()
+        else:
+            if vida == 0:
+                MathGameResultado().run()
 
 class MathGameSumas(App):
 
@@ -309,6 +332,10 @@ class MathGameSumas(App):
 
         global resultadoreal
         resultadoreal = 0
+
+        global vidaMostrar
+        global vida
+        global vidascii
 
         #Función que registra el botón seleccionado-----------------------------
         def callback(instance):
@@ -347,7 +374,7 @@ class MathGameSumas(App):
                 resultadoAintroducir = 998003
         #-----------------------------------------------------------------------
 
-        while ContadorPreguntas < numPreguntas:
+        while ContadorPreguntas < numPreguntas or vida != 0:
 
             #Modulo Sumas
             randomnumero1 = 0
@@ -378,7 +405,14 @@ class MathGameSumas(App):
             #Widgets de cabecera añadidos en el plano horizontal----------------
             cabecera = BoxLayout(orientation ='horizontal')
 
-            consola = Label(text = "Sumas entre dos numeros: "+mostrarnumero1+" + "+mostrarnumero2)
+            if modo_supervivencia == 1:
+
+                vidaStr = str(vida)
+                consola = Label(text = "Tienes "+vidaStr+" vidas "+"|"+" Sumas entre dos numeros: "+mostrarnumero1+" + "+mostrarnumero2)
+
+            else:
+
+                consola = Label(text = "Sumas entre dos numeros: "+mostrarnumero1+" + "+mostrarnumero2)
 
             cabecera.add_widget(consola)
 
@@ -407,8 +441,13 @@ class MathGameSumas(App):
             return superBox
             #Fin interfaz-------------------------------------------------------
 
-        if ContadorPreguntas == numPreguntas:
-            MathGameResultado().run()
+        #Comprobación turnos o vidas--------------------------------------------
+        if modo_supervivencia == 0:
+            if ContadorPreguntas == numPreguntas:
+                MathGameResultado().run()
+        else:
+            if vida == 0:
+                MathGameResultado().run()
 
 class MathGameSelOpe(App):
 
@@ -562,21 +601,28 @@ class MathGameS(App):
         def callback(instance):
 
             global modo_supervivencia
+            global numPreguntas
+            global vida
+            global vidascii
 
             respuestaSupervivencia = instance.text #contiene el string del boton
             print(instance.text)
             if respuestaSupervivencia == "Si":
+
                 modo_supervivencia = 1
-                global vida
                 vida = 5
-                global vidascii
-                vidascii = "♥♥♥♥♥"
+
+                vidascii = "♥"
+                numPreguntas = 0
 
                 superBox.remove_widget(pie)
                 superBox.remove_widget(cabecera)
                 MathGameSelOpe().run()
+
             else:
+
                 modo_supervivencia = 0
+                vida = 0
                 superBox.remove_widget(pie)
                 superBox.remove_widget(cabecera)
                 MathGameP().run()
@@ -596,7 +642,7 @@ class MathGameS(App):
         pie = BoxLayout(orientation ='vertical')
 
         #Creación de elementos--------------------------------------------------
-        bienvenida = Label(text = "¿Quieres activar el modo supervivencia? (No funciona)")
+        bienvenida = Label(text = "¿Quieres activar el modo supervivencia?")
 
         aceptar = Button(text = "Si",background_color = (0,0.4,1,0.8))
         aceptar.bind(on_press=callback)
