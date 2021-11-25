@@ -5,9 +5,22 @@
 
 <p>Por ahora se puede realizar lo siguiente:</p>
 
-- Realizar sumas y restas.
+- Realizar sumas.
+- Realizar restas (WIP).
 
 # Changelog
+
+<h2>v0.4.1</h2>
+
+<b>Features</b>
+
+- Optimizaciones del código.
+
+<b>Bugs</b>
+
+- Por encontrar.
+
+<hr>
 
 <h2>v0.4.0</h2>
 
