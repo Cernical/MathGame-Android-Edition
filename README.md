@@ -10,6 +10,18 @@
 
 # Changelog
 
+<h2>v0.4.3</h2>
+
+<b>Features</b>
+
+- Cambios menores en la interfaz.
+
+<b>Bugs</b>
+
+- Por encontrar.
+
+<hr>
+
 <h2>v0.4.2</h2>
 
 <b>Features</b>
