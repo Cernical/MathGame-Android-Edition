@@ -5,7 +5,8 @@
 
 <p>Por ahora se puede realizar lo siguiente:</p>
 
-- Realizar sumas y restas.
+- Realizar sumas.
+- Realizar restas (WIP).
 
 # Changelog
 
