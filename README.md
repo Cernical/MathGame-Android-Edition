@@ -9,6 +9,18 @@
 
 # Changelog
 
+<h2>v0.4.1</h2>
+
+<b>Features</b>
+
+- Optimizaciones del código.
+
+<b>Bugs</b>
+
+- Por encontrar.
+
+<hr>
+
 <h2>v0.4.0</h2>
 
 <b>Features</b>
