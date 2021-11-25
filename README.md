@@ -10,6 +10,18 @@
 
 # Changelog
 
+<h2>v0.4.2</h2>
+
+<b>Features</b>
+
+- Arreglado los crasheos debido a la introducción errónea en las respuestas.
+
+<b>Bugs</b>
+
+- Por encontrar.
+
+<hr>
+
 <h2>v0.4.1</h2>
 
 <b>Features</b>
@@ -18,7 +30,7 @@
 
 <b>Bugs</b>
 
-- Por encontrar.
+- El programa se cerrará al introducir un valor no válido.
 
 <hr>
 
@@ -31,7 +43,7 @@
 
 <b>Bugs</b>
 
-- Por encontrar.
+- El programa se cerrará al introducir un valor no válido.
 
 <hr>
 
@@ -43,7 +55,7 @@
 
 <b>Bugs</b>
 
-- Por encontrar.
+- El programa se cerrará al introducir un valor no válido.
 
 <hr>
 
@@ -56,6 +68,7 @@
 <b>Bugs</b>
 
 - El programa es inestable y solo funcionará por un tiempo limitado.
+- El programa se cerrará al introducir un valor no válido.
 
 <hr>
 
@@ -67,7 +80,7 @@
 
 <b>Bugs</b>
 
-- WIP
+- El programa se cerrará al introducir un valor no válido.
 
 <hr>
 
