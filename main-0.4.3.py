@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-version = "0.4.2"
+version = "0.4.3"
 
 from kivy.app import App
 from kivy.uix.label import Label
@@ -445,7 +445,7 @@ class MathGameSelOpe(App):
         #Widgets de pie de página añadidos en el plano vertical
         pie = BoxLayout(orientation ='vertical')
 
-        bienvenida = Label(text = "Seleccione tipo de problemas;")
+        bienvenida = Label(text = "Seleccione tipo de problemas")
 
         sumas = Button(text = "Sumas",background_color = (0,0.4,1,0.8))
         sumas.bind(on_press=callback)
@@ -521,7 +521,7 @@ class MathGameP(App):
         pie = BoxLayout(orientation ='vertical')
 
         #Elementos del pie------------------------------------------------------
-        bienvenida = Label(text = "Cuantas preguntas quieres (del 1 al 5)")
+        bienvenida = Label(text = "Cuántas preguntas quieres (del 1 al 5)")
 
         uno = Button(text = "1",background_color = (0,0.4,1,0.8))
         uno.bind(on_press=callback)
@@ -700,8 +700,5 @@ class MathGame(App):
         return superBox
         #Fin Interfaz-----------------------------------------------------------
 
-#Creacion de la raiz del programa
-#root = MathGame()
-#Llamada al constructor
-#root.run()
+#Constructor--------------------------------------------------------------------
 MathGame().run()
