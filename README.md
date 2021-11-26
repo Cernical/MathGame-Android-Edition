@@ -10,6 +10,19 @@
 
 # Changelog
 
+<h2>v0.5.2</h2>
+
+<b>Features</b>
+
+- Se corrije un error el cual no permitía volver a realizar operaciones al tener el modo supervivencia activado.
+- Se arregla los cierres al presionar el botón de respuesta sin haber introducido nada.
+
+<b>Bugs</b>
+
+- Por encontrar.
+
+<hr>
+
 <h2>v0.5.1</h2>
 
 <b>Features</b>
@@ -18,7 +31,8 @@
 
 <b>Bugs</b>
 
-- Por encontrar.
+- Al tener el modo supervivencia no se puede volver a realizar las operaciones al finalizar la partida.
+- El programa finalizará al no introducir una respuesta y presionar el botón.
 
 <hr>
 
@@ -31,6 +45,8 @@
 <b>Bugs</b>
 
 - Al realizar restas se indicará que se están realizando sumas, aunque el resultado no varía.
+- Al tener el modo supervivencia no se puede volver a realizar las operaciones al finalizar la partida.
+- El programa finalizará al no introducir una respuesta y presionar el botón.
 
 <hr>
 
@@ -42,7 +58,7 @@
 
 <b>Bugs</b>
 
-- Por encontrar.
+- El programa finalizará al no introducir una respuesta y presionar el botón.
 
 <hr>
 
@@ -54,7 +70,7 @@
 
 <b>Bugs</b>
 
-- Por encontrar.
+- El programa finalizará al no introducir una respuesta y presionar el botón.
 
 <hr>
 
@@ -67,6 +83,7 @@
 <b>Bugs</b>
 
 - El programa se cerrará al introducir un valor no válido.
+- El programa finalizará al no introducir una respuesta y presionar el botón.
 
 <hr>
 
@@ -80,6 +97,7 @@
 <b>Bugs</b>
 
 - El programa se cerrará al introducir un valor no válido.
+- El programa finalizará al no introducir una respuesta y presionar el botón.
 
 <hr>
 
@@ -92,6 +110,7 @@
 <b>Bugs</b>
 
 - El programa se cerrará al introducir un valor no válido.
+- El programa finalizará al no introducir una respuesta y presionar el botón.
 
 <hr>
 
@@ -105,6 +124,7 @@
 
 - El programa es inestable y solo funcionará por un tiempo limitado.
 - El programa se cerrará al introducir un valor no válido.
+- El programa finalizará al no introducir una respuesta y presionar el botón.
 
 <hr>
 
@@ -117,6 +137,7 @@
 <b>Bugs</b>
 
 - El programa se cerrará al introducir un valor no válido.
+- El programa finalizará al no introducir una respuesta y presionar el botón.
 
 <hr>
 
