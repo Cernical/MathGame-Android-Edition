@@ -142,7 +142,6 @@
 
 <b>Bugs</b>
 
-- El programa es inestable y solo funcionará por un tiempo limitado.
 - El programa se cerrará al introducir un valor no válido.
 - El programa finalizará al no introducir una respuesta y presionar el botón.
 - La app se cerrará dado cierta cantidad de operaciones realizadas.
