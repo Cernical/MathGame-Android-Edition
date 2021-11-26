@@ -5,8 +5,8 @@
 
 <p>Por ahora se puede realizar lo siguiente:</p>
 
-- Realizar sumas.
-- Realizar restas (WIP).
+- Realizar sumas y restas.
+- Modo supervivencia.
 
 # Changelog
 
