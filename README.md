@@ -10,6 +10,18 @@
 
 # Changelog
 
+<h2>v0.5.3</h2>
+
+<b>Features</b>
+
+- Se arregla un bug en el que al introducir una respuesta y seguir presionando el botón sin introducir nada más se introducirá siempre la última.
+
+<b>Bugs</b>
+
+- La app se cerrará dado cierta cantidad de operaciones realizadas.
+
+<hr>
+
 <h2>v0.5.2</h2>
 
 <b>Features</b>
@@ -19,7 +31,8 @@
 
 <b>Bugs</b>
 
-- Por encontrar.
+- Al introducir una respuesta si se sigue presionando el botón sin introducir nada más se utilizará el último valor.
+- La app se cerrará dado cierta cantidad de operaciones realizadas.
 
 <hr>
 
@@ -33,6 +46,7 @@
 
 - Al tener el modo supervivencia no se puede volver a realizar las operaciones al finalizar la partida.
 - El programa finalizará al no introducir una respuesta y presionar el botón.
+- La app se cerrará dado cierta cantidad de operaciones realizadas.
 
 <hr>
 
@@ -47,6 +61,7 @@
 - Al realizar restas se indicará que se están realizando sumas, aunque el resultado no varía.
 - Al tener el modo supervivencia no se puede volver a realizar las operaciones al finalizar la partida.
 - El programa finalizará al no introducir una respuesta y presionar el botón.
+- La app se cerrará dado cierta cantidad de operaciones realizadas.
 
 <hr>
 
@@ -59,6 +74,7 @@
 <b>Bugs</b>
 
 - El programa finalizará al no introducir una respuesta y presionar el botón.
+- La app se cerrará dado cierta cantidad de operaciones realizadas.
 
 <hr>
 
@@ -71,6 +87,7 @@
 <b>Bugs</b>
 
 - El programa finalizará al no introducir una respuesta y presionar el botón.
+- La app se cerrará dado cierta cantidad de operaciones realizadas.
 
 <hr>
 
@@ -84,6 +101,7 @@
 
 - El programa se cerrará al introducir un valor no válido.
 - El programa finalizará al no introducir una respuesta y presionar el botón.
+- La app se cerrará dado cierta cantidad de operaciones realizadas.
 
 <hr>
 
@@ -98,6 +116,7 @@
 
 - El programa se cerrará al introducir un valor no válido.
 - El programa finalizará al no introducir una respuesta y presionar el botón.
+- La app se cerrará dado cierta cantidad de operaciones realizadas.
 
 <hr>
 
@@ -105,12 +124,13 @@
 
 <b>Features</b>
 
-- Se parchea la inestabilidad de anteriores versiones causadas por recursividad dentro del código.
+- Se parchea la inestabilidad de anteriores versiones causadas por recursividad dentro del código (Solo disponible en PC).
 
 <b>Bugs</b>
 
 - El programa se cerrará al introducir un valor no válido.
 - El programa finalizará al no introducir una respuesta y presionar el botón.
+- La app se cerrará dado cierta cantidad de operaciones realizadas.
 
 <hr>
 
@@ -125,6 +145,7 @@
 - El programa es inestable y solo funcionará por un tiempo limitado.
 - El programa se cerrará al introducir un valor no válido.
 - El programa finalizará al no introducir una respuesta y presionar el botón.
+- La app se cerrará dado cierta cantidad de operaciones realizadas.
 
 <hr>
 
@@ -138,6 +159,7 @@
 
 - El programa se cerrará al introducir un valor no válido.
 - El programa finalizará al no introducir una respuesta y presionar el botón.
+- La app se cerrará dado cierta cantidad de operaciones realizadas.
 
 <hr>
 
