@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-version = "0.5.2"
+version = "0.5.3"
 
 from kivy.app import App
 from kivy.uix.label import Label
@@ -35,6 +35,7 @@ class MathGameComprobacion(App):
     global comprobacion
     global operacion
     operacion = ""
+    global resultadoAintroducir
 
     def build(self):
 
@@ -44,6 +45,11 @@ class MathGameComprobacion(App):
         def callback(instance):
 
             global operacion
+
+            #Sin este código se mantiene la introducción anterior por teclado---
+            global resultadoAintroducir
+            resultadoAintroducir = 998003
+            #-------------------------------------------------------------------
 
             if operacion == "Sumas":
                 superBox.remove_widget(cabecera)
