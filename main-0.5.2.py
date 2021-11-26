@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-version = "0.5.1"
+version = "0.5.2"
 
 from kivy.app import App
 from kivy.uix.label import Label
@@ -114,6 +114,8 @@ class MathGameResultado(App):
             global operacion
             global ContadorPreguntas
             global puntuacion
+            global modo_supervivencia
+            global vida
 
             respuestaSeleccionada = instance.text #contiene el string del boton
             print(instance.text)
@@ -125,6 +127,9 @@ class MathGameResultado(App):
 
                 ContadorPreguntas = 0
                 puntuacion = 0
+
+                if modo_supervivencia == 1:
+                    vida = 5
 
                 if operacion == "Sumas":
 
@@ -215,7 +220,13 @@ class MathGameRestas(App):
             global puntuacion
             global comprobacion
 
-            respuestaOperaciones = resultadoAintroducir #contiene el string del boton
+            #Gestión de la excepción al presionar botón sin introducir nada-----
+            try:
+                respuestaOperaciones = resultadoAintroducir #contiene el string del boton
+            except:
+                respuestaOperaciones = 998003
+            #-------------------------------------------------------------------
+
             print(respuestaOperaciones)
             if respuestaOperaciones == resultadoreal:
                 puntuacion = puntuacion + 1
@@ -344,7 +355,13 @@ class MathGameSumas(App):
             global ContadorPreguntas
             global comprobacion
 
-            respuestaOperaciones = resultadoAintroducir #contiene el string del boton
+            #Gestión de la excepción al presionar botón sin introducir nada-----
+            try:
+                respuestaOperaciones = resultadoAintroducir #contiene el string del boton
+            except:
+                respuestaOperaciones = 998003
+            #-------------------------------------------------------------------
+
             print(respuestaOperaciones)
             if respuestaOperaciones == resultadoreal:
                 puntuacion = puntuacion + 1
