@@ -5,7 +5,7 @@
 
 <p>Por ahora se puede realizar lo siguiente:</p>
 
-- Realizar sumas, restas y multiplicaciones.
+- Realizar sumas, restas, multiplicaciones y divisiones.
 - Jugar en modo supervivencia.
 
 # Changelog
