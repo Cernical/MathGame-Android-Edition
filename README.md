@@ -10,6 +10,18 @@
 
 # Changelog
 
+<h2>v0.7.1</h2>
+
+<b>Features</b>
+
+- Se arregla el bug anterior al generar dos 0 en las divisiones.
+
+<b>Bugs</b>
+
+- La app se cerrará dada cierta cantidad de operaciones realizadas.
+
+<hr>
+
 <h2>v0.7.0</h2>
 
 <b>Features</b>
@@ -19,6 +31,7 @@
 <b>Bugs</b>
 
 - La app se cerrará dada cierta cantidad de operaciones realizadas.
+- La app se cerrará en el caso de que los números aleatorios sean 0 al realizar divisiones.
 
 <hr>
 
