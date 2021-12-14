@@ -1,14 +1,26 @@
 # MathGame Android Edition
 
 <h2>Creación de juego en python sobre resolución de problemas matemáticos.</h2>
-<p>El proyecto empezó para aprender Python, trata de resolver problemas matemáticos según las exigencias del usuario, (Número de preguntas, dificultad...) con la esperanza de añadir otras opciones y tipos de problemas, (ecuaciones, etc...) La versión final debería contener una interfáz gráfica de usuario (GUI).</p>
+<p>El proyecto empezó para aprender Python, trata de resolver problemas matemáticos según las exigencias del usuario, (Número de preguntas, dificultad...) con la esperanza de añadir otras opciones y tipos de problemas, (ecuaciones, etc...)</p>
 
 <p>Por ahora se puede realizar lo siguiente:</p>
 
-- Realizar sumas y restas.
-- Modo supervivencia.
+- Realizar sumas, restas y multiplicaciones.
+- Jugar en modo supervivencia.
 
 # Changelog
+
+<h2>v0.6.0</h2>
+
+<b>Features</b>
+
+- Se añade la posibilidad de realizar multiplicaciones.
+
+<b>Bugs</b>
+
+- La app se cerrará dada cierta cantidad de operaciones realizadas.
+
+<hr>
 
 <h2>v0.5.3</h2>
 
@@ -18,7 +30,7 @@
 
 <b>Bugs</b>
 
-- La app se cerrará dado cierta cantidad de operaciones realizadas.
+- La app se cerrará dada cierta cantidad de operaciones realizadas.
 
 <hr>
 
@@ -32,7 +44,7 @@
 <b>Bugs</b>
 
 - Al introducir una respuesta si se sigue presionando el botón sin introducir nada más se utilizará el último valor.
-- La app se cerrará dado cierta cantidad de operaciones realizadas.
+- La app se cerrará dada cierta cantidad de operaciones realizadas.
 
 <hr>
 
@@ -46,7 +58,7 @@
 
 - Al tener el modo supervivencia no se puede volver a realizar las operaciones al finalizar la partida.
 - El programa finalizará al no introducir una respuesta y presionar el botón.
-- La app se cerrará dado cierta cantidad de operaciones realizadas.
+- La app se cerrará dada cierta cantidad de operaciones realizadas.
 
 <hr>
 
@@ -61,7 +73,7 @@
 - Al realizar restas se indicará que se están realizando sumas, aunque el resultado no varía.
 - Al tener el modo supervivencia no se puede volver a realizar las operaciones al finalizar la partida.
 - El programa finalizará al no introducir una respuesta y presionar el botón.
-- La app se cerrará dado cierta cantidad de operaciones realizadas.
+- La app se cerrará dada cierta cantidad de operaciones realizadas.
 
 <hr>
 
@@ -74,7 +86,7 @@
 <b>Bugs</b>
 
 - El programa finalizará al no introducir una respuesta y presionar el botón.
-- La app se cerrará dado cierta cantidad de operaciones realizadas.
+- La app se cerrará dada cierta cantidad de operaciones realizadas.
 
 <hr>
 
@@ -87,7 +99,7 @@
 <b>Bugs</b>
 
 - El programa finalizará al no introducir una respuesta y presionar el botón.
-- La app se cerrará dado cierta cantidad de operaciones realizadas.
+- La app se cerrará dada cierta cantidad de operaciones realizadas.
 
 <hr>
 
@@ -101,7 +113,7 @@
 
 - El programa se cerrará al introducir un valor no válido.
 - El programa finalizará al no introducir una respuesta y presionar el botón.
-- La app se cerrará dado cierta cantidad de operaciones realizadas.
+- La app se cerrará dada cierta cantidad de operaciones realizadas.
 
 <hr>
 
@@ -116,7 +128,7 @@
 
 - El programa se cerrará al introducir un valor no válido.
 - El programa finalizará al no introducir una respuesta y presionar el botón.
-- La app se cerrará dado cierta cantidad de operaciones realizadas.
+- La app se cerrará dada cierta cantidad de operaciones realizadas.
 
 <hr>
 
@@ -130,7 +142,7 @@
 
 - El programa se cerrará al introducir un valor no válido.
 - El programa finalizará al no introducir una respuesta y presionar el botón.
-- La app se cerrará dado cierta cantidad de operaciones realizadas.
+- La app se cerrará dada cierta cantidad de operaciones realizadas.
 
 <hr>
 
@@ -144,7 +156,7 @@
 
 - El programa se cerrará al introducir un valor no válido.
 - El programa finalizará al no introducir una respuesta y presionar el botón.
-- La app se cerrará dado cierta cantidad de operaciones realizadas.
+- La app se cerrará dada cierta cantidad de operaciones realizadas.
 
 <hr>
 
@@ -158,7 +170,7 @@
 
 - El programa se cerrará al introducir un valor no válido.
 - El programa finalizará al no introducir una respuesta y presionar el botón.
-- La app se cerrará dado cierta cantidad de operaciones realizadas.
+- La app se cerrará dada cierta cantidad de operaciones realizadas.
 
 <hr>
 
