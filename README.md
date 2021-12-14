@@ -10,11 +10,23 @@
 
 # Changelog
 
+<h2>v0.7.2</h2>
+
+<b>Features</b>
+
+- Mejoras en la gestión de puntuación y almacenaje.
+
+<b>Bugs</b>
+
+- La app se cerrará dada cierta cantidad de operaciones realizadas.
+
+<hr>
+
 <h2>v0.7.1</h2>
 
 <b>Features</b>
 
-- Se arregla el bug anterior al generar dos 0 en las divisiones.
+- Se arregla el bug de cierres anterior al generar dos 0 en las divisiones.
 
 <b>Bugs</b>
 

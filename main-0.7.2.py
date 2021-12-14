@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-version = "0.7.1"
+version = "0.7.2"
 
 from kivy.app import App
 from kivy.uix.label import Label
@@ -123,6 +123,23 @@ class MathGameResultado(App):
 
         global ContadorPreguntas
         global puntuacion
+        global MultiPuntuacion
+
+        #Abrir archivo, lectura y procesamiento---------------------------------
+        archivo = open("./points.txt", "r")
+
+        contenido = archivo.read()
+        contenidoInt = int(contenido)
+
+        puntuacionMultiplicada = puntuacion*MultiPuntuacion
+
+        InputArchivo = contenidoInt+puntuacionMultiplicada
+        InputArchivo = str(InputArchivo)
+
+        archivo = open("./points.txt", "w")
+        archivo.write(InputArchivo)
+        archivo.close()
+        #-----------------------------------------------------------------------
 
         #Función que registra el botón seleccionado-----------------------------
         def callback(instance):
