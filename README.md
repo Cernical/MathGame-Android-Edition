@@ -10,6 +10,18 @@
 
 # Changelog
 
+<h2>v0.7.0</h2>
+
+<b>Features</b>
+
+- Se añade la posibilidad de realizar divisiones.
+
+<b>Bugs</b>
+
+- La app se cerrará dada cierta cantidad de operaciones realizadas.
+
+<hr>
+
 <h2>v0.6.0</h2>
 
 <b>Features</b>
