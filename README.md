@@ -10,6 +10,19 @@
 
 # Changelog
 
+<h2>v0.8.0</h2>
+
+<b>Features</b>
+
+- Se añade un menú principal.
+- Se permite visualizar la puntuación total de todas las rondas realizadas.
+
+<b>Bugs</b>
+
+- La app se cerrará dada cierta cantidad de operaciones realizadas.
+
+<hr>
+
 <h2>v0.7.2</h2>
 
 <b>Features</b>
