@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-version = "0.7.0"
+version = "0.7.1"
 
 from kivy.app import App
 from kivy.uix.label import Label
@@ -304,7 +304,13 @@ class MathGameDivisiones(App):
             mostrarnumero1 = str(randomnumero1)
             mostrarnumero2 = str(randomnumero2)
             print(randomnumero1,"/",randomnumero2)
-            resultadoreal = randomnumero1/randomnumero2           #Resultadoreal
+
+            try:
+                resultadoreal = randomnumero1/randomnumero2           #Resultadoreal
+            except:
+                randomnumero1 = randomnumero1 + 1
+                resultadoreal = randomnumero1/randomnumero2
+
             resultadoreal = int(resultadoreal)              #Convertir a Integer
 
             #Debugging----------------------------------------------------------
