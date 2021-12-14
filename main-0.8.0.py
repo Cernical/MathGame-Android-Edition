@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-version = "0.7.2"
+version = "0.8.0"
 
 from kivy.app import App
 from kivy.uix.label import Label
@@ -28,6 +28,56 @@ else:
     archivo.write("0")
     archivo.close()
 #-------------------------------------------------------------------------------
+
+class MathGamePuntuacion(App):
+
+    def build(self):
+
+        #Función que detecta el texto del botón seleccionado en pantalla--------
+        def callback(instance):
+
+            superBox.remove_widget(pie)
+            superBox.remove_widget(cabecera)
+            MathGame().run()
+        #-----------------------------------------------------------------------
+
+        archivo = open("./points.txt", "r") #Abrir archivo----------------------
+
+        #Interfaz---------------------------------------------------------------
+        #Layout global de superBox cada widget dispuestos uno encima de otro----
+        superBox = BoxLayout(orientation ='vertical')
+
+        #Widgets de cabecera añadidos en el plano horizontal--------------------
+        cabecera = BoxLayout(orientation ='horizontal') #Primer div-------------
+
+        #Crear elementos de cabecera--------------------------------------------
+        consola = Label(text = "Puntuación: "+archivo.read())
+
+        #Añadir elementos a cabecera--------------------------------------------
+        cabecera.add_widget(consola)
+
+        #Widgets de pie de página añadidos en el plano vertical-----------------
+        pie = BoxLayout(orientation ='vertical')
+
+        #Crear elementos del pie------------------------------------------------
+        aceptar = Button(text = "Vale",background_color = (0,0.4,1,0.8))
+        aceptar.bind(on_press=callback)
+
+        null = Label(text = "")
+        null2 = Label(text = "")
+
+        #Añadir elementos al pie------------------------------------------------
+        pie.add_widget(null)
+        pie.add_widget(null2)
+        pie.add_widget(aceptar)
+
+        #Añadir cada división al layout global----------------------------------
+        superBox.add_widget(cabecera)
+        superBox.add_widget(pie)
+
+        #Mostrar layout completo------------------------------------------------
+        return superBox
+        #Fin Interfaz-----------------------------------------------------------
 
 class MathGameComprobacion(App):
 
@@ -1022,7 +1072,7 @@ class MathGameS(App):
         return superBox
         #Fin Interfaz-----------------------------------------------------------
 
-class MathGame(App):
+class MathGameD(App):
 
     def build(self):
 
@@ -1096,6 +1146,65 @@ class MathGame(App):
         pie.add_widget(dificultadFacil)
         pie.add_widget(dificultadNormal)
         pie.add_widget(dificultadDificil)
+
+        #Añadir cada división al layout global----------------------------------
+        superBox.add_widget(cabecera)
+        superBox.add_widget(pie)
+
+        #Mostrar layout completo------------------------------------------------
+        return superBox
+        #Fin Interfaz-----------------------------------------------------------
+
+class MathGame(App):
+
+    def build(self):
+
+        #Función que detecta el texto del botón seleccionado en pantalla--------
+        def callback(instance):
+
+            Seleccion = instance.text #contiene el string del boton
+            print(instance.text)
+            if Seleccion == "Jugar":
+                superBox.remove_widget(pie)
+                superBox.remove_widget(cabecera)
+                MathGameD().run()
+            else:
+                superBox.remove_widget(pie)
+                superBox.remove_widget(cabecera)
+                MathGamePuntuacion().run()
+        #-----------------------------------------------------------------------
+
+        #Interfaz---------------------------------------------------------------
+        #Layout global de superBox cada widget dispuestos uno encima de otro----
+        superBox = BoxLayout(orientation ='vertical')
+
+        #Widgets de cabecera añadidos en el plano horizontal--------------------
+        cabecera = BoxLayout(orientation ='horizontal') #Primer div-------------
+
+        #Crear elementos de cabecera--------------------------------------------
+        consola = Label(text = "¡Bienvenido a MathGame Android Edition! v"+version)
+
+        #Añadir elementos a cabecera--------------------------------------------
+        cabecera.add_widget(consola)
+
+        #Widgets de pie de página añadidos en el plano vertical-----------------
+        pie = BoxLayout(orientation ='vertical')
+
+        #Crear elementos del pie------------------------------------------------
+        jugar = Button(text = "Jugar",background_color = (0,0.4,1,0.8))
+        jugar.bind(on_press=callback)
+
+        puntuacion = Button(text = "Puntuación",background_color = (0,0.4,1,0.8))
+        puntuacion.bind(on_press=callback)
+
+        null = Label(text = "")
+        null2 = Label(text = "")
+
+        #Añadir elementos al pie------------------------------------------------
+        pie.add_widget(null)
+        pie.add_widget(null2)
+        pie.add_widget(jugar)
+        pie.add_widget(puntuacion)
 
         #Añadir cada división al layout global----------------------------------
         superBox.add_widget(cabecera)
