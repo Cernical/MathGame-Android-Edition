@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-version = "0.8.1"
+version = "0.8.2"
 
 from kivy.app import App
 from kivy.uix.label import Label
@@ -372,6 +372,7 @@ class MathGameDivisiones(App):
                 resultadoreal = randomnumero1/randomnumero2           #Resultadoreal
             except:
                 randomnumero1 = randomnumero1 + 1
+                randomnumero2 = randomnumero2 + 1
                 resultadoreal = randomnumero1/randomnumero2
 
             resultadoreal = int(resultadoreal)              #Convertir a Integer
