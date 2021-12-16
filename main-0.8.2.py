@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-version = "0.8.2"
+version = "0.8.3"
 
 from kivy.app import App
 from kivy.uix.label import Label
@@ -360,20 +360,19 @@ class MathGameDivisiones(App):
             solucion = 0
             #-------------------------------------------------------------------
 
-            print("Divisiones entre dos numeros:")
-            print("")
             randomnumero1=(randrange(RangoMin,RangoMax))          #Rango de suma
             randomnumero2=(randrange(RangoMin,RangoMax))          #Rango de suma
+
+            #Evitar dividir entre 0---------------------------------------------
+            if randomnumero1 == 0: randomnumero1 = randomnumero1 + 1
+            if randomnumero2 == 0: randomnumero2 = randomnumero2 + 1
+            #-------------------------------------------------------------------
+
             mostrarnumero1 = str(randomnumero1)
             mostrarnumero2 = str(randomnumero2)
             print(randomnumero1,"/",randomnumero2)
 
-            try:
-                resultadoreal = randomnumero1/randomnumero2           #Resultadoreal
-            except:
-                randomnumero1 = randomnumero1 + 1
-                randomnumero2 = randomnumero2 + 1
-                resultadoreal = randomnumero1/randomnumero2
+            resultadoreal = randomnumero1/randomnumero2           #Resultadoreal
 
             resultadoreal = int(resultadoreal)              #Convertir a Integer
 
@@ -501,8 +500,6 @@ class MathGameMultiplicaciones(App):
             solucion = 0
             #-------------------------------------------------------------------
 
-            print("Multiplicaciones entre dos numeros:")
-            print("")
             randomnumero1=(randrange(RangoMin,RangoMax))          #Rango de multiplicaciones
             randomnumero2=(randrange(RangoMin,RangoMax))          #Rango de multiplicaciones
             mostrarnumero1 = str(randomnumero1)
@@ -635,8 +632,6 @@ class MathGameRestas(App):
             solucion = 0
             #-------------------------------------------------------------------
 
-            print("Restas entre dos numeros:")
-            print("")
             randomnumero1=(randrange(RangoMin,RangoMax))          #Rango de resta
             randomnumero2=(randrange(RangoMin,RangoMax))          #Rango de resta
             mostrarnumero1 = str(randomnumero1)
@@ -769,8 +764,6 @@ class MathGameSumas(App):
             solucion = 0
             #-------------------------------------------------------------------
 
-            print("Sumas entre dos numeros:")
-            print("")
             randomnumero1=(randrange(RangoMin,RangoMax))          #Rango de suma
             randomnumero2=(randrange(RangoMin,RangoMax))          #Rango de suma
             mostrarnumero1 = str(randomnumero1)
