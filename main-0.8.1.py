@@ -1,12 +1,11 @@
 #!/usr/bin/python3
-version = "0.8.0"
+version = "0.8.1"
 
 from kivy.app import App
 from kivy.uix.label import Label
 from kivy.uix.button import Button
 from kivy.uix.textinput import TextInput
 from kivy.uix.boxlayout import BoxLayout
-from kivy.uix.screenmanager import ScreenManager, Screen
 from random import randrange
 
 #Permitir la recursividad (temporal)--------------------------------------------
@@ -14,19 +13,16 @@ import sys
 sys.setrecursionlimit(5000)
 #-------------------------------------------------------------------------------
 
-import time
 import subprocess #Necesario para usar el sistema y sus funciones
 clear = lambda: subprocess.call('cls||clear', shell=True) #Llamada al sistema
 
 #Creacion Archivo Puntuaciones--------------------------------------------------
 try:
     archivo = open("./points.txt", "x")
-except:
-    print()
-else:
-    archivo = open("./points.txt", "w")
     archivo.write("0")
     archivo.close()
+except:
+    print("Archivo 1")
 #-------------------------------------------------------------------------------
 
 class MathGamePuntuacion(App):
