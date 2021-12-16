@@ -16,6 +16,7 @@
 <b>Features</b>
 
 - Arreglado el bug anterior y las divisiones se realizan con total normalidad.
+- Optimizaciones del código.
 
 <b>Bugs</b>
 
