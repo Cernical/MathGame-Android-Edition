@@ -11,6 +11,18 @@
 
 # Changelog
 
+<h2>v0.8.2</h2>
+
+<b>Features</b>
+
+- Arreglado definitivamente los cierres al realizar divisiones.
+
+<b>Bugs</b>
+
+- La app se cerrará dada cierta cantidad de operaciones realizadas.
+
+<hr>
+
 <h2>v0.8.1</h2>
 
 <b>Features</b>
@@ -20,6 +32,7 @@
 <b>Bugs</b>
 
 - La app se cerrará dada cierta cantidad de operaciones realizadas.
+- Seguirán habiendo cierres en algunas ocasiones al dividir.
 
 <hr>
 
@@ -33,6 +46,7 @@
 <b>Bugs</b>
 
 - La app se cerrará dada cierta cantidad de operaciones realizadas.
+- Seguirán habiendo cierres en algunas ocasiones al dividir.
 
 <hr>
 
@@ -45,6 +59,7 @@
 <b>Bugs</b>
 
 - La app se cerrará dada cierta cantidad de operaciones realizadas.
+- Seguirán habiendo cierres en algunas ocasiones al dividir.
 
 <hr>
 
@@ -52,11 +67,12 @@
 
 <b>Features</b>
 
-- Se arregla el bug de cierres anterior al generar dos 0 en las divisiones.
+- Se parchea el bug de cierres anterior al generar dos 0 en las divisiones.
 
 <b>Bugs</b>
 
 - La app se cerrará dada cierta cantidad de operaciones realizadas.
+- Seguirán habiendo cierres en algunas ocasiones al dividir.
 
 <hr>
 
