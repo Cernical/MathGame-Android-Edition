@@ -11,6 +11,18 @@
 
 # Changelog
 
+<h2>v0.8.3</h2>
+
+<b>Features</b>
+
+- Arreglado el bug anterior y las divisiones se realizan con total normalidad.
+
+<b>Bugs</b>
+
+- La app se cerrará dada cierta cantidad de operaciones realizadas.
+
+<hr>
+
 <h2>v0.8.2</h2>
 
 <b>Features</b>
@@ -20,6 +32,7 @@
 <b>Bugs</b>
 
 - La app se cerrará dada cierta cantidad de operaciones realizadas.
+- En raras ocasiones se puede experimentar un comportamiento extraño al realizar divisiones.
 
 <hr>
 
