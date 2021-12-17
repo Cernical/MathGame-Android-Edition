@@ -11,6 +11,19 @@
 
 # Changelog
 
+<h2>v0.8.6</h2>
+
+<b>Features</b>
+
+- Vuelta a la antigua estructura de archivos.
+- Se arregla los cierres anteriores causados por la estructura en android de ficheros.
+
+<b>Bugs</b>
+
+- La app se cerrará dada cierta cantidad de operaciones realizadas.
+
+<hr>
+
 <h2>v0.8.5</h2>
 
 <b>Features</b>
@@ -21,6 +34,7 @@
 <b>Bugs</b>
 
 - La app se cerrará dada cierta cantidad de operaciones realizadas.
+- Cierres al acceder al archivo de puntuaciones al finalizar rondas o en el apartado de puntos.
 
 <hr>
 
