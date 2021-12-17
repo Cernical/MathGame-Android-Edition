@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-version = "0.9.1"
+version = "0.9.2"
 
 from kivy.app import App
 from kivy.uix.label import Label
@@ -64,6 +64,12 @@ class MathGameAjustes(App):
     global mostrar_modo_problemas
     mostrar_modo_problemas = "(Seleccionar)"
 
+    global volver_bloquear
+    volver_bloquear = 0
+
+    global bloquear
+    bloquear = 1
+
     def build(self):
 
         #Función que detecta el texto del botón seleccionado en pantalla--------
@@ -71,6 +77,8 @@ class MathGameAjustes(App):
 
             global modo_ajustes
             global mostrar_modo_ajustes
+            global volver_bloquear
+            global bloquear
 
             Seleccion = instance.text #contiene el string del boton
             print(instance.text)
@@ -133,9 +141,14 @@ class MathGameAjustes(App):
                             if modo_ajustes == 1:
                                 modo_ajustes = 0
                                 mostrar_modo_ajustes = "(No)"
+                                volver_bloquear = 0
+                                bloquear = 1
                             else:
                                 modo_ajustes = 1
                                 mostrar_modo_ajustes = "(Sí)"
+                                bloquear = 0
+                                if mostrar_modo_dificultad == "(Seleccionar)" or mostrar_modo_nºpreguntas == "(Seleccionar)" or mostrar_modo_problemas == "(Seleccionar)":
+                                    volver_bloquear = 1
 
                             superBox.remove_widget(pie)
                             superBox.remove_widget(cabecera)
@@ -159,22 +172,40 @@ class MathGameAjustes(App):
         pie = BoxLayout(orientation ='vertical')
 
         #Crear elementos del pie------------------------------------------------
-        dificultad = Button(text = "Dificultad: "+mostrar_modo_dificultad,background_color = (0.1,0.2,0.6,0.6))
-        dificultad.bind(on_press=callback)
+        if bloquear == 0:
+            dificultad = Button(text = "Dificultad: "+mostrar_modo_dificultad,background_color = (0.1,0.2,0.6,0.6))
+            dificultad.bind(on_press=callback)
 
-        preguntas = Button(text = "Nº preguntas: "+mostrar_modo_nºpreguntas,background_color = (0.1,0.2,0.6,0.6))
-        preguntas.bind(on_press=callback)
+            preguntas = Button(text = "Nº preguntas: "+mostrar_modo_nºpreguntas,background_color = (0.1,0.2,0.6,0.6))
+            preguntas.bind(on_press=callback)
 
-        problemas = Button(text = "Problemas: "+mostrar_modo_problemas,background_color = (0.1,0.2,0.6,0.6))
-        problemas.bind(on_press=callback)
+            problemas = Button(text = "Problemas: "+mostrar_modo_problemas,background_color = (0.1,0.2,0.6,0.6))
+            problemas.bind(on_press=callback)
+        else:
+            dificultad = Button(text = "Dificultad: "+mostrar_modo_dificultad,background_color = (0.1,0.2,0.6,0.3))
+            dificultad.bind(on_press=callback)
+
+            preguntas = Button(text = "Nº preguntas: "+mostrar_modo_nºpreguntas,background_color = (0.1,0.2,0.6,0.3))
+            preguntas.bind(on_press=callback)
+
+            problemas = Button(text = "Problemas: "+mostrar_modo_problemas,background_color = (0.1,0.2,0.6,0.3))
+            problemas.bind(on_press=callback)
 
         mantener = Button(text = "Mantener ajustes: "+mostrar_modo_ajustes,background_color = (0.1,0.2,0.6,0.6))
         mantener.bind(on_press=callback)
 
         null = Label(text = "")
 
-        volver = Button(text = "Volver",background_color = (0.1,0.2,0.6,0.6))
-        volver.bind(on_press=callback)
+        if volver_bloquear == 0:
+            volver = Button(text = "Volver",background_color = (0.1,0.2,0.6,0.6))
+            volver.bind(on_press=callback)
+        else:
+            if mostrar_modo_dificultad != "(Seleccionar)" and mostrar_modo_nºpreguntas != "(Seleccionar)" and mostrar_modo_problemas != "(Seleccionar)":
+                volver = Button(text = "Volver",background_color = (0.1,0.2,0.6,0.6))
+                volver.bind(on_press=callback)
+            else:
+                volver = Button(text = "Volver",background_color = (0.1,0.2,0.6,0.3))
+                volver.bind(on_press=callback)
 
         #Añadir elementos al pie------------------------------------------------
         pie.add_widget(dificultad)
