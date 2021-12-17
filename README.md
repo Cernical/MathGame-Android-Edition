@@ -11,6 +11,18 @@
 
 # Changelog
 
+<h2>v0.9.0</h2>
+
+<b>Features</b>
+
+- Se añade un apartado de ajustes en el que se puede seleccionar todos los parámetros y guardarlos.
+
+<b>Bugs</b>
+
+- La app se cerrará dada cierta cantidad de operaciones realizadas.
+
+<hr>
+
 <h2>v0.8.6</h2>
 
 <b>Features</b>
