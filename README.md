@@ -12,6 +12,18 @@
 
 # Changelog
 
+<h2>v0.9.1</h2>
+
+<b>Features</b>
+
+- Mejoras en la interfaz.
+
+<b>Bugs</b>
+
+- La app se cerrará dada cierta cantidad de operaciones realizadas.
+
+<hr>
+
 <h2>v0.9.0</h2>
 
 <b>Features</b>

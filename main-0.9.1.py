@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-version = "0.9.0"
+version = "0.9.1"
 
 from kivy.app import App
 from kivy.uix.label import Label
@@ -7,6 +7,11 @@ from kivy.uix.button import Button
 from kivy.uix.textinput import TextInput
 from kivy.uix.boxlayout import BoxLayout
 from random import randrange
+
+#Insertar color al cambiar de ventana-------------------------------------------
+from kivy.core.window import Window
+Window.clearcolor = (0.1,0.2,0.4,1)
+#-------------------------------------------------------------------------------
 
 #Permitir la recursividad (temporal)--------------------------------------------
 import sys
@@ -154,21 +159,21 @@ class MathGameAjustes(App):
         pie = BoxLayout(orientation ='vertical')
 
         #Crear elementos del pie------------------------------------------------
-        dificultad = Button(text = "Dificultad: "+mostrar_modo_dificultad,background_color = (0,0.4,1,0.8))
+        dificultad = Button(text = "Dificultad: "+mostrar_modo_dificultad,background_color = (0.1,0.2,0.6,0.6))
         dificultad.bind(on_press=callback)
 
-        preguntas = Button(text = "Nº preguntas: "+mostrar_modo_nºpreguntas,background_color = (0,0.4,1,0.8))
+        preguntas = Button(text = "Nº preguntas: "+mostrar_modo_nºpreguntas,background_color = (0.1,0.2,0.6,0.6))
         preguntas.bind(on_press=callback)
 
-        problemas = Button(text = "Problemas: "+mostrar_modo_problemas,background_color = (0,0.4,1,0.8))
+        problemas = Button(text = "Problemas: "+mostrar_modo_problemas,background_color = (0.1,0.2,0.6,0.6))
         problemas.bind(on_press=callback)
 
-        mantener = Button(text = "Mantener ajustes: "+mostrar_modo_ajustes,background_color = (0,0.4,1,0.8))
+        mantener = Button(text = "Mantener ajustes: "+mostrar_modo_ajustes,background_color = (0.1,0.2,0.6,0.6))
         mantener.bind(on_press=callback)
 
         null = Label(text = "")
 
-        volver = Button(text = "Volver",background_color = (0,0.4,1,0.8))
+        volver = Button(text = "Volver",background_color = (0.1,0.2,0.6,0.6))
         volver.bind(on_press=callback)
 
         #Añadir elementos al pie------------------------------------------------
@@ -218,7 +223,7 @@ class MathGamePuntuacion(App):
         pie = BoxLayout(orientation ='vertical')
 
         #Crear elementos del pie------------------------------------------------
-        aceptar = Button(text = "Vale",background_color = (0,0.4,1,0.8))
+        aceptar = Button(text = "Vale",background_color = (0.1,0.2,0.6,0.6))
         aceptar.bind(on_press=callback)
 
         null = Label(text = "")
@@ -307,7 +312,7 @@ class MathGameComprobacion(App):
         #Widgets de pie de página añadidos en el plano vertical
         pie = BoxLayout(orientation ='vertical')
 
-        aceptar = Button(text = "Vale",background_color = (0,0.4,1,0.8))
+        aceptar = Button(text = "Vale",background_color = (0.1,0.2,0.6,0.6))
         aceptar.bind(on_press=callback)
 
         null = Label(text = "")
@@ -435,10 +440,10 @@ class MathGameResultado(App):
 
         bienvenida = Label(text = "¿Quieres seguir realizando operaciones?")
 
-        aceptar = Button(text = "si",background_color = (0,0.4,1,0.8))
+        aceptar = Button(text = "si",background_color = (0.1,0.2,0.6,0.6))
         aceptar.bind(on_press=callback)
 
-        rechazar = Button(text = "no",background_color = (0,0.4,1,0.8))
+        rechazar = Button(text = "no",background_color = (0.1,0.2,0.6,0.6))
         rechazar.bind(on_press=callback)
 
         pie.add_widget(bienvenida)
@@ -563,7 +568,7 @@ class MathGameDivisiones(App):
             #Widgets de pie de página añadidos en el plano vertical-------------
             pie = BoxLayout(orientation ='vertical')
 
-            bienvenida = Button(text = "Seleccione la respuesta",background_color = (0,0.4,1,0.8))
+            bienvenida = Button(text = "Seleccione la respuesta",background_color = (0.1,0.2,0.6,0.6))
             bienvenida.bind(on_press=callback)
 
             textinput = TextInput()
@@ -695,7 +700,7 @@ class MathGameMultiplicaciones(App):
             #Widgets de pie de página añadidos en el plano vertical-------------
             pie = BoxLayout(orientation ='vertical')
 
-            bienvenida = Button(text = "Seleccione la respuesta",background_color = (0,0.4,1,0.8))
+            bienvenida = Button(text = "Seleccione la respuesta",background_color = (0.1,0.2,0.6,0.6))
             bienvenida.bind(on_press=callback)
 
             textinput = TextInput()
@@ -827,7 +832,7 @@ class MathGameRestas(App):
             #Widgets de pie de página añadidos en el plano vertical-------------
             pie = BoxLayout(orientation ='vertical')
 
-            bienvenida = Button(text = "Seleccione la respuesta",background_color = (0,0.4,1,0.8))
+            bienvenida = Button(text = "Seleccione la respuesta",background_color = (0.1,0.2,0.6,0.6))
             bienvenida.bind(on_press=callback)
 
             textinput = TextInput()
@@ -959,7 +964,7 @@ class MathGameSumas(App):
             #Widgets de pie de página añadidos en el plano vertical-------------
             pie = BoxLayout(orientation ='vertical')
 
-            bienvenida = Button(text = "Seleccione la respuesta",background_color = (0,0.4,1,0.8))
+            bienvenida = Button(text = "Seleccione la respuesta",background_color = (0.1,0.2,0.6,0.6))
             bienvenida.bind(on_press=callback)
 
             textinput = TextInput()
@@ -1065,16 +1070,16 @@ class MathGameSelOpe(App):
 
         bienvenida = Label(text = "Seleccione tipo de problemas")
 
-        sumas = Button(text = "Sumas",background_color = (0,0.4,1,0.8))
+        sumas = Button(text = "Sumas",background_color = (0.1,0.2,0.6,0.6))
         sumas.bind(on_press=callback)
 
-        restas = Button(text = "Restas",background_color = (0,0.4,1,0.8))
+        restas = Button(text = "Restas",background_color = (0.1,0.2,0.6,0.6))
         restas.bind(on_press=callback)
 
-        multiplicaciones = Button(text = "Multiplicaciones",background_color = (0,0.4,1,0.8))
+        multiplicaciones = Button(text = "Multiplicaciones",background_color = (0.1,0.2,0.6,0.6))
         multiplicaciones.bind(on_press=callback)
 
-        divisiones = Button(text = "Divisiones",background_color = (0,0.4,1,0.8))
+        divisiones = Button(text = "Divisiones",background_color = (0.1,0.2,0.6,0.6))
         divisiones.bind(on_press=callback)
 
         pie.add_widget(bienvenida)
@@ -1181,19 +1186,19 @@ class MathGameP(App):
         #Elementos del pie------------------------------------------------------
         bienvenida = Label(text = "Cuántas preguntas quieres (del 1 al 5)")
 
-        uno = Button(text = "1",background_color = (0,0.4,1,0.8))
+        uno = Button(text = "1",background_color = (0.1,0.2,0.6,0.6))
         uno.bind(on_press=callback)
 
-        dos = Button(text = "2",background_color = (0,0.4,1,0.8))
+        dos = Button(text = "2",background_color = (0.1,0.2,0.6,0.6))
         dos.bind(on_press=callback)
 
-        tres = Button(text = "3",background_color = (0,0.4,1,0.8))
+        tres = Button(text = "3",background_color = (0.1,0.2,0.6,0.6))
         tres.bind(on_press=callback)
 
-        cuatro = Button(text = "4",background_color = (0,0.4,1,0.8))
+        cuatro = Button(text = "4",background_color = (0.1,0.2,0.6,0.6))
         cuatro.bind(on_press=callback)
 
-        cinco = Button(text = "5",background_color = (0,0.4,1,0.8))
+        cinco = Button(text = "5",background_color = (0.1,0.2,0.6,0.6))
         cinco.bind(on_press=callback)
 
         #Añadir elementos a pie-------------------------------------------------
@@ -1271,10 +1276,10 @@ class MathGameS(App):
         #Creación de elementos--------------------------------------------------
         bienvenida = Label(text = "¿Quieres activar el modo supervivencia?")
 
-        aceptar = Button(text = "Si",background_color = (0,0.4,1,0.8))
+        aceptar = Button(text = "Si",background_color = (0.1,0.2,0.6,0.6))
         aceptar.bind(on_press=callback)
 
-        rechazar = Button(text = "No",background_color = (0,0.4,1,0.8))
+        rechazar = Button(text = "No",background_color = (0.1,0.2,0.6,0.6))
         rechazar.bind(on_press=callback)
 
         #Añadir elementos a pie-------------------------------------------------
@@ -1370,13 +1375,13 @@ class MathGameD(App):
         #Crear elementos del pie------------------------------------------------
         bienvenida = Label(text = "Seleccione dificultad")
 
-        dificultadFacil = Button(text = "Fácil",background_color = (0,0.4,1,0.8))
+        dificultadFacil = Button(text = "Fácil",background_color = (0.1,0.2,0.6,0.6))
         dificultadFacil.bind(on_press=callback)
 
-        dificultadNormal = Button(text = "Normal",background_color = (0,0.4,1,0.8))
+        dificultadNormal = Button(text = "Normal",background_color = (0.1,0.2,0.6,0.6))
         dificultadNormal.bind(on_press=callback)
 
-        dificultadDificil = Button(text = "Dificil",background_color = (0,0.4,1,0.8))
+        dificultadDificil = Button(text = "Dificil",background_color = (0.1,0.2,0.6,0.6))
         dificultadDificil.bind(on_press=callback)
 
         #Añadir elementos al pie------------------------------------------------
@@ -1437,13 +1442,13 @@ class MathGame(App):
         pie = BoxLayout(orientation ='vertical')
 
         #Crear elementos del pie------------------------------------------------
-        jugar = Button(text = "Jugar",background_color = (0,0.4,1,0.8))
+        jugar = Button(text = "Jugar",background_color = (0.1,0.2,0.6,0.6))
         jugar.bind(on_press=callback)
 
-        puntuacion = Button(text = "Puntuación",background_color = (0,0.4,1,0.8))
+        puntuacion = Button(text = "Puntuación",background_color = (0.1,0.2,0.6,0.6))
         puntuacion.bind(on_press=callback)
 
-        ajustes = Button(text = "Ajustes",background_color = (0,0.4,1,0.8))
+        ajustes = Button(text = "Ajustes",background_color = (0.1,0.2,0.6,0.6))
         ajustes.bind(on_press=callback)
 
         null = Label(text = "")
