@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-version = "0.8.3"
+version = "0.8.4"
 
 from kivy.app import App
 from kivy.uix.label import Label
@@ -18,7 +18,7 @@ clear = lambda: subprocess.call('cls||clear', shell=True) #Llamada al sistema
 
 #Creacion Archivo Puntuaciones--------------------------------------------------
 try:
-    archivo = open("./points.txt", "x")
+    archivo = open("../points.txt", "x")
     archivo.write("0")
     archivo.close()
 except:
@@ -37,7 +37,7 @@ class MathGamePuntuacion(App):
             MathGame().run()
         #-----------------------------------------------------------------------
 
-        archivo = open("./points.txt", "r") #Abrir archivo----------------------
+        archivo = open("../points.txt", "r") #Abrir archivo----------------------
 
         #Interfaz---------------------------------------------------------------
         #Layout global de superBox cada widget dispuestos uno encima de otro----
@@ -172,7 +172,7 @@ class MathGameResultado(App):
         global MultiPuntuacion
 
         #Abrir archivo, lectura y procesamiento---------------------------------
-        archivo = open("./points.txt", "r")
+        archivo = open("../points.txt", "r")
 
         contenido = archivo.read()
         contenidoInt = int(contenido)
@@ -182,7 +182,7 @@ class MathGameResultado(App):
         InputArchivo = contenidoInt+puntuacionMultiplicada
         InputArchivo = str(InputArchivo)
 
-        archivo = open("./points.txt", "w")
+        archivo = open("../points.txt", "w")
         archivo.write(InputArchivo)
         archivo.close()
         #-----------------------------------------------------------------------
