@@ -20,6 +20,7 @@
 <b>Bugs</b>
 
 - La app se cerrará dada cierta cantidad de operaciones realizadas.
+- La puntuación seguirá borrándose en cada actualización.
 
 <hr>
 
