@@ -11,6 +11,18 @@
 
 # Changelog
 
+<h2>v0.8.4</h2>
+
+<b>Features</b>
+
+- Cambiada la ruta del archivo de puntuación para evitar que android la sobreescriba en cada actualización de la app.
+
+<b>Bugs</b>
+
+- La app se cerrará dada cierta cantidad de operaciones realizadas.
+
+<hr>
+
 <h2>v0.8.3</h2>
 
 <b>Features</b>
