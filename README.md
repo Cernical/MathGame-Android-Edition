@@ -8,6 +8,7 @@
 - Realizar sumas, restas, multiplicaciones y divisiones.
 - Jugar en modo supervivencia.
 - Guardar y visualizar la puntuación obtenida.
+- Guardar la selección de dificultad, tipo de problemas, modo de juego y preguntas.
 
 # Changelog
 
