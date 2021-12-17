@@ -11,6 +11,46 @@
 
 # Changelog
 
+<h2>v0.8.6</h2>
+
+<b>Features</b>
+
+- Vuelta a la antigua estructura de archivos.
+- Se arregla los cierres anteriores causados por la estructura en android de ficheros.
+
+<b>Bugs</b>
+
+- La app se cerrará dada cierta cantidad de operaciones realizadas.
+
+<hr>
+
+<h2>v0.8.5</h2>
+
+<b>Features</b>
+
+- Cambiada la ruta del archivo a un directorio dentro de la app.
+- optimizaciones del código.
+
+<b>Bugs</b>
+
+- La app se cerrará dada cierta cantidad de operaciones realizadas.
+- Cierres al acceder al archivo de puntuaciones al finalizar rondas o en el apartado de puntos.
+
+<hr>
+
+<h2>v0.8.4</h2>
+
+<b>Features</b>
+
+- Cambiada la ruta del archivo de puntuación para evitar que android la sobreescriba en cada actualización de la app.
+
+<b>Bugs</b>
+
+- La app se cerrará dada cierta cantidad de operaciones realizadas.
+- La puntuación seguirá borrándose en cada actualización.
+
+<hr>
+
 <h2>v0.8.3</h2>
 
 <b>Features</b>

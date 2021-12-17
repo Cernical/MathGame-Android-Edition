@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-version = "0.8.3"
+version = "0.8.6"
 
 from kivy.app import App
 from kivy.uix.label import Label
@@ -12,9 +12,6 @@ from random import randrange
 import sys
 sys.setrecursionlimit(5000)
 #-------------------------------------------------------------------------------
-
-import subprocess #Necesario para usar el sistema y sus funciones
-clear = lambda: subprocess.call('cls||clear', shell=True) #Llamada al sistema
 
 #Creacion Archivo Puntuaciones--------------------------------------------------
 try:
