@@ -11,6 +11,19 @@
 
 # Changelog
 
+<h2>v0.8.5</h2>
+
+<b>Features</b>
+
+- Cambiada la ruta del archivo a un directorio dentro de la app.
+- optimizaciones del código.
+
+<b>Bugs</b>
+
+- La app se cerrará dada cierta cantidad de operaciones realizadas.
+
+<hr>
+
 <h2>v0.8.4</h2>
 
 <b>Features</b>
