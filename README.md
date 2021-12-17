@@ -12,6 +12,18 @@
 
 # Changelog
 
+<h2>v0.9.2</h2>
+
+<b>Features</b>
+
+- Mejoras en la interfaz (los botones al bloquearse o desbloquearse se verán reflejados visualmente).
+
+<b>Bugs</b>
+
+- La app se cerrará dada cierta cantidad de operaciones realizadas.
+
+<hr>
+
 <h2>v0.9.1</h2>
 
 <b>Features</b>
