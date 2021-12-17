@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-version = "0.8.6"
+version = "0.9.0"
 
 from kivy.app import App
 from kivy.uix.label import Label
@@ -21,6 +21,171 @@ try:
 except:
     print("Archivo 1")
 #-------------------------------------------------------------------------------
+
+class MathGameIntermission(App):
+
+    def build(self):
+
+        global modo_ajustes
+        global operacion
+
+        if modo_ajustes == 1:
+            if operacion == "Sumas":
+                MathGameSumas().run()
+            else:
+                if operacion == "Restas":
+                    MathGameRestas().run()
+                else:
+                    if operacion == "Multiplicaciones":
+                        MathGameMultiplicaciones().run()
+                    else:
+                        MathGameDivisiones().run()
+        else:
+            MathGameD().run()
+
+class MathGameAjustes(App):
+
+    #El modo ajustes se inicia en la clase principal (cambiar allí)-------------
+    global mostrar_modo_ajustes
+    mostrar_modo_ajustes = "(No)"
+    #---------------------------------------------------------------------------
+
+    global mostrar_modo_dificultad
+    mostrar_modo_dificultad = "(Seleccionar)"
+
+    global mostrar_modo_nºpreguntas
+    mostrar_modo_nºpreguntas = "(Seleccionar)"
+
+    global mostrar_modo_problemas
+    mostrar_modo_problemas = "(Seleccionar)"
+
+    def build(self):
+
+        #Función que detecta el texto del botón seleccionado en pantalla--------
+        def callback(instance):
+
+            global modo_ajustes
+            global mostrar_modo_ajustes
+
+            Seleccion = instance.text #contiene el string del boton
+            print(instance.text)
+
+            if Seleccion == "Dificultad: "+mostrar_modo_dificultad:
+                if modo_ajustes == 1:
+                    superBox.remove_widget(pie)
+                    superBox.remove_widget(cabecera)
+                    MathGameD().run()
+                else:
+                    superBox.remove_widget(pie)
+                    superBox.remove_widget(cabecera)
+                    MathGameAjustes().run()
+            else:
+                if Seleccion == "Nº preguntas: "+mostrar_modo_nºpreguntas:
+                    if modo_ajustes == 1:
+                        superBox.remove_widget(pie)
+                        superBox.remove_widget(cabecera)
+                        MathGameS().run()
+                    else:
+                        superBox.remove_widget(pie)
+                        superBox.remove_widget(cabecera)
+                        MathGameAjustes().run()
+                else:
+                    if Seleccion == "Problemas: "+mostrar_modo_problemas:
+                        if modo_ajustes == 1:
+                            superBox.remove_widget(pie)
+                            superBox.remove_widget(cabecera)
+                            MathGameSelOpe().run()
+                        else:
+                            superBox.remove_widget(pie)
+                            superBox.remove_widget(cabecera)
+                            MathGameAjustes().run()
+                    else:
+                        if Seleccion == "Volver":
+                            if modo_ajustes == 1:
+                                if mostrar_modo_dificultad == "(Seleccionar)":
+                                    superBox.remove_widget(pie)
+                                    superBox.remove_widget(cabecera)
+                                    MathGameAjustes().run()
+                                else:
+                                    if mostrar_modo_nºpreguntas == "(Seleccionar)":
+                                        superBox.remove_widget(pie)
+                                        superBox.remove_widget(cabecera)
+                                        MathGameAjustes().run()
+                                    else:
+                                        if mostrar_modo_problemas == "(Seleccionar)":
+                                            superBox.remove_widget(pie)
+                                            superBox.remove_widget(cabecera)
+                                            MathGameAjustes().run()
+                                        else:
+                                            superBox.remove_widget(pie)
+                                            superBox.remove_widget(cabecera)
+                                            MathGame().run()
+                            else:
+                                superBox.remove_widget(pie)
+                                superBox.remove_widget(cabecera)
+                                MathGame().run()
+                        else:
+                            if modo_ajustes == 1:
+                                modo_ajustes = 0
+                                mostrar_modo_ajustes = "(No)"
+                            else:
+                                modo_ajustes = 1
+                                mostrar_modo_ajustes = "(Sí)"
+
+                            superBox.remove_widget(pie)
+                            superBox.remove_widget(cabecera)
+                            MathGameAjustes().run()
+        #-----------------------------------------------------------------------
+
+        #Interfaz---------------------------------------------------------------
+        #Layout global de superBox cada widget dispuestos uno encima de otro----
+        superBox = BoxLayout(orientation ='vertical')
+
+        #Widgets de cabecera añadidos en el plano horizontal--------------------
+        cabecera = BoxLayout(orientation ='horizontal') #Primer div-------------
+
+        #Crear elementos de cabecera--------------------------------------------
+        consola = Label(text = "Ajustes - v"+version)
+
+        #Añadir elementos a cabecera--------------------------------------------
+        cabecera.add_widget(consola)
+
+        #Widgets de pie de página añadidos en el plano vertical-----------------
+        pie = BoxLayout(orientation ='vertical')
+
+        #Crear elementos del pie------------------------------------------------
+        dificultad = Button(text = "Dificultad: "+mostrar_modo_dificultad,background_color = (0,0.4,1,0.8))
+        dificultad.bind(on_press=callback)
+
+        preguntas = Button(text = "Nº preguntas: "+mostrar_modo_nºpreguntas,background_color = (0,0.4,1,0.8))
+        preguntas.bind(on_press=callback)
+
+        problemas = Button(text = "Problemas: "+mostrar_modo_problemas,background_color = (0,0.4,1,0.8))
+        problemas.bind(on_press=callback)
+
+        mantener = Button(text = "Mantener ajustes: "+mostrar_modo_ajustes,background_color = (0,0.4,1,0.8))
+        mantener.bind(on_press=callback)
+
+        null = Label(text = "")
+
+        volver = Button(text = "Volver",background_color = (0,0.4,1,0.8))
+        volver.bind(on_press=callback)
+
+        #Añadir elementos al pie------------------------------------------------
+        pie.add_widget(dificultad)
+        pie.add_widget(preguntas)
+        pie.add_widget(problemas)
+        pie.add_widget(mantener)
+        pie.add_widget(null)
+        pie.add_widget(volver)
+
+        #Añadir cada división al layout global----------------------------------
+        superBox.add_widget(cabecera)
+        superBox.add_widget(pie)
+
+        #Mostrar layout completo------------------------------------------------
+        return superBox
+        #Fin Interfaz-----------------------------------------------------------
 
 class MathGamePuntuacion(App):
 
@@ -832,6 +997,8 @@ class MathGameSelOpe(App):
         def callback(instance):
 
             global operacion
+            global modo_ajustes
+            global mostrar_modo_problemas
 
             respuestaOperaciones = instance.text #contiene el string del boton
             print(instance.text)
@@ -840,24 +1007,48 @@ class MathGameSelOpe(App):
                 operacion = "Sumas"
                 superBox.remove_widget(pie)
                 superBox.remove_widget(cabecera)
-                MathGameSumas().run()
+
+                if modo_ajustes == 1:
+                    mostrar_modo_problemas = "(Sumas)"
+                    MathGameAjustes().run()
+                else:
+                    mostrar_modo_problemas = "(Seleccionar)"
+                    MathGameSumas().run()
             else:
                 if respuestaOperaciones == "Restas":
                     operacion = "Restas"
                     superBox.remove_widget(pie)
                     superBox.remove_widget(cabecera)
-                    MathGameRestas().run()
+
+                    if modo_ajustes == 1:
+                        mostrar_modo_problemas = "(Restas)"
+                        MathGameAjustes().run()
+                    else:
+                        mostrar_modo_problemas = "(Seleccionar)"
+                        MathGameRestas().run()
                 else:
                     if respuestaOperaciones == "Multiplicaciones":
                         operacion = "Multiplicaciones"
                         superBox.remove_widget(pie)
                         superBox.remove_widget(cabecera)
-                        MathGameMultiplicaciones().run()
+
+                        if modo_ajustes == 1:
+                            mostrar_modo_problemas = "(Multiplicaciones)"
+                            MathGameAjustes().run()
+                        else:
+                            mostrar_modo_problemas = "(Seleccionar)"
+                            MathGameMultiplicaciones().run()
                     else:
                         operacion = "Divisiones"
                         superBox.remove_widget(pie)
                         superBox.remove_widget(cabecera)
-                        MathGameDivisiones().run()
+
+                        if modo_ajustes == 1:
+                            mostrar_modo_problemas = "(Divisiones)"
+                            MathGameAjustes().run()
+                        else:
+                            mostrar_modo_problemas = "(Seleccionar)"
+                            MathGameDivisiones().run()
 
         #Layout completo subdividido en dos sublayouts, uno vertical y otro horizontal
         superBox = BoxLayout(orientation ='vertical')
@@ -907,6 +1098,8 @@ class MathGameP(App):
         def callback(instance):
 
             global numPreguntas
+            global modo_ajustes
+            global mostrar_modo_nºpreguntas
 
             respuestaPreguntas = instance.text #contiene el string del boton
             print(instance.text)
@@ -914,30 +1107,60 @@ class MathGameP(App):
                 numPreguntas = 1
                 superBox.remove_widget(pie)
                 superBox.remove_widget(cabecera)
-                MathGameSelOpe().run()
+
+                if modo_ajustes == 1:
+                    mostrar_modo_nºpreguntas = "(1)"
+                    MathGameAjustes().run()
+                else:
+                    mostrar_modo_nºpreguntas = "(Seleccionar)"
+                    MathGameSelOpe().run()
             else:
                 if respuestaPreguntas == "2":
                     numPreguntas = 2
                     superBox.remove_widget(pie)
                     superBox.remove_widget(cabecera)
-                    MathGameSelOpe().run()
+
+                    if modo_ajustes == 1:
+                        mostrar_modo_nºpreguntas = "(2)"
+                        MathGameAjustes().run()
+                    else:
+                        mostrar_modo_nºpreguntas = "(Seleccionar)"
+                        MathGameSelOpe().run()
                 else:
                     if respuestaPreguntas == "3":
                         numPreguntas = 3
                         superBox.remove_widget(pie)
                         superBox.remove_widget(cabecera)
-                        MathGameSelOpe().run()
+
+                        if modo_ajustes == 1:
+                            mostrar_modo_nºpreguntas = "(3)"
+                            MathGameAjustes().run()
+                        else:
+                            mostrar_modo_nºpreguntas = "(Seleccionar)"
+                            MathGameSelOpe().run()
                     else:
                         if respuestaPreguntas == "4":
                             numPreguntas = 4
                             superBox.remove_widget(pie)
                             superBox.remove_widget(cabecera)
-                            MathGameSelOpe().run()
+
+                            if modo_ajustes == 1:
+                                mostrar_modo_nºpreguntas = "(4)"
+                                MathGameAjustes().run()
+                            else:
+                                mostrar_modo_nºpreguntas = "(Seleccionar)"
+                                MathGameSelOpe().run()
                         else:
                             numPreguntas = 5
                             superBox.remove_widget(pie)
                             superBox.remove_widget(cabecera)
-                            MathGameSelOpe().run()
+
+                            if modo_ajustes == 1:
+                                mostrar_modo_nºpreguntas = "(5)"
+                                MathGameAjustes().run()
+                            else:
+                                mostrar_modo_nºpreguntas = "(Seleccionar)"
+                                MathGameSelOpe().run()
 
         #Interfaz---------------------------------------------------------------
         #Layout completo subdividido en dos sublayouts, uno vertical y otro horizontal
@@ -1000,6 +1223,8 @@ class MathGameS(App):
             global numPreguntas
             global vida
             global vidascii
+            global modo_ajustes
+            global mostrar_modo_nºpreguntas
 
             respuestaSupervivencia = instance.text #contiene el string del boton
             print(instance.text)
@@ -1013,7 +1238,13 @@ class MathGameS(App):
 
                 superBox.remove_widget(pie)
                 superBox.remove_widget(cabecera)
-                MathGameSelOpe().run()
+
+                if modo_ajustes == 1:
+                    mostrar_modo_nºpreguntas = "(Supervivencia)"
+                    MathGameAjustes().run()
+                else:
+                    mostrar_modo_nºpreguntas = "(Seleccionar)"
+                    MathGameSelOpe().run()
 
             else:
 
@@ -1070,6 +1301,8 @@ class MathGameD(App):
             global RangoMin
             global RangoMax
             global MultiPuntuacion
+            global modo_ajustes
+            global mostrar_modo_dificultad
 
             dificultadSeleccionada = instance.text #contiene el string del boton
             print(instance.text)
@@ -1080,7 +1313,13 @@ class MathGameD(App):
                 MultiPuntuacion = 1
                 superBox.remove_widget(pie)
                 superBox.remove_widget(cabecera)
-                MathGameS().run()
+
+                if modo_ajustes == 1:
+                    mostrar_modo_dificultad = "(Fácil)"
+                    MathGameAjustes().run()
+                else:
+                    mostrar_modo_dificultad = "(Seleccionar)"
+                    MathGameS().run()
             else:
                 if dificultadSeleccionada == "Normal":
                     dificultad = "N"
@@ -1089,7 +1328,13 @@ class MathGameD(App):
                     MultiPuntuacion = 2
                     superBox.remove_widget(pie)
                     superBox.remove_widget(cabecera)
-                    MathGameS().run()
+
+                    if modo_ajustes == 1:
+                        mostrar_modo_dificultad = "(Normal)"
+                        MathGameAjustes().run()
+                    else:
+                        mostrar_modo_dificultad = "(Seleccionar)"
+                        MathGameS().run()
                 else:
                     dificultad = "D"
                     RangoMin = 100
@@ -1097,7 +1342,13 @@ class MathGameD(App):
                     MultiPuntuacion = 3
                     superBox.remove_widget(pie)
                     superBox.remove_widget(cabecera)
-                    MathGameS().run()
+
+                    if modo_ajustes == 1:
+                        mostrar_modo_dificultad = "(Dificil)"
+                        MathGameAjustes().run()
+                    else:
+                        mostrar_modo_dificultad = "(Seleccionar)"
+                        MathGameS().run()
         #-----------------------------------------------------------------------
 
         #Interfaz---------------------------------------------------------------
@@ -1144,6 +1395,9 @@ class MathGameD(App):
 
 class MathGame(App):
 
+    global modo_ajustes
+    modo_ajustes = 0 #(boolean)-------------------------------------------------
+
     def build(self):
 
         #Función que detecta el texto del botón seleccionado en pantalla--------
@@ -1154,11 +1408,16 @@ class MathGame(App):
             if Seleccion == "Jugar":
                 superBox.remove_widget(pie)
                 superBox.remove_widget(cabecera)
-                MathGameD().run()
+                MathGameIntermission().run()
             else:
-                superBox.remove_widget(pie)
-                superBox.remove_widget(cabecera)
-                MathGamePuntuacion().run()
+                if Seleccion == "Puntuación":
+                    superBox.remove_widget(pie)
+                    superBox.remove_widget(cabecera)
+                    MathGamePuntuacion().run()
+                else:
+                    superBox.remove_widget(pie)
+                    superBox.remove_widget(cabecera)
+                    MathGameAjustes().run()
         #-----------------------------------------------------------------------
 
         #Interfaz---------------------------------------------------------------
@@ -1184,14 +1443,16 @@ class MathGame(App):
         puntuacion = Button(text = "Puntuación",background_color = (0,0.4,1,0.8))
         puntuacion.bind(on_press=callback)
 
+        ajustes = Button(text = "Ajustes",background_color = (0,0.4,1,0.8))
+        ajustes.bind(on_press=callback)
+
         null = Label(text = "")
-        null2 = Label(text = "")
 
         #Añadir elementos al pie------------------------------------------------
         pie.add_widget(null)
-        pie.add_widget(null2)
         pie.add_widget(jugar)
         pie.add_widget(puntuacion)
+        pie.add_widget(ajustes)
 
         #Añadir cada división al layout global----------------------------------
         superBox.add_widget(cabecera)
