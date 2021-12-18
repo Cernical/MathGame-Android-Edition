@@ -17,6 +17,7 @@
 <b>Features</b>
 
 - Se arreglan los bugs anteriores y la app mantendrá los valores asignados por el usuario correctamente.
+- Optimizaciones del código.
 
 <b>Bugs</b>
 
