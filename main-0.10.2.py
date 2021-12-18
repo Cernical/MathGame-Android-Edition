@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-version = "0.10.1"
+version = "0.10.2"
 
 from kivy.app import App
 from kivy.uix.label import Label
@@ -18,209 +18,244 @@ import sys
 sys.setrecursionlimit(5000)
 #-------------------------------------------------------------------------------
 
-#Creacion Archivo Puntuaciones--------------------------------------------------
-try:
-    archivo = open("./points.txt", "x")
-    archivo.write("0")
-    archivo.close()
-except:
-    print("Archivo 1")
-#-------------------------------------------------------------------------------
+def funArchivos():
 
-#Creacion Archivo Ajustes-------------------------------------------------------
-global firstRun
-firstRun = 0
+    #Creacion Archivo Puntuaciones----------------------------------------------
+    try:
+        archivo = open("./points.txt", "x")
+        archivo.write("0")
+        archivo.close()
+    except:
+        print("Archivo 1")
+    #---------------------------------------------------------------------------
 
-global modo_ajustes
+    #Creacion Archivo Ajustes---------------------------------------------------
+    global firstRun
+    firstRun = 0
 
-try:
-    ajustesFile = open("./ajustes.txt", "x")
-    ajustesFile.write("0")
-    ajustesFile.close()
-    modo_ajustes = 0
-except:
-    global RangoMin
-    global RangoMax
-    global modo_supervivencia
-    global vida
-    global numPreguntas
+    global modo_ajustes
 
-    ajustesFile = open("./ajustes.txt", "r")
-    contenidoAjustes = ajustesFile.read()
-
-    #Procesado del archivo de ajustes-------------------------------------------
-    if contenidoAjustes == "09150":
-        modo_ajustes = 1
-        RangoMin = 0
-        RangoMax = 9
-        modo_supervivencia = 1
-        vida = 5
-        numPreguntas = 0
-
-    if contenidoAjustes == "1099150":
-        modo_ajustes = 1
-        RangoMin = 10
-        RangoMax = 99
-        modo_supervivencia = 1
-        vida = 5
-        numPreguntas = 0
-
-    if contenidoAjustes == "100999150":
-        modo_ajustes = 1
-        RangoMin = 100
-        RangoMax = 999
-        modo_supervivencia = 1
-        vida = 5
-        numPreguntas = 0
-
-    if contenidoAjustes == "09001":
-        modo_ajustes = 1
-        RangoMin = 0
-        RangoMax = 9
-        modo_supervivencia = 0
-        vida = 0
-        numPreguntas = 1
-
-    if contenidoAjustes == "09002":
-        modo_ajustes = 1
-        RangoMin = 0
-        RangoMax = 9
-        modo_supervivencia = 0
-        vida = 0
-        numPreguntas = 2
-
-    if contenidoAjustes == "09003":
-        modo_ajustes = 1
-        RangoMin = 0
-        RangoMax = 9
-        modo_supervivencia = 0
-        vida = 0
-        numPreguntas = 3
-
-    if contenidoAjustes == "09004":
-        modo_ajustes = 1
-        RangoMin = 0
-        RangoMax = 9
-        modo_supervivencia = 0
-        vida = 0
-        numPreguntas = 4
-
-    if contenidoAjustes == "09005":
-        modo_ajustes = 1
-        RangoMin = 0
-        RangoMax = 9
-        modo_supervivencia = 0
-        vida = 0
-        numPreguntas = 5
-
-    if contenidoAjustes == "1099001":
-        modo_ajustes = 1
-        RangoMin = 10
-        RangoMax = 99
-        modo_supervivencia = 0
-        vida = 0
-        numPreguntas = 1
-
-    if contenidoAjustes == "1099002":
-        modo_ajustes = 1
-        RangoMin = 10
-        RangoMax = 99
-        modo_supervivencia = 0
-        vida = 0
-        numPreguntas = 2
-
-    if contenidoAjustes == "1099003":
-        modo_ajustes = 1
-        RangoMin = 10
-        RangoMax = 99
-        modo_supervivencia = 0
-        vida = 0
-        numPreguntas = 3
-
-    if contenidoAjustes == "1099004":
-        modo_ajustes = 1
-        RangoMin = 10
-        RangoMax = 99
-        modo_supervivencia = 0
-        vida = 0
-        numPreguntas = 4
-
-    if contenidoAjustes == "1099005":
-        modo_ajustes = 1
-        RangoMin = 10
-        RangoMax = 99
-        modo_supervivencia = 0
-        vida = 0
-        numPreguntas = 5
-
-    if contenidoAjustes == "100999001":
-        modo_ajustes = 1
-        RangoMin = 100
-        RangoMax = 999
-        modo_supervivencia = 0
-        vida = 0
-        numPreguntas = 1
-
-    if contenidoAjustes == "100999002":
-        modo_ajustes = 1
-        RangoMin = 100
-        RangoMax = 999
-        modo_supervivencia = 0
-        vida = 0
-        numPreguntas = 2
-
-    if contenidoAjustes == "100999003":
-        modo_ajustes = 1
-        RangoMin = 100
-        RangoMax = 999
-        modo_supervivencia = 0
-        vida = 0
-        numPreguntas = 3
-
-    if contenidoAjustes == "100999004":
-        modo_ajustes = 1
-        RangoMin = 100
-        RangoMax = 999
-        modo_supervivencia = 0
-        vida = 0
-        numPreguntas = 4
-
-    if contenidoAjustes == "100999005":
-        modo_ajustes = 1
-        RangoMin = 100
-        RangoMax = 999
-        modo_supervivencia = 0
-        vida = 0
-        numPreguntas = 5
-
-    if contenidoAjustes == "0":
+    try:
+        ajustesFile = open("./ajustes.txt", "x")
+        ajustesFile.write("0")
+        ajustesFile.close()
         modo_ajustes = 0
-        firstRun = 1
+    except:
+        global RangoMin
+        global RangoMax
+        global modo_supervivencia
+        global vida
+        global numPreguntas
+        global MultiPuntuacion
+
+        ajustesFile = open("./ajustes.txt", "r")
+        contenidoAjustes = ajustesFile.read()
+
+        #Procesado del archivo de ajustes---------------------------------------
+        if contenidoAjustes == "09150":
+            modo_ajustes = 1
+            RangoMin = 0
+            RangoMax = 9
+            modo_supervivencia = 1
+            vida = 5
+            numPreguntas = 0
+            MultiPuntuacion = 1
+
+        if contenidoAjustes == "1099150":
+            modo_ajustes = 1
+            RangoMin = 10
+            RangoMax = 99
+            modo_supervivencia = 1
+            vida = 5
+            numPreguntas = 0
+            MultiPuntuacion = 2
+
+        if contenidoAjustes == "100999150":
+            modo_ajustes = 1
+            RangoMin = 100
+            RangoMax = 999
+            modo_supervivencia = 1
+            vida = 5
+            numPreguntas = 0
+            MultiPuntuacion = 3
+
+        if contenidoAjustes == "09001":
+            modo_ajustes = 1
+            RangoMin = 0
+            RangoMax = 9
+            modo_supervivencia = 0
+            vida = 0
+            numPreguntas = 1
+            MultiPuntuacion = 1
+
+        if contenidoAjustes == "09002":
+            modo_ajustes = 1
+            RangoMin = 0
+            RangoMax = 9
+            modo_supervivencia = 0
+            vida = 0
+            numPreguntas = 2
+            MultiPuntuacion = 1
+
+        if contenidoAjustes == "09003":
+            modo_ajustes = 1
+            RangoMin = 0
+            RangoMax = 9
+            modo_supervivencia = 0
+            vida = 0
+            numPreguntas = 3
+            MultiPuntuacion = 1
+
+        if contenidoAjustes == "09004":
+            modo_ajustes = 1
+            RangoMin = 0
+            RangoMax = 9
+            modo_supervivencia = 0
+            vida = 0
+            numPreguntas = 4
+            MultiPuntuacion = 1
+
+        if contenidoAjustes == "09005":
+            modo_ajustes = 1
+            RangoMin = 0
+            RangoMax = 9
+            modo_supervivencia = 0
+            vida = 0
+            numPreguntas = 5
+            MultiPuntuacion = 1
+
+        if contenidoAjustes == "1099001":
+            modo_ajustes = 1
+            RangoMin = 10
+            RangoMax = 99
+            modo_supervivencia = 0
+            vida = 0
+            numPreguntas = 1
+            MultiPuntuacion = 2
+
+        if contenidoAjustes == "1099002":
+            modo_ajustes = 1
+            RangoMin = 10
+            RangoMax = 99
+            modo_supervivencia = 0
+            vida = 0
+            numPreguntas = 2
+            MultiPuntuacion = 2
+
+        if contenidoAjustes == "1099003":
+            modo_ajustes = 1
+            RangoMin = 10
+            RangoMax = 99
+            modo_supervivencia = 0
+            vida = 0
+            numPreguntas = 3
+            MultiPuntuacion = 2
+
+        if contenidoAjustes == "1099004":
+            modo_ajustes = 1
+            RangoMin = 10
+            RangoMax = 99
+            modo_supervivencia = 0
+            vida = 0
+            numPreguntas = 4
+            MultiPuntuacion = 2
+
+        if contenidoAjustes == "1099005":
+            modo_ajustes = 1
+            RangoMin = 10
+            RangoMax = 99
+            modo_supervivencia = 0
+            vida = 0
+            numPreguntas = 5
+            MultiPuntuacion = 2
+
+        if contenidoAjustes == "100999001":
+            modo_ajustes = 1
+            RangoMin = 100
+            RangoMax = 999
+            modo_supervivencia = 0
+            vida = 0
+            numPreguntas = 1
+            MultiPuntuacion = 3
+
+        if contenidoAjustes == "100999002":
+            modo_ajustes = 1
+            RangoMin = 100
+            RangoMax = 999
+            modo_supervivencia = 0
+            vida = 0
+            numPreguntas = 2
+            MultiPuntuacion = 3
+
+        if contenidoAjustes == "100999003":
+            modo_ajustes = 1
+            RangoMin = 100
+            RangoMax = 999
+            modo_supervivencia = 0
+            vida = 0
+            numPreguntas = 3
+            MultiPuntuacion = 3
+
+        if contenidoAjustes == "100999004":
+            modo_ajustes = 1
+            RangoMin = 100
+            RangoMax = 999
+            modo_supervivencia = 0
+            vida = 0
+            numPreguntas = 4
+            MultiPuntuacion = 3
+
+        if contenidoAjustes == "100999005":
+            modo_ajustes = 1
+            RangoMin = 100
+            RangoMax = 999
+            modo_supervivencia = 0
+            vida = 0
+            numPreguntas = 5
+            MultiPuntuacion = 3
+
+        if contenidoAjustes == "0":
+            modo_ajustes = 0
+            firstRun = 1
+        #-----------------------------------------------------------------------
+
+        print("Archivo Ajustes 1")
     #---------------------------------------------------------------------------
 
-    print("Archivo Ajustes 1")
-#-------------------------------------------------------------------------------
+    #Creacion Archivo Dificultad------------------------------------------------
+    try:
+        ajustesDif = open("./ajustes2.txt", "x")
+        ajustesDif.write("0")
+        ajustesDif.close()
+    except:
+        global respuestaOperaciones
+        global operacion
 
-#Creacion Archivo Dificultad----------------------------------------------------
-try:
-    ajustesDif = open("./ajustes2.txt", "x")
-    ajustesDif.write("0")
-    ajustesDif.close()
-except:
-    global respuestaOperaciones
+        ajustesDif = open("./ajustes2.txt", "r")
+        contenidoAjustes2 = ajustesDif.read()
 
-    ajustesDif = open("./ajustes2.txt", "r")
-    contenidoAjustes2 = ajustesDif.read()
+        #Procesado del archivo de ajustes---------------------------------------
+        if contenidoAjustes2 == "Sumas":
+            respuestaOperaciones = "Sumas"
+            operacion = "Sumas"
 
-    #Procesado del archivo de ajustes-------------------------------------------
-    if contenidoAjustes2 == "Sumas": respuestaOperaciones = "Sumas"
-    if contenidoAjustes2 == "Restas": respuestaOperaciones = "Restas"
-    if contenidoAjustes2 == "Multiplicaciones": respuestaOperaciones = "Multiplicaciones"
-    if contenidoAjustes2 == "Divisiones": respuestaOperaciones = "Divisiones"
+        if contenidoAjustes2 == "Restas":
+            respuestaOperaciones = "Restas"
+            operacion = "Restas"
+
+        if contenidoAjustes2 == "Multiplicaciones":
+            respuestaOperaciones = "Multiplicaciones"
+            operacion = "Multiplicaciones"
+
+        if contenidoAjustes2 == "Divisiones":
+            respuestaOperaciones = "Divisiones"
+            operacion = "Divisiones"
+        #-----------------------------------------------------------------------
+
+        print("Archivo Dificultad 1")
     #---------------------------------------------------------------------------
 
-    print("Archivo Dificultad 1")
-#-------------------------------------------------------------------------------
+funArchivos()
 
 class MathGameIntermission(App):
 
@@ -544,7 +579,6 @@ class MathGameComprobacion(App):
     global resultadoreal
     global comprobacion
     global operacion
-    operacion = ""
     global resultadoAintroducir
 
     def build(self):
@@ -671,8 +705,7 @@ class MathGameResultado(App):
                 ContadorPreguntas = 0
                 puntuacion = 0
 
-                if modo_supervivencia == 1:
-                    vida = 5
+                if modo_supervivencia == 1: vida = 5
 
                 if operacion == "Sumas":
 
@@ -703,6 +736,8 @@ class MathGameResultado(App):
                             MathGameDivisiones().run()
 
             else:
+
+                if modo_supervivencia == 1: vida = 5
 
                 ContadorPreguntas = int(ContadorPreguntas)
                 puntuacion = int(puntuacion)
