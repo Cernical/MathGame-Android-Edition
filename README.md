@@ -12,6 +12,19 @@
 
 # Changelog
 
+<h2>v0.10.0</h2>
+
+<b>Features</b>
+
+- Se permite almacenar de forma permanente los ajustes guardados (WIP).
+
+<b>Bugs</b>
+
+- La app se cerrará dada cierta cantidad de operaciones realizadas.
+- Al acceder al menú de ajustes habiendo almacenado previamente se podrá experimentar un comportamiento extraño.
+
+<hr>
+
 <h2>v0.9.2</h2>
 
 <b>Features</b>
