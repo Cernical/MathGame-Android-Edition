@@ -12,6 +12,19 @@
 
 # Changelog
 
+<h2>v0.10.2</h2>
+
+<b>Features</b>
+
+- Se arreglan los bugs anteriores y la app mantendrá los valores asignados por el usuario correctamente.
+
+<b>Bugs</b>
+
+- La app se cerrará dada cierta cantidad de operaciones realizadas.
+- Al acceder al menú de ajustes habiendo almacenado previamente se podrá experimentar un comportamiento extraño.
+
+<hr>
+
 <h2>v0.10.1</h2>
 
 <b>Features</b>
@@ -22,8 +35,8 @@
 
 - La app se cerrará dada cierta cantidad de operaciones realizadas.
 - Al acceder al menú de ajustes habiendo almacenado previamente se podrá experimentar un comportamiento extraño.
-- La dificultad no será guardada correctamente al salir de la app.
-- En algunas ocasiones la app pedirá seguir realizando operaciones aunque sea el comienzo.
+- Al tener el modo supervivencia y volver a realizar operaciones la app pedirá si seguir realizando operaciones aunque sea la primera vez.
+- La app no mantendrá el tipo de operaciones al guardar y salir.
 
 <hr>
 
@@ -38,8 +51,8 @@
 - La app se cerrará dada cierta cantidad de operaciones realizadas.
 - Al acceder al menú de ajustes habiendo almacenado previamente se podrá experimentar un comportamiento extraño.
 - La app se cerrará al abrirse sin estar presentes los archivos de configuración.
-- La dificultad no será guardada correctamente al salir de la app.
-- En algunas ocasiones la app pedirá seguir realizando operaciones aunque sea el comienzo.
+- Al tener el modo supervivencia y volver a realizar operaciones la app pedirá si seguir realizando operaciones aunque sea la primera vez.
+- La app no mantendrá el tipo de operaciones al guardar y salir.
 
 <hr>
 
@@ -52,6 +65,7 @@
 <b>Bugs</b>
 
 - La app se cerrará dada cierta cantidad de operaciones realizadas.
+- Al tener el modo supervivencia y volver a realizar operaciones la app pedirá si seguir realizando operaciones aunque sea la primera vez.
 
 <hr>
 
@@ -64,6 +78,7 @@
 <b>Bugs</b>
 
 - La app se cerrará dada cierta cantidad de operaciones realizadas.
+- Al tener el modo supervivencia y volver a realizar operaciones la app pedirá si seguir realizando operaciones aunque sea la primera vez.
 
 <hr>
 
@@ -76,6 +91,7 @@
 <b>Bugs</b>
 
 - La app se cerrará dada cierta cantidad de operaciones realizadas.
+- Al tener el modo supervivencia y volver a realizar operaciones la app pedirá si seguir realizando operaciones aunque sea la primera vez.
 
 <hr>
 
