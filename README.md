@@ -12,6 +12,20 @@
 
 # Changelog
 
+<h2>v0.10.1</h2>
+
+<b>Features</b>
+
+- Se arregla el cierre anterior debido a la falta de los archivos de creación.
+
+<b>Bugs</b>
+
+- La app se cerrará dada cierta cantidad de operaciones realizadas.
+- Al acceder al menú de ajustes habiendo almacenado previamente se podrá experimentar un comportamiento extraño.
+- La dificultad no será guardada correctamente al salir de la app.
+
+<hr>
+
 <h2>v0.10.0</h2>
 
 <b>Features</b>
@@ -22,6 +36,8 @@
 
 - La app se cerrará dada cierta cantidad de operaciones realizadas.
 - Al acceder al menú de ajustes habiendo almacenado previamente se podrá experimentar un comportamiento extraño.
+- La app se cerrará al abrirse sin estar presentes los archivos de configuración.
+- La dificultad no será guardada correctamente al salir de la app.
 
 <hr>
 

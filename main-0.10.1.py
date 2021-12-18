@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-version = "0.10.0"
+version = "0.10.1"
 
 from kivy.app import App
 from kivy.uix.label import Label
@@ -28,18 +28,22 @@ except:
 #-------------------------------------------------------------------------------
 
 #Creacion Archivo Ajustes-------------------------------------------------------
+global firstRun
+firstRun = 0
+
+global modo_ajustes
+
 try:
     ajustesFile = open("./ajustes.txt", "x")
     ajustesFile.write("0")
     ajustesFile.close()
+    modo_ajustes = 0
 except:
     global RangoMin
     global RangoMax
     global modo_supervivencia
     global vida
     global numPreguntas
-    global modo_ajustes
-    global firstRun
 
     ajustesFile = open("./ajustes.txt", "r")
     contenidoAjustes = ajustesFile.read()
@@ -1694,8 +1698,11 @@ class MathGameD(App):
 
 class MathGame(App):
 
-    #global modo_ajustes
-    #modo_ajustes = 0 #(boolean (Descomentar al quitar archivos))---------------
+    global firstRun
+
+    if firstRun == 1:
+        global modo_ajustes
+        modo_ajustes = 0 #(boolean (Descomentar al quitar archivos))------------
 
     def build(self):
 
