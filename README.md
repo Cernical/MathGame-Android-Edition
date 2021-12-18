@@ -22,6 +22,7 @@
 
 - La app se cerrará dada cierta cantidad de operaciones realizadas.
 - Al acceder al menú de ajustes habiendo almacenado previamente se podrá experimentar un comportamiento extraño.
+- La dificultad no será guardada correctamente al salir de la app.
 
 <hr>
 
@@ -36,6 +37,7 @@
 - La app se cerrará dada cierta cantidad de operaciones realizadas.
 - Al acceder al menú de ajustes habiendo almacenado previamente se podrá experimentar un comportamiento extraño.
 - La app se cerrará al abrirse sin estar presentes los archivos de configuración.
+- La dificultad no será guardada correctamente al salir de la app.
 
 <hr>
 
