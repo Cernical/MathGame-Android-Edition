@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-version = "0.10.5"
+version = "0.10.6"
 
 from kivy.app import App
 from kivy.uix.label import Label
@@ -309,19 +309,74 @@ class MathGameIntermission(App):
         global modo_ajustes
         global operacion
 
-        if modo_ajustes == 1:
-            if operacion == "Sumas":
-                MathGameSumas().run()
-            else:
-                if operacion == "Restas":
-                    MathGameRestas().run()
+        #Función que detecta el texto del botón seleccionado en pantalla--------
+        def callback(instance):
+
+            print(instance.text)
+
+            if modo_ajustes == 1:
+                if operacion == "Sumas":
+                    superBox.remove_widget(cabecera)
+                    superBox.remove_widget(pie)
+                    MathGameSumas().run()
                 else:
-                    if operacion == "Multiplicaciones":
-                        MathGameMultiplicaciones().run()
+                    if operacion == "Restas":
+                        superBox.remove_widget(cabecera)
+                        superBox.remove_widget(pie)
+                        MathGameRestas().run()
                     else:
-                        MathGameDivisiones().run()
+                        if operacion == "Multiplicaciones":
+                            superBox.remove_widget(cabecera)
+                            superBox.remove_widget(pie)
+                            MathGameMultiplicaciones().run()
+                        else:
+                            superBox.remove_widget(cabecera)
+                            superBox.remove_widget(pie)
+                            MathGameDivisiones().run()
+            else:
+                superBox.remove_widget(cabecera)
+                superBox.remove_widget(pie)
+                MathGameD().run()
+        #-----------------------------------------------------------------------
+
+        #Interfaz---------------------------------------------------------------
+        #Layout global de superBox cada widget dispuestos uno encima de otro----
+        superBox = BoxLayout(orientation ='vertical')
+
+        #Widgets de cabecera añadidos en el plano horizontal--------------------
+        cabecera = BoxLayout(orientation ='horizontal') #Primer div-------------
+
+        #Crear elementos de cabecera--------------------------------------------
+        if modo_ajustes == 1:
+            consola = Label(text = "Vas a realizar: "+operacion)
         else:
-            MathGameD().run()
+            consola = Label(text = "Vamos a seleccionar los parámetros deseados")
+
+        #Añadir elementos a cabecera--------------------------------------------
+        cabecera.add_widget(consola)
+
+        #Widgets de pie de página añadidos en el plano vertical-----------------
+        pie = BoxLayout(orientation ='vertical')
+
+        #Crear elementos del pie------------------------------------------------
+        vale = Button(text = "Vale",background_color = (0.1,0.2,0.6,0.6))
+        vale.bind(on_press=callback)
+
+        null = Label(text = "")
+        null2 = Label(text = "")
+
+        #Añadir elementos al pie------------------------------------------------
+        pie.add_widget(null)
+        pie.add_widget(null2)
+        pie.add_widget(vale)
+
+        #Añadir cada división al layout global----------------------------------
+        superBox.add_widget(cabecera)
+        superBox.add_widget(pie)
+
+        #Mostrar layout completo------------------------------------------------
+        return superBox
+        #Fin Interfaz-----------------------------------------------------------
 
 class MathGameAjustes(App):
 
