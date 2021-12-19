@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-version = "0.10.2"
+version = "0.10.3"
 
 from kivy.app import App
 from kivy.uix.label import Label
@@ -40,6 +40,7 @@ def funArchivos():
         ajustesFile.write("0")
         ajustesFile.close()
         modo_ajustes = 0
+        firstRun = 1
     except:
         global RangoMin
         global RangoMax
@@ -47,6 +48,9 @@ def funArchivos():
         global vida
         global numPreguntas
         global MultiPuntuacion
+        global mostrar_modo_problemas
+        global mostrar_modo_dificultad
+        global mostrar_modo_nºpreguntas
 
         ajustesFile = open("./ajustes.txt", "r")
         contenidoAjustes = ajustesFile.read()
@@ -60,6 +64,8 @@ def funArchivos():
             vida = 5
             numPreguntas = 0
             MultiPuntuacion = 1
+            mostrar_modo_dificultad = "(Fácil)"
+            mostrar_modo_nºpreguntas = "(Supervivencia)"
 
         if contenidoAjustes == "1099150":
             modo_ajustes = 1
@@ -69,6 +75,8 @@ def funArchivos():
             vida = 5
             numPreguntas = 0
             MultiPuntuacion = 2
+            mostrar_modo_dificultad = "(Normal)"
+            mostrar_modo_nºpreguntas = "(Supervivencia)"
 
         if contenidoAjustes == "100999150":
             modo_ajustes = 1
@@ -78,6 +86,8 @@ def funArchivos():
             vida = 5
             numPreguntas = 0
             MultiPuntuacion = 3
+            mostrar_modo_dificultad = "(Dificil)"
+            mostrar_modo_nºpreguntas = "(Supervivencia)"
 
         if contenidoAjustes == "09001":
             modo_ajustes = 1
@@ -87,6 +97,8 @@ def funArchivos():
             vida = 0
             numPreguntas = 1
             MultiPuntuacion = 1
+            mostrar_modo_dificultad = "(Fácil)"
+            mostrar_modo_nºpreguntas = "(1)"
 
         if contenidoAjustes == "09002":
             modo_ajustes = 1
@@ -96,6 +108,8 @@ def funArchivos():
             vida = 0
             numPreguntas = 2
             MultiPuntuacion = 1
+            mostrar_modo_dificultad = "(Fácil)"
+            mostrar_modo_nºpreguntas = "(2)"
 
         if contenidoAjustes == "09003":
             modo_ajustes = 1
@@ -105,6 +119,8 @@ def funArchivos():
             vida = 0
             numPreguntas = 3
             MultiPuntuacion = 1
+            mostrar_modo_dificultad = "(Fácil)"
+            mostrar_modo_nºpreguntas = "(3)"
 
         if contenidoAjustes == "09004":
             modo_ajustes = 1
@@ -114,6 +130,8 @@ def funArchivos():
             vida = 0
             numPreguntas = 4
             MultiPuntuacion = 1
+            mostrar_modo_dificultad = "(Fácil)"
+            mostrar_modo_nºpreguntas = "(4)"
 
         if contenidoAjustes == "09005":
             modo_ajustes = 1
@@ -123,6 +141,8 @@ def funArchivos():
             vida = 0
             numPreguntas = 5
             MultiPuntuacion = 1
+            mostrar_modo_dificultad = "(Fácil)"
+            mostrar_modo_nºpreguntas = "(5)"
 
         if contenidoAjustes == "1099001":
             modo_ajustes = 1
@@ -132,6 +152,8 @@ def funArchivos():
             vida = 0
             numPreguntas = 1
             MultiPuntuacion = 2
+            mostrar_modo_dificultad = "(Normal)"
+            mostrar_modo_nºpreguntas = "(1)"
 
         if contenidoAjustes == "1099002":
             modo_ajustes = 1
@@ -141,6 +163,8 @@ def funArchivos():
             vida = 0
             numPreguntas = 2
             MultiPuntuacion = 2
+            mostrar_modo_dificultad = "(Normal)"
+            mostrar_modo_nºpreguntas = "(2)"
 
         if contenidoAjustes == "1099003":
             modo_ajustes = 1
@@ -150,6 +174,8 @@ def funArchivos():
             vida = 0
             numPreguntas = 3
             MultiPuntuacion = 2
+            mostrar_modo_dificultad = "(Normal)"
+            mostrar_modo_nºpreguntas = "(3)"
 
         if contenidoAjustes == "1099004":
             modo_ajustes = 1
@@ -159,6 +185,8 @@ def funArchivos():
             vida = 0
             numPreguntas = 4
             MultiPuntuacion = 2
+            mostrar_modo_dificultad = "(Normal)"
+            mostrar_modo_nºpreguntas = "(4)"
 
         if contenidoAjustes == "1099005":
             modo_ajustes = 1
@@ -168,6 +196,8 @@ def funArchivos():
             vida = 0
             numPreguntas = 5
             MultiPuntuacion = 2
+            mostrar_modo_dificultad = "(Normal)"
+            mostrar_modo_nºpreguntas = "(5)"
 
         if contenidoAjustes == "100999001":
             modo_ajustes = 1
@@ -177,6 +207,8 @@ def funArchivos():
             vida = 0
             numPreguntas = 1
             MultiPuntuacion = 3
+            mostrar_modo_dificultad = "(Dificil)"
+            mostrar_modo_nºpreguntas = "(1)"
 
         if contenidoAjustes == "100999002":
             modo_ajustes = 1
@@ -186,6 +218,8 @@ def funArchivos():
             vida = 0
             numPreguntas = 2
             MultiPuntuacion = 3
+            mostrar_modo_dificultad = "(Dificil)"
+            mostrar_modo_nºpreguntas = "(2)"
 
         if contenidoAjustes == "100999003":
             modo_ajustes = 1
@@ -195,6 +229,8 @@ def funArchivos():
             vida = 0
             numPreguntas = 3
             MultiPuntuacion = 3
+            mostrar_modo_dificultad = "(Dificil)"
+            mostrar_modo_nºpreguntas = "(3)"
 
         if contenidoAjustes == "100999004":
             modo_ajustes = 1
@@ -204,6 +240,8 @@ def funArchivos():
             vida = 0
             numPreguntas = 4
             MultiPuntuacion = 3
+            mostrar_modo_dificultad = "(Dificil)"
+            mostrar_modo_nºpreguntas = "(4)"
 
         if contenidoAjustes == "100999005":
             modo_ajustes = 1
@@ -213,6 +251,8 @@ def funArchivos():
             vida = 0
             numPreguntas = 5
             MultiPuntuacion = 3
+            mostrar_modo_dificultad = "(Dificil)"
+            mostrar_modo_nºpreguntas = "(5)"
 
         if contenidoAjustes == "0":
             modo_ajustes = 0
@@ -238,18 +278,22 @@ def funArchivos():
         if contenidoAjustes2 == "Sumas":
             respuestaOperaciones = "Sumas"
             operacion = "Sumas"
+            mostrar_modo_problemas = "(Sumas)"
 
         if contenidoAjustes2 == "Restas":
             respuestaOperaciones = "Restas"
             operacion = "Restas"
+            mostrar_modo_problemas = "(Restas)"
 
         if contenidoAjustes2 == "Multiplicaciones":
             respuestaOperaciones = "Multiplicaciones"
             operacion = "Multiplicaciones"
+            mostrar_modo_problemas = "(Multiplicaciones)"
 
         if contenidoAjustes2 == "Divisiones":
             respuestaOperaciones = "Divisiones"
             operacion = "Divisiones"
+            mostrar_modo_problemas = "(Divisiones)"
         #-----------------------------------------------------------------------
 
         print("Archivo Dificultad 1")
@@ -280,25 +324,27 @@ class MathGameIntermission(App):
 
 class MathGameAjustes(App):
 
-    #El modo ajustes se inicia en la clase principal (cambiar allí)-------------
+    global firstRun
     global mostrar_modo_ajustes
-    mostrar_modo_ajustes = "(No)"
-    #---------------------------------------------------------------------------
-
     global mostrar_modo_dificultad
-    mostrar_modo_dificultad = "(Seleccionar)"
-
     global mostrar_modo_nºpreguntas
-    mostrar_modo_nºpreguntas = "(Seleccionar)"
-
     global mostrar_modo_problemas
-    mostrar_modo_problemas = "(Seleccionar)"
-
     global volver_bloquear
-    volver_bloquear = 0
-
     global bloquear
-    bloquear = 1
+
+    if firstRun == 1:
+        #El modo ajustes se inicia en la clase principal (cambiar allí)-------------
+        mostrar_modo_ajustes = "(No)"
+        #---------------------------------------------------------------------------
+        mostrar_modo_dificultad = "(Seleccionar)"
+        mostrar_modo_nºpreguntas = "(Seleccionar)"
+        mostrar_modo_problemas = "(Seleccionar)"
+        volver_bloquear = 0
+        bloquear = 1
+    else:
+        mostrar_modo_ajustes = "(Si)"
+        volver_bloquear = 1
+        bloquear = 0
 
     def build(self):
 
@@ -1003,7 +1049,7 @@ class MathGameMultiplicaciones(App):
             randomnumero2=(randrange(RangoMin,RangoMax))          #Rango de multiplicaciones
             mostrarnumero1 = str(randomnumero1)
             mostrarnumero2 = str(randomnumero2)
-            print(randomnumero1,"+",randomnumero2)
+            print(randomnumero1,"*",randomnumero2)
             resultadoreal = randomnumero1*randomnumero2           #Resultadoreal
             resultadoreal = int(resultadoreal)              #Convertir a Integer
 
