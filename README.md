@@ -12,6 +12,79 @@
 
 # Changelog
 
+<h2>v0.10.4</h2>
+
+<b>Features</b>
+
+- Se arregla un error en la interfaz en el que al realizar restas sin modo supervivencia aparece cómo si fuesen sumas.
+
+<b>Bugs</b>
+
+- La app se cerrará dada cierta cantidad de operaciones realizadas.
+
+<hr>
+
+<h2>v0.10.3</h2>
+
+<b>Features</b>
+
+- Se arregla la interfaz del menú de ajustes y ahora se mostrará correctamente la información almacenada en todos los casos posibles.
+
+<b>Bugs</b>
+
+- La app se cerrará dada cierta cantidad de operaciones realizadas.
+- Al realizar restas sin modo supervivencia aparecerá el texto indicando que son sumas.
+
+<hr>
+
+<h2>v0.10.2</h2>
+
+<b>Features</b>
+
+- Se arreglan los bugs anteriores y la app mantendrá los valores asignados por el usuario correctamente.
+- Optimizaciones del código.
+
+<b>Bugs</b>
+
+- La app se cerrará dada cierta cantidad de operaciones realizadas.
+- Al acceder al menú de ajustes habiendo almacenado previamente se podrá experimentar un comportamiento extraño.
+- Al realizar restas sin modo supervivencia aparecerá el texto indicando que son sumas.
+
+<hr>
+
+<h2>v0.10.1</h2>
+
+<b>Features</b>
+
+- Se arregla el cierre anterior debido a la falta de los archivos de creación.
+
+<b>Bugs</b>
+
+- La app se cerrará dada cierta cantidad de operaciones realizadas.
+- Al acceder al menú de ajustes habiendo almacenado previamente se podrá experimentar un comportamiento extraño.
+- Al tener el modo supervivencia y volver a realizar operaciones la app pedirá si seguir realizando operaciones aunque sea la primera vez.
+- La app no mantendrá el tipo de operaciones al guardar y salir.
+- Al realizar restas sin modo supervivencia aparecerá el texto indicando que son sumas.
+
+<hr>
+
+<h2>v0.10.0</h2>
+
+<b>Features</b>
+
+- Se permite almacenar de forma permanente los ajustes guardados (WIP).
+
+<b>Bugs</b>
+
+- La app se cerrará dada cierta cantidad de operaciones realizadas.
+- Al acceder al menú de ajustes habiendo almacenado previamente se podrá experimentar un comportamiento extraño.
+- La app se cerrará al abrirse sin estar presentes los archivos de configuración.
+- Al tener el modo supervivencia y volver a realizar operaciones la app pedirá si seguir realizando operaciones aunque sea la primera vez.
+- Al realizar restas sin modo supervivencia aparecerá el texto indicando que son sumas.
+- La app no mantendrá el tipo de operaciones al guardar y salir.
+
+<hr>
+
 <h2>v0.9.2</h2>
 
 <b>Features</b>
@@ -21,6 +94,8 @@
 <b>Bugs</b>
 
 - La app se cerrará dada cierta cantidad de operaciones realizadas.
+- Al tener el modo supervivencia y volver a realizar operaciones la app pedirá si seguir realizando operaciones aunque sea la primera vez.
+- Al realizar restas sin modo supervivencia aparecerá el texto indicando que son sumas.
 
 <hr>
 
@@ -33,6 +108,8 @@
 <b>Bugs</b>
 
 - La app se cerrará dada cierta cantidad de operaciones realizadas.
+- Al tener el modo supervivencia y volver a realizar operaciones la app pedirá si seguir realizando operaciones aunque sea la primera vez.
+- Al realizar restas sin modo supervivencia aparecerá el texto indicando que son sumas.
 
 <hr>
 
@@ -45,6 +122,8 @@
 <b>Bugs</b>
 
 - La app se cerrará dada cierta cantidad de operaciones realizadas.
+- Al tener el modo supervivencia y volver a realizar operaciones la app pedirá si seguir realizando operaciones aunque sea la primera vez.
+- Al realizar restas sin modo supervivencia aparecerá el texto indicando que son sumas.
 
 <hr>
 
@@ -58,6 +137,7 @@
 <b>Bugs</b>
 
 - La app se cerrará dada cierta cantidad de operaciones realizadas.
+- Al realizar restas sin modo supervivencia aparecerá el texto indicando que son sumas.
 
 <hr>
 
@@ -72,6 +152,7 @@
 
 - La app se cerrará dada cierta cantidad de operaciones realizadas.
 - Cierres al acceder al archivo de puntuaciones al finalizar rondas o en el apartado de puntos.
+- Al realizar restas sin modo supervivencia aparecerá el texto indicando que son sumas.
 
 <hr>
 
@@ -85,6 +166,7 @@
 
 - La app se cerrará dada cierta cantidad de operaciones realizadas.
 - La puntuación seguirá borrándose en cada actualización.
+- Al realizar restas sin modo supervivencia aparecerá el texto indicando que son sumas.
 
 <hr>
 
@@ -98,6 +180,7 @@
 <b>Bugs</b>
 
 - La app se cerrará dada cierta cantidad de operaciones realizadas.
+- Al realizar restas sin modo supervivencia aparecerá el texto indicando que son sumas.
 
 <hr>
 
@@ -111,6 +194,7 @@
 
 - La app se cerrará dada cierta cantidad de operaciones realizadas.
 - En raras ocasiones se puede experimentar un comportamiento extraño al realizar divisiones.
+- Al realizar restas sin modo supervivencia aparecerá el texto indicando que son sumas.
 
 <hr>
 
@@ -124,6 +208,7 @@
 
 - La app se cerrará dada cierta cantidad de operaciones realizadas.
 - Seguirán habiendo cierres en algunas ocasiones al dividir.
+- Al realizar restas sin modo supervivencia aparecerá el texto indicando que son sumas.
 
 <hr>
 
@@ -138,6 +223,7 @@
 
 - La app se cerrará dada cierta cantidad de operaciones realizadas.
 - Seguirán habiendo cierres en algunas ocasiones al dividir.
+- Al realizar restas sin modo supervivencia aparecerá el texto indicando que son sumas.
 
 <hr>
 
@@ -151,6 +237,7 @@
 
 - La app se cerrará dada cierta cantidad de operaciones realizadas.
 - Seguirán habiendo cierres en algunas ocasiones al dividir.
+- Al realizar restas sin modo supervivencia aparecerá el texto indicando que son sumas.
 
 <hr>
 
@@ -164,6 +251,7 @@
 
 - La app se cerrará dada cierta cantidad de operaciones realizadas.
 - Seguirán habiendo cierres en algunas ocasiones al dividir.
+- Al realizar restas sin modo supervivencia aparecerá el texto indicando que son sumas.
 
 <hr>
 
@@ -177,6 +265,7 @@
 
 - La app se cerrará dada cierta cantidad de operaciones realizadas.
 - La app se cerrará en el caso de que los números aleatorios sean 0 al realizar divisiones.
+- Al realizar restas sin modo supervivencia aparecerá el texto indicando que son sumas.
 
 <hr>
 
@@ -189,6 +278,7 @@
 <b>Bugs</b>
 
 - La app se cerrará dada cierta cantidad de operaciones realizadas.
+- Al realizar restas sin modo supervivencia aparecerá el texto indicando que son sumas.
 
 <hr>
 
@@ -201,6 +291,7 @@
 <b>Bugs</b>
 
 - La app se cerrará dada cierta cantidad de operaciones realizadas.
+- Al realizar restas sin modo supervivencia aparecerá el texto indicando que son sumas.
 
 <hr>
 
@@ -215,6 +306,7 @@
 
 - Al introducir una respuesta si se sigue presionando el botón sin introducir nada más se utilizará el último valor.
 - La app se cerrará dada cierta cantidad de operaciones realizadas.
+- Al realizar restas sin modo supervivencia aparecerá el texto indicando que son sumas.
 
 <hr>
 
@@ -229,6 +321,7 @@
 - Al tener el modo supervivencia no se puede volver a realizar las operaciones al finalizar la partida.
 - El programa finalizará al no introducir una respuesta y presionar el botón.
 - La app se cerrará dada cierta cantidad de operaciones realizadas.
+- Al realizar restas sin modo supervivencia aparecerá el texto indicando que son sumas.
 
 <hr>
 
