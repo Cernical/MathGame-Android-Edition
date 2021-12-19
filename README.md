@@ -12,6 +12,19 @@
 
 # Changelog
 
+<h2>v0.11.0</h2>
+
+<b>Features</b>
+
+- Mejoras en la interfaz.
+- Se corrije la creación redundante de ventanas en PC.
+
+<b>Bugs</b>
+
+- La app se cerrará dada cierta cantidad de operaciones realizadas.
+
+<hr>
+
 <h2>v0.10.6</h2>
 
 <b>Features</b>
