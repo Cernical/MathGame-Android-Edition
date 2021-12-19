@@ -16,7 +16,7 @@
 
 <b>Features</b>
 
-- Se arregla un error en la interfaz en el que al realizar restas sin modo supervivencia aparecía cómo si fuesen sumas.
+- Se arregla un error en la interfaz en el que al realizar restas sin modo supervivencia aparece cómo si fuesen sumas.
 
 <b>Bugs</b>
 
