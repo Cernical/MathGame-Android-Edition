@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-version = "0.10.6"
+version = "0.11.0"
 
 from kivy.app import App
 from kivy.uix.label import Label
@@ -908,6 +908,8 @@ class MathGameDivisiones(App):
         global vidaMostrar
         global vida
         global vidascii
+        global finalOperacion
+        finalOperacion = 0
 
         #Función que registra el botón seleccionado-----------------------------
         def callback(instance):
@@ -923,21 +925,36 @@ class MathGameDivisiones(App):
                 respuestaOperaciones = 998003
             #-------------------------------------------------------------------
 
-            print(respuestaOperaciones)
-            if respuestaOperaciones == resultadoreal:
-                puntuacion = puntuacion + 1
-                superBox.remove_widget(pie)
-                superBox.remove_widget(cabecera)
-                ContadorPreguntas = ContadorPreguntas + 1
-                comprobacion = 1
-                MathGameComprobacion().run()
+            if finalOperacion == 0:
+
+                print(respuestaOperaciones)
+                if respuestaOperaciones == resultadoreal:
+                    puntuacion = puntuacion + 1
+                    superBox.remove_widget(pie)
+                    superBox.remove_widget(cabecera)
+                    ContadorPreguntas = ContadorPreguntas + 1
+                    comprobacion = 1
+                    MathGameComprobacion().run()
+                else:
+                    superBox.remove_widget(pie)
+                    superBox.remove_widget(cabecera)
+                    ContadorPreguntas = ContadorPreguntas + 1
+                    comprobacion = 0
+                    MathGameComprobacion().run()
             else:
-                superBox.remove_widget(pie)
-                superBox.remove_widget(cabecera)
-                ContadorPreguntas = ContadorPreguntas + 1
-                comprobacion = 0
-                MathGameComprobacion().run()
-        #-----------------------------------------------------------------------
+
+                #Comprobación turnos o vidas------------------------------------
+                if modo_supervivencia == 0:
+                    if ContadorPreguntas == numPreguntas:
+                        superBox.remove_widget(pie)
+                        superBox.remove_widget(cabecera)
+                        MathGameResultado().run()
+                else:
+                    if vida == 0:
+                        superBox.remove_widget(pie)
+                        superBox.remove_widget(cabecera)
+                        MathGameResultado().run()
+            #-------------------------------------------------------------------
 
         #Funcion que registra contenido del input-------------------------------
         def on_text(instance, value):
@@ -1024,13 +1041,46 @@ class MathGameDivisiones(App):
             return superBox
             #Fin interfaz-------------------------------------------------------
 
-        #Comprobación turnos o vidas--------------------------------------------
-        if modo_supervivencia == 0:
-            if ContadorPreguntas == numPreguntas:
-                MathGameResultado().run()
+        finalOperacion = 1
+
+        #InterfazFinal----------------------------------------------------------
+        #Layout completo subdividido en dos sublayouts, uno vertical y otro horizontal
+        superBox = BoxLayout(orientation ='vertical')
+
+        #Widgets de cabecera añadidos en el plano horizontal--------------------
+        cabecera = BoxLayout(orientation ='horizontal')
+
+        if modo_supervivencia == 1:
+
+            vidaStr = str(vida)
+            consola = Label(text = "Te has quedado sin vidas")
+
         else:
-            if vida == 0:
-                MathGameResultado().run()
+
+            consola = Label(text = "Has finalizado")
+
+        cabecera.add_widget(consola)
+
+        #Widgets de pie de página añadidos en el plano vertical-----------------
+        pie = BoxLayout(orientation ='vertical')
+
+        vale = Button(text = "Vale",background_color = (0.1,0.2,0.6,0.6))
+        vale.bind(on_press=callback)
+
+        null = Label(text = "")
+        null2 = Label(text = "")
+
+        pie.add_widget(null)
+        pie.add_widget(null2)
+        pie.add_widget(vale)
+
+        #Salida por pantalla final----------------------------------------------
+        superBox.add_widget(cabecera)
+        superBox.add_widget(pie)
+
+        #Mostrar layout completo------------------------------------------------
+        return superBox
+        #Fin interfaz-----------------------------------------------------------
 
 class MathGameMultiplicaciones(App):
 
@@ -1048,6 +1098,8 @@ class MathGameMultiplicaciones(App):
         global vidaMostrar
         global vida
         global vidascii
+        global finalOperacion
+        finalOperacion = 0
 
         #Función que registra el botón seleccionado-----------------------------
         def callback(instance):
@@ -1063,21 +1115,36 @@ class MathGameMultiplicaciones(App):
                 respuestaOperaciones = 998003
             #-------------------------------------------------------------------
 
-            print(respuestaOperaciones)
-            if respuestaOperaciones == resultadoreal:
-                puntuacion = puntuacion + 1
-                superBox.remove_widget(pie)
-                superBox.remove_widget(cabecera)
-                ContadorPreguntas = ContadorPreguntas + 1
-                comprobacion = 1
-                MathGameComprobacion().run()
+            if finalOperacion == 0:
+
+                print(respuestaOperaciones)
+                if respuestaOperaciones == resultadoreal:
+                    puntuacion = puntuacion + 1
+                    superBox.remove_widget(pie)
+                    superBox.remove_widget(cabecera)
+                    ContadorPreguntas = ContadorPreguntas + 1
+                    comprobacion = 1
+                    MathGameComprobacion().run()
+                else:
+                    superBox.remove_widget(pie)
+                    superBox.remove_widget(cabecera)
+                    ContadorPreguntas = ContadorPreguntas + 1
+                    comprobacion = 0
+                    MathGameComprobacion().run()
             else:
-                superBox.remove_widget(pie)
-                superBox.remove_widget(cabecera)
-                ContadorPreguntas = ContadorPreguntas + 1
-                comprobacion = 0
-                MathGameComprobacion().run()
-        #-----------------------------------------------------------------------
+
+                #Comprobación turnos o vidas------------------------------------
+                if modo_supervivencia == 0:
+                    if ContadorPreguntas == numPreguntas:
+                        superBox.remove_widget(pie)
+                        superBox.remove_widget(cabecera)
+                        MathGameResultado().run()
+                else:
+                    if vida == 0:
+                        superBox.remove_widget(pie)
+                        superBox.remove_widget(cabecera)
+                        MathGameResultado().run()
+            #-------------------------------------------------------------------
 
         #Funcion que registra contenido del input-------------------------------
         def on_text(instance, value):
@@ -1156,13 +1223,46 @@ class MathGameMultiplicaciones(App):
             return superBox
             #Fin interfaz-------------------------------------------------------
 
-        #Comprobación turnos o vidas--------------------------------------------
-        if modo_supervivencia == 0:
-            if ContadorPreguntas == numPreguntas:
-                MathGameResultado().run()
+        finalOperacion = 1
+
+        #InterfazFinal----------------------------------------------------------
+        #Layout completo subdividido en dos sublayouts, uno vertical y otro horizontal
+        superBox = BoxLayout(orientation ='vertical')
+
+        #Widgets de cabecera añadidos en el plano horizontal--------------------
+        cabecera = BoxLayout(orientation ='horizontal')
+
+        if modo_supervivencia == 1:
+
+            vidaStr = str(vida)
+            consola = Label(text = "Te has quedado sin vidas")
+
         else:
-            if vida == 0:
-                MathGameResultado().run()
+
+            consola = Label(text = "Has finalizado")
+
+        cabecera.add_widget(consola)
+
+        #Widgets de pie de página añadidos en el plano vertical-----------------
+        pie = BoxLayout(orientation ='vertical')
+
+        vale = Button(text = "Vale",background_color = (0.1,0.2,0.6,0.6))
+        vale.bind(on_press=callback)
+
+        null = Label(text = "")
+        null2 = Label(text = "")
+
+        pie.add_widget(null)
+        pie.add_widget(null2)
+        pie.add_widget(vale)
+
+        #Salida por pantalla final----------------------------------------------
+        superBox.add_widget(cabecera)
+        superBox.add_widget(pie)
+
+        #Mostrar layout completo------------------------------------------------
+        return superBox
+        #Fin interfaz-----------------------------------------------------------
 
 class MathGameRestas(App):
 
@@ -1180,6 +1280,8 @@ class MathGameRestas(App):
         global vidaMostrar
         global vida
         global vidascii
+        global finalOperacion
+        finalOperacion = 0
 
         #Función que registra el botón seleccionado-----------------------------
         def callback(instance):
@@ -1195,21 +1297,36 @@ class MathGameRestas(App):
                 respuestaOperaciones = 998003
             #-------------------------------------------------------------------
 
-            print(respuestaOperaciones)
-            if respuestaOperaciones == resultadoreal:
-                puntuacion = puntuacion + 1
-                superBox.remove_widget(pie)
-                superBox.remove_widget(cabecera)
-                ContadorPreguntas = ContadorPreguntas + 1
-                comprobacion = 1
-                MathGameComprobacion().run()
+            if finalOperacion == 0:
+
+                print(respuestaOperaciones)
+                if respuestaOperaciones == resultadoreal:
+                    puntuacion = puntuacion + 1
+                    superBox.remove_widget(pie)
+                    superBox.remove_widget(cabecera)
+                    ContadorPreguntas = ContadorPreguntas + 1
+                    comprobacion = 1
+                    MathGameComprobacion().run()
+                else:
+                    superBox.remove_widget(pie)
+                    superBox.remove_widget(cabecera)
+                    ContadorPreguntas = ContadorPreguntas + 1
+                    comprobacion = 0
+                    MathGameComprobacion().run()
             else:
-                superBox.remove_widget(pie)
-                superBox.remove_widget(cabecera)
-                ContadorPreguntas = ContadorPreguntas + 1
-                comprobacion = 0
-                MathGameComprobacion().run()
-        #-----------------------------------------------------------------------
+
+                #Comprobación turnos o vidas------------------------------------
+                if modo_supervivencia == 0:
+                    if ContadorPreguntas == numPreguntas:
+                        superBox.remove_widget(pie)
+                        superBox.remove_widget(cabecera)
+                        MathGameResultado().run()
+                else:
+                    if vida == 0:
+                        superBox.remove_widget(pie)
+                        superBox.remove_widget(cabecera)
+                        MathGameResultado().run()
+            #-------------------------------------------------------------------
 
         #Función que registra contenido del input box---------------------------
         def on_text(instance, value):
@@ -1288,13 +1405,46 @@ class MathGameRestas(App):
             return superBox
             #Fin interfaz-------------------------------------------------------
 
-        #Comprobación turnos o vidas--------------------------------------------
-        if modo_supervivencia == 0:
-            if ContadorPreguntas == numPreguntas:
-                MathGameResultado().run()
+        finalOperacion = 1
+
+        #InterfazFinal----------------------------------------------------------
+        #Layout completo subdividido en dos sublayouts, uno vertical y otro horizontal
+        superBox = BoxLayout(orientation ='vertical')
+
+        #Widgets de cabecera añadidos en el plano horizontal--------------------
+        cabecera = BoxLayout(orientation ='horizontal')
+
+        if modo_supervivencia == 1:
+
+            vidaStr = str(vida)
+            consola = Label(text = "Te has quedado sin vidas")
+
         else:
-            if vida == 0:
-                MathGameResultado().run()
+
+            consola = Label(text = "Has finalizado")
+
+        cabecera.add_widget(consola)
+
+        #Widgets de pie de página añadidos en el plano vertical-----------------
+        pie = BoxLayout(orientation ='vertical')
+
+        vale = Button(text = "Vale",background_color = (0.1,0.2,0.6,0.6))
+        vale.bind(on_press=callback)
+
+        null = Label(text = "")
+        null2 = Label(text = "")
+
+        pie.add_widget(null)
+        pie.add_widget(null2)
+        pie.add_widget(vale)
+
+        #Salida por pantalla final----------------------------------------------
+        superBox.add_widget(cabecera)
+        superBox.add_widget(pie)
+
+        #Mostrar layout completo------------------------------------------------
+        return superBox
+        #Fin interfaz-----------------------------------------------------------
 
 class MathGameSumas(App):
 
@@ -1312,6 +1462,8 @@ class MathGameSumas(App):
         global vidaMostrar
         global vida
         global vidascii
+        global finalOperacion
+        finalOperacion = 0
 
         #Función que registra el botón seleccionado-----------------------------
         def callback(instance):
@@ -1327,21 +1479,36 @@ class MathGameSumas(App):
                 respuestaOperaciones = 998003
             #-------------------------------------------------------------------
 
-            print(respuestaOperaciones)
-            if respuestaOperaciones == resultadoreal:
-                puntuacion = puntuacion + 1
-                superBox.remove_widget(pie)
-                superBox.remove_widget(cabecera)
-                ContadorPreguntas = ContadorPreguntas + 1
-                comprobacion = 1
-                MathGameComprobacion().run()
+            if finalOperacion == 0:
+
+                print(respuestaOperaciones)
+                if respuestaOperaciones == resultadoreal:
+                    puntuacion = puntuacion + 1
+                    superBox.remove_widget(pie)
+                    superBox.remove_widget(cabecera)
+                    ContadorPreguntas = ContadorPreguntas + 1
+                    comprobacion = 1
+                    MathGameComprobacion().run()
+                else:
+                    superBox.remove_widget(pie)
+                    superBox.remove_widget(cabecera)
+                    ContadorPreguntas = ContadorPreguntas + 1
+                    comprobacion = 0
+                    MathGameComprobacion().run()
             else:
-                superBox.remove_widget(pie)
-                superBox.remove_widget(cabecera)
-                ContadorPreguntas = ContadorPreguntas + 1
-                comprobacion = 0
-                MathGameComprobacion().run()
-        #-----------------------------------------------------------------------
+
+                #Comprobación turnos o vidas------------------------------------
+                if modo_supervivencia == 0:
+                    if ContadorPreguntas == numPreguntas:
+                        superBox.remove_widget(pie)
+                        superBox.remove_widget(cabecera)
+                        MathGameResultado().run()
+                else:
+                    if vida == 0:
+                        superBox.remove_widget(pie)
+                        superBox.remove_widget(cabecera)
+                        MathGameResultado().run()
+            #-------------------------------------------------------------------
 
         #Funcion que registra contenido del input-------------------------------
         def on_text(instance, value):
@@ -1420,13 +1587,46 @@ class MathGameSumas(App):
             return superBox
             #Fin interfaz-------------------------------------------------------
 
-        #Comprobación turnos o vidas--------------------------------------------
-        if modo_supervivencia == 0:
-            if ContadorPreguntas == numPreguntas:
-                MathGameResultado().run()
+        finalOperacion = 1
+
+        #InterfazFinal----------------------------------------------------------
+        #Layout completo subdividido en dos sublayouts, uno vertical y otro horizontal
+        superBox = BoxLayout(orientation ='vertical')
+
+        #Widgets de cabecera añadidos en el plano horizontal--------------------
+        cabecera = BoxLayout(orientation ='horizontal')
+
+        if modo_supervivencia == 1:
+
+            vidaStr = str(vida)
+            consola = Label(text = "Te has quedado sin vidas")
+
         else:
-            if vida == 0:
-                MathGameResultado().run()
+
+            consola = Label(text = "Has finalizado")
+
+        cabecera.add_widget(consola)
+
+        #Widgets de pie de página añadidos en el plano vertical-----------------
+        pie = BoxLayout(orientation ='vertical')
+
+        vale = Button(text = "Vale",background_color = (0.1,0.2,0.6,0.6))
+        vale.bind(on_press=callback)
+
+        null = Label(text = "")
+        null2 = Label(text = "")
+
+        pie.add_widget(null)
+        pie.add_widget(null2)
+        pie.add_widget(vale)
+
+        #Salida por pantalla final----------------------------------------------
+        superBox.add_widget(cabecera)
+        superBox.add_widget(pie)
+
+        #Mostrar layout completo------------------------------------------------
+        return superBox
+        #Fin interfaz-----------------------------------------------------------
 
 class MathGameSelOpe(App):
 
