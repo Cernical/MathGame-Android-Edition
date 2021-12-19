@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-version = "0.10.4"
+version = "0.10.5"
 
 from kivy.app import App
 from kivy.uix.label import Label
@@ -18,6 +18,7 @@ import sys
 sys.setrecursionlimit(5000)
 #-------------------------------------------------------------------------------
 
+#Creación y procesado de archivos-----------------------------------------------
 def funArchivos():
 
     #Creacion Archivo Puntuaciones----------------------------------------------
@@ -50,7 +51,7 @@ def funArchivos():
         global MultiPuntuacion
         global mostrar_modo_problemas
         global mostrar_modo_dificultad
-        global mostrar_modo_nºpreguntas
+        global mostrar_modo_numPreguntas
 
         ajustesFile = open("./ajustes.txt", "r")
         contenidoAjustes = ajustesFile.read()
@@ -65,7 +66,7 @@ def funArchivos():
             numPreguntas = 0
             MultiPuntuacion = 1
             mostrar_modo_dificultad = "(Fácil)"
-            mostrar_modo_nºpreguntas = "(Supervivencia)"
+            mostrar_modo_numPreguntas = "(Supervivencia)"
 
         if contenidoAjustes == "1099150":
             modo_ajustes = 1
@@ -76,7 +77,7 @@ def funArchivos():
             numPreguntas = 0
             MultiPuntuacion = 2
             mostrar_modo_dificultad = "(Normal)"
-            mostrar_modo_nºpreguntas = "(Supervivencia)"
+            mostrar_modo_numPreguntas = "(Supervivencia)"
 
         if contenidoAjustes == "100999150":
             modo_ajustes = 1
@@ -87,7 +88,7 @@ def funArchivos():
             numPreguntas = 0
             MultiPuntuacion = 3
             mostrar_modo_dificultad = "(Dificil)"
-            mostrar_modo_nºpreguntas = "(Supervivencia)"
+            mostrar_modo_numPreguntas = "(Supervivencia)"
 
         if contenidoAjustes == "09001":
             modo_ajustes = 1
@@ -98,7 +99,7 @@ def funArchivos():
             numPreguntas = 1
             MultiPuntuacion = 1
             mostrar_modo_dificultad = "(Fácil)"
-            mostrar_modo_nºpreguntas = "(1)"
+            mostrar_modo_numPreguntas = "(1)"
 
         if contenidoAjustes == "09002":
             modo_ajustes = 1
@@ -109,7 +110,7 @@ def funArchivos():
             numPreguntas = 2
             MultiPuntuacion = 1
             mostrar_modo_dificultad = "(Fácil)"
-            mostrar_modo_nºpreguntas = "(2)"
+            mostrar_modo_numPreguntas = "(2)"
 
         if contenidoAjustes == "09003":
             modo_ajustes = 1
@@ -120,7 +121,7 @@ def funArchivos():
             numPreguntas = 3
             MultiPuntuacion = 1
             mostrar_modo_dificultad = "(Fácil)"
-            mostrar_modo_nºpreguntas = "(3)"
+            mostrar_modo_numPreguntas = "(3)"
 
         if contenidoAjustes == "09004":
             modo_ajustes = 1
@@ -131,7 +132,7 @@ def funArchivos():
             numPreguntas = 4
             MultiPuntuacion = 1
             mostrar_modo_dificultad = "(Fácil)"
-            mostrar_modo_nºpreguntas = "(4)"
+            mostrar_modo_numPreguntas = "(4)"
 
         if contenidoAjustes == "09005":
             modo_ajustes = 1
@@ -142,7 +143,7 @@ def funArchivos():
             numPreguntas = 5
             MultiPuntuacion = 1
             mostrar_modo_dificultad = "(Fácil)"
-            mostrar_modo_nºpreguntas = "(5)"
+            mostrar_modo_numPreguntas = "(5)"
 
         if contenidoAjustes == "1099001":
             modo_ajustes = 1
@@ -153,7 +154,7 @@ def funArchivos():
             numPreguntas = 1
             MultiPuntuacion = 2
             mostrar_modo_dificultad = "(Normal)"
-            mostrar_modo_nºpreguntas = "(1)"
+            mostrar_modo_numPreguntas = "(1)"
 
         if contenidoAjustes == "1099002":
             modo_ajustes = 1
@@ -164,7 +165,7 @@ def funArchivos():
             numPreguntas = 2
             MultiPuntuacion = 2
             mostrar_modo_dificultad = "(Normal)"
-            mostrar_modo_nºpreguntas = "(2)"
+            mostrar_modo_numPreguntas = "(2)"
 
         if contenidoAjustes == "1099003":
             modo_ajustes = 1
@@ -175,7 +176,7 @@ def funArchivos():
             numPreguntas = 3
             MultiPuntuacion = 2
             mostrar_modo_dificultad = "(Normal)"
-            mostrar_modo_nºpreguntas = "(3)"
+            mostrar_modo_numPreguntas = "(3)"
 
         if contenidoAjustes == "1099004":
             modo_ajustes = 1
@@ -186,7 +187,7 @@ def funArchivos():
             numPreguntas = 4
             MultiPuntuacion = 2
             mostrar_modo_dificultad = "(Normal)"
-            mostrar_modo_nºpreguntas = "(4)"
+            mostrar_modo_numPreguntas = "(4)"
 
         if contenidoAjustes == "1099005":
             modo_ajustes = 1
@@ -197,7 +198,7 @@ def funArchivos():
             numPreguntas = 5
             MultiPuntuacion = 2
             mostrar_modo_dificultad = "(Normal)"
-            mostrar_modo_nºpreguntas = "(5)"
+            mostrar_modo_numPreguntas = "(5)"
 
         if contenidoAjustes == "100999001":
             modo_ajustes = 1
@@ -208,7 +209,7 @@ def funArchivos():
             numPreguntas = 1
             MultiPuntuacion = 3
             mostrar_modo_dificultad = "(Dificil)"
-            mostrar_modo_nºpreguntas = "(1)"
+            mostrar_modo_numPreguntas = "(1)"
 
         if contenidoAjustes == "100999002":
             modo_ajustes = 1
@@ -219,7 +220,7 @@ def funArchivos():
             numPreguntas = 2
             MultiPuntuacion = 3
             mostrar_modo_dificultad = "(Dificil)"
-            mostrar_modo_nºpreguntas = "(2)"
+            mostrar_modo_numPreguntas = "(2)"
 
         if contenidoAjustes == "100999003":
             modo_ajustes = 1
@@ -230,7 +231,7 @@ def funArchivos():
             numPreguntas = 3
             MultiPuntuacion = 3
             mostrar_modo_dificultad = "(Dificil)"
-            mostrar_modo_nºpreguntas = "(3)"
+            mostrar_modo_numPreguntas = "(3)"
 
         if contenidoAjustes == "100999004":
             modo_ajustes = 1
@@ -241,7 +242,7 @@ def funArchivos():
             numPreguntas = 4
             MultiPuntuacion = 3
             mostrar_modo_dificultad = "(Dificil)"
-            mostrar_modo_nºpreguntas = "(4)"
+            mostrar_modo_numPreguntas = "(4)"
 
         if contenidoAjustes == "100999005":
             modo_ajustes = 1
@@ -252,7 +253,7 @@ def funArchivos():
             numPreguntas = 5
             MultiPuntuacion = 3
             mostrar_modo_dificultad = "(Dificil)"
-            mostrar_modo_nºpreguntas = "(5)"
+            mostrar_modo_numPreguntas = "(5)"
 
         if contenidoAjustes == "0":
             modo_ajustes = 0
@@ -298,8 +299,8 @@ def funArchivos():
 
         print("Archivo Dificultad 1")
     #---------------------------------------------------------------------------
-
 funArchivos()
+#-------------------------------------------------------------------------------
 
 class MathGameIntermission(App):
 
@@ -327,7 +328,7 @@ class MathGameAjustes(App):
     global firstRun
     global mostrar_modo_ajustes
     global mostrar_modo_dificultad
-    global mostrar_modo_nºpreguntas
+    global mostrar_modo_numPreguntas
     global mostrar_modo_problemas
     global volver_bloquear
     global bloquear
@@ -337,7 +338,7 @@ class MathGameAjustes(App):
         mostrar_modo_ajustes = "(No)"
         #---------------------------------------------------------------------------
         mostrar_modo_dificultad = "(Seleccionar)"
-        mostrar_modo_nºpreguntas = "(Seleccionar)"
+        mostrar_modo_numPreguntas = "(Seleccionar)"
         mostrar_modo_problemas = "(Seleccionar)"
         volver_bloquear = 0
         bloquear = 1
@@ -375,7 +376,7 @@ class MathGameAjustes(App):
                     superBox.remove_widget(cabecera)
                     MathGameAjustes().run()
             else:
-                if Seleccion == "Nº preguntas: "+mostrar_modo_nºpreguntas:
+                if Seleccion == "Nº preguntas: "+mostrar_modo_numPreguntas:
                     if modo_ajustes == 1:
                         superBox.remove_widget(pie)
                         superBox.remove_widget(cabecera)
@@ -402,7 +403,7 @@ class MathGameAjustes(App):
                                     superBox.remove_widget(cabecera)
                                     MathGameAjustes().run()
                                 else:
-                                    if mostrar_modo_nºpreguntas == "(Seleccionar)":
+                                    if mostrar_modo_numPreguntas == "(Seleccionar)":
                                         superBox.remove_widget(pie)
                                         superBox.remove_widget(cabecera)
                                         MathGameAjustes().run()
@@ -468,7 +469,7 @@ class MathGameAjustes(App):
                                 mostrar_modo_ajustes = "(Sí)"
                                 bloquear = 0
 
-                                if mostrar_modo_dificultad == "(Seleccionar)" or mostrar_modo_nºpreguntas == "(Seleccionar)" or mostrar_modo_problemas == "(Seleccionar)":
+                                if mostrar_modo_dificultad == "(Seleccionar)" or mostrar_modo_numPreguntas == "(Seleccionar)" or mostrar_modo_problemas == "(Seleccionar)":
                                     volver_bloquear = 1
                                 else:
                                     #Guardar configuración al activar el guardado---
@@ -523,7 +524,7 @@ class MathGameAjustes(App):
             dificultad = Button(text = "Dificultad: "+mostrar_modo_dificultad,background_color = (0.1,0.2,0.6,0.6))
             dificultad.bind(on_press=callback)
 
-            preguntas = Button(text = "Nº preguntas: "+mostrar_modo_nºpreguntas,background_color = (0.1,0.2,0.6,0.6))
+            preguntas = Button(text = "Nº preguntas: "+mostrar_modo_numPreguntas,background_color = (0.1,0.2,0.6,0.6))
             preguntas.bind(on_press=callback)
 
             problemas = Button(text = "Problemas: "+mostrar_modo_problemas,background_color = (0.1,0.2,0.6,0.6))
@@ -532,7 +533,7 @@ class MathGameAjustes(App):
             dificultad = Button(text = "Dificultad: "+mostrar_modo_dificultad,background_color = (0.1,0.2,0.6,0.3))
             dificultad.bind(on_press=callback)
 
-            preguntas = Button(text = "Nº preguntas: "+mostrar_modo_nºpreguntas,background_color = (0.1,0.2,0.6,0.3))
+            preguntas = Button(text = "Nº preguntas: "+mostrar_modo_numPreguntas,background_color = (0.1,0.2,0.6,0.3))
             preguntas.bind(on_press=callback)
 
             problemas = Button(text = "Problemas: "+mostrar_modo_problemas,background_color = (0.1,0.2,0.6,0.3))
@@ -547,7 +548,7 @@ class MathGameAjustes(App):
             volver = Button(text = "Volver",background_color = (0.1,0.2,0.6,0.6))
             volver.bind(on_press=callback)
         else:
-            if mostrar_modo_dificultad != "(Seleccionar)" and mostrar_modo_nºpreguntas != "(Seleccionar)" and mostrar_modo_problemas != "(Seleccionar)":
+            if mostrar_modo_dificultad != "(Seleccionar)" and mostrar_modo_numPreguntas != "(Seleccionar)" and mostrar_modo_problemas != "(Seleccionar)":
                 volver = Button(text = "Volver",background_color = (0.1,0.2,0.6,0.6))
                 volver.bind(on_press=callback)
             else:
@@ -1483,7 +1484,7 @@ class MathGameP(App):
 
             global numPreguntas
             global modo_ajustes
-            global mostrar_modo_nºpreguntas
+            global mostrar_modo_numPreguntas
 
             respuestaPreguntas = instance.text #contiene el string del boton
             print(instance.text)
@@ -1493,10 +1494,10 @@ class MathGameP(App):
                 superBox.remove_widget(cabecera)
 
                 if modo_ajustes == 1:
-                    mostrar_modo_nºpreguntas = "(1)"
+                    mostrar_modo_numPreguntas = "(1)"
                     MathGameAjustes().run()
                 else:
-                    mostrar_modo_nºpreguntas = "(Seleccionar)"
+                    mostrar_modo_numPreguntas = "(Seleccionar)"
                     MathGameSelOpe().run()
             else:
                 if respuestaPreguntas == "2":
@@ -1505,10 +1506,10 @@ class MathGameP(App):
                     superBox.remove_widget(cabecera)
 
                     if modo_ajustes == 1:
-                        mostrar_modo_nºpreguntas = "(2)"
+                        mostrar_modo_numPreguntas = "(2)"
                         MathGameAjustes().run()
                     else:
-                        mostrar_modo_nºpreguntas = "(Seleccionar)"
+                        mostrar_modo_numPreguntas = "(Seleccionar)"
                         MathGameSelOpe().run()
                 else:
                     if respuestaPreguntas == "3":
@@ -1517,10 +1518,10 @@ class MathGameP(App):
                         superBox.remove_widget(cabecera)
 
                         if modo_ajustes == 1:
-                            mostrar_modo_nºpreguntas = "(3)"
+                            mostrar_modo_numPreguntas = "(3)"
                             MathGameAjustes().run()
                         else:
-                            mostrar_modo_nºpreguntas = "(Seleccionar)"
+                            mostrar_modo_numPreguntas = "(Seleccionar)"
                             MathGameSelOpe().run()
                     else:
                         if respuestaPreguntas == "4":
@@ -1529,10 +1530,10 @@ class MathGameP(App):
                             superBox.remove_widget(cabecera)
 
                             if modo_ajustes == 1:
-                                mostrar_modo_nºpreguntas = "(4)"
+                                mostrar_modo_numPreguntas = "(4)"
                                 MathGameAjustes().run()
                             else:
-                                mostrar_modo_nºpreguntas = "(Seleccionar)"
+                                mostrar_modo_numPreguntas = "(Seleccionar)"
                                 MathGameSelOpe().run()
                         else:
                             numPreguntas = 5
@@ -1540,10 +1541,10 @@ class MathGameP(App):
                             superBox.remove_widget(cabecera)
 
                             if modo_ajustes == 1:
-                                mostrar_modo_nºpreguntas = "(5)"
+                                mostrar_modo_numPreguntas = "(5)"
                                 MathGameAjustes().run()
                             else:
-                                mostrar_modo_nºpreguntas = "(Seleccionar)"
+                                mostrar_modo_numPreguntas = "(Seleccionar)"
                                 MathGameSelOpe().run()
 
         #Interfaz---------------------------------------------------------------
@@ -1608,7 +1609,7 @@ class MathGameS(App):
             global vida
             global vidascii
             global modo_ajustes
-            global mostrar_modo_nºpreguntas
+            global mostrar_modo_numPreguntas
 
             respuestaSupervivencia = instance.text #contiene el string del boton
             print(instance.text)
@@ -1624,10 +1625,10 @@ class MathGameS(App):
                 superBox.remove_widget(cabecera)
 
                 if modo_ajustes == 1:
-                    mostrar_modo_nºpreguntas = "(Supervivencia)"
+                    mostrar_modo_numPreguntas = "(Supervivencia)"
                     MathGameAjustes().run()
                 else:
-                    mostrar_modo_nºpreguntas = "(Seleccionar)"
+                    mostrar_modo_numPreguntas = "(Seleccionar)"
                     MathGameSelOpe().run()
 
             else:
