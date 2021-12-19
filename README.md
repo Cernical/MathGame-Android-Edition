@@ -17,6 +17,7 @@
 <b>Features</b>
 
 - Optimizaciones del código de cara a solventar los problemas de redundancia.
+- Añadido una pantalla nueva al seleccionar operaciones o de información si ya se tiene ajustes guardados.
 
 <b>Bugs</b>
 
