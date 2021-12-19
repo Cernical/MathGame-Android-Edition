@@ -12,6 +12,18 @@
 
 # Changelog
 
+<h2>v0.10.6</h2>
+
+<b>Features</b>
+
+- Optimizaciones del código de cara a solventar los problemas de redundancia.
+
+<b>Bugs</b>
+
+- La app se cerrará dada cierta cantidad de operaciones realizadas.
+
+<hr>
+
 <h2>v0.10.5</h2>
 
 <b>Features</b>
