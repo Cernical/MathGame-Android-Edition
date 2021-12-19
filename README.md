@@ -12,6 +12,18 @@
 
 # Changelog
 
+<h2>v0.10.3</h2>
+
+<b>Features</b>
+
+- Se arregla la interfaz del menú de ajustes y ahora se mostrará correctamente la información almacenada en todos los casos posibles.
+
+<b>Bugs</b>
+
+- La app se cerrará dada cierta cantidad de operaciones realizadas.
+
+<hr>
+
 <h2>v0.10.2</h2>
 
 <b>Features</b>
