@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-version = "0.10.3"
+version = "0.10.4"
 
 from kivy.app import App
 from kivy.uix.label import Label
@@ -1203,7 +1203,7 @@ class MathGameRestas(App):
 
             else:
 
-                consola = Label(text = "Sumas entre dos numeros: "+mostrarnumero1+" + "+mostrarnumero2)
+                consola = Label(text = "Restas entre dos numeros: "+mostrarnumero1+" - "+mostrarnumero2)
 
             cabecera.add_widget(consola)
 
