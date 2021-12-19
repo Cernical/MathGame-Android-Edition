@@ -50,7 +50,6 @@
 - Al acceder al menú de ajustes habiendo almacenado previamente se podrá experimentar un comportamiento extraño.
 - Al realizar restas sin modo supervivencia aparecerá el texto indicando que son sumas.
 
-
 <hr>
 
 <h2>v0.10.1</h2>
