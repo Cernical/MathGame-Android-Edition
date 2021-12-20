@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-version = "0.11.1"
+version = "0.12.0"
 
 from kivy.app import App
 from kivy.uix.label import Label
@@ -14,8 +14,9 @@ Window.clearcolor = (0.1,0.2,0.4,1)
 #-------------------------------------------------------------------------------
 
 #Permitir la recursividad (temporal)--------------------------------------------
-import sys
-sys.setrecursionlimit(5000)
+import resource, sys
+resource.setrlimit(resource.RLIMIT_STACK, (2**29,-1))
+sys.setrecursionlimit(10**6)
 #-------------------------------------------------------------------------------
 
 #Creación y procesado de archivos-----------------------------------------------
@@ -300,6 +301,16 @@ def funArchivos():
         print("Archivo Dificultad 1")
     #---------------------------------------------------------------------------
 funArchivos()
+#-------------------------------------------------------------------------------
+
+#Necesario para la música-------------------------------------------------------
+from pygame.locals import *
+from pygame import mixer
+import pygame
+
+global victory
+mixer.init()
+victory = mixer.Sound("./data/audio/victory.mp3")
 #-------------------------------------------------------------------------------
 
 class MathGameIntermission(App):
@@ -737,7 +748,7 @@ class MathGameComprobacion(App):
             consola = Label(text = "El resultado era "+resultadoMostrar)
 
         else:
-
+            victory.play()
             consola = Label(text = "¡Has acertado!")
 
         cabecera.add_widget(consola)
