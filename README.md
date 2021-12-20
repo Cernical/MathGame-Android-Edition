@@ -12,6 +12,18 @@
 
 # Changelog
 
+<h2>v0.11.1</h2>
+
+<b>Features</b>
+
+- Optimizaciones del código.
+
+<b>Bugs</b>
+
+- La app se cerrará dada cierta cantidad de operaciones realizadas.
+
+<hr>
+
 <h2>v0.11.0</h2>
 
 <b>Features</b>
