@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-version = "0.12.0"
+version = "0.12.1"
 
 from kivy.app import App
 from kivy.uix.label import Label
@@ -304,13 +304,18 @@ funArchivos()
 #-------------------------------------------------------------------------------
 
 #Necesario para la música-------------------------------------------------------
-from pygame.locals import *
-from pygame import mixer
-import pygame
+global modo_compatibilidad
 
-global victory
-mixer.init()
-victory = mixer.Sound("./data/audio/victory.mp3")
+try:
+    from pygame.locals import *
+    from pygame import mixer
+    import pygame
+
+    global victory
+    mixer.init()
+    victory = mixer.Sound("./data/audio/victory.mp3")
+except:
+    modo_compatibilidad = 1
 #-------------------------------------------------------------------------------
 
 class MathGameIntermission(App):
@@ -748,7 +753,7 @@ class MathGameComprobacion(App):
             consola = Label(text = "El resultado era "+resultadoMostrar)
 
         else:
-            victory.play()
+            if modo_compatibilidad != 1: victory.play()
             consola = Label(text = "¡Has acertado!")
 
         cabecera.add_widget(consola)
