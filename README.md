@@ -12,6 +12,18 @@
 
 # Changelog
 
+<h2>v0.12.1</h2>
+
+<b>Features</b>
+
+- Mejorada la compatibilidad con android.
+
+<b>Bugs</b>
+
+- La app se cerrará dada cierta cantidad de operaciones realizadas.
+
+<hr>
+
 <h2>v0.12.0</h2>
 
 <b>Features</b>
