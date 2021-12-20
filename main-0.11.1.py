@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-version = "0.11.0"
+version = "0.11.1"
 
 from kivy.app import App
 from kivy.uix.label import Label
@@ -318,21 +318,21 @@ class MathGameIntermission(App):
                 if operacion == "Sumas":
                     superBox.remove_widget(cabecera)
                     superBox.remove_widget(pie)
-                    MathGameSumas().run()
+                    MathGameOperaciones().run()
                 else:
                     if operacion == "Restas":
                         superBox.remove_widget(cabecera)
                         superBox.remove_widget(pie)
-                        MathGameRestas().run()
+                        MathGameOperaciones().run()
                     else:
                         if operacion == "Multiplicaciones":
                             superBox.remove_widget(cabecera)
                             superBox.remove_widget(pie)
-                            MathGameMultiplicaciones().run()
+                            MathGameOperaciones().run()
                         else:
                             superBox.remove_widget(cabecera)
                             superBox.remove_widget(pie)
-                            MathGameDivisiones().run()
+                            MathGameOperaciones().run()
             else:
                 superBox.remove_widget(cabecera)
                 superBox.remove_widget(pie)
@@ -700,21 +700,21 @@ class MathGameComprobacion(App):
             if operacion == "Sumas":
                 superBox.remove_widget(cabecera)
                 superBox.remove_widget(pie)
-                MathGameSumas().run()
+                MathGameOperaciones().run()
             else:
                 if operacion == "Restas":
                     superBox.remove_widget(cabecera)
                     superBox.remove_widget(pie)
-                    MathGameRestas().run()
+                    MathGameOperaciones().run()
                 else:
                     if operacion == "Multiplicaciones":
                         superBox.remove_widget(cabecera)
                         superBox.remove_widget(pie)
-                        MathGameMultiplicaciones().run()
+                        MathGameOperaciones().run()
                     else:
                         superBox.remove_widget(cabecera)
                         superBox.remove_widget(pie)
-                        MathGameDivisiones().run()
+                        MathGameOperaciones().run()
         #-----------------------------------------------------------------------
 
         global operacion
@@ -813,7 +813,7 @@ class MathGameResultado(App):
 
                     superBox.remove_widget(pie)
                     superBox.remove_widget(cabecera)
-                    MathGameSumas().run()
+                    MathGameOperaciones().run()
 
                 else:
 
@@ -821,7 +821,7 @@ class MathGameResultado(App):
 
                         superBox.remove_widget(pie)
                         superBox.remove_widget(cabecera)
-                        MathGameRestas().run()
+                        MathGameOperaciones().run()
 
                     else:
 
@@ -829,13 +829,13 @@ class MathGameResultado(App):
 
                             superBox.remove_widget(pie)
                             superBox.remove_widget(cabecera)
-                            MathGameMultiplicaciones().run()
+                            MathGameOperaciones().run()
 
                         else:
 
                             superBox.remove_widget(pie)
                             superBox.remove_widget(cabecera)
-                            MathGameDivisiones().run()
+                            MathGameOperaciones().run()
 
             else:
 
@@ -892,7 +892,7 @@ class MathGameResultado(App):
         return superBox
         #Fin interfaz-----------------------------------------------------------
 
-class MathGameDivisiones(App):
+class MathGameOperaciones(App):
 
     global ContadorPreguntas
     ContadorPreguntas = 0
@@ -910,560 +910,7 @@ class MathGameDivisiones(App):
         global vidascii
         global finalOperacion
         finalOperacion = 0
-
-        #Función que registra el botón seleccionado-----------------------------
-        def callback(instance):
-
-            global puntuacion
-            global ContadorPreguntas
-            global comprobacion
-
-            #Gestión de la excepción al presionar botón sin introducir nada-----
-            try:
-                respuestaOperaciones = resultadoAintroducir #contiene el string del boton
-            except:
-                respuestaOperaciones = 998003
-            #-------------------------------------------------------------------
-
-            if finalOperacion == 0:
-
-                print(respuestaOperaciones)
-                if respuestaOperaciones == resultadoreal:
-                    puntuacion = puntuacion + 1
-                    superBox.remove_widget(pie)
-                    superBox.remove_widget(cabecera)
-                    ContadorPreguntas = ContadorPreguntas + 1
-                    comprobacion = 1
-                    MathGameComprobacion().run()
-                else:
-                    superBox.remove_widget(pie)
-                    superBox.remove_widget(cabecera)
-                    ContadorPreguntas = ContadorPreguntas + 1
-                    comprobacion = 0
-                    MathGameComprobacion().run()
-            else:
-
-                #Comprobación turnos o vidas------------------------------------
-                if modo_supervivencia == 0:
-                    if ContadorPreguntas == numPreguntas:
-                        superBox.remove_widget(pie)
-                        superBox.remove_widget(cabecera)
-                        MathGameResultado().run()
-                else:
-                    if vida == 0:
-                        superBox.remove_widget(pie)
-                        superBox.remove_widget(cabecera)
-                        MathGameResultado().run()
-            #-------------------------------------------------------------------
-
-        #Funcion que registra contenido del input-------------------------------
-        def on_text(instance, value):
-
-            global resultadoAintroducir
-            print('The widget', instance, 'have:', value)
-
-            try:
-                value = int(value)
-                resultadoAintroducir = value
-            except:
-                resultadoAintroducir = 998003
-        #-----------------------------------------------------------------------
-
-        while ContadorPreguntas < numPreguntas or vida != 0:
-
-            #Modulo Sumas
-            randomnumero1 = 0
-            randomnumero2 = 0
-            resultadoreal = 0
-            solucion = 0
-            #-------------------------------------------------------------------
-
-            randomnumero1=(randrange(RangoMin,RangoMax))          #Rango de suma
-            randomnumero2=(randrange(RangoMin,RangoMax))          #Rango de suma
-
-            #Evitar dividir entre 0---------------------------------------------
-            if randomnumero1 == 0: randomnumero1 = randomnumero1 + 1
-            if randomnumero2 == 0: randomnumero2 = randomnumero2 + 1
-            #-------------------------------------------------------------------
-
-            mostrarnumero1 = str(randomnumero1)
-            mostrarnumero2 = str(randomnumero2)
-            print(randomnumero1,"/",randomnumero2)
-
-            resultadoreal = randomnumero1/randomnumero2           #Resultadoreal
-
-            resultadoreal = int(resultadoreal)              #Convertir a Integer
-
-            #Debugging----------------------------------------------------------
-            print(resultadoreal)
-            #-------------------------------------------------------------------
-
-            #Interfaz-----------------------------------------------------------
-            #Layout completo subdividido en dos sublayouts, uno vertical y otro horizontal
-            superBox = BoxLayout(orientation ='vertical')
-
-            #Widgets de cabecera añadidos en el plano horizontal----------------
-            cabecera = BoxLayout(orientation ='horizontal')
-
-            if modo_supervivencia == 1:
-
-                vidaStr = str(vida)
-                consola = Label(text = "Tienes "+vidaStr+" vidas "+"|"+" Divisiones entre dos numeros: "+mostrarnumero1+" / "+mostrarnumero2)
-
-            else:
-
-                consola = Label(text = "Divisiones entre dos numeros: "+mostrarnumero1+" / "+mostrarnumero2)
-
-            cabecera.add_widget(consola)
-
-            #Widgets de pie de página añadidos en el plano vertical-------------
-            pie = BoxLayout(orientation ='vertical')
-
-            bienvenida = Button(text = "Seleccione la respuesta",background_color = (0.1,0.2,0.6,0.6))
-            bienvenida.bind(on_press=callback)
-
-            textinput = TextInput()
-            textinput.bind(text=on_text)
-
-            null = Label(text = "")
-            null2 = Label(text = "")
-
-            pie.add_widget(null)
-            pie.add_widget(null2)
-            pie.add_widget(textinput)
-            pie.add_widget(bienvenida)
-
-            #Salida por pantalla final------------------------------------------
-            superBox.add_widget(cabecera)
-            superBox.add_widget(pie)
-
-            #Mostrar layout completo--------------------------------------------
-            return superBox
-            #Fin interfaz-------------------------------------------------------
-
-        finalOperacion = 1
-
-        #InterfazFinal----------------------------------------------------------
-        #Layout completo subdividido en dos sublayouts, uno vertical y otro horizontal
-        superBox = BoxLayout(orientation ='vertical')
-
-        #Widgets de cabecera añadidos en el plano horizontal--------------------
-        cabecera = BoxLayout(orientation ='horizontal')
-
-        if modo_supervivencia == 1:
-
-            vidaStr = str(vida)
-            consola = Label(text = "Te has quedado sin vidas")
-
-        else:
-
-            consola = Label(text = "Has finalizado")
-
-        cabecera.add_widget(consola)
-
-        #Widgets de pie de página añadidos en el plano vertical-----------------
-        pie = BoxLayout(orientation ='vertical')
-
-        vale = Button(text = "Vale",background_color = (0.1,0.2,0.6,0.6))
-        vale.bind(on_press=callback)
-
-        null = Label(text = "")
-        null2 = Label(text = "")
-
-        pie.add_widget(null)
-        pie.add_widget(null2)
-        pie.add_widget(vale)
-
-        #Salida por pantalla final----------------------------------------------
-        superBox.add_widget(cabecera)
-        superBox.add_widget(pie)
-
-        #Mostrar layout completo------------------------------------------------
-        return superBox
-        #Fin interfaz-----------------------------------------------------------
-
-class MathGameMultiplicaciones(App):
-
-    global ContadorPreguntas
-    ContadorPreguntas = 0
-
-    global puntuacion
-    puntuacion = 0
-
-    def build(self):
-
-        global resultadoreal
-        resultadoreal = 0
-
-        global vidaMostrar
-        global vida
-        global vidascii
-        global finalOperacion
-        finalOperacion = 0
-
-        #Función que registra el botón seleccionado-----------------------------
-        def callback(instance):
-
-            global puntuacion
-            global ContadorPreguntas
-            global comprobacion
-
-            #Gestión de la excepción al presionar botón sin introducir nada-----
-            try:
-                respuestaOperaciones = resultadoAintroducir #contiene el string del boton
-            except:
-                respuestaOperaciones = 998003
-            #-------------------------------------------------------------------
-
-            if finalOperacion == 0:
-
-                print(respuestaOperaciones)
-                if respuestaOperaciones == resultadoreal:
-                    puntuacion = puntuacion + 1
-                    superBox.remove_widget(pie)
-                    superBox.remove_widget(cabecera)
-                    ContadorPreguntas = ContadorPreguntas + 1
-                    comprobacion = 1
-                    MathGameComprobacion().run()
-                else:
-                    superBox.remove_widget(pie)
-                    superBox.remove_widget(cabecera)
-                    ContadorPreguntas = ContadorPreguntas + 1
-                    comprobacion = 0
-                    MathGameComprobacion().run()
-            else:
-
-                #Comprobación turnos o vidas------------------------------------
-                if modo_supervivencia == 0:
-                    if ContadorPreguntas == numPreguntas:
-                        superBox.remove_widget(pie)
-                        superBox.remove_widget(cabecera)
-                        MathGameResultado().run()
-                else:
-                    if vida == 0:
-                        superBox.remove_widget(pie)
-                        superBox.remove_widget(cabecera)
-                        MathGameResultado().run()
-            #-------------------------------------------------------------------
-
-        #Funcion que registra contenido del input-------------------------------
-        def on_text(instance, value):
-
-            global resultadoAintroducir
-            print('The widget', instance, 'have:', value)
-
-            try:
-                value = int(value)
-                resultadoAintroducir = value
-            except:
-                resultadoAintroducir = 998003
-        #-----------------------------------------------------------------------
-
-        while ContadorPreguntas < numPreguntas or vida != 0:
-
-            #Modulo Sumas
-            randomnumero1 = 0
-            randomnumero2 = 0
-            resultadoreal = 0
-            solucion = 0
-            #-------------------------------------------------------------------
-
-            randomnumero1=(randrange(RangoMin,RangoMax))          #Rango de multiplicaciones
-            randomnumero2=(randrange(RangoMin,RangoMax))          #Rango de multiplicaciones
-            mostrarnumero1 = str(randomnumero1)
-            mostrarnumero2 = str(randomnumero2)
-            print(randomnumero1,"*",randomnumero2)
-            resultadoreal = randomnumero1*randomnumero2           #Resultadoreal
-            resultadoreal = int(resultadoreal)              #Convertir a Integer
-
-            #Debugging----------------------------------------------------------
-            print(resultadoreal)
-            #-------------------------------------------------------------------
-
-            #Interfaz-----------------------------------------------------------
-            #Layout completo subdividido en dos sublayouts, uno vertical y otro horizontal
-            superBox = BoxLayout(orientation ='vertical')
-
-            #Widgets de cabecera añadidos en el plano horizontal----------------
-            cabecera = BoxLayout(orientation ='horizontal')
-
-            if modo_supervivencia == 1:
-
-                vidaStr = str(vida)
-                consola = Label(text = "Tienes "+vidaStr+" vidas "+"|"+" Multiplicaciones entre dos numeros: "+mostrarnumero1+" x "+mostrarnumero2)
-
-            else:
-
-                consola = Label(text = "Multiplicaciones entre dos numeros: "+mostrarnumero1+" x "+mostrarnumero2)
-
-            cabecera.add_widget(consola)
-
-            #Widgets de pie de página añadidos en el plano vertical-------------
-            pie = BoxLayout(orientation ='vertical')
-
-            bienvenida = Button(text = "Seleccione la respuesta",background_color = (0.1,0.2,0.6,0.6))
-            bienvenida.bind(on_press=callback)
-
-            textinput = TextInput()
-            textinput.bind(text=on_text)
-
-            null = Label(text = "")
-            null2 = Label(text = "")
-
-            pie.add_widget(null)
-            pie.add_widget(null2)
-            pie.add_widget(textinput)
-            pie.add_widget(bienvenida)
-
-            #Salida por pantalla final------------------------------------------
-            superBox.add_widget(cabecera)
-            superBox.add_widget(pie)
-
-            #Mostrar layout completo--------------------------------------------
-            return superBox
-            #Fin interfaz-------------------------------------------------------
-
-        finalOperacion = 1
-
-        #InterfazFinal----------------------------------------------------------
-        #Layout completo subdividido en dos sublayouts, uno vertical y otro horizontal
-        superBox = BoxLayout(orientation ='vertical')
-
-        #Widgets de cabecera añadidos en el plano horizontal--------------------
-        cabecera = BoxLayout(orientation ='horizontal')
-
-        if modo_supervivencia == 1:
-
-            vidaStr = str(vida)
-            consola = Label(text = "Te has quedado sin vidas")
-
-        else:
-
-            consola = Label(text = "Has finalizado")
-
-        cabecera.add_widget(consola)
-
-        #Widgets de pie de página añadidos en el plano vertical-----------------
-        pie = BoxLayout(orientation ='vertical')
-
-        vale = Button(text = "Vale",background_color = (0.1,0.2,0.6,0.6))
-        vale.bind(on_press=callback)
-
-        null = Label(text = "")
-        null2 = Label(text = "")
-
-        pie.add_widget(null)
-        pie.add_widget(null2)
-        pie.add_widget(vale)
-
-        #Salida por pantalla final----------------------------------------------
-        superBox.add_widget(cabecera)
-        superBox.add_widget(pie)
-
-        #Mostrar layout completo------------------------------------------------
-        return superBox
-        #Fin interfaz-----------------------------------------------------------
-
-class MathGameRestas(App):
-
-    global ContadorPreguntas
-    ContadorPreguntas = 0
-
-    global puntuacion
-    puntuacion = 0
-
-    def build(self):
-
-        global resultadoreal
-        resultadoreal = 0
-
-        global vidaMostrar
-        global vida
-        global vidascii
-        global finalOperacion
-        finalOperacion = 0
-
-        #Función que registra el botón seleccionado-----------------------------
-        def callback(instance):
-
-            global ContadorPreguntas
-            global puntuacion
-            global comprobacion
-
-            #Gestión de la excepción al presionar botón sin introducir nada-----
-            try:
-                respuestaOperaciones = resultadoAintroducir #contiene el string del boton
-            except:
-                respuestaOperaciones = 998003
-            #-------------------------------------------------------------------
-
-            if finalOperacion == 0:
-
-                print(respuestaOperaciones)
-                if respuestaOperaciones == resultadoreal:
-                    puntuacion = puntuacion + 1
-                    superBox.remove_widget(pie)
-                    superBox.remove_widget(cabecera)
-                    ContadorPreguntas = ContadorPreguntas + 1
-                    comprobacion = 1
-                    MathGameComprobacion().run()
-                else:
-                    superBox.remove_widget(pie)
-                    superBox.remove_widget(cabecera)
-                    ContadorPreguntas = ContadorPreguntas + 1
-                    comprobacion = 0
-                    MathGameComprobacion().run()
-            else:
-
-                #Comprobación turnos o vidas------------------------------------
-                if modo_supervivencia == 0:
-                    if ContadorPreguntas == numPreguntas:
-                        superBox.remove_widget(pie)
-                        superBox.remove_widget(cabecera)
-                        MathGameResultado().run()
-                else:
-                    if vida == 0:
-                        superBox.remove_widget(pie)
-                        superBox.remove_widget(cabecera)
-                        MathGameResultado().run()
-            #-------------------------------------------------------------------
-
-        #Función que registra contenido del input box---------------------------
-        def on_text(instance, value):
-
-            global resultadoAintroducir
-            print('The widget', instance, 'have:', value)
-
-            try:
-                value = int(value)
-                resultadoAintroducir = value
-            except:
-                resultadoAintroducir = 998003
-        #-----------------------------------------------------------------------
-
-        while ContadorPreguntas < numPreguntas or vida != 0:
-
-            #Modulo Restas
-            randomnumero1 = 0
-            randomnumero2 = 0
-            resultadoreal = 0
-            solucion = 0
-            #-------------------------------------------------------------------
-
-            randomnumero1=(randrange(RangoMin,RangoMax))          #Rango de resta
-            randomnumero2=(randrange(RangoMin,RangoMax))          #Rango de resta
-            mostrarnumero1 = str(randomnumero1)
-            mostrarnumero2 = str(randomnumero2)
-            print(randomnumero1,"-",randomnumero2)
-            resultadoreal = randomnumero1-randomnumero2           #Resultadoreal
-            resultadoreal = int(resultadoreal)              #Convertir a Integer
-
-            #Debugging----------------------------------------------------------
-            print(resultadoreal)
-            #-------------------------------------------------------------------
-
-            #Interfaz-----------------------------------------------------------
-            #Layout completo subdividido en dos sublayouts, uno vertical y otro horizontal
-            superBox = BoxLayout(orientation ='vertical')
-
-            #Widgets de cabecera añadidos en el plano horizontal----------------
-            cabecera = BoxLayout(orientation ='horizontal')
-
-            if modo_supervivencia == 1:
-
-                vidaStr = str(vida)
-                consola = Label(text = "Tienes "+vidaStr+" vidas "+"|"+" Restas entre dos numeros: "+mostrarnumero1+" - "+mostrarnumero2)
-
-            else:
-
-                consola = Label(text = "Restas entre dos numeros: "+mostrarnumero1+" - "+mostrarnumero2)
-
-            cabecera.add_widget(consola)
-
-            #Widgets de pie de página añadidos en el plano vertical-------------
-            pie = BoxLayout(orientation ='vertical')
-
-            bienvenida = Button(text = "Seleccione la respuesta",background_color = (0.1,0.2,0.6,0.6))
-            bienvenida.bind(on_press=callback)
-
-            textinput = TextInput()
-            textinput.bind(text=on_text)
-
-            null = Label(text = "")
-            null2 = Label(text = "")
-
-            pie.add_widget(null)
-            pie.add_widget(null2)
-            pie.add_widget(textinput)
-            pie.add_widget(bienvenida)
-
-            #Salida por pantalla final------------------------------------------
-            superBox.add_widget(cabecera)
-            superBox.add_widget(pie)
-
-            #Mostrar layout completo--------------------------------------------
-            return superBox
-            #Fin interfaz-------------------------------------------------------
-
-        finalOperacion = 1
-
-        #InterfazFinal----------------------------------------------------------
-        #Layout completo subdividido en dos sublayouts, uno vertical y otro horizontal
-        superBox = BoxLayout(orientation ='vertical')
-
-        #Widgets de cabecera añadidos en el plano horizontal--------------------
-        cabecera = BoxLayout(orientation ='horizontal')
-
-        if modo_supervivencia == 1:
-
-            vidaStr = str(vida)
-            consola = Label(text = "Te has quedado sin vidas")
-
-        else:
-
-            consola = Label(text = "Has finalizado")
-
-        cabecera.add_widget(consola)
-
-        #Widgets de pie de página añadidos en el plano vertical-----------------
-        pie = BoxLayout(orientation ='vertical')
-
-        vale = Button(text = "Vale",background_color = (0.1,0.2,0.6,0.6))
-        vale.bind(on_press=callback)
-
-        null = Label(text = "")
-        null2 = Label(text = "")
-
-        pie.add_widget(null)
-        pie.add_widget(null2)
-        pie.add_widget(vale)
-
-        #Salida por pantalla final----------------------------------------------
-        superBox.add_widget(cabecera)
-        superBox.add_widget(pie)
-
-        #Mostrar layout completo------------------------------------------------
-        return superBox
-        #Fin interfaz-----------------------------------------------------------
-
-class MathGameSumas(App):
-
-    global ContadorPreguntas
-    ContadorPreguntas = 0
-
-    global puntuacion
-    puntuacion = 0
-
-    def build(self):
-
-        global resultadoreal
-        resultadoreal = 0
-
-        global vidaMostrar
-        global vida
-        global vidascii
-        global finalOperacion
-        finalOperacion = 0
+        global operacion
 
         #Función que registra el botón seleccionado-----------------------------
         def callback(instance):
@@ -1536,8 +983,12 @@ class MathGameSumas(App):
             randomnumero2=(randrange(RangoMin,RangoMax))          #Rango de suma
             mostrarnumero1 = str(randomnumero1)
             mostrarnumero2 = str(randomnumero2)
-            print(randomnumero1,"+",randomnumero2)
-            resultadoreal = randomnumero1+randomnumero2           #Resultadoreal
+
+            if operacion == "Sumas": resultadoreal = randomnumero1+randomnumero2           #Resultadoreal
+            if operacion == "Restas": resultadoreal = randomnumero1-randomnumero2           #Resultadoreal
+            if operacion == "Multiplicaciones": resultadoreal = randomnumero1*randomnumero2           #Resultadoreal
+            if operacion == "Divisiones": resultadoreal = randomnumero1/randomnumero2           #Resultadoreal
+
             resultadoreal = int(resultadoreal)              #Convertir a Integer
 
             #Debugging----------------------------------------------------------
@@ -1554,11 +1005,29 @@ class MathGameSumas(App):
             if modo_supervivencia == 1:
 
                 vidaStr = str(vida)
-                consola = Label(text = "Tienes "+vidaStr+" vidas "+"|"+" Sumas entre dos numeros: "+mostrarnumero1+" + "+mostrarnumero2)
+                if operacion == "Sumas":
+                    consola = Label(text = "Tienes "+vidaStr+" vidas "+"|"+" Sumas entre dos numeros: "+mostrarnumero1+" + "+mostrarnumero2)
+                else:
+                    if operacion == "Restas":
+                        consola = Label(text = "Tienes "+vidaStr+" vidas "+"|"+" Restas entre dos numeros: "+mostrarnumero1+" - "+mostrarnumero2)
+                    else:
+                        if operacion == "Multiplicaciones":
+                            consola = Label(text = "Tienes "+vidaStr+" vidas "+"|"+" Multiplicaciones entre dos numeros: "+mostrarnumero1+" x "+mostrarnumero2)
+                        else:
+                            consola = Label(text = "Tienes "+vidaStr+" vidas "+"|"+" Divisiones entre dos numeros: "+mostrarnumero1+" / "+mostrarnumero2)
 
             else:
 
-                consola = Label(text = "Sumas entre dos numeros: "+mostrarnumero1+" + "+mostrarnumero2)
+                if operacion == "Sumas":
+                    consola = Label(text = "Sumas entre dos numeros: "+mostrarnumero1+" + "+mostrarnumero2)
+                else:
+                    if operacion == "Restas":
+                        consola = Label(text = "Restas entre dos numeros: "+mostrarnumero1+" - "+mostrarnumero2)
+                    else:
+                        if operacion == "Multiplicaciones":
+                            consola = Label(text = "Multiplicaciones entre dos numeros: "+mostrarnumero1+" x "+mostrarnumero2)
+                        else:
+                            consola = Label(text = "Divisiones entre dos numeros: "+mostrarnumero1+" / "+mostrarnumero2)
 
             cabecera.add_widget(consola)
 
@@ -1653,7 +1122,7 @@ class MathGameSelOpe(App):
                     MathGameAjustes().run()
                 else:
                     mostrar_modo_problemas = "(Seleccionar)"
-                    MathGameSumas().run()
+                    MathGameOperaciones().run()
             else:
                 if respuestaOperaciones == "Restas":
                     operacion = "Restas"
@@ -1665,7 +1134,7 @@ class MathGameSelOpe(App):
                         MathGameAjustes().run()
                     else:
                         mostrar_modo_problemas = "(Seleccionar)"
-                        MathGameRestas().run()
+                        MathGameOperaciones().run()
                 else:
                     if respuestaOperaciones == "Multiplicaciones":
                         operacion = "Multiplicaciones"
@@ -1677,7 +1146,7 @@ class MathGameSelOpe(App):
                             MathGameAjustes().run()
                         else:
                             mostrar_modo_problemas = "(Seleccionar)"
-                            MathGameMultiplicaciones().run()
+                            MathGameOperaciones().run()
                     else:
                         operacion = "Divisiones"
                         superBox.remove_widget(pie)
@@ -1688,7 +1157,7 @@ class MathGameSelOpe(App):
                             MathGameAjustes().run()
                         else:
                             mostrar_modo_problemas = "(Seleccionar)"
-                            MathGameDivisiones().run()
+                            MathGameOperaciones().run()
 
         #Layout completo subdividido en dos sublayouts, uno vertical y otro horizontal
         superBox = BoxLayout(orientation ='vertical')
