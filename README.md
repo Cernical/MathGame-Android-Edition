@@ -12,6 +12,19 @@
 
 # Changelog
 
+<h2>v0.12.0</h2>
+
+<b>Features</b>
+
+- Añadido el módulo de música y algunos efectos de sonido al acertar.
+- Aumentado el límite de recursividad para python.
+
+<b>Bugs</b>
+
+- La app se cerrará dada cierta cantidad de operaciones realizadas.
+
+<hr>
+
 <h2>v0.11.1</h2>
 
 <b>Features</b>
