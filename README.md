@@ -21,6 +21,7 @@
 <b>Bugs</b>
 
 - La app se cerrará dada cierta cantidad de operaciones realizadas.
+- Los efectos de sonidos no funcionarán en android.
 
 <hr>
 
