@@ -21,6 +21,7 @@
 <b>Bugs</b>
 
 - La app se cerrará dada cierta cantidad de operaciones realizadas.
+- Los sonidos no funcionan.
 
 <hr>
 
