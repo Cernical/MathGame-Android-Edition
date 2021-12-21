@@ -12,6 +12,18 @@
 
 # Changelog
 
+<h2>v0.12.5</h2>
+
+<b>Features</b>
+
+- Activado los permisos de nuevo.
+
+<b>Bugs</b>
+
+- La app se cerrará dada cierta cantidad de operaciones realizadas.
+
+<hr>
+
 <h2>v0.12.4</h2>
 
 <b>Features</b>
