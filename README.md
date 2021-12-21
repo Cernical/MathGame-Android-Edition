@@ -12,6 +12,16 @@
 
 # Changelog
 
+<h2>v0.12.2</h2>
+
+<b>Features</b>
+
+- Cambiada la librería usada para ejecutar audio.
+
+<b>Bugs</b>
+
+- La app se cerrará dada cierta cantidad de operaciones realizadas.
+
 <h2>v0.12.1</h2>
 
 <b>Features</b>
