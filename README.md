@@ -21,6 +21,7 @@
 <b>Bugs</b>
 
 - La app se cerrará dada cierta cantidad de operaciones realizadas.
+- Cierres al acertar cualquier operación debido a fallos al cargar el módulo de audio.
 
 <h2>v0.12.1</h2>
 
