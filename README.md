@@ -12,6 +12,18 @@
 
 # Changelog
 
+<h2>v0.12.4</h2>
+
+<b>Features</b>
+
+- Desactivado los permisos temporalmente y cambio de formatos de audio.
+
+<b>Bugs</b>
+
+- La app se cerrará dada cierta cantidad de operaciones realizadas.
+
+<hr>
+
 <h2>v0.12.3</h2>
 
 <b>Features</b>
@@ -21,9 +33,9 @@
 <b>Bugs</b>
 
 - La app se cerrará dada cierta cantidad de operaciones realizadas.
+- Cierres al acertar cualquier operación debido a fallos al cargar el módulo de audio.
 
 <hr>
-
 
 <h2>v0.12.2</h2>
 
