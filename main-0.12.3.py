@@ -7,6 +7,7 @@ from kivy.uix.button import Button
 from kivy.uix.textinput import TextInput
 from kivy.uix.boxlayout import BoxLayout
 from random import randrange
+from android.permissions import request_permissions, Permission
 
 #Insertar color al cambiar de ventana-------------------------------------------
 from kivy.core.window import Window
