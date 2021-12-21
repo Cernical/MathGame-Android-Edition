@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-version = "0.12.3"
+version = "0.12.4"
 
 from kivy.app import App
 from kivy.uix.label import Label
@@ -8,8 +8,8 @@ from kivy.uix.textinput import TextInput
 from kivy.uix.boxlayout import BoxLayout
 from random import randrange
 
-from android.permissions import request_permissions, Permission
-request_permissions([Permission.READ_EXTERNAL_STORAGE])
+#from android.permissions import request_permissions, Permission
+#request_permissions([Permission.READ_EXTERNAL_STORAGE])
 
 #Insertar color al cambiar de ventana-------------------------------------------
 from kivy.core.window import Window
@@ -308,7 +308,7 @@ funArchivos()
 
 #Necesario para la música-------------------------------------------------------
 from kivy.core.audio import SoundLoader
-victory = SoundLoader.load('./data/audio/victory.mp3')
+victory = SoundLoader.load('./data/audio/victory.wav')
 #-------------------------------------------------------------------------------
 
 class MathGameIntermission(App):
