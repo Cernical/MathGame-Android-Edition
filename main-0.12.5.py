@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-version = "0.12.4"
+version = "0.12.5"
 
 from kivy.app import App
 from kivy.uix.label import Label
@@ -8,8 +8,8 @@ from kivy.uix.textinput import TextInput
 from kivy.uix.boxlayout import BoxLayout
 from random import randrange
 
-#from android.permissions import request_permissions, Permission
-#request_permissions([Permission.READ_EXTERNAL_STORAGE])
+from android.permissions import request_permissions, Permission
+request_permissions([Permission.READ_EXTERNAL_STORAGE])
 
 #Insertar color al cambiar de ventana-------------------------------------------
 from kivy.core.window import Window
