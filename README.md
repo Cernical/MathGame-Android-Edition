@@ -12,6 +12,19 @@
 
 # Changelog
 
+<h2>v0.12.3</h2>
+
+<b>Features</b>
+
+- Añadido permisos para android.
+
+<b>Bugs</b>
+
+- La app se cerrará dada cierta cantidad de operaciones realizadas.
+
+<hr>
+
+
 <h2>v0.12.2</h2>
 
 <b>Features</b>
@@ -22,6 +35,8 @@
 
 - La app se cerrará dada cierta cantidad de operaciones realizadas.
 - Cierres al acertar cualquier operación debido a fallos al cargar el módulo de audio.
+
+<hr>
 
 <h2>v0.12.1</h2>
 
