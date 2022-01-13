@@ -12,6 +12,20 @@
 
 # Changelog
 
+<h2>v0.13.0</h2>
+
+<b>Features</b>
+
+- Añadida una pantalla de selección de modos extra.
+
+<b>Bugs</b>
+
+- La app se cerrará dada cierta cantidad de operaciones realizadas.
+
+# Se han eliminado temporalmente los sonidos hasta conseguir integrarlos en Android, hasta ahora solo era posible escucharlos en PC.
+
+<hr>
+
 <h2>v0.12.5</h2>
 
 <b>Features</b>
