@@ -12,6 +12,18 @@
 
 # Changelog
 
+<h2>v0.13.1</h2>
+
+<b>Features</b>
+
+- Se añade correción de errores al introducir datos en la Ecucación de Drake.
+
+<b>Bugs</b>
+
+- La app se cerrará dada cierta cantidad de operaciones realizadas.
+
+<hr>
+
 <h2>v0.13.0</h2>
 
 <b>Features</b>
