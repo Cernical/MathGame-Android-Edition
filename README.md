@@ -22,7 +22,7 @@
 
 - La app se cerrará dada cierta cantidad de operaciones realizadas.
 
-<b>Se han eliminado temporalmente los sonidos hasta conseguir integrarlos en Android, hasta ahora solo era posible escucharlos en PC.</b>
+<b>#Se han eliminado temporalmente los sonidos hasta conseguir integrarlos en Android, hasta ahora solo era posible escucharlos en PC.</b>
 
 <hr>
 
