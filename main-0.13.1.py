@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-version = "0.13.0"
+version = "0.13.1"
 
 from kivy.app import App
 from kivy.uix.label import Label
@@ -324,6 +324,12 @@ class MathGameDrakeV(App):
             print('The widget', instance, 'have:', value)
 
             resultadoAintroducir = value
+            validacionFloat = resultadoAintroducir
+
+            try:
+                validacionFloat = float(validacionFloat)
+            except:
+                resultadoAintroducir = 0
         #-----------------------------------------------------------------------
 
         #Función que detecta el texto del botón seleccionado en pantalla--------
@@ -343,36 +349,36 @@ class MathGameDrakeV(App):
             if SeleccionEcuacion == "R*" or SeleccionEcuacion == vR:
                 vR = resultadoAintroducir
                 global Var1
-                Var1 = int(vR)
+                Var1 = float(vR)
             else:
                 if SeleccionEcuacion == "Fp" or SeleccionEcuacion == vFp:
                     vFp = resultadoAintroducir
                     global Var2
-                    Var2 = int(vFp)
+                    Var2 = float(vFp)
                 else:
                     if SeleccionEcuacion == "Ne" or SeleccionEcuacion == vNe:
                         vNe = resultadoAintroducir
                         global Var3
-                        Var3 = int(vNe)
+                        Var3 = float(vNe)
                     else:
                         if SeleccionEcuacion == "Fl" or SeleccionEcuacion == vFl:
                             vFl = resultadoAintroducir
                             global Var4
-                            Var4 = int(vFl)
+                            Var4 = float(vFl)
                         else:
                             if SeleccionEcuacion == "Fi" or SeleccionEcuacion == vFi:
                                 vFi = resultadoAintroducir
                                 global Var5
-                                Var5 = int(vFi)
+                                Var5 = float(vFi)
                             else:
                                 if SeleccionEcuacion == "Fc" or SeleccionEcuacion == vFc:
                                     vFc = resultadoAintroducir
                                     global Var6
-                                    Var6 = int(vFc)
+                                    Var6 = float(vFc)
                                 else:
                                     vL = resultadoAintroducir
                                     global Var7
-                                    Var7 = int(vL)
+                                    Var7 = float(vL)
 
             superBox.remove_widget(cabecera)
             superBox.remove_widget(pie)
