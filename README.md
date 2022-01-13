@@ -18,6 +18,7 @@
 
 - Añadida una pantalla de selección de modos extra.
 - Se añade la Ecuación de Drake como modo extra (WiP).
+- Cambios menores en el código.
 
 <b>Bugs</b>
 
