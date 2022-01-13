@@ -16,7 +16,7 @@
 
 <b>Features</b>
 
-- Se añade correción de errores al introducir datos en la Ecucación de Drake.
+- Se añade corrección de errores al introducir datos en la Ecucación de Drake.
 
 <b>Bugs</b>
 
