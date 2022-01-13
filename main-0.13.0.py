@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-version = "0.12.5"
+version = "0.13.0"
 
 from kivy.app import App
 from kivy.uix.label import Label
@@ -8,8 +8,10 @@ from kivy.uix.textinput import TextInput
 from kivy.uix.boxlayout import BoxLayout
 from random import randrange
 
-from android.permissions import request_permissions, Permission
-request_permissions([Permission.READ_EXTERNAL_STORAGE])
+#Pedir permisos android---------------------------------------------------------
+#from android.permissions import request_permissions, Permission
+#request_permissions([Permission.READ_EXTERNAL_STORAGE])
+#-------------------------------------------------------------------------------
 
 #Insertar color al cambiar de ventana-------------------------------------------
 from kivy.core.window import Window
@@ -307,9 +309,313 @@ funArchivos()
 #-------------------------------------------------------------------------------
 
 #Necesario para la música-------------------------------------------------------
-from kivy.core.audio import SoundLoader
-victory = SoundLoader.load('./data/audio/victory.wav')
+#from kivy.core.audio import SoundLoader
+#victory = SoundLoader.load('./data/audio/victory.wav')
 #-------------------------------------------------------------------------------
+
+class MathGameDrakeV(App):
+
+    def build(self):
+
+        #Funcion que registra contenido del input-------------------------------
+        def on_text(instance, value):
+
+            global resultadoAintroducir
+            print('The widget', instance, 'have:', value)
+
+            resultadoAintroducir = value
+        #-----------------------------------------------------------------------
+
+        #Función que detecta el texto del botón seleccionado en pantalla--------
+        def callback(instance):
+
+            Seleccion = instance.text #contiene el string del boton
+            print(instance.text)
+
+            global vR
+            global vFp
+            global vNe
+            global vFl
+            global vFi
+            global vFc
+            global vL
+
+            if SeleccionEcuacion == "R*" or SeleccionEcuacion == vR:
+                vR = resultadoAintroducir
+                global Var1
+                Var1 = int(vR)
+            else:
+                if SeleccionEcuacion == "Fp" or SeleccionEcuacion == vFp:
+                    vFp = resultadoAintroducir
+                    global Var2
+                    Var2 = int(vFp)
+                else:
+                    if SeleccionEcuacion == "Ne" or SeleccionEcuacion == vNe:
+                        vNe = resultadoAintroducir
+                        global Var3
+                        Var3 = int(vNe)
+                    else:
+                        if SeleccionEcuacion == "Fl" or SeleccionEcuacion == vFl:
+                            vFl = resultadoAintroducir
+                            global Var4
+                            Var4 = int(vFl)
+                        else:
+                            if SeleccionEcuacion == "Fi" or SeleccionEcuacion == vFi:
+                                vFi = resultadoAintroducir
+                                global Var5
+                                Var5 = int(vFi)
+                            else:
+                                if SeleccionEcuacion == "Fc" or SeleccionEcuacion == vFc:
+                                    vFc = resultadoAintroducir
+                                    global Var6
+                                    Var6 = int(vFc)
+                                else:
+                                    vL = resultadoAintroducir
+                                    global Var7
+                                    Var7 = int(vL)
+
+            superBox.remove_widget(cabecera)
+            superBox.remove_widget(pie)
+            MathGameDrake().run()
+        #-----------------------------------------------------------------------
+
+        #Interfaz---------------------------------------------------------------
+        #Layout global de superBox cada widget dispuestos uno encima de otro----
+        superBox = BoxLayout(orientation ='vertical')
+
+        #Widgets de cabecera añadidos en el plano horizontal--------------------
+        cabecera = BoxLayout(orientation ='horizontal') #Primer div-------------
+
+        #Crear elementos de cabecera--------------------------------------------
+        consola = Label(text = "Seleccione el valor")
+
+        #Añadir elementos a cabecera--------------------------------------------
+        cabecera.add_widget(consola)
+
+        #Widgets de pie de página añadidos en el plano vertical-----------------
+        pie = BoxLayout(orientation ='vertical')
+
+        #Crear elementos del pie------------------------------------------------
+        aceptar = Button(text = "Vale",background_color = (0.1,0.2,0.6,0.6))
+        aceptar.bind(on_press=callback)
+
+        textinput = TextInput()
+        textinput.bind(text=on_text)
+
+        #Añadir elementos al pie------------------------------------------------
+        pie.add_widget(textinput)
+        pie.add_widget(aceptar)
+
+        #Añadir cada división al layout global----------------------------------
+        superBox.add_widget(cabecera)
+        superBox.add_widget(pie)
+
+        #Mostrar layout completo------------------------------------------------
+        return superBox
+        #Fin Interfaz-----------------------------------------------------------
+
+class MathGameDrake(App):
+
+    global vR
+    global vFp
+    global vNe
+    global vFl
+    global vFi
+    global vFc
+    global vL
+
+    vR = "R*"
+    vFp = "Fp"
+    vNe = "Ne"
+    vFl = "Fl"
+    vFi = "Fi"
+    vFc = "Fc"
+    vL = "L"
+
+    def build(self):
+
+        #Función que detecta el texto del botón seleccionado en pantalla--------
+        def callback(instance):
+
+            Seleccion = instance.text #contiene el string del boton
+            print(instance.text)
+
+            if Seleccion == "Volver":
+                superBox.remove_widget(pie)
+                superBox.remove_widget(cabecera)
+                MathGame().run()
+            else:
+                global SeleccionEcuacion
+                SeleccionEcuacion = Seleccion
+
+                superBox.remove_widget(pie)
+                superBox.remove_widget(cabecera)
+                MathGameDrakeV().run()
+        #-----------------------------------------------------------------------
+
+        #Interfaz---------------------------------------------------------------
+        #Layout global de superBox cada widget dispuestos uno encima de otro----
+        superBox = BoxLayout(orientation ='vertical')
+
+        #Widgets de cabecera añadidos en el plano horizontal--------------------
+        cabecera = BoxLayout(orientation ='horizontal') #Primer div-------------
+
+        #Crear elementos de cabecera--------------------------------------------
+        null = Label()
+
+        try:
+            resultadoDrake = Var1*Var2*Var3*Var4*Var5*Var6*Var7
+            strResultadoDrake = str(resultadoDrake)
+            N = Label(text = strResultadoDrake,size_hint =(1, 0.15))
+        except:
+            N = Label(text = "N",size_hint =(1, 0.15))
+
+        try:
+            R = Button(text = vR,background_color = (0.1,0.2,0.6,0.6),size_hint =(1, 0.15))
+        except:
+            R = Button(text = "R*",background_color = (0.1,0.2,0.6,0.6),size_hint =(1, 0.15))
+
+        try:
+            Fp = Button(text = vFp,background_color = (0.1,0.2,0.6,0.6),size_hint =(1, 0.15))
+        except:
+            Fp = Button(text = "Fp",background_color = (0.1,0.2,0.6,0.6),size_hint =(1, 0.15))
+
+        try:
+            Ne = Button(text = vNe,background_color = (0.1,0.2,0.6,0.6),size_hint =(1, 0.15))
+        except:
+            Ne = Button(text = "Ne",background_color = (0.1,0.2,0.6,0.6),size_hint =(1, 0.15))
+
+        try:
+            Fl = Button(text = vFl,background_color = (0.1,0.2,0.6,0.6),size_hint =(1, 0.15))
+        except:
+            Fl = Button(text = "Fl",background_color = (0.1,0.2,0.6,0.6),size_hint =(1, 0.15))
+
+        try:
+            Fi = Button(text = vFi,background_color = (0.1,0.2,0.6,0.6),size_hint =(1, 0.15))
+        except:
+            Fi = Button(text = "Fi",background_color = (0.1,0.2,0.6,0.6),size_hint =(1, 0.15))
+
+        try:
+            Fc = Button(text = vFc,background_color = (0.1,0.2,0.6,0.6),size_hint =(1, 0.15))
+        except:
+            Fc = Button(text = "Fc",background_color = (0.1,0.2,0.6,0.6),size_hint =(1, 0.15))
+
+        try:
+            L = Button(text = vL,background_color = (0.1,0.2,0.6,0.6),size_hint =(1, 0.15))
+        except:
+            L = Button(text = "L",background_color = (0.1,0.2,0.6,0.6),size_hint =(1, 0.15))
+
+        R.bind(on_press=callback)
+        Fp.bind(on_press=callback)
+        Ne.bind(on_press=callback)
+        Fl.bind(on_press=callback)
+        Fi.bind(on_press=callback)
+        Fc.bind(on_press=callback)
+        L.bind(on_press=callback)
+
+        equal = Label(text = "=",size_hint =(1, 0.15))
+        X = Label(text = "x",size_hint =(1, 0.15))
+        X2 = Label(text = "x",size_hint =(1, 0.15))
+        X3 = Label(text = "x",size_hint =(1, 0.15))
+        X4 = Label(text = "x",size_hint =(1, 0.15))
+        X5 = Label(text = "x",size_hint =(1, 0.15))
+        X6 = Label(text = "x",size_hint =(1, 0.15))
+
+        null2 = Label()
+
+        #Añadir elementos a cabecera--------------------------------------------
+        cabecera.add_widget(null)
+        cabecera.add_widget(N)
+        cabecera.add_widget(equal)
+        cabecera.add_widget(R)
+        cabecera.add_widget(X)
+        cabecera.add_widget(Fp)
+        cabecera.add_widget(X2)
+        cabecera.add_widget(Ne)
+        cabecera.add_widget(X3)
+        cabecera.add_widget(Fl)
+        cabecera.add_widget(X4)
+        cabecera.add_widget(Fi)
+        cabecera.add_widget(X5)
+        cabecera.add_widget(Fc)
+        cabecera.add_widget(X6)
+        cabecera.add_widget(L)
+        cabecera.add_widget(null2)
+
+        #Widgets de pie de página añadidos en el plano vertical-----------------
+        pie = BoxLayout(orientation ='vertical')
+
+        #Crear elementos del pie------------------------------------------------
+        volver = Button(text = "Volver",background_color = (0.1,0.2,0.6,0.6))
+        volver.bind(on_press=callback)
+
+        null = Label(text = "")
+        null2 = Label(text = "")
+
+        #Añadir elementos al pie------------------------------------------------
+        pie.add_widget(null)
+        pie.add_widget(null2)
+        pie.add_widget(volver)
+
+        #Añadir cada división al layout global----------------------------------
+        superBox.add_widget(cabecera)
+        superBox.add_widget(pie)
+
+        #Mostrar layout completo------------------------------------------------
+        return superBox
+        #Fin Interfaz-----------------------------------------------------------
+
+class MathGameExtras(App):
+
+    def build(self):
+
+        #Función que detecta el texto del botón seleccionado en pantalla--------
+        def callback(instance):
+
+            Seleccion = instance.text #contiene el string del boton
+            print(instance.text)
+
+            if Seleccion == "Ecuación de Drake":
+                superBox.remove_widget(pie)
+                superBox.remove_widget(cabecera)
+                MathGameDrake().run()
+        #-----------------------------------------------------------------------
+
+        #Interfaz---------------------------------------------------------------
+        #Layout global de superBox cada widget dispuestos uno encima de otro----
+        superBox = BoxLayout(orientation ='vertical')
+
+        #Widgets de cabecera añadidos en el plano horizontal--------------------
+        cabecera = BoxLayout(orientation ='horizontal') #Primer div-------------
+
+        #Crear elementos de cabecera--------------------------------------------
+        consola = Label(text = "Extras")
+
+        #Añadir elementos a cabecera--------------------------------------------
+        cabecera.add_widget(consola)
+
+        #Widgets de pie de página añadidos en el plano vertical-----------------
+        pie = BoxLayout(orientation ='vertical')
+
+        #Crear elementos del pie------------------------------------------------
+        drake = Button(text = "Ecuación de Drake",background_color = (0.1,0.2,0.6,0.6))
+        drake.bind(on_press=callback)
+
+        null = Label(text = "")
+        null2 = Label(text = "")
+
+        #Añadir elementos al pie------------------------------------------------
+        pie.add_widget(null)
+        pie.add_widget(null2)
+        pie.add_widget(drake)
+
+        #Añadir cada división al layout global----------------------------------
+        superBox.add_widget(cabecera)
+        superBox.add_widget(pie)
+
+        #Mostrar layout completo------------------------------------------------
+        return superBox
+        #Fin Interfaz-----------------------------------------------------------
 
 class MathGameIntermission(App):
 
@@ -747,7 +1053,7 @@ class MathGameComprobacion(App):
 
         else:
 
-            victory.play()
+            #victory.play()
             consola = Label(text = "¡Has acertado!")
 
         cabecera.add_widget(consola)
@@ -1537,9 +1843,14 @@ class MathGame(App):
                     superBox.remove_widget(cabecera)
                     MathGamePuntuacion().run()
                 else:
-                    superBox.remove_widget(pie)
-                    superBox.remove_widget(cabecera)
-                    MathGameAjustes().run()
+                    if Seleccion == "Ajustes":
+                        superBox.remove_widget(pie)
+                        superBox.remove_widget(cabecera)
+                        MathGameAjustes().run()
+                    else:
+                        superBox.remove_widget(pie)
+                        superBox.remove_widget(cabecera)
+                        MathGameExtras().run()
         #-----------------------------------------------------------------------
 
         #Interfaz---------------------------------------------------------------
@@ -1568,11 +1879,12 @@ class MathGame(App):
         ajustes = Button(text = "Ajustes",background_color = (0.1,0.2,0.6,0.6))
         ajustes.bind(on_press=callback)
 
-        null = Label(text = "")
+        extras = Button(text = "Extras",background_color = (0.1,0.2,0.6,0.6))
+        extras.bind(on_press=callback)
 
         #Añadir elementos al pie------------------------------------------------
-        pie.add_widget(null)
         pie.add_widget(jugar)
+        pie.add_widget(extras)
         pie.add_widget(puntuacion)
         pie.add_widget(ajustes)
 
@@ -1585,4 +1897,5 @@ class MathGame(App):
         #Fin Interfaz-----------------------------------------------------------
 
 #Constructor--------------------------------------------------------------------
-MathGame().run()
+if __name__ == '__main__':
+    MathGame().run()
