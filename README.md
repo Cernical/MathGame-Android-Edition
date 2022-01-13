@@ -35,6 +35,7 @@
 <b>Bugs</b>
 
 - La app se cerrará dada cierta cantidad de operaciones realizadas.
+- Cierres al introducir valores incorrectos en la Ecuación de Drake.
 
 <b>#Se han eliminado temporalmente los sonidos hasta conseguir integrarlos en Android, hasta ahora solo era posible escucharlos en PC.</b>
 
