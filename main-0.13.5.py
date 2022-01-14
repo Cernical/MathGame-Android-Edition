@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-version = "0.13.4"
+version = "0.13.5"
 
 from kivy.app import App
 from kivy.uix.label import Label
@@ -316,6 +316,9 @@ funArchivos()
 class MathGameDrakeV(App):
 
     def build(self):
+
+        global resultadoAintroducir
+        resultadoAintroducir = "0"
 
         #Funcion que registra contenido del input-------------------------------
         def on_text(instance, value):
