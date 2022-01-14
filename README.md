@@ -12,6 +12,19 @@
 
 # Changelog
 
+<h2>v0.13.2</h2>
+
+<b>Features</b>
+
+- Mejoras en la interfaz
+- Cambios y optimizaciones del código en la Ecuación de Drake.
+
+<b>Bugs</b>
+
+- La app se cerrará dada cierta cantidad de operaciones realizadas.
+
+<hr>
+
 <h2>v0.13.1</h2>
 
 <b>Features</b>
