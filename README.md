@@ -22,6 +22,7 @@
 <b>Bugs</b>
 
 - La app se cerrará dada cierta cantidad de operaciones realizadas.
+- Cierres al no introducir nada cuando se pide en la Ecuación de Drake.
 
 <hr>
 
