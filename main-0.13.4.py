@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-version = "0.13.3"
+version = "0.13.4"
 
 from kivy.app import App
 from kivy.uix.label import Label
@@ -346,39 +346,42 @@ class MathGameDrakeV(App):
             global vFc
             global vL
 
-            if SeleccionEcuacion == "R*" or SeleccionEcuacion == vR:
-                vR = resultadoAintroducir
-                global Var1
-                Var1 = float(vR)
-            else:
-                if SeleccionEcuacion == "Fp" or SeleccionEcuacion == vFp:
-                    vFp = resultadoAintroducir
-                    global Var2
-                    Var2 = float(vFp)
+            try:
+                if SeleccionEcuacion == "R*" or SeleccionEcuacion == vR:
+                    vR = resultadoAintroducir
+                    global Var1
+                    Var1 = float(vR)
                 else:
-                    if SeleccionEcuacion == "Ne" or SeleccionEcuacion == vNe:
-                        vNe = resultadoAintroducir
-                        global Var3
-                        Var3 = float(vNe)
+                    if SeleccionEcuacion == "Fp" or SeleccionEcuacion == vFp:
+                        vFp = resultadoAintroducir
+                        global Var2
+                        Var2 = float(vFp)
                     else:
-                        if SeleccionEcuacion == "Fl" or SeleccionEcuacion == vFl:
-                            vFl = resultadoAintroducir
-                            global Var4
-                            Var4 = float(vFl)
+                        if SeleccionEcuacion == "Ne" or SeleccionEcuacion == vNe:
+                            vNe = resultadoAintroducir
+                            global Var3
+                            Var3 = float(vNe)
                         else:
-                            if SeleccionEcuacion == "Fi" or SeleccionEcuacion == vFi:
-                                vFi = resultadoAintroducir
-                                global Var5
-                                Var5 = float(vFi)
+                            if SeleccionEcuacion == "Fl" or SeleccionEcuacion == vFl:
+                                vFl = resultadoAintroducir
+                                global Var4
+                                Var4 = float(vFl)
                             else:
-                                if SeleccionEcuacion == "Fc" or SeleccionEcuacion == vFc:
-                                    vFc = resultadoAintroducir
-                                    global Var6
-                                    Var6 = float(vFc)
+                                if SeleccionEcuacion == "Fi" or SeleccionEcuacion == vFi:
+                                    vFi = resultadoAintroducir
+                                    global Var5
+                                    Var5 = float(vFi)
                                 else:
-                                    vL = resultadoAintroducir
-                                    global Var7
-                                    Var7 = float(vL)
+                                    if SeleccionEcuacion == "Fc" or SeleccionEcuacion == vFc:
+                                        vFc = resultadoAintroducir
+                                        global Var6
+                                        Var6 = float(vFc)
+                                    else:
+                                        vL = resultadoAintroducir
+                                        global Var7
+                                        Var7 = float(vL)
+            except:
+                print("No se introdujo valor en Drake")
 
             superBox.remove_widget(cabecera)
             superBox.remove_widget(pie)
