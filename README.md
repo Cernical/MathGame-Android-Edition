@@ -12,6 +12,18 @@
 
 # Changelog
 
+<h2>v0.13.4</h2>
+
+<b>Features</b>
+
+- Arreglado los cierres anteriores al no introducir un valor en las variables de la Ecuación de Drake.
+
+<b>Bugs</b>
+
+- La app se cerrará dada cierta cantidad de operaciones realizadas.
+
+<hr>
+
 <h2>v0.13.3</h2>
 
 <b>Features</b>
