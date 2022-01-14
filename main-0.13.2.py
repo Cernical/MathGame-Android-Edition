@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-version = "0.13.1"
+version = "0.13.2"
 
 from kivy.app import App
 from kivy.uix.label import Label
@@ -329,7 +329,7 @@ class MathGameDrakeV(App):
             try:
                 validacionFloat = float(validacionFloat)
             except:
-                resultadoAintroducir = 0
+                resultadoAintroducir = "0"
         #-----------------------------------------------------------------------
 
         #Función que detecta el texto del botón seleccionado en pantalla--------
@@ -438,10 +438,17 @@ class MathGameDrake(App):
     vFc = "Fc"
     vL = "L"
 
+    global contadorBloqueo
+    contadorBloqueo = 0
+
     def build(self):
+
+        global contadorBloqueo
 
         #Función que detecta el texto del botón seleccionado en pantalla--------
         def callback(instance):
+
+            global contadorBloqueo
 
             Seleccion = instance.text #contiene el string del boton
             print(instance.text)
@@ -451,12 +458,57 @@ class MathGameDrake(App):
                 superBox.remove_widget(cabecera)
                 MathGame().run()
             else:
-                global SeleccionEcuacion
-                SeleccionEcuacion = Seleccion
+                if Seleccion == "Reset":
 
-                superBox.remove_widget(pie)
-                superBox.remove_widget(cabecera)
-                MathGameDrakeV().run()
+                    global vR
+                    global vFp
+                    global vNe
+                    global vFl
+                    global vFi
+                    global vFc
+                    global vL
+
+                    vR = "R*"
+                    vFp = "Fp"
+                    vNe = "Ne"
+                    vFi = "Fi"
+                    vFl = "Fl"
+                    vFc = "Fc"
+                    vL = "L"
+
+                    global Var1
+                    global Var2
+                    global Var3
+                    global Var4
+                    global Var5
+                    global Var6
+                    global Var7
+
+                    Var1 = "0"
+                    Var2 = "0"
+                    Var3 = "0"
+                    Var4 = "0"
+                    Var5 = "0"
+                    Var6 = "0"
+                    Var7 = "0"
+
+                    contadorBloqueo = 0
+
+                    superBox.remove_widget(pie)
+                    superBox.remove_widget(cabecera)
+                    MathGameDrake().run()
+                else:
+                    if contadorBloqueo == 0:
+                        global SeleccionEcuacion
+                        SeleccionEcuacion = Seleccion
+
+                        superBox.remove_widget(pie)
+                        superBox.remove_widget(cabecera)
+                        MathGameDrakeV().run()
+                    else:
+                        superBox.remove_widget(pie)
+                        superBox.remove_widget(cabecera)
+                        MathGameDrake().run()
         #-----------------------------------------------------------------------
 
         #Interfaz---------------------------------------------------------------
@@ -473,43 +525,27 @@ class MathGameDrake(App):
             resultadoDrake = Var1*Var2*Var3*Var4*Var5*Var6*Var7
             strResultadoDrake = str(resultadoDrake)
             N = Label(text = strResultadoDrake,size_hint =(1, 0.15))
+
+            contadorBloqueo = 1
         except:
             N = Label(text = "N",size_hint =(1, 0.15))
 
-        try:
-            R = Button(text = vR,background_color = (0.1,0.2,0.6,0.6),size_hint =(1, 0.15))
-        except:
-            R = Button(text = "R*",background_color = (0.1,0.2,0.6,0.6),size_hint =(1, 0.15))
-
-        try:
-            Fp = Button(text = vFp,background_color = (0.1,0.2,0.6,0.6),size_hint =(1, 0.15))
-        except:
-            Fp = Button(text = "Fp",background_color = (0.1,0.2,0.6,0.6),size_hint =(1, 0.15))
-
-        try:
-            Ne = Button(text = vNe,background_color = (0.1,0.2,0.6,0.6),size_hint =(1, 0.15))
-        except:
-            Ne = Button(text = "Ne",background_color = (0.1,0.2,0.6,0.6),size_hint =(1, 0.15))
-
-        try:
-            Fl = Button(text = vFl,background_color = (0.1,0.2,0.6,0.6),size_hint =(1, 0.15))
-        except:
-            Fl = Button(text = "Fl",background_color = (0.1,0.2,0.6,0.6),size_hint =(1, 0.15))
-
-        try:
-            Fi = Button(text = vFi,background_color = (0.1,0.2,0.6,0.6),size_hint =(1, 0.15))
-        except:
-            Fi = Button(text = "Fi",background_color = (0.1,0.2,0.6,0.6),size_hint =(1, 0.15))
-
-        try:
-            Fc = Button(text = vFc,background_color = (0.1,0.2,0.6,0.6),size_hint =(1, 0.15))
-        except:
-            Fc = Button(text = "Fc",background_color = (0.1,0.2,0.6,0.6),size_hint =(1, 0.15))
-
-        try:
-            L = Button(text = vL,background_color = (0.1,0.2,0.6,0.6),size_hint =(1, 0.15))
-        except:
-            L = Button(text = "L",background_color = (0.1,0.2,0.6,0.6),size_hint =(1, 0.15))
+        if contadorBloqueo == 1:
+                R = Button(text = vR,background_color = (0.1,0.2,0.6,0.3),size_hint =(1, 0.15))
+                Fp = Button(text = vFp,background_color = (0.1,0.2,0.6,0.3),size_hint =(1, 0.15))
+                Ne = Button(text = vNe,background_color = (0.1,0.2,0.6,0.3),size_hint =(1, 0.15))
+                Fl = Button(text = vFl,background_color = (0.1,0.2,0.6,0.3),size_hint =(1, 0.15))
+                Fi = Button(text = vFi,background_color = (0.1,0.2,0.6,0.3),size_hint =(1, 0.15))
+                Fc = Button(text = vFc,background_color = (0.1,0.2,0.6,0.3),size_hint =(1, 0.15))
+                L = Button(text = vL,background_color = (0.1,0.2,0.6,0.3),size_hint =(1, 0.15))
+        else:
+                R = Button(text = vR,background_color = (0.1,0.2,0.6,0.6),size_hint =(1, 0.15))
+                Fp = Button(text = vFp,background_color = (0.1,0.2,0.6,0.6),size_hint =(1, 0.15))
+                Ne = Button(text = vNe,background_color = (0.1,0.2,0.6,0.6),size_hint =(1, 0.15))
+                Fl = Button(text = vFl,background_color = (0.1,0.2,0.6,0.6),size_hint =(1, 0.15))
+                Fi = Button(text = vFi,background_color = (0.1,0.2,0.6,0.6),size_hint =(1, 0.15))
+                Fc = Button(text = vFc,background_color = (0.1,0.2,0.6,0.6),size_hint =(1, 0.15))
+                L = Button(text = vL,background_color = (0.1,0.2,0.6,0.6),size_hint =(1, 0.15))
 
         R.bind(on_press=callback)
         Fp.bind(on_press=callback)
@@ -555,12 +591,16 @@ class MathGameDrake(App):
         volver = Button(text = "Volver",background_color = (0.1,0.2,0.6,0.6))
         volver.bind(on_press=callback)
 
+        reset = Button(text = "Reset",background_color = (0.1,0.2,0.6,0.6))
+        reset.bind(on_press=callback)
+
         null = Label(text = "")
         null2 = Label(text = "")
 
         #Añadir elementos al pie------------------------------------------------
         pie.add_widget(null)
         pie.add_widget(null2)
+        pie.add_widget(reset)
         pie.add_widget(volver)
 
         #Añadir cada división al layout global----------------------------------
@@ -585,6 +625,10 @@ class MathGameExtras(App):
                 superBox.remove_widget(pie)
                 superBox.remove_widget(cabecera)
                 MathGameDrake().run()
+            else:
+                superBox.remove_widget(pie)
+                superBox.remove_widget(cabecera)
+                MathGame().run()
         #-----------------------------------------------------------------------
 
         #Interfaz---------------------------------------------------------------
@@ -607,13 +651,17 @@ class MathGameExtras(App):
         drake = Button(text = "Ecuación de Drake",background_color = (0.1,0.2,0.6,0.6))
         drake.bind(on_press=callback)
 
+        volver = Button(text = "Volver",background_color = (0.1,0.2,0.6,0.6))
+        volver.bind(on_press=callback)
+
         null = Label(text = "")
         null2 = Label(text = "")
 
         #Añadir elementos al pie------------------------------------------------
         pie.add_widget(null)
-        pie.add_widget(null2)
         pie.add_widget(drake)
+        pie.add_widget(null2)
+        pie.add_widget(volver)
 
         #Añadir cada división al layout global----------------------------------
         superBox.add_widget(cabecera)
@@ -1487,7 +1535,7 @@ class MathGameSelOpe(App):
         #Widgets de cabecera añadidos en el plano horizontal
         cabecera = BoxLayout(orientation ='horizontal')
 
-        consola = Label(text = "¡Bienvenido a MathGame Android Edition! v"+version)
+        consola = Label(text = "Empecemos con la configuración")
 
         cabecera.add_widget(consola)
 
@@ -1601,7 +1649,7 @@ class MathGameP(App):
         cabecera = BoxLayout(orientation ='horizontal')
 
         #Elementos de cabecera--------------------------------------------------
-        consola = Label(text = "¡Bienvenido a MathGame Android Edition! v"+version)
+        consola = Label(text = "Empecemos con la configuración")
 
         #Añadir elementos a cabecera--------------------------------------------
         cabecera.add_widget(consola)
@@ -1692,7 +1740,7 @@ class MathGameS(App):
         #Widgets de cabecera añadidos en el plano horizontal--------------------
         cabecera = BoxLayout(orientation ='horizontal')
 
-        consola = Label(text = "¡Bienvenido a MathGame Android Edition! v"+version)
+        consola = Label(text = "Empecemos con la configuración")
 
         cabecera.add_widget(consola)
 
@@ -1790,7 +1838,7 @@ class MathGameD(App):
         cabecera = BoxLayout(orientation ='horizontal') #Primer div-------------
 
         #Crear elementos de cabecera--------------------------------------------
-        consola = Label(text = "¡Bienvenido a MathGame Android Edition! v"+version)
+        consola = Label(text = "Empecemos con la configuración")
 
         #Añadir elementos a cabecera--------------------------------------------
         cabecera.add_widget(consola)
@@ -1867,7 +1915,7 @@ class MathGame(App):
         cabecera = BoxLayout(orientation ='horizontal') #Primer div-------------
 
         #Crear elementos de cabecera--------------------------------------------
-        consola = Label(text = "¡Bienvenido a MathGame Android Edition! v"+version)
+        consola = Label(text = "¡Bienvenido a MathGame Android Edition!")
 
         #Añadir elementos a cabecera--------------------------------------------
         cabecera.add_widget(consola)
@@ -1888,10 +1936,13 @@ class MathGame(App):
         extras = Button(text = "Extras",background_color = (0.1,0.2,0.6,0.6))
         extras.bind(on_press=callback)
 
+        null = Label()
+
         #Añadir elementos al pie------------------------------------------------
         pie.add_widget(jugar)
         pie.add_widget(extras)
         pie.add_widget(puntuacion)
+        pie.add_widget(null)
         pie.add_widget(ajustes)
 
         #Añadir cada división al layout global----------------------------------
