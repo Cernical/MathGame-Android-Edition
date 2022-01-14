@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-version = "0.13.5"
+version = "0.13.6"
 
 from kivy.app import App
 from kivy.uix.label import Label
@@ -530,8 +530,6 @@ class MathGameDrake(App):
         cabecera = BoxLayout(orientation ='horizontal') #Primer div-------------
 
         #Crear elementos de cabecera--------------------------------------------
-        null = Label()
-
         try:
             resultadoDrake = Var1*Var2*Var3*Var4*Var5*Var6*Var7
             strResultadoDrake = str(resultadoDrake)
@@ -566,18 +564,15 @@ class MathGameDrake(App):
         Fc.bind(on_press=callback)
         L.bind(on_press=callback)
 
-        equal = Label(text = "=",size_hint =(1, 0.15))
-        X = Label(text = "x",size_hint =(1, 0.15))
-        X2 = Label(text = "x",size_hint =(1, 0.15))
-        X3 = Label(text = "x",size_hint =(1, 0.15))
-        X4 = Label(text = "x",size_hint =(1, 0.15))
-        X5 = Label(text = "x",size_hint =(1, 0.15))
-        X6 = Label(text = "x",size_hint =(1, 0.15))
-
-        null2 = Label()
+        equal = Label(text = "=",size_hint =(0.5, 0.15))
+        X = Label(text = "x",size_hint =(0.5, 0.15))
+        X2 = Label(text = "x",size_hint =(0.5, 0.15))
+        X3 = Label(text = "x",size_hint =(0.5, 0.15))
+        X4 = Label(text = "x",size_hint =(0.5, 0.15))
+        X5 = Label(text = "x",size_hint =(0.5, 0.15))
+        X6 = Label(text = "x",size_hint =(0.5, 0.15))
 
         #Añadir elementos a cabecera--------------------------------------------
-        cabecera.add_widget(null)
         cabecera.add_widget(N)
         cabecera.add_widget(equal)
         cabecera.add_widget(R)
@@ -593,7 +588,6 @@ class MathGameDrake(App):
         cabecera.add_widget(Fc)
         cabecera.add_widget(X6)
         cabecera.add_widget(L)
-        cabecera.add_widget(null2)
 
         #Widgets de pie de página añadidos en el plano vertical-----------------
         pie = BoxLayout(orientation ='vertical')
