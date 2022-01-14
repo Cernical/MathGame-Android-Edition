@@ -12,6 +12,18 @@
 
 # Changelog
 
+<h2>v0.13.5</h2>
+
+<b>Features</b>
+
+- Arreglado un bug que mantiene el valor introducido previamente al rellenar variables nuevas si se deja en blanco en la Ecuación de Drake.
+
+<b>Bugs</b>
+
+- La app se cerrará dada cierta cantidad de operaciones realizadas.
+
+<hr>
+
 <h2>v0.13.4</h2>
 
 <b>Features</b>
@@ -21,6 +33,7 @@
 <b>Bugs</b>
 
 - La app se cerrará dada cierta cantidad de operaciones realizadas.
+- Bug que mantiene el valor introducido previamente al rellenar variables nuevas si se deja en blanco en la Ecuación de Drake
 
 <hr>
 
@@ -34,6 +47,7 @@
 
 - La app se cerrará dada cierta cantidad de operaciones realizadas.
 - Cierres al no introducir nada cuando se pide en la Ecuación de Drake.
+- Bug que mantiene el valor introducido previamente al rellenar variables nuevas si se deja en blanco en la Ecuación de Drake
 
 <hr>
 
@@ -48,6 +62,7 @@
 
 - La app se cerrará dada cierta cantidad de operaciones realizadas.
 - Cierres al no introducir nada cuando se pide en la Ecuación de Drake.
+- Bug que mantiene el valor introducido previamente al rellenar variables nuevas si se deja en blanco en la Ecuación de Drake
 
 <hr>
 
