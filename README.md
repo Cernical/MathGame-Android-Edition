@@ -12,6 +12,19 @@
 
 # Changelog
 
+<h2>v0.13.6</h2>
+
+<b>Features</b>
+
+- Mejoras en la interfaz.
+
+<b>Bugs</b>
+
+- La app se cerrará dada cierta cantidad de operaciones realizadas.
+- Al rellenar las variables en la Ecuación de Drake si estas tienen el mismo valor y se cambia de nuevo alguna se cambiarán empezando de izquierda a derecha sin importar la seleccionada.
+
+<hr>
+
 <h2>v0.13.5</h2>
 
 <b>Features</b>
