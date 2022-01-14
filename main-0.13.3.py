@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-version = "0.13.2"
+version = "0.13.3"
 
 from kivy.app import App
 from kivy.uix.label import Label
@@ -408,7 +408,12 @@ class MathGameDrakeV(App):
         textinput = TextInput()
         textinput.bind(text=on_text)
 
+        null1 = Label()
+        null2 = Label()
+
         #Añadir elementos al pie------------------------------------------------
+        pie.add_widget(null1)
+        pie.add_widget(null2)
         pie.add_widget(textinput)
         pie.add_widget(aceptar)
 
