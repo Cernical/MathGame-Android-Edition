@@ -12,6 +12,20 @@
 
 # Changelog
 
+<h2>v0.14.0</h2>
+
+<b>Features</b>
+
+- En la Ecuación de Drake ahora se mostrará una pantalla de información.
+- Se ha añadido la posibilidad de usar los valores originales de la Ecuación de Drake.
+
+<b>Bugs</b>
+
+- La app se cerrará dada cierta cantidad de operaciones realizadas.
+- Al rellenar las variables en la Ecuación de Drake si estas tienen el mismo valor y se cambia de nuevo alguna se cambiarán empezando de izquierda a derecha sin importar la seleccionada.
+
+<hr>
+
 <h2>v0.13.6</h2>
 
 <b>Features</b>
