@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-version = "0.14.0"
+version = "0.14.1"
 
 from kivy.app import App
 from kivy.uix.label import Label
@@ -392,26 +392,29 @@ plenitud de vida allí afuera.''')
                     pag = pag + 1
                 else:
                     if pag == 3:
-                        consola = Label(text = '''La ecuación es la siguiente:
+                        consola = Label(text = '''
+
+
+La ecuación es la siguiente:
 
 N  = Número de civilizaciones que podrían
-     comunicarse en nuestra galaxia,
-     la Vía Láctea.
+        comunicarse en nuestra galaxia,
+        la Vía Láctea.
 
 R* = Ritmo anual de formación de estrellas
-     "adecuadas" en la galaxia.
+        "adecuadas" en la galaxia.
 
 Fp = Fracción de estrellas que tienen
-     planetas en su órbita.
+        planetas en su órbita.
 
 Ne = Número de esos planetas orbitando
-     dentro de la zona de habitabilidad
-     de la estrella (las órbitas cuya
-     distancia a la estrella no sea tan
-     próxima como para ser demasiado
-     calientes, ni tan lejana como para
-     ser demasiado frías para poder
-     albergar vida.''')
+        dentro de la zona de habitabilidad
+        de la estrella (las órbitas cuya
+        distancia a la estrella no sea tan
+        próxima como para ser demasiado
+        calientes, ni tan lejana como para
+        ser demasiado frías para poder
+        albergar vida.''')
                         pag = pag + 1
                     else:
                         consola = Label(text = '''Fl = Fracción de esos planetas
@@ -423,8 +426,8 @@ Fi = Fracción de esos planetas en los
        desarrollado.
 
 Fc = Fracción de esos planetas donde
-       la vida inteligente ha desarrollado
-       una tecnología e intenta comunicarse.
+        la vida inteligente ha desarrollado
+        una tecnología e intenta comunicarse.
 
 L  = Lapso, medido en años, durante el
        que una civilización inteligente y
@@ -627,6 +630,7 @@ class MathGameDrake(App):
 
             if Seleccion == "Volver":
                 superBox.remove_widget(pie)
+                superBox.remove_widget(cuerpo)
                 superBox.remove_widget(cabecera)
                 MathGame().run()
             else:
@@ -651,6 +655,7 @@ class MathGameDrake(App):
                     contadorBloqueo = 0
 
                     superBox.remove_widget(pie)
+                    superBox.remove_widget(cuerpo)
                     superBox.remove_widget(cabecera)
                     MathGameDrake().run()
                 else:
@@ -675,6 +680,7 @@ class MathGameDrake(App):
                         contadorBloqueo = 1
 
                         superBox.remove_widget(pie)
+                        superBox.remove_widget(cuerpo)
                         superBox.remove_widget(cabecera)
                         MathGameDrake().run()
 
@@ -684,10 +690,12 @@ class MathGameDrake(App):
                             SeleccionEcuacion = Seleccion
 
                             superBox.remove_widget(pie)
+                            superBox.remove_widget(cuerpo)
                             superBox.remove_widget(cabecera)
                             MathGameDrakeV().run()
                         else:
                             superBox.remove_widget(pie)
+                            superBox.remove_widget(cuerpo)
                             superBox.remove_widget(cabecera)
                             MathGameDrake().run()
         #-----------------------------------------------------------------------
@@ -697,34 +705,44 @@ class MathGameDrake(App):
         superBox = BoxLayout(orientation ='vertical')
 
         #Widgets de cabecera añadidos en el plano horizontal--------------------
-        cabecera = BoxLayout(orientation ='horizontal') #Primer div-------------
+        cabecera = BoxLayout(orientation ='vertical',size_hint =(1, 0.5)) #Primer div-------------
 
         #Crear elementos de cabecera--------------------------------------------
         try:
             resultadoDrake = Var1*Var2*Var3*Var4*Var5*Var6*Var7
             strResultadoDrake = str(resultadoDrake)
-            N = Label(text = strResultadoDrake,size_hint =(1, 0.15))
+            N = Label(text = strResultadoDrake,size_hint =(1, 0.01))
 
             contadorBloqueo = 1
         except:
-            N = Label(text = "N",size_hint =(1, 0.15))
+            N = Label(text = "N =",size_hint =(1, 0.01))
+
+        null = Label()
+
+        #Añadir elementos a cabecera--------------------------------------------
+        cabecera.add_widget(null)
+        cabecera.add_widget(N)
+        #-----------------------------------------------------------------------
+
+        #Widgets de Mitad de página añadidos en el plano vertical---------------
+        cuerpo = BoxLayout(orientation ='horizontal',size_hint =(1, 0.5))
 
         if contadorBloqueo == 1:
-                R = Button(text = vR,background_color = (0.1,0.2,0.6,0.3),size_hint =(1, 0.15))
-                Fp = Button(text = vFp,background_color = (0.1,0.2,0.6,0.3),size_hint =(1, 0.15))
-                Ne = Button(text = vNe,background_color = (0.1,0.2,0.6,0.3),size_hint =(1, 0.15))
-                Fl = Button(text = vFl,background_color = (0.1,0.2,0.6,0.3),size_hint =(1, 0.15))
-                Fi = Button(text = vFi,background_color = (0.1,0.2,0.6,0.3),size_hint =(1, 0.15))
-                Fc = Button(text = vFc,background_color = (0.1,0.2,0.6,0.3),size_hint =(1, 0.15))
-                L = Button(text = vL,background_color = (0.1,0.2,0.6,0.3),size_hint =(1, 0.15))
+                R = Button(text = vR,background_color = (0.1,0.2,0.6,0.3),size_hint =(1, 0.25))
+                Fp = Button(text = vFp,background_color = (0.1,0.2,0.6,0.3),size_hint =(1, 0.25))
+                Ne = Button(text = vNe,background_color = (0.1,0.2,0.6,0.3),size_hint =(1, 0.25))
+                Fl = Button(text = vFl,background_color = (0.1,0.2,0.6,0.3),size_hint =(1, 0.25))
+                Fi = Button(text = vFi,background_color = (0.1,0.2,0.6,0.3),size_hint =(1, 0.25))
+                Fc = Button(text = vFc,background_color = (0.1,0.2,0.6,0.3),size_hint =(1, 0.25))
+                L = Button(text = vL,background_color = (0.1,0.2,0.6,0.3),size_hint =(1, 0.25))
         else:
-                R = Button(text = vR,background_color = (0.1,0.2,0.6,0.6),size_hint =(1, 0.15))
-                Fp = Button(text = vFp,background_color = (0.1,0.2,0.6,0.6),size_hint =(1, 0.15))
-                Ne = Button(text = vNe,background_color = (0.1,0.2,0.6,0.6),size_hint =(1, 0.15))
-                Fl = Button(text = vFl,background_color = (0.1,0.2,0.6,0.6),size_hint =(1, 0.15))
-                Fi = Button(text = vFi,background_color = (0.1,0.2,0.6,0.6),size_hint =(1, 0.15))
-                Fc = Button(text = vFc,background_color = (0.1,0.2,0.6,0.6),size_hint =(1, 0.15))
-                L = Button(text = vL,background_color = (0.1,0.2,0.6,0.6),size_hint =(1, 0.15))
+                R = Button(text = vR,background_color = (0.1,0.2,0.6,0.6),size_hint =(1, 0.25))
+                Fp = Button(text = vFp,background_color = (0.1,0.2,0.6,0.6),size_hint =(1, 0.25))
+                Ne = Button(text = vNe,background_color = (0.1,0.2,0.6,0.6),size_hint =(1, 0.25))
+                Fl = Button(text = vFl,background_color = (0.1,0.2,0.6,0.6),size_hint =(1, 0.25))
+                Fi = Button(text = vFi,background_color = (0.1,0.2,0.6,0.6),size_hint =(1, 0.25))
+                Fc = Button(text = vFc,background_color = (0.1,0.2,0.6,0.6),size_hint =(1, 0.25))
+                L = Button(text = vL,background_color = (0.1,0.2,0.6,0.6),size_hint =(1, 0.25))
 
         R.bind(on_press=callback)
         Fp.bind(on_press=callback)
@@ -734,33 +752,31 @@ class MathGameDrake(App):
         Fc.bind(on_press=callback)
         L.bind(on_press=callback)
 
-        equal = Label(text = "=",size_hint =(0.5, 0.15))
-        X = Label(text = "x",size_hint =(0.5, 0.15))
-        X2 = Label(text = "x",size_hint =(0.5, 0.15))
-        X3 = Label(text = "x",size_hint =(0.5, 0.15))
-        X4 = Label(text = "x",size_hint =(0.5, 0.15))
-        X5 = Label(text = "x",size_hint =(0.5, 0.15))
-        X6 = Label(text = "x",size_hint =(0.5, 0.15))
+        X = Label(text = "x",size_hint =(0.5, 0.25))
+        X2 = Label(text = "x",size_hint =(0.5, 0.25))
+        X3 = Label(text = "x",size_hint =(0.5, 0.25))
+        X4 = Label(text = "x",size_hint =(0.5, 0.25))
+        X5 = Label(text = "x",size_hint =(0.5, 0.25))
+        X6 = Label(text = "x",size_hint =(0.5, 0.25))
 
-        #Añadir elementos a cabecera--------------------------------------------
-        cabecera.add_widget(N)
-        cabecera.add_widget(equal)
-        cabecera.add_widget(R)
-        cabecera.add_widget(X)
-        cabecera.add_widget(Fp)
-        cabecera.add_widget(X2)
-        cabecera.add_widget(Ne)
-        cabecera.add_widget(X3)
-        cabecera.add_widget(Fl)
-        cabecera.add_widget(X4)
-        cabecera.add_widget(Fi)
-        cabecera.add_widget(X5)
-        cabecera.add_widget(Fc)
-        cabecera.add_widget(X6)
-        cabecera.add_widget(L)
+        #Añadir elementos a cuerpo----------------------------------------------
+        cuerpo.add_widget(R)
+        cuerpo.add_widget(X)
+        cuerpo.add_widget(Fp)
+        cuerpo.add_widget(X2)
+        cuerpo.add_widget(Ne)
+        cuerpo.add_widget(X3)
+        cuerpo.add_widget(Fl)
+        cuerpo.add_widget(X4)
+        cuerpo.add_widget(Fi)
+        cuerpo.add_widget(X5)
+        cuerpo.add_widget(Fc)
+        cuerpo.add_widget(X6)
+        cuerpo.add_widget(L)
+        #-----------------------------------------------------------------------
 
         #Widgets de pie de página añadidos en el plano vertical-----------------
-        pie = BoxLayout(orientation ='vertical')
+        pie = BoxLayout(orientation ='vertical',size_hint =(1, 1))
 
         #Crear elementos del pie------------------------------------------------
         volver = Button(text = "Volver",background_color = (0.1,0.2,0.6,0.6))
@@ -772,16 +788,19 @@ class MathGameDrake(App):
         original = Button(text = "Ecuación Original",background_color = (0.1,0.2,0.6,0.6))
         original.bind(on_press=callback)
 
-        null = Label(text = "")
+        null = Label()
+        null2 = Label()
 
         #Añadir elementos al pie------------------------------------------------
         pie.add_widget(null)
+        pie.add_widget(null2)
         pie.add_widget(original)
         pie.add_widget(reset)
         pie.add_widget(volver)
 
         #Añadir cada división al layout global----------------------------------
         superBox.add_widget(cabecera)
+        superBox.add_widget(cuerpo)
         superBox.add_widget(pie)
 
         #Mostrar layout completo------------------------------------------------
