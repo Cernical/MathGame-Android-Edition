@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-version = "0.14.1"
+version = "0.14.2"
 
 from kivy.app import App
 from kivy.uix.label import Label
@@ -364,24 +364,23 @@ Nacional de Radioastronomía en Green Bank
             pag = pag + 1
         else:
             if pag == 1:
-                consola = Label(text = '''La ecuación de Drake identifica los
-factores específicos que, se cree, tienen
-un papel importante en el desarrollo de
-las civilizaciones.
+                consola = Label(text = '''La ecuación de Drake identifica los factores
+específicos que, se cree, tienen un papel
+importante en el desarrollo de las civilizaciones.
 
 Aunque en la actualidad no hay datos
 suficientes para resolver la ecuación,
-la comunidad científica ha aceptado
-su relevancia como primera aproximación
-teórica al problema, y varios científicos
-la han utilizado como herramienta para
-plantear distintas hipótesis.''')
+la comunidad científica ha aceptado su
+relevancia como primera aproximación teórica
+al problema, y varios científicos la han
+utilizado como herramienta para plantear
+distintas hipótesis.''')
                 pag = pag + 1
             else:
                 if pag == 2:
-                    consola = Label(text = '''Nuestro Sol es solo una estrella
-solitaria en la abundancia de 7×10^22
-estrellas en el universo observable.
+                    consola = Label(text = '''Nuestro Sol es solo una estrella solitaria
+en la abundancia de 7×10^22 estrellas en
+el universo observable.
 
 La Vía Láctea es solo una de entre las
 2 000 000 000 000 [dos billones] de
@@ -408,13 +407,13 @@ Fp = Fracción de estrellas que tienen
         planetas en su órbita.
 
 Ne = Número de esos planetas orbitando
-        dentro de la zona de habitabilidad
-        de la estrella (las órbitas cuya
-        distancia a la estrella no sea tan
-        próxima como para ser demasiado
-        calientes, ni tan lejana como para
-        ser demasiado frías para poder
-        albergar vida.''')
+         dentro de la zona de habitabilidad
+         de la estrella (las órbitas cuya
+         distancia a la estrella no sea tan
+         próxima como para ser demasiado
+         calientes, ni tan lejana como para
+         ser demasiado frías para poder
+         albergar vida.''')
                         pag = pag + 1
                     else:
                         consola = Label(text = '''Fl = Fracción de esos planetas
@@ -547,8 +546,39 @@ class MathGameDrakeV(App):
         cabecera = BoxLayout(orientation ='horizontal') #Primer div-------------
 
         #Crear elementos de cabecera--------------------------------------------
-        consola = Label(text = "Seleccione el valor")
-
+        if SeleccionEcuacion == "R*":
+            consola = Label(text = '''(R*) Seleccione el ritmo anual de formación
+de estrellas adecuadas en la galaxia.''')
+        else:
+            if SeleccionEcuacion == "Fp":
+                consola = Label(text = '''(Fp) Seleccione la fracción de estrellas que tienen
+planetas en su órbita.''')
+            else:
+                if SeleccionEcuacion == "Ne":
+                    consola = Label(text = '''(Ne) Seleccione el número de esos planetas
+orbitando dentro de la zona de habitabilidad de
+la estrella.''')
+                else:
+                    if SeleccionEcuacion == "Fl":
+                        consola = Label(text = '''(Fl) Seleccione la fracción de esos planetas dentro
+de la zona de habitabilidad en los que la vida se
+ha desarrollado.''')
+                    else:
+                        if SeleccionEcuacion == "Fi":
+                            consola = Label(text = '''(Fi) Seleccione la fracción de esos planetas en los
+que la vida inteligente se ha desarrollado.''')
+                        else:
+                            if SeleccionEcuacion == "Fc":
+                                consola = Label(text = '''(Fc) Seleccione la fracción de esos planetas donde
+la vida inteligente ha desarrollado una tecnología
+e intenta comunicarse.''')
+                            else:
+                                if SeleccionEcuacion == "L":
+                                    consola = Label(text = '''(L) Seleccione el lapso, medido en años, durante
+el que una civilización inteligente y comunicativa
+puede existir.''')
+                                else:
+                                    consola = Label(text = "Seleccione el valor")
         #Añadir elementos a cabecera--------------------------------------------
         cabecera.add_widget(consola)
 
