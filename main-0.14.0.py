@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-version = "0.13.6"
+version = "0.14.0"
 
 from kivy.app import App
 from kivy.uix.label import Label
@@ -313,6 +313,151 @@ funArchivos()
 #victory = SoundLoader.load('./data/audio/victory.wav')
 #-------------------------------------------------------------------------------
 
+class MathGameDrakePreview(App):
+
+    global pag
+    pag = 0
+
+    def build(self):
+
+        global pag
+
+        #Función que detecta el texto del botón seleccionado en pantalla--------
+        def callback(instance):
+
+            Seleccion = instance.text #contiene el string del boton
+            print(instance.text)
+
+            global pag
+
+            if pag < 5:
+                superBox.remove_widget(cabecera)
+                superBox.remove_widget(pie)
+                MathGameDrakePreview().run()
+            else:
+                pag = 0
+                superBox.remove_widget(cabecera)
+                superBox.remove_widget(pie)
+                MathGameDrake().run()
+        #-----------------------------------------------------------------------
+
+        #Interfaz---------------------------------------------------------------
+        #Layout global de superBox cada widget dispuestos uno encima de otro----
+        superBox = BoxLayout(orientation ='vertical')
+
+        #Widgets de cabecera añadidos en el plano horizontal--------------------
+        cabecera = BoxLayout(orientation ='horizontal') #Primer div-------------
+
+        #Crear elementos de cabecera--------------------------------------------
+        if pag == 0:
+            consola = Label(text = '''La ecuación de Drake o fórmula de Drake es
+una ecuación para estimar la cantidad de
+civilizaciones en nuestra galaxia, la Vía
+Láctea, susceptibles de poseer emisiones
+de radio detectables.
+
+Fue concebida en 1961 por el radioastrónomo
+Frank Drake, presidente del instituto SETI,
+mientras trabajaba en el Observatorio
+Nacional de Radioastronomía en Green Bank
+(estado de Virginia Occidental [EE. UU.]).''')
+            pag = pag + 1
+        else:
+            if pag == 1:
+                consola = Label(text = '''La ecuación de Drake identifica los
+factores específicos que, se cree, tienen
+un papel importante en el desarrollo de
+las civilizaciones.
+
+Aunque en la actualidad no hay datos
+suficientes para resolver la ecuación,
+la comunidad científica ha aceptado
+su relevancia como primera aproximación
+teórica al problema, y varios científicos
+la han utilizado como herramienta para
+plantear distintas hipótesis.''')
+                pag = pag + 1
+            else:
+                if pag == 2:
+                    consola = Label(text = '''Nuestro Sol es solo una estrella
+solitaria en la abundancia de 7×10^22
+estrellas en el universo observable.
+
+La Vía Láctea es solo una de entre las
+2 000 000 000 000 [dos billones] de
+galaxias del universo.
+
+Parecería entonces que debería haber
+plenitud de vida allí afuera.''')
+                    pag = pag + 1
+                else:
+                    if pag == 3:
+                        consola = Label(text = '''La ecuación es la siguiente:
+
+N  = Número de civilizaciones que podrían
+     comunicarse en nuestra galaxia,
+     la Vía Láctea.
+
+R* = Ritmo anual de formación de estrellas
+     "adecuadas" en la galaxia.
+
+Fp = Fracción de estrellas que tienen
+     planetas en su órbita.
+
+Ne = Número de esos planetas orbitando
+     dentro de la zona de habitabilidad
+     de la estrella (las órbitas cuya
+     distancia a la estrella no sea tan
+     próxima como para ser demasiado
+     calientes, ni tan lejana como para
+     ser demasiado frías para poder
+     albergar vida.''')
+                        pag = pag + 1
+                    else:
+                        consola = Label(text = '''Fl = Fracción de esos planetas
+       dentro de la zona de habitabilidad en
+       los que la vida se ha desarrollado
+
+Fi = Fracción de esos planetas en los
+       que la vida inteligente se ha
+       desarrollado.
+
+Fc = Fracción de esos planetas donde
+       la vida inteligente ha desarrollado
+       una tecnología e intenta comunicarse.
+
+L  = Lapso, medido en años, durante el
+       que una civilización inteligente y
+       comunicativa puede existir.''')
+
+                        pag = pag + 1
+
+        #Añadir elementos a cabecera--------------------------------------------
+        cabecera.add_widget(consola)
+
+        #Widgets de pie de página añadidos en el plano vertical-----------------
+        pie = BoxLayout(orientation ='vertical')
+
+        #Crear elementos del pie------------------------------------------------
+        aceptar = Button(text = "Siguiente",background_color = (0.1,0.2,0.6,0.6))
+        aceptar.bind(on_press=callback)
+
+        null1 = Label()
+        null2 = Label()
+
+        #Añadir elementos al pie------------------------------------------------
+        pie.add_widget(null1)
+        pie.add_widget(null2)
+        pie.add_widget(aceptar)
+
+        #Añadir cada división al layout global----------------------------------
+        superBox.add_widget(cabecera)
+        superBox.add_widget(pie)
+
+        #Mostrar layout completo------------------------------------------------
+        return superBox
+        #Fin Interfaz-----------------------------------------------------------
+
 class MathGameDrakeV(App):
 
     def build(self):
@@ -459,6 +604,22 @@ class MathGameDrake(App):
         #Función que detecta el texto del botón seleccionado en pantalla--------
         def callback(instance):
 
+            global vR
+            global vFp
+            global vNe
+            global vFl
+            global vFi
+            global vFc
+            global vL
+
+            global Var1
+            global Var2
+            global Var3
+            global Var4
+            global Var5
+            global Var6
+            global Var7
+
             global contadorBloqueo
 
             Seleccion = instance.text #contiene el string del boton
@@ -471,14 +632,6 @@ class MathGameDrake(App):
             else:
                 if Seleccion == "Reset":
 
-                    global vR
-                    global vFp
-                    global vNe
-                    global vFl
-                    global vFi
-                    global vFc
-                    global vL
-
                     vR = "R*"
                     vFp = "Fp"
                     vNe = "Ne"
@@ -486,14 +639,6 @@ class MathGameDrake(App):
                     vFl = "Fl"
                     vFc = "Fc"
                     vL = "L"
-
-                    global Var1
-                    global Var2
-                    global Var3
-                    global Var4
-                    global Var5
-                    global Var6
-                    global Var7
 
                     Var1 = "0"
                     Var2 = "0"
@@ -509,17 +654,42 @@ class MathGameDrake(App):
                     superBox.remove_widget(cabecera)
                     MathGameDrake().run()
                 else:
-                    if contadorBloqueo == 0:
-                        global SeleccionEcuacion
-                        SeleccionEcuacion = Seleccion
+                    if Seleccion == "Ecuación Original":
+
+                        vR = "10"
+                        vFp = "0.5"
+                        vNe = "2"
+                        vFi = "1"
+                        vFl = "0.01"
+                        vFc = "0.01"
+                        vL = "10000"
+
+                        Var1 = 10
+                        Var2 = 0.5
+                        Var3 = 2
+                        Var4 = 1
+                        Var5 = 0.01
+                        Var6 = 0.01
+                        Var7 = 10000
+
+                        contadorBloqueo = 1
 
                         superBox.remove_widget(pie)
                         superBox.remove_widget(cabecera)
-                        MathGameDrakeV().run()
-                    else:
-                        superBox.remove_widget(pie)
-                        superBox.remove_widget(cabecera)
                         MathGameDrake().run()
+
+                    else:
+                        if contadorBloqueo == 0:
+                            global SeleccionEcuacion
+                            SeleccionEcuacion = Seleccion
+
+                            superBox.remove_widget(pie)
+                            superBox.remove_widget(cabecera)
+                            MathGameDrakeV().run()
+                        else:
+                            superBox.remove_widget(pie)
+                            superBox.remove_widget(cabecera)
+                            MathGameDrake().run()
         #-----------------------------------------------------------------------
 
         #Interfaz---------------------------------------------------------------
@@ -599,12 +769,14 @@ class MathGameDrake(App):
         reset = Button(text = "Reset",background_color = (0.1,0.2,0.6,0.6))
         reset.bind(on_press=callback)
 
+        original = Button(text = "Ecuación Original",background_color = (0.1,0.2,0.6,0.6))
+        original.bind(on_press=callback)
+
         null = Label(text = "")
-        null2 = Label(text = "")
 
         #Añadir elementos al pie------------------------------------------------
         pie.add_widget(null)
-        pie.add_widget(null2)
+        pie.add_widget(original)
         pie.add_widget(reset)
         pie.add_widget(volver)
 
@@ -629,7 +801,7 @@ class MathGameExtras(App):
             if Seleccion == "Ecuación de Drake":
                 superBox.remove_widget(pie)
                 superBox.remove_widget(cabecera)
-                MathGameDrake().run()
+                MathGameDrakePreview().run()
             else:
                 superBox.remove_widget(pie)
                 superBox.remove_widget(cabecera)
