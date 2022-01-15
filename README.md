@@ -12,6 +12,262 @@
 
 # Changelog
 
+<h2>v0.14.1</h2>
+
+<b>Features</b>
+
+- Mejoras en la interfaz.
+
+<b>Bugs</b>
+
+- La app se cerrará dada cierta cantidad de operaciones realizadas.
+- Al rellenar las variables en la Ecuación de Drake si estas tienen el mismo valor y se cambia de nuevo alguna se cambiarán empezando de izquierda a derecha sin importar la seleccionada.
+
+<hr>
+
+<h2>v0.14.0</h2>
+
+<b>Features</b>
+
+- En la Ecuación de Drake ahora se mostrará una pantalla de información.
+- Se ha añadido la posibilidad de usar los valores originales de la Ecuación de Drake.
+
+<b>Bugs</b>
+
+- La app se cerrará dada cierta cantidad de operaciones realizadas.
+- Al rellenar las variables en la Ecuación de Drake si estas tienen el mismo valor y se cambia de nuevo alguna se cambiarán empezando de izquierda a derecha sin importar la seleccionada.
+
+<hr>
+
+<h2>v0.13.6</h2>
+
+<b>Features</b>
+
+- Mejoras en la interfaz.
+
+<b>Bugs</b>
+
+- La app se cerrará dada cierta cantidad de operaciones realizadas.
+- Al rellenar las variables en la Ecuación de Drake si estas tienen el mismo valor y se cambia de nuevo alguna se cambiarán empezando de izquierda a derecha sin importar la seleccionada.
+
+<hr>
+
+<h2>v0.13.5</h2>
+
+<b>Features</b>
+
+- Arreglado un bug que mantiene el valor introducido previamente al rellenar variables nuevas si se deja en blanco en la Ecuación de Drake.
+
+<b>Bugs</b>
+
+- La app se cerrará dada cierta cantidad de operaciones realizadas.
+- Al rellenar las variables en la Ecuación de Drake si estas tienen el mismo valor y se cambia de nuevo alguna se cambiarán empezando de izquierda a derecha sin importar la seleccionada.
+
+<hr>
+
+<h2>v0.13.4</h2>
+
+<b>Features</b>
+
+- Arreglado los cierres anteriores al no introducir un valor en las variables de la Ecuación de Drake.
+
+<b>Bugs</b>
+
+- La app se cerrará dada cierta cantidad de operaciones realizadas.
+- Bug que mantiene el valor introducido previamente al rellenar variables nuevas si se deja en blanco en la Ecuación de Drake
+- Al rellenar las variables en la Ecuación de Drake si estas tienen el mismo valor y se cambia de nuevo alguna se cambiarán empezando de izquierda a derecha sin importar la seleccionada.
+
+<hr>
+
+<h2>v0.13.3</h2>
+
+<b>Features</b>
+
+- Mejoras en la interfaz
+
+<b>Bugs</b>
+
+- La app se cerrará dada cierta cantidad de operaciones realizadas.
+- Cierres al no introducir nada cuando se pide en la Ecuación de Drake.
+- Bug que mantiene el valor introducido previamente al rellenar variables nuevas si se deja en blanco en la Ecuación de Drake
+- Al rellenar las variables en la Ecuación de Drake si estas tienen el mismo valor y se cambia de nuevo alguna se cambiarán empezando de izquierda a derecha sin importar la seleccionada.
+
+<hr>
+
+<h2>v0.13.2</h2>
+
+<b>Features</b>
+
+- Mejoras en la interfaz
+- Cambios y optimizaciones del código en la Ecuación de Drake.
+
+<b>Bugs</b>
+
+- La app se cerrará dada cierta cantidad de operaciones realizadas.
+- Cierres al no introducir nada cuando se pide en la Ecuación de Drake.
+- Bug que mantiene el valor introducido previamente al rellenar variables nuevas si se deja en blanco en la Ecuación de Drake
+- Al rellenar las variables en la Ecuación de Drake si estas tienen el mismo valor y se cambia de nuevo alguna se cambiarán empezando de izquierda a derecha sin importar la seleccionada.
+
+<hr>
+
+<h2>v0.13.1</h2>
+
+<b>Features</b>
+
+- Se añade corrección de errores al introducir datos en la Ecucación de Drake.
+
+<b>Bugs</b>
+
+- La app se cerrará dada cierta cantidad de operaciones realizadas.
+
+<hr>
+
+<h2>v0.13.0</h2>
+
+<b>Features</b>
+
+- Añadida una pantalla de selección de modos extra.
+- Se añade la Ecuación de Drake como modo extra (WiP).
+- Cambios menores en el código.
+
+<b>Bugs</b>
+
+- La app se cerrará dada cierta cantidad de operaciones realizadas.
+- Cierres al introducir valores incorrectos en la Ecuación de Drake.
+
+<b>#Se han eliminado temporalmente los sonidos hasta conseguir integrarlos en Android, hasta ahora solo era posible escucharlos en PC.</b>
+
+<hr>
+
+<h2>v0.12.5</h2>
+
+<b>Features</b>
+
+- Activado los permisos de nuevo.
+
+<b>Bugs</b>
+
+- La app se cerrará dada cierta cantidad de operaciones realizadas.
+- Los sonidos no funcionan.
+
+<hr>
+
+<h2>v0.12.4</h2>
+
+<b>Features</b>
+
+- Desactivado los permisos temporalmente y cambio de formatos de audio.
+
+<b>Bugs</b>
+
+- La app se cerrará dada cierta cantidad de operaciones realizadas.
+- Los sonidos no funcionan.
+
+<hr>
+
+<h2>v0.12.3</h2>
+
+<b>Features</b>
+
+- Añadido permisos para android.
+
+<b>Bugs</b>
+
+- La app se cerrará dada cierta cantidad de operaciones realizadas.
+- Cierres al acertar cualquier operación debido a fallos al cargar el módulo de audio.
+
+<hr>
+
+<h2>v0.12.2</h2>
+
+<b>Features</b>
+
+- Cambiada la librería usada para ejecutar audio.
+
+<b>Bugs</b>
+
+- La app se cerrará dada cierta cantidad de operaciones realizadas.
+- Cierres al acertar cualquier operación debido a fallos al cargar el módulo de audio.
+
+<hr>
+
+<h2>v0.12.1</h2>
+
+<b>Features</b>
+
+- Mejorada la compatibilidad con android.
+
+<b>Bugs</b>
+
+- La app se cerrará dada cierta cantidad de operaciones realizadas.
+- Los efectos de sonidos no funcionarán en android.
+
+<hr>
+
+<h2>v0.12.0</h2>
+
+<b>Features</b>
+
+- Añadido el módulo de música y algunos efectos de sonido al acertar.
+- Aumentado el límite de recursividad para python.
+
+<b>Bugs</b>
+
+- La app se cerrará dada cierta cantidad de operaciones realizadas.
+- No iniciará en android.
+
+<hr>
+
+<h2>v0.11.1</h2>
+
+<b>Features</b>
+
+- Optimizaciones del código.
+
+<b>Bugs</b>
+
+- La app se cerrará dada cierta cantidad de operaciones realizadas.
+
+<hr>
+
+<h2>v0.11.0</h2>
+
+<b>Features</b>
+
+- Mejoras en la interfaz.
+- Se corrije la creación redundante de ventanas en PC.
+
+<b>Bugs</b>
+
+- La app se cerrará dada cierta cantidad de operaciones realizadas.
+
+<hr>
+
+<h2>v0.10.6</h2>
+
+<b>Features</b>
+
+- Optimizaciones del código de cara a solventar los problemas de redundancia.
+- Añadido una pantalla nueva al seleccionar operaciones o de información si ya se tiene ajustes guardados.
+
+<b>Bugs</b>
+
+- La app se cerrará dada cierta cantidad de operaciones realizadas.
+
+<hr>
+
+<h2>v0.10.5</h2>
+
+<b>Features</b>
+
+- Optimizaciones del código.
+
+<b>Bugs</b>
+
+- La app se cerrará dada cierta cantidad de operaciones realizadas.
+
+<hr>
+
 <h2>v0.10.4</h2>
 
 <b>Features</b>
