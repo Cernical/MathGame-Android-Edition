@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-version = "0.14.4"
+version = "0.14.5"
 
 from kivy.app import App
 from kivy.uix.label import Label
@@ -549,34 +549,49 @@ class MathGameDrakeV(App):
         #Crear elementos de cabecera--------------------------------------------
         if SeleccionEcuacion == "R*":
             consola = Label(text = '''(R*) Seleccione el ritmo anual de formación
-de estrellas adecuadas en la galaxia.''')
+de estrellas adecuadas en la galaxia.
+
+Según datos de la nasa es de 1,379''')
         else:
             if SeleccionEcuacion == "Fp":
                 consola = Label(text = '''(Fp) Seleccione la fracción de estrellas que tienen
-planetas en su órbita.''')
+planetas en su órbita.
+
+Según datos del Observatorio Europeo Austral
+es de 0,333''')
             else:
                 if SeleccionEcuacion == "Ne":
                     consola = Label(text = '''(Ne) Seleccione el número de esos planetas
 orbitando dentro de la zona de habitabilidad de
-la estrella.''')
+la estrella.
+
+Se estima que es de 0.005''')
                 else:
                     if SeleccionEcuacion == "Fl":
                         consola = Label(text = '''(Fl) Seleccione la fracción de esos planetas dentro
 de la zona de habitabilidad en los que la vida se
-ha desarrollado.''')
+ha desarrollado.
+
+Se estima que es de 0.13.''')
                     else:
                         if SeleccionEcuacion == "Fi":
                             consola = Label(text = '''(Fi) Seleccione la fracción de esos planetas en los
-que la vida inteligente se ha desarrollado.''')
+que la vida inteligente se ha desarrollado.
+
+Se estima que es de 0.000054''')
                         else:
                             if SeleccionEcuacion == "Fc":
                                 consola = Label(text = '''(Fc) Seleccione la fracción de esos planetas donde
 la vida inteligente ha desarrollado una tecnología
-e intenta comunicarse.''')
+e intenta comunicarse.
+
+Se estima que es de 0.0021''')
                             else:
                                 consola = Label(text = '''(L) Seleccione el lapso, medido en años, durante
 el que una civilización inteligente y comunicativa
-puede existir.''')
+puede existir.
+
+Se estima que es de 420 años.''')
 
         #Añadir elementos a cabecera--------------------------------------------
         cabecera.add_widget(consola)
@@ -817,7 +832,7 @@ class MathGameDrake(App):
         try:
             resultadoDrake = Var1*Var2*Var3*Var4*Var5*Var6*Var7
             strResultadoDrake = str(resultadoDrake)
-            N = Label(text = strResultadoDrake,size_hint =(1, 0.01))
+            N = Label(text = "Posibles civilizaciones detectables: "+strResultadoDrake,size_hint =(1, 0.01))
 
             contadorBloqueo = 1
         except:
