@@ -12,6 +12,18 @@
 
 # Changelog
 
+<h2>v0.14.4</h2>
+
+<b>Features</b>
+
+- Se añade una imagen de cabecera en el menú principal.
+
+<b>Bugs</b>
+
+- La app se cerrará dada cierta cantidad de operaciones realizadas.
+
+<hr>
+
 <h2>v0.14.3</h2>
 
 <b>Features</b>
