@@ -12,6 +12,31 @@
 
 # Changelog
 
+<h2>v0.14.4</h2>
+
+<b>Features</b>
+
+- Se añade una imagen de cabecera en el menú principal.
+
+<b>Bugs</b>
+
+- La app se cerrará dada cierta cantidad de operaciones realizadas.
+
+<hr>
+
+<h2>v0.14.3</h2>
+
+<b>Features</b>
+
+- Ahora se permite rellenar las variables de la Ecuación de Drake sin importar el estado en el que se encuentre la app.
+- Se arregla el bug anterior que independientemente de qué variable se haya elegido se rellenaban las variables de izquierda a derecha.
+
+<b>Bugs</b>
+
+- La app se cerrará dada cierta cantidad de operaciones realizadas.
+
+<hr>
+
 <h2>v0.14.2</h2>
 
 <b>Features</b>
