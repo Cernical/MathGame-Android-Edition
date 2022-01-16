@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-version = "0.14.2"
+version = "0.14.3"
 
 from kivy.app import App
 from kivy.uix.label import Label
@@ -497,32 +497,32 @@ class MathGameDrakeV(App):
             global vL
 
             try:
-                if SeleccionEcuacion == "R*" or SeleccionEcuacion == vR:
+                if SeleccionEcuacion == "R*":
                     vR = resultadoAintroducir
                     global Var1
                     Var1 = float(vR)
                 else:
-                    if SeleccionEcuacion == "Fp" or SeleccionEcuacion == vFp:
+                    if SeleccionEcuacion == "Fp":
                         vFp = resultadoAintroducir
                         global Var2
                         Var2 = float(vFp)
                     else:
-                        if SeleccionEcuacion == "Ne" or SeleccionEcuacion == vNe:
+                        if SeleccionEcuacion == "Ne":
                             vNe = resultadoAintroducir
                             global Var3
                             Var3 = float(vNe)
                         else:
-                            if SeleccionEcuacion == "Fl" or SeleccionEcuacion == vFl:
+                            if SeleccionEcuacion == "Fl":
                                 vFl = resultadoAintroducir
                                 global Var4
                                 Var4 = float(vFl)
                             else:
-                                if SeleccionEcuacion == "Fi" or SeleccionEcuacion == vFi:
+                                if SeleccionEcuacion == "Fi":
                                     vFi = resultadoAintroducir
                                     global Var5
                                     Var5 = float(vFi)
                                 else:
-                                    if SeleccionEcuacion == "Fc" or SeleccionEcuacion == vFc:
+                                    if SeleccionEcuacion == "Fc":
                                         vFc = resultadoAintroducir
                                         global Var6
                                         Var6 = float(vFc)
@@ -573,12 +573,10 @@ que la vida inteligente se ha desarrollado.''')
 la vida inteligente ha desarrollado una tecnología
 e intenta comunicarse.''')
                             else:
-                                if SeleccionEcuacion == "L":
-                                    consola = Label(text = '''(L) Seleccione el lapso, medido en años, durante
+                                consola = Label(text = '''(L) Seleccione el lapso, medido en años, durante
 el que una civilización inteligente y comunicativa
 puede existir.''')
-                                else:
-                                    consola = Label(text = "Seleccione el valor")
+
         #Añadir elementos a cabecera--------------------------------------------
         cabecera.add_widget(consola)
 
@@ -627,12 +625,7 @@ class MathGameDrake(App):
     vFc = "Fc"
     vL = "L"
 
-    global contadorBloqueo
-    contadorBloqueo = 0
-
     def build(self):
-
-        global contadorBloqueo
 
         #Función que detecta el texto del botón seleccionado en pantalla--------
         def callback(instance):
@@ -652,8 +645,6 @@ class MathGameDrake(App):
             global Var5
             global Var6
             global Var7
-
-            global contadorBloqueo
 
             Seleccion = instance.text #contiene el string del boton
             print(instance.text)
@@ -682,8 +673,6 @@ class MathGameDrake(App):
                     Var6 = "0"
                     Var7 = "0"
 
-                    contadorBloqueo = 0
-
                     superBox.remove_widget(pie)
                     superBox.remove_widget(cuerpo)
                     superBox.remove_widget(cabecera)
@@ -707,27 +696,113 @@ class MathGameDrake(App):
                         Var6 = 0.01
                         Var7 = 10000
 
-                        contadorBloqueo = 1
-
                         superBox.remove_widget(pie)
                         superBox.remove_widget(cuerpo)
                         superBox.remove_widget(cabecera)
                         MathGameDrake().run()
 
                     else:
-                        if contadorBloqueo == 0:
-                            global SeleccionEcuacion
-                            SeleccionEcuacion = Seleccion
+                        superBox.remove_widget(pie)
+                        superBox.remove_widget(cuerpo)
+                        superBox.remove_widget(cabecera)
+                        MathGameDrake().run()
+        #-----------------------------------------------------------------------
+        #Binding R*-------------------------------------------------------------
+        def funR(instance):
 
-                            superBox.remove_widget(pie)
-                            superBox.remove_widget(cuerpo)
-                            superBox.remove_widget(cabecera)
-                            MathGameDrakeV().run()
-                        else:
-                            superBox.remove_widget(pie)
-                            superBox.remove_widget(cuerpo)
-                            superBox.remove_widget(cabecera)
-                            MathGameDrake().run()
+            Seleccion = "R*"
+
+            global SeleccionEcuacion
+            SeleccionEcuacion = Seleccion
+
+            superBox.remove_widget(pie)
+            superBox.remove_widget(cuerpo)
+            superBox.remove_widget(cabecera)
+            MathGameDrakeV().run()
+        #-----------------------------------------------------------------------
+
+        #Binding Fp*-------------------------------------------------------------
+        def funFp(instance):
+
+            Seleccion = "Fp"
+
+            global SeleccionEcuacion
+            SeleccionEcuacion = Seleccion
+
+            superBox.remove_widget(pie)
+            superBox.remove_widget(cuerpo)
+            superBox.remove_widget(cabecera)
+            MathGameDrakeV().run()
+        #-----------------------------------------------------------------------
+
+        #Binding Ne*-------------------------------------------------------------
+        def funNe(instance):
+
+            Seleccion = "Ne"
+
+            global SeleccionEcuacion
+            SeleccionEcuacion = Seleccion
+
+            superBox.remove_widget(pie)
+            superBox.remove_widget(cuerpo)
+            superBox.remove_widget(cabecera)
+            MathGameDrakeV().run()
+        #-----------------------------------------------------------------------
+
+        #Binding Fl*-------------------------------------------------------------
+        def funFl(instance):
+
+            Seleccion = "Fl"
+
+            global SeleccionEcuacion
+            SeleccionEcuacion = Seleccion
+
+            superBox.remove_widget(pie)
+            superBox.remove_widget(cuerpo)
+            superBox.remove_widget(cabecera)
+            MathGameDrakeV().run()
+        #-----------------------------------------------------------------------
+
+        #Binding Fi-------------------------------------------------------------
+        def funFi(instance):
+
+            Seleccion = "Fi"
+
+            global SeleccionEcuacion
+            SeleccionEcuacion = Seleccion
+
+            superBox.remove_widget(pie)
+            superBox.remove_widget(cuerpo)
+            superBox.remove_widget(cabecera)
+            MathGameDrakeV().run()
+        #-----------------------------------------------------------------------
+
+        #Binding Fc-------------------------------------------------------------
+        def funFc(instance):
+
+            Seleccion = "Fc"
+
+            global SeleccionEcuacion
+            SeleccionEcuacion = Seleccion
+
+            superBox.remove_widget(pie)
+            superBox.remove_widget(cuerpo)
+            superBox.remove_widget(cabecera)
+            MathGameDrakeV().run()
+        #-----------------------------------------------------------------------
+
+        #Binding L--------------------------------------------------------------
+        def funL(instance):
+
+            Seleccion = "L"
+
+            global SeleccionEcuacion
+            SeleccionEcuacion = Seleccion
+
+            superBox.remove_widget(pie)
+            superBox.remove_widget(cuerpo)
+            superBox.remove_widget(cabecera)
+            MathGameDrakeV().run()
         #-----------------------------------------------------------------------
 
         #Interfaz---------------------------------------------------------------
@@ -735,7 +810,7 @@ class MathGameDrake(App):
         superBox = BoxLayout(orientation ='vertical')
 
         #Widgets de cabecera añadidos en el plano horizontal--------------------
-        cabecera = BoxLayout(orientation ='vertical',size_hint =(1, 0.5)) #Primer div-------------
+        cabecera = BoxLayout(orientation ='vertical',size_hint =(1, 0.5))
 
         #Crear elementos de cabecera--------------------------------------------
         try:
@@ -757,30 +832,21 @@ class MathGameDrake(App):
         #Widgets de Mitad de página añadidos en el plano vertical---------------
         cuerpo = BoxLayout(orientation ='horizontal',size_hint =(1, 0.5))
 
-        if contadorBloqueo == 1:
-                R = Button(text = vR,background_color = (0.1,0.2,0.6,0.3),size_hint =(1, 0.25))
-                Fp = Button(text = vFp,background_color = (0.1,0.2,0.6,0.3),size_hint =(1, 0.25))
-                Ne = Button(text = vNe,background_color = (0.1,0.2,0.6,0.3),size_hint =(1, 0.25))
-                Fl = Button(text = vFl,background_color = (0.1,0.2,0.6,0.3),size_hint =(1, 0.25))
-                Fi = Button(text = vFi,background_color = (0.1,0.2,0.6,0.3),size_hint =(1, 0.25))
-                Fc = Button(text = vFc,background_color = (0.1,0.2,0.6,0.3),size_hint =(1, 0.25))
-                L = Button(text = vL,background_color = (0.1,0.2,0.6,0.3),size_hint =(1, 0.25))
-        else:
-                R = Button(text = vR,background_color = (0.1,0.2,0.6,0.6),size_hint =(1, 0.25))
-                Fp = Button(text = vFp,background_color = (0.1,0.2,0.6,0.6),size_hint =(1, 0.25))
-                Ne = Button(text = vNe,background_color = (0.1,0.2,0.6,0.6),size_hint =(1, 0.25))
-                Fl = Button(text = vFl,background_color = (0.1,0.2,0.6,0.6),size_hint =(1, 0.25))
-                Fi = Button(text = vFi,background_color = (0.1,0.2,0.6,0.6),size_hint =(1, 0.25))
-                Fc = Button(text = vFc,background_color = (0.1,0.2,0.6,0.6),size_hint =(1, 0.25))
-                L = Button(text = vL,background_color = (0.1,0.2,0.6,0.6),size_hint =(1, 0.25))
+        R = Button(text = vR,background_color = (0.1,0.2,0.6,0.6),size_hint =(1, 0.25))
+        Fp = Button(text = vFp,background_color = (0.1,0.2,0.6,0.6),size_hint =(1, 0.25))
+        Ne = Button(text = vNe,background_color = (0.1,0.2,0.6,0.6),size_hint =(1, 0.25))
+        Fl = Button(text = vFl,background_color = (0.1,0.2,0.6,0.6),size_hint =(1, 0.25))
+        Fi = Button(text = vFi,background_color = (0.1,0.2,0.6,0.6),size_hint =(1, 0.25))
+        Fc = Button(text = vFc,background_color = (0.1,0.2,0.6,0.6),size_hint =(1, 0.25))
+        L = Button(text = vL,background_color = (0.1,0.2,0.6,0.6),size_hint =(1, 0.25))
 
-        R.bind(on_press=callback)
-        Fp.bind(on_press=callback)
-        Ne.bind(on_press=callback)
-        Fl.bind(on_press=callback)
-        Fi.bind(on_press=callback)
-        Fc.bind(on_press=callback)
-        L.bind(on_press=callback)
+        R.bind(on_press=funR)
+        Fp.bind(on_press=funFp)
+        Ne.bind(on_press=funNe)
+        Fl.bind(on_press=funFl)
+        Fi.bind(on_press=funFi)
+        Fc.bind(on_press=funFc)
+        L.bind(on_press=funL)
 
         X = Label(text = "x",size_hint =(0.5, 0.25))
         X2 = Label(text = "x",size_hint =(0.5, 0.25))
