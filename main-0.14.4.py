@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-version = "0.14.3"
+version = "0.14.4"
 
 from kivy.app import App
 from kivy.uix.label import Label
@@ -7,6 +7,7 @@ from kivy.uix.button import Button
 from kivy.uix.textinput import TextInput
 from kivy.uix.boxlayout import BoxLayout
 from random import randrange
+from kivy.uix.image import Image
 
 #Pedir permisos android---------------------------------------------------------
 #from android.permissions import request_permissions, Permission
@@ -2207,7 +2208,7 @@ class MathGame(App):
         cabecera = BoxLayout(orientation ='horizontal') #Primer div-------------
 
         #Crear elementos de cabecera--------------------------------------------
-        consola = Label(text = "¡Bienvenido a MathGame Android Edition!")
+        consola = Image(source="./data/cabecera.png")
 
         #Añadir elementos a cabecera--------------------------------------------
         cabecera.add_widget(consola)
