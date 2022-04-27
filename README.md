@@ -1,5 +1,9 @@
 # MathGame Android Edition
 
+<p align="left" width="100%">
+    <img src="https://user-images.githubusercontent.com/84983282/165526452-489bd5a7-6faf-4b46-b0e1-b51ad7cafa89.png">
+</p>
+
 <h2>Creación de juego en python sobre resolución de problemas matemáticos.</h2>
 <p>El proyecto empezó para aprender Python, trata de resolver problemas matemáticos según las exigencias del usuario, (Número de preguntas, dificultad...) con la esperanza de añadir otras opciones y tipos de problemas, (ecuaciones, etc...)</p>
 
