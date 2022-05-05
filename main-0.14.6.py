@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-version = "0.14.5"
+version = "0.14.6"
 
 from kivy.app import App
 from kivy.uix.label import Label
@@ -1684,28 +1684,28 @@ class MathGameOperaciones(App):
 
                 vidaStr = str(vida)
                 if operacion == "Sumas":
-                    consola = Label(text = "Tienes "+vidaStr+" vidas "+"|"+" Sumas entre dos numeros: "+mostrarnumero1+" + "+mostrarnumero2)
+                    consola = Label(text = "Tienes "+vidaStr+" vidas "+"|"+" Sumas entre dos números: "+mostrarnumero1+" + "+mostrarnumero2)
                 else:
                     if operacion == "Restas":
-                        consola = Label(text = "Tienes "+vidaStr+" vidas "+"|"+" Restas entre dos numeros: "+mostrarnumero1+" - "+mostrarnumero2)
+                        consola = Label(text = "Tienes "+vidaStr+" vidas "+"|"+" Restas entre dos números: "+mostrarnumero1+" - "+mostrarnumero2)
                     else:
                         if operacion == "Multiplicaciones":
-                            consola = Label(text = "Tienes "+vidaStr+" vidas "+"|"+" Multiplicaciones entre dos numeros: "+mostrarnumero1+" x "+mostrarnumero2)
+                            consola = Label(text = "Tienes "+vidaStr+" vidas "+"|"+" Multiplicaciones entre dos números: "+mostrarnumero1+" x "+mostrarnumero2)
                         else:
-                            consola = Label(text = "Tienes "+vidaStr+" vidas "+"|"+" Divisiones entre dos numeros: "+mostrarnumero1+" / "+mostrarnumero2)
+                            consola = Label(text = "Tienes "+vidaStr+" vidas "+"|"+" Divisiones entre dos números: "+mostrarnumero1+" / "+mostrarnumero2)
 
             else:
 
                 if operacion == "Sumas":
-                    consola = Label(text = "Sumas entre dos numeros: "+mostrarnumero1+" + "+mostrarnumero2)
+                    consola = Label(text = "Sumas entre dos números: "+mostrarnumero1+" + "+mostrarnumero2)
                 else:
                     if operacion == "Restas":
-                        consola = Label(text = "Restas entre dos numeros: "+mostrarnumero1+" - "+mostrarnumero2)
+                        consola = Label(text = "Restas entre dos números: "+mostrarnumero1+" - "+mostrarnumero2)
                     else:
                         if operacion == "Multiplicaciones":
-                            consola = Label(text = "Multiplicaciones entre dos numeros: "+mostrarnumero1+" x "+mostrarnumero2)
+                            consola = Label(text = "Multiplicaciones entre dos números: "+mostrarnumero1+" x "+mostrarnumero2)
                         else:
-                            consola = Label(text = "Divisiones entre dos numeros: "+mostrarnumero1+" / "+mostrarnumero2)
+                            consola = Label(text = "Divisiones entre dos números: "+mostrarnumero1+" / "+mostrarnumero2)
 
             cabecera.add_widget(consola)
 
