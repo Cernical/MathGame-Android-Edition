@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-version = "0.14.6"
+version = "0.15.0"
 
 from kivy.app import App
 from kivy.uix.label import Label
@@ -1597,6 +1597,14 @@ class MathGameOperaciones(App):
             global ContadorPreguntas
             global comprobacion
 
+            Seleccion = instance.text #contiene el string del boton
+            print(instance.text)
+
+            if Seleccion == "Salir":
+                superBox.remove_widget(pie)
+                superBox.remove_widget(cabecera)
+                MathGameResultado().run()
+
             #Gestión de la excepción al presionar botón sin introducir nada-----
             try:
                 respuestaOperaciones = resultadoAintroducir #contiene el string del boton
@@ -1715,16 +1723,18 @@ class MathGameOperaciones(App):
             bienvenida = Button(text = "Seleccione la respuesta",background_color = (0.1,0.2,0.6,0.6))
             bienvenida.bind(on_press=callback)
 
+            salidaOperaciones = Button(text = "Salir",background_color = (0.1,0.2,0.6,0.6))
+            salidaOperaciones.bind(on_press=callback)
+
             textinput = TextInput()
             textinput.bind(text=on_text)
 
             null = Label(text = "")
-            null2 = Label(text = "")
 
             pie.add_widget(null)
-            pie.add_widget(null2)
             pie.add_widget(textinput)
             pie.add_widget(bienvenida)
+            pie.add_widget(salidaOperaciones)
 
             #Salida por pantalla final------------------------------------------
             superBox.add_widget(cabecera)
