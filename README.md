@@ -17,6 +17,18 @@
 
 # Changelog
 
+<h2>v0.15.0</h2>
+
+<b>Features</b>
+
+- Se añade un botón para volver al realizar operaciones.
+
+<b>Bugs</b>
+
+- La app se cerrará dada cierta cantidad de operaciones realizadas.
+
+<hr>
+
 <h2>v0.14.6</h2>
 
 <b>Features</b>
