@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-version = "0.16.0"
+version = "0.16.1"
 
 from kivy.app import App
 from kivy.uix.label import Label
@@ -1489,7 +1489,7 @@ class MathGamePuntuacion(App):
         cabecera = BoxLayout(orientation ='horizontal') #Primer div-------------
 
         #Crear elementos de cabecera--------------------------------------------
-        consola = Label(text = "Puntuación: "+archivo.read())
+        consola = Label(text = texto_puntuacion+archivo.read())
 
         #Añadir elementos a cabecera--------------------------------------------
         cabecera.add_widget(consola)
@@ -1498,7 +1498,7 @@ class MathGamePuntuacion(App):
         pie = BoxLayout(orientation ='vertical')
 
         #Crear elementos del pie------------------------------------------------
-        aceptar = Button(text = "Vale",background_color = (0.1,0.2,0.6,0.6))
+        aceptar = Button(text = texto_aceptar,background_color = (0.1,0.2,0.6,0.6))
         aceptar.bind(on_press=callback)
 
         null = Label(text = "")
@@ -1587,19 +1587,19 @@ class MathGameComprobacion(App):
                 vida = vida - 1
 
             resultadoMostrar = str(resultadoreal)
-            consola = Label(text = "El resultado era "+resultadoMostrar)
+            consola = Label(text = texto_resultado+resultadoMostrar)
 
         else:
 
             #victory.play()
-            consola = Label(text = "¡Has acertado!")
+            consola = Label(text = texto_acierto)
 
         cabecera.add_widget(consola)
 
         #Widgets de pie de página añadidos en el plano vertical
         pie = BoxLayout(orientation ='vertical')
 
-        aceptar = Button(text = "Vale",background_color = (0.1,0.2,0.6,0.6))
+        aceptar = Button(text = texto_aceptar,background_color = (0.1,0.2,0.6,0.6))
         aceptar.bind(on_press=callback)
 
         null = Label(text = "")
