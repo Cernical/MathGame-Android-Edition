@@ -26,6 +26,7 @@
 <b>Bugs</b>
 
 - La app se cerrará dada cierta cantidad de operaciones realizadas.
+- Cierres al almacenar configuración en ajustes y al volver a iniciar la app.
 
 <hr>
 
@@ -39,6 +40,7 @@
 <b>Bugs</b>
 
 - La app se cerrará dada cierta cantidad de operaciones realizadas.
+- Cierres al almacenar configuración en ajustes y al volver a iniciar la app.
 
 <hr>
 
