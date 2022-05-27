@@ -17,6 +17,19 @@
 
 # Changelog
 
+<h2>v0.16.2</h2>
+
+<b>Features</b>
+
+- Correcciones en la traducción al inglés.
+- Se corrije los cierres anteriores al guardar configuración.
+
+<b>Bugs</b>
+
+- La app se cerrará dada cierta cantidad de operaciones realizadas.
+
+<hr>
+
 <h2>v0.16.1</h2>
 
 <b>Features</b>
