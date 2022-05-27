@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-version = "0.16.1"
+version = "0.16.2"
 
 from kivy.app import App
 from kivy.uix.label import Label
@@ -86,8 +86,13 @@ def funArchivos():
             vida = 5
             numPreguntas = 0
             MultiPuntuacion = 1
-            mostrar_modo_dificultad = "(Fácil)"
-            mostrar_modo_numPreguntas = "(Supervivencia)"
+            if idiomaApp == "Es":
+                mostrar_modo_dificultad = "(Fácil)"
+                mostrar_modo_numPreguntas = "(Supervivencia)"
+
+            if idiomaApp == "En":
+                mostrar_modo_dificultad = "(Easy)"
+                mostrar_modo_numPreguntas = "(Survival)"
 
         if contenidoAjustes == "1099150":
             modo_ajustes = 1
@@ -97,8 +102,13 @@ def funArchivos():
             vida = 5
             numPreguntas = 0
             MultiPuntuacion = 2
-            mostrar_modo_dificultad = "(Normal)"
-            mostrar_modo_numPreguntas = "(Supervivencia)"
+            if idiomaApp == "Es":
+                mostrar_modo_dificultad = "(Normal)"
+                mostrar_modo_numPreguntas = "(Supervivencia)"
+
+            if idiomaApp == "En":
+                mostrar_modo_dificultad = "(Normal)"
+                mostrar_modo_numPreguntas = "(Survival)"
 
         if contenidoAjustes == "100999150":
             modo_ajustes = 1
@@ -108,8 +118,13 @@ def funArchivos():
             vida = 5
             numPreguntas = 0
             MultiPuntuacion = 3
-            mostrar_modo_dificultad = "(Dificil)"
-            mostrar_modo_numPreguntas = "(Supervivencia)"
+            if idiomaApp == "Es":
+                mostrar_modo_dificultad = "(Hard)"
+                mostrar_modo_numPreguntas = "(Supervivencia)"
+
+            if idiomaApp == "En":
+                mostrar_modo_dificultad = "(Hard)"
+                mostrar_modo_numPreguntas = "(Survival)"
 
         if contenidoAjustes == "09001":
             modo_ajustes = 1
@@ -119,7 +134,10 @@ def funArchivos():
             vida = 0
             numPreguntas = 1
             MultiPuntuacion = 1
-            mostrar_modo_dificultad = "(Fácil)"
+            if idiomaApp == "Es":
+                mostrar_modo_dificultad = "(Fácil)"
+            if idiomaApp == "En":
+                mostrar_modo_dificultad = "(Easy)"
             mostrar_modo_numPreguntas = "(1)"
 
         if contenidoAjustes == "09002":
@@ -130,7 +148,10 @@ def funArchivos():
             vida = 0
             numPreguntas = 2
             MultiPuntuacion = 1
-            mostrar_modo_dificultad = "(Fácil)"
+            if idiomaApp == "Es":
+                mostrar_modo_dificultad = "(Fácil)"
+            if idiomaApp == "En":
+                mostrar_modo_dificultad = "(Easy)"
             mostrar_modo_numPreguntas = "(2)"
 
         if contenidoAjustes == "09003":
@@ -141,7 +162,10 @@ def funArchivos():
             vida = 0
             numPreguntas = 3
             MultiPuntuacion = 1
-            mostrar_modo_dificultad = "(Fácil)"
+            if idiomaApp == "Es":
+                mostrar_modo_dificultad = "(Fácil)"
+            if idiomaApp == "En":
+                mostrar_modo_dificultad = "(Easy)"
             mostrar_modo_numPreguntas = "(3)"
 
         if contenidoAjustes == "09004":
@@ -152,7 +176,10 @@ def funArchivos():
             vida = 0
             numPreguntas = 4
             MultiPuntuacion = 1
-            mostrar_modo_dificultad = "(Fácil)"
+            if idiomaApp == "Es":
+                mostrar_modo_dificultad = "(Fácil)"
+            if idiomaApp == "En":
+                mostrar_modo_dificultad = "(Easy)"
             mostrar_modo_numPreguntas = "(4)"
 
         if contenidoAjustes == "09005":
@@ -163,7 +190,10 @@ def funArchivos():
             vida = 0
             numPreguntas = 5
             MultiPuntuacion = 1
-            mostrar_modo_dificultad = "(Fácil)"
+            if idiomaApp == "Es":
+                mostrar_modo_dificultad = "(Fácil)"
+            if idiomaApp == "En":
+                mostrar_modo_dificultad = "(Easy)"
             mostrar_modo_numPreguntas = "(5)"
 
         if contenidoAjustes == "1099001":
@@ -174,7 +204,10 @@ def funArchivos():
             vida = 0
             numPreguntas = 1
             MultiPuntuacion = 2
-            mostrar_modo_dificultad = "(Normal)"
+            if idiomaApp == "Es":
+                mostrar_modo_dificultad = "(Normal)"
+            if idiomaApp == "En":
+                mostrar_modo_dificultad = "(Normal)"
             mostrar_modo_numPreguntas = "(1)"
 
         if contenidoAjustes == "1099002":
@@ -185,7 +218,10 @@ def funArchivos():
             vida = 0
             numPreguntas = 2
             MultiPuntuacion = 2
-            mostrar_modo_dificultad = "(Normal)"
+            if idiomaApp == "Es":
+                mostrar_modo_dificultad = "(Normal)"
+            if idiomaApp == "En":
+                mostrar_modo_dificultad = "(Normal)"
             mostrar_modo_numPreguntas = "(2)"
 
         if contenidoAjustes == "1099003":
@@ -196,7 +232,10 @@ def funArchivos():
             vida = 0
             numPreguntas = 3
             MultiPuntuacion = 2
-            mostrar_modo_dificultad = "(Normal)"
+            if idiomaApp == "Es":
+                mostrar_modo_dificultad = "(Normal)"
+            if idiomaApp == "En":
+                mostrar_modo_dificultad = "(Normal)"
             mostrar_modo_numPreguntas = "(3)"
 
         if contenidoAjustes == "1099004":
@@ -207,7 +246,10 @@ def funArchivos():
             vida = 0
             numPreguntas = 4
             MultiPuntuacion = 2
-            mostrar_modo_dificultad = "(Normal)"
+            if idiomaApp == "Es":
+                mostrar_modo_dificultad = "(Normal)"
+            if idiomaApp == "En":
+                mostrar_modo_dificultad = "(Normal)"
             mostrar_modo_numPreguntas = "(4)"
 
         if contenidoAjustes == "1099005":
@@ -218,7 +260,10 @@ def funArchivos():
             vida = 0
             numPreguntas = 5
             MultiPuntuacion = 2
-            mostrar_modo_dificultad = "(Normal)"
+            if idiomaApp == "Es":
+                mostrar_modo_dificultad = "(Normal)"
+            if idiomaApp == "En":
+                mostrar_modo_dificultad = "(Normal)"
             mostrar_modo_numPreguntas = "(5)"
 
         if contenidoAjustes == "100999001":
@@ -229,7 +274,10 @@ def funArchivos():
             vida = 0
             numPreguntas = 1
             MultiPuntuacion = 3
-            mostrar_modo_dificultad = "(Dificil)"
+            if idiomaApp == "Es":
+                mostrar_modo_dificultad = "(Dificil)"
+            if idiomaApp == "En":
+                mostrar_modo_dificultad = "(Hard)"
             mostrar_modo_numPreguntas = "(1)"
 
         if contenidoAjustes == "100999002":
@@ -240,7 +288,10 @@ def funArchivos():
             vida = 0
             numPreguntas = 2
             MultiPuntuacion = 3
-            mostrar_modo_dificultad = "(Dificil)"
+            if idiomaApp == "Es":
+                mostrar_modo_dificultad = "(Dificil)"
+            if idiomaApp == "En":
+                mostrar_modo_dificultad = "(Hard)"
             mostrar_modo_numPreguntas = "(2)"
 
         if contenidoAjustes == "100999003":
@@ -251,7 +302,10 @@ def funArchivos():
             vida = 0
             numPreguntas = 3
             MultiPuntuacion = 3
-            mostrar_modo_dificultad = "(Dificil)"
+            if idiomaApp == "Es":
+                mostrar_modo_dificultad = "(Dificil)"
+            if idiomaApp == "En":
+                mostrar_modo_dificultad = "(Hard)"
             mostrar_modo_numPreguntas = "(3)"
 
         if contenidoAjustes == "100999004":
@@ -262,7 +316,10 @@ def funArchivos():
             vida = 0
             numPreguntas = 4
             MultiPuntuacion = 3
-            mostrar_modo_dificultad = "(Dificil)"
+            if idiomaApp == "Es":
+                mostrar_modo_dificultad = "(Dificil)"
+            if idiomaApp == "En":
+                mostrar_modo_dificultad = "(Hard)"
             mostrar_modo_numPreguntas = "(4)"
 
         if contenidoAjustes == "100999005":
@@ -273,7 +330,10 @@ def funArchivos():
             vida = 0
             numPreguntas = 5
             MultiPuntuacion = 3
-            mostrar_modo_dificultad = "(Dificil)"
+            if idiomaApp == "Es":
+                mostrar_modo_dificultad = "(Dificil)"
+            if idiomaApp == "En":
+                mostrar_modo_dificultad = "(Hard)"
             mostrar_modo_numPreguntas = "(5)"
 
         if contenidoAjustes == "0":
@@ -300,22 +360,34 @@ def funArchivos():
         if contenidoAjustes2 == "Sumas":
             respuestaOperaciones = "Sumas"
             operacion = "Sumas"
-            mostrar_modo_problemas = "(Sumas)"
+            if idiomaApp == "Es":
+                mostrar_modo_problemas = "(Sumas)"
+            if idiomaApp == "En":
+                mostrar_modo_problemas = "(Sums)"
 
         if contenidoAjustes2 == "Restas":
             respuestaOperaciones = "Restas"
             operacion = "Restas"
-            mostrar_modo_problemas = "(Restas)"
+            if idiomaApp == "Es":
+                mostrar_modo_problemas = "(Restas)"
+            if idiomaApp == "En":
+                mostrar_modo_problemas = "(Subtractions)"
 
         if contenidoAjustes2 == "Multiplicaciones":
             respuestaOperaciones = "Multiplicaciones"
             operacion = "Multiplicaciones"
-            mostrar_modo_problemas = "(Multiplicaciones)"
+            if idiomaApp == "Es":
+                mostrar_modo_problemas = "(Multiplicaciones)"
+            if idiomaApp == "En":
+                mostrar_modo_problemas = "(Multiplications)"
 
         if contenidoAjustes2 == "Divisiones":
             respuestaOperaciones = "Divisiones"
             operacion = "Divisiones"
-            mostrar_modo_problemas = "(Divisiones)"
+            if idiomaApp == "Es":
+                mostrar_modo_problemas = "(Divisiones)"
+            if idiomaApp == "En":
+                mostrar_modo_problemas = "(Divisions)"
         #-----------------------------------------------------------------------
 
         print("Archivo Dificultad 1")
@@ -1178,34 +1250,36 @@ class MathGameAjustes(App):
     global bloquear
     global texto_seleccionar
 
-    #Idioma---------------------------------------------------------------------
-    texto_seleccionar = "(Seleccionar)"
-
-    try:
-        if idiomaApp == "Es":
-            texto_seleccionar = "(Seleccionar)"
-
-        if idiomaApp  == "En":
-            texto_seleccionar = "(Choose)"
-    except:
-        print()
-    #---------------------------------------------------------------------------
-
-    if firstRun == 1:
-        #El modo ajustes se inicia en la clase principal (cambiar allí)---------
-        mostrar_modo_ajustes = "(No)"
-        #-----------------------------------------------------------------------
-        mostrar_modo_dificultad = texto_seleccionar
-        mostrar_modo_numPreguntas = texto_seleccionar
-        mostrar_modo_problemas = texto_seleccionar
-        volver_bloquear = 0
-        bloquear = 1
-    else:
-        mostrar_modo_ajustes = "(Si)"
-        volver_bloquear = 1
-        bloquear = 0
-
     def build(self):
+
+        #Idioma-----------------------------------------------------------------
+        texto_seleccionar = "(Seleccionar)"
+
+        try:
+            if idiomaApp == "Es":
+                texto_seleccionar = "(Seleccionar)"
+
+            if idiomaApp  == "En":
+                texto_seleccionar = "(Choose)"
+        except:
+            print()
+        #-----------------------------------------------------------------------
+
+        #Comprobación Primera Ejecución-----------------------------------------
+        if firstRun == 1:
+            #El modo ajustes se inicia en la clase principal (cambiar allí)-----
+            mostrar_modo_ajustes = "(No)"
+            #-------------------------------------------------------------------
+            mostrar_modo_dificultad = texto_seleccionar
+            mostrar_modo_numPreguntas = texto_seleccionar
+            mostrar_modo_problemas = texto_seleccionar
+            volver_bloquear = 0
+            bloquear = 1
+        else:
+            mostrar_modo_ajustes = "(Si)"
+            volver_bloquear = 1
+            bloquear = 0
+        #-----------------------------------------------------------------------
 
         def limpiarGUI():
             superBox.remove_widget(espacio2)
@@ -2032,10 +2106,10 @@ class MathGameSelOpe(App):
                 superBox.remove_widget(cabecera)
 
                 if modo_ajustes == 1:
-                    mostrar_modo_problemas = "(Sumas)"
+                    mostrar_modo_problemas = texto_sumas
                     MathGameAjustes().run()
                 else:
-                    mostrar_modo_problemas = "(Seleccionar)"
+                    mostrar_modo_problemas = texto_seleccionar
                     MathGameOperaciones().run()
             else:
                 if respuestaOperaciones == texto_restas:
@@ -2044,10 +2118,10 @@ class MathGameSelOpe(App):
                     superBox.remove_widget(cabecera)
 
                     if modo_ajustes == 1:
-                        mostrar_modo_problemas = "(Restas)"
+                        mostrar_modo_problemas = texto_restas
                         MathGameAjustes().run()
                     else:
-                        mostrar_modo_problemas = "(Seleccionar)"
+                        mostrar_modo_problemas = texto_seleccionar
                         MathGameOperaciones().run()
                 else:
                     if respuestaOperaciones == texto_multiplicaciones:
@@ -2056,10 +2130,10 @@ class MathGameSelOpe(App):
                         superBox.remove_widget(cabecera)
 
                         if modo_ajustes == 1:
-                            mostrar_modo_problemas = "(Multiplicaciones)"
+                            mostrar_modo_problemas = texto_multiplicaciones
                             MathGameAjustes().run()
                         else:
-                            mostrar_modo_problemas = "(Seleccionar)"
+                            mostrar_modo_problemas = texto_seleccionar
                             MathGameOperaciones().run()
                     else:
                         operacion = "Divisiones"
@@ -2067,10 +2141,10 @@ class MathGameSelOpe(App):
                         superBox.remove_widget(cabecera)
 
                         if modo_ajustes == 1:
-                            mostrar_modo_problemas = "(Divisiones)"
+                            mostrar_modo_problemas = texto_divisiones
                             MathGameAjustes().run()
                         else:
-                            mostrar_modo_problemas = "(Seleccionar)"
+                            mostrar_modo_problemas = texto_seleccionar
                             MathGameOperaciones().run()
 
         #Idioma-----------------------------------------------------------------
@@ -2155,7 +2229,7 @@ class MathGameP(App):
                     mostrar_modo_numPreguntas = "(1)"
                     MathGameAjustes().run()
                 else:
-                    mostrar_modo_numPreguntas = "(Seleccionar)"
+                    mostrar_modo_numPreguntas = texto_seleccionar
                     MathGameSelOpe().run()
             else:
                 if respuestaPreguntas == "2":
@@ -2167,7 +2241,7 @@ class MathGameP(App):
                         mostrar_modo_numPreguntas = "(2)"
                         MathGameAjustes().run()
                     else:
-                        mostrar_modo_numPreguntas = "(Seleccionar)"
+                        mostrar_modo_numPreguntas = texto_seleccionar
                         MathGameSelOpe().run()
                 else:
                     if respuestaPreguntas == "3":
@@ -2179,7 +2253,7 @@ class MathGameP(App):
                             mostrar_modo_numPreguntas = "(3)"
                             MathGameAjustes().run()
                         else:
-                            mostrar_modo_numPreguntas = "(Seleccionar)"
+                            mostrar_modo_numPreguntas = texto_seleccionar
                             MathGameSelOpe().run()
                     else:
                         if respuestaPreguntas == "4":
@@ -2191,7 +2265,7 @@ class MathGameP(App):
                                 mostrar_modo_numPreguntas = "(4)"
                                 MathGameAjustes().run()
                             else:
-                                mostrar_modo_numPreguntas = "(Seleccionar)"
+                                mostrar_modo_numPreguntas = texto_seleccionar
                                 MathGameSelOpe().run()
                         else:
                             numPreguntas = 5
@@ -2202,7 +2276,7 @@ class MathGameP(App):
                                 mostrar_modo_numPreguntas = "(5)"
                                 MathGameAjustes().run()
                             else:
-                                mostrar_modo_numPreguntas = "(Seleccionar)"
+                                mostrar_modo_numPreguntas = texto_seleccionar
                                 MathGameSelOpe().run()
 
         #Idioma-----------------------------------------------------------------
@@ -2293,10 +2367,10 @@ class MathGameS(App):
                 superBox.remove_widget(cabecera)
 
                 if modo_ajustes == 1:
-                    mostrar_modo_numPreguntas = "(Supervivencia)"
+                    mostrar_modo_numPreguntas = texto_supervivencia
                     MathGameAjustes().run()
                 else:
-                    mostrar_modo_numPreguntas = "(Seleccionar)"
+                    mostrar_modo_numPreguntas = texto_seleccionar
                     MathGameSelOpe().run()
 
             else:
@@ -2313,12 +2387,14 @@ class MathGameS(App):
             texto_modo = "¿Quieres activar el modo supervivencia?"
             texto_si = "Si"
             texto_no = "No"
+            texto_supervivencia = "(Supervivencia)"
 
         if idiomaApp  == "En":
             intro = "Let's start"
             texto_modo = "Do you want to enable survival mode?"
             texto_si = "Yes"
             texto_no = "No"
+            texto_supervivencia = "(Survival)"
         #-----------------------------------------------------------------------
 
         #Interfaz---------------------------------------------------------------
@@ -2382,10 +2458,10 @@ class MathGameD(App):
                 superBox.remove_widget(cabecera)
 
                 if modo_ajustes == 1:
-                    mostrar_modo_dificultad = "(Fácil)"
+                    mostrar_modo_dificultad = texto_facil
                     MathGameAjustes().run()
                 else:
-                    mostrar_modo_dificultad = "(Seleccionar)"
+                    mostrar_modo_dificultad = texto_seleccionar
                     MathGameS().run()
             else:
                 if dificultadSeleccionada == texto_normal:
@@ -2397,10 +2473,10 @@ class MathGameD(App):
                     superBox.remove_widget(cabecera)
 
                     if modo_ajustes == 1:
-                        mostrar_modo_dificultad = "(Normal)"
+                        mostrar_modo_dificultad = texto_normal
                         MathGameAjustes().run()
                     else:
-                        mostrar_modo_dificultad = "(Seleccionar)"
+                        mostrar_modo_dificultad = texto_seleccionar
                         MathGameS().run()
                 else:
                     dificultad = "D"
@@ -2411,10 +2487,10 @@ class MathGameD(App):
                     superBox.remove_widget(cabecera)
 
                     if modo_ajustes == 1:
-                        mostrar_modo_dificultad = "(Dificil)"
+                        mostrar_modo_dificultad = texto_dificil
                         MathGameAjustes().run()
                     else:
-                        mostrar_modo_dificultad = "(Seleccionar)"
+                        mostrar_modo_dificultad = texto_seleccionar
                         MathGameS().run()
         #-----------------------------------------------------------------------
 
