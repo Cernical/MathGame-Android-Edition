@@ -17,6 +17,19 @@
 
 # Changelog
 
+<h2>v0.18.0</h2>
+
+<b>Features</b>
+
+- Se añade la posibilidad de cambiar el tema de la aplicación.
+- Optimizaciones del código.
+
+<b>Bugs</b>
+
+- La app se cerrará dada cierta cantidad de operaciones realizadas.
+
+<hr>
+
 <h2>v0.17.1</h2>
 
 <b>Features</b>
