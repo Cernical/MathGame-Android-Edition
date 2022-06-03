@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-version = "0.17.1"
+version = "0.18.0"
 
 from kivy.app import App
 from kivy.uix.label import Label
@@ -12,12 +12,6 @@ from kivy.uix.image import Image
 #Insertar color al cambiar de ventana-------------------------------------------
 from kivy.core.window import Window
 Window.clearcolor = (0.1,0.2,0.4,1)
-#-------------------------------------------------------------------------------
-
-#Permitir la recursividad (temporal)--------------------------------------------
-import resource, sys
-resource.setrlimit(resource.RLIMIT_STACK, (2**29,-1))
-sys.setrecursionlimit(10**6)
 #-------------------------------------------------------------------------------
 
 #Traductor de texto-------------------------------------------------------------
@@ -77,6 +71,9 @@ def funTraductor(palabra):
     global tMultientre
     global tDivisionentre
     global tHasacertado
+    global tTema
+    global tmathgameAero
+    global toscuro
 
     if idiomaApp == "Es":
         if palabra == "MathGame":
@@ -171,6 +168,7 @@ def funTraductor(palabra):
             tSeleccionar = "(Seleccionar)"
             tSiAjustes = "(Si)"
             tNoAjustes = "(No)"
+            tTema = "Tema: "
             #-------------------------------------------------------------------
         if palabra == "MathGameExtras":
             #Clase MathGameExtras-----------------------------------------------
@@ -184,6 +182,11 @@ def funTraductor(palabra):
             tNormal = "Normal"
             tDificil = "Dificil"
             tSupervivencia = "(Supervivencia)"
+            #-------------------------------------------------------------------
+        if palabra == "MathGameSelTema":
+            #Clase de Temas-----------------------------------------------------
+            tmathgameAero = "MathGame Aero"
+            toscuro = "Aero Dark"
             #-------------------------------------------------------------------
 
     if idiomaApp == "En":
@@ -279,6 +282,7 @@ def funTraductor(palabra):
             tSeleccionar = "(Choose)"
             tSiAjustes = "(Yes)"
             tNoAjustes = "(No)"
+            tTema = "Theme: "
             #-------------------------------------------------------------------
         if palabra == "MathGameExtras":
             #Clase MathGameExtras-----------------------------------------------
@@ -292,6 +296,11 @@ def funTraductor(palabra):
             tNormal = "Normal"
             tDificil = "Hard"
             tSupervivencia = "(Survival)"
+            #-------------------------------------------------------------------
+        if palabra == "MathGameSelTema":
+            #Clase de Temas-----------------------------------------------------
+            tmathgameAero = "MathGame Aero"
+            toscuro = "Aero Dark"
             #-------------------------------------------------------------------
 #-------------------------------------------------------------------------------
 
@@ -318,6 +327,28 @@ def funArchivos():
         idiomaApp = contenidoIdioma
 
         inicializarIdioma = 0
+    #---------------------------------------------------------------------------
+
+    #Creacion Archivo Temas-----------------------------------------------------
+    global temaApp
+
+    try:
+
+        archivo = open("./tema.txt", "x")
+        archivo.write("")
+        archivo.close()
+
+    except:
+
+        temaDif = open("./tema.txt", "r")
+        contenidoTema = temaDif.read()
+
+        temaApp = contenidoTema
+
+        if temaApp == "MathGame Aero":
+            Window.clearcolor = (0.1,0.2,0.4,1)
+        if temaApp == "Aero Dark":
+            Window.clearcolor = (0,0.1,0.3,1)
     #---------------------------------------------------------------------------
 
     #Creacion Archivo Puntuaciones----------------------------------------------
@@ -602,6 +633,79 @@ def funArchivos():
     #---------------------------------------------------------------------------
 funArchivos()
 #-------------------------------------------------------------------------------
+
+class MathGameSelTema(App):
+
+    def build(self):
+
+        #Función que detecta el texto del botón seleccionado en pantalla--------
+        def callback(instance):
+
+            global modo_ajustes
+            global temaApp
+
+            archivo = open("./tema.txt", "w")
+
+            Seleccion = instance.text #contiene el string del boton
+            print(instance.text)
+
+            if Seleccion == tmathgameAero:
+
+                archivo.write("MathGame Aero")
+                archivo.close()
+                temaApp = "MathGame Aero"
+
+            if Seleccion == toscuro:
+
+                archivo.write("Aero Dark")
+                archivo.close()
+                temaApp = "Aero Dark"
+
+            #Liberación de elementos gráficos-----------------------------------
+            superBox.remove_widget(cabecera)
+            superBox.remove_widget(pie)
+            #-------------------------------------------------------------------
+
+            if modo_ajustes == 1:
+                funArchivos() #Llamada para actualizar colores------------------
+                MathGameAjustes().run()
+            else:
+                funArchivos() #Llamada para actualizar colores------------------
+                MathGame().run()
+
+
+        #Interfaz---------------------------------------------------------------
+        funTraductor("MathGameSelTema")
+        #Layout global de superBox cada widget dispuestos uno encima de otro----
+        superBox = BoxLayout(orientation ='vertical')
+        cabecera = BoxLayout(orientation ='vertical')
+        pie = BoxLayout(orientation ='vertical')
+
+        #Crear elementos--------------------------------------------------------
+        header = Image(source="./data/temas.png")
+
+        mathgameAero = Button(text = tmathgameAero,background_color = (0.1,0.2,0.6,0.6))
+        mathgameAero.bind(on_press=callback)
+
+        oscuro = Button(text = toscuro,background_color = (0.1,0.2,0.6,0.6))
+        oscuro.bind(on_press=callback)
+
+        espacio0 = Label()
+        espacio1 = Label()
+
+        #Añadir elementos-------------------------------------------------------
+        cabecera.add_widget(header)
+
+        pie.add_widget(espacio0)
+        pie.add_widget(mathgameAero)
+        pie.add_widget(oscuro)
+        pie.add_widget(espacio1)
+
+        superBox.add_widget(cabecera)
+        superBox.add_widget(pie)
+        #Mostrar layout completo------------------------------------------------
+        return superBox
+        #Fin Interfaz-----------------------------------------------------------
 
 class MathGameSelIdioma(App):
 
@@ -1521,6 +1625,16 @@ class MathGameAjustes(App):
 
             superBox.remove_widget(cabecera)
             MathGameAjustes().run()
+
+        def funTema(instance):
+
+            global modo_ajustes
+
+            print(instance.text)
+
+            modo_ajustes = 1
+            superBox.remove_widget(cabecera)
+            MathGameSelTema().run()
         #-----------------------------------------------------------------------
 
         #Interfaz---------------------------------------------------------------
@@ -1588,6 +1702,14 @@ class MathGameAjustes(App):
         idioma = Button(text = tIdioma+idiomaApp,background_color = (0.1,0.2,0.6,0.6))
         idioma.bind(on_press=funIdioma)
 
+        #Tema-------------------------------------------------------------------
+        if temaApp == "":
+            tema = Button(text = tTema+"MathGame Aero",background_color = (0.1,0.2,0.6,0.6))
+            tema.bind(on_press=funTema)
+        else:
+            tema = Button(text = tTema+temaApp,background_color = (0.1,0.2,0.6,0.6))
+            tema.bind(on_press=funTema)
+
         espacio0 = Label(text = "")
         espacio1 = Label(text = "")
         espacio2 = Label(text = "")
@@ -1603,6 +1725,7 @@ class MathGameAjustes(App):
         cabecera.add_widget(mantener)
         cabecera.add_widget(espacio0)
         cabecera.add_widget(idioma)
+        cabecera.add_widget(tema)
         cabecera.add_widget(espacio1)
         cabecera.add_widget(volver)
 
@@ -2546,6 +2669,25 @@ class MathGame(App):
             contenidoIdioma = idiomaDif.read()
 
             idiomaApp = contenidoIdioma
+        #-----------------------------------------------------------------------
+
+        #Creacion Archivo Tema--------------------------------------------------
+        global temaApp
+
+        try:
+
+            archivo = open("./tema.txt", "x")
+            archivo.write("")
+            archivo.close()
+
+            MathGameSelTema().run()
+
+        except:
+
+            temaDif = open("./tema.txt", "r")
+            contenidoTema = temaDif.read()
+
+            temaApp = contenidoTema
         #-----------------------------------------------------------------------
 
         #Función que detecta el texto del botón seleccionado en pantalla--------
