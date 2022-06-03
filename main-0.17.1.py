@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-version = "0.17.0"
+version = "0.17.1"
 
 from kivy.app import App
 from kivy.uix.label import Label
@@ -198,7 +198,7 @@ def funTraductor(palabra):
             #Clase MathGameIntermission-----------------------------------------
             tVas = "You will do: "
             tVamos = "Let's choose the desired parameters"
-            tAceptar = "Vale"
+            tAceptar = "Okay"
             #-------------------------------------------------------------------
         if palabra == "MathGameD":
             #Clase MathGameD----------------------------------------------------
@@ -1291,7 +1291,7 @@ class MathGameExtras(App):
             Seleccion = instance.text #contiene el string del boton
             print(instance.text)
 
-            if Seleccion == "Ecuación de Drake":
+            if Seleccion == tDrake:
                 superBox.remove_widget(pie)
                 superBox.remove_widget(cabecera)
                 MathGameDrakePreview().run()
@@ -1310,7 +1310,7 @@ class MathGameExtras(App):
         cabecera = BoxLayout(orientation ='horizontal') #Primer div-------------
 
         #Crear elementos de cabecera--------------------------------------------
-        consola = Label(text = "Extras")
+        consola = Label(text = tExtrasL)
 
         #Añadir elementos a cabecera--------------------------------------------
         cabecera.add_widget(consola)
@@ -1319,10 +1319,10 @@ class MathGameExtras(App):
         pie = BoxLayout(orientation ='vertical')
 
         #Crear elementos del pie------------------------------------------------
-        drake = Button(text = "Ecuación de Drake",background_color = (0.1,0.2,0.6,0.6))
+        drake = Button(text = tDrake,background_color = (0.1,0.2,0.6,0.6))
         drake.bind(on_press=callback)
 
-        volver = Button(text = "Volver",background_color = (0.1,0.2,0.6,0.6))
+        volver = Button(text = tVolver,background_color = (0.1,0.2,0.6,0.6))
         volver.bind(on_press=callback)
 
         null = Label(text = "")
