@@ -17,6 +17,19 @@
 
 # Changelog
 
+<h2>v0.17.0</h2>
+
+<b>Features</b>
+
+- Se arreglan todos los errores anteriores causados por el cambio de idioma.
+- Optimizaciones importantes del código.
+
+<b>Bugs</b>
+
+- La app se cerrará dada cierta cantidad de operaciones realizadas.
+
+<hr>
+
 <h2>v0.16.2</h2>
 
 <b>Features</b>
