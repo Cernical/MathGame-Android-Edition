@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-version = "0.16.2"
+version = "0.17.0"
 
 from kivy.app import App
 from kivy.uix.label import Label
@@ -20,19 +20,295 @@ resource.setrlimit(resource.RLIMIT_STACK, (2**29,-1))
 sys.setrecursionlimit(10**6)
 #-------------------------------------------------------------------------------
 
-#Creación y procesado de archivos-----------------------------------------------
-def funArchivos():
+#Traductor de texto-------------------------------------------------------------
+def funTraductor(palabra):
 
     global idiomaApp
 
+    #Variables idioma
+    global tJugar
+    global tExtras
+    global tPuntuacion
+    global tAjustes
+    global tVamos
+    global tAceptar
+    global tEmpecemos
+    global tSeleccione
+    global tFacil
+    global tNormal
+    global tDificil
+    global tQuieresSupervivencia
+    global tSi
+    global tNo
+    global tCuantas
+    global tProblemas
+    global tSumas
+    global tRestas
+    global tMultiplicaciones
+    global tDivisiones
+    global tEntreOperandos
+    global tRespuesta
+    global tSalir
+    global tFinalizado
+    global tVidas1
+    global tVidas2
+    global tResultado
+    global tAcertar1
+    global tAcertar2
+    global tSeguir
+    global tPuntuacionL
+    global tDificultad
+    global tPreguntas
+    global tProblemasB
+    global tMantener
+    global tIdioma
+    global tVolver
+    global tExtrasL
+    global tDrake
+    global tSeleccionar
+    global tSiAjustes
+    global tNoAjustes
+    global tVersion
+    global tSupervivencia
+    global tVas
+    global tSinvidas
+    global tSumasentre
+    global tRestasentre
+    global tMultientre
+    global tDivisionentre
+    global tHasacertado
+
+    if idiomaApp == "Es":
+        if palabra == "MathGame":
+            #Clase MathGame-----------------------------------------------------
+            tJugar = "Jugar"
+            tExtras = "Extras"
+            tPuntuacion = "Puntuación"
+            tAjustes = "Ajustes"
+            #-------------------------------------------------------------------
+        if palabra == "MathGameIntermission":
+            #Clase MathGameIntermission-----------------------------------------
+            tVas = "Vas a realizar: "
+            tVamos = "Vamos a seleccionar los parámetros deseados"
+            tAceptar = "Vale"
+            #-------------------------------------------------------------------
+        if palabra == "MathGameD":
+            #Clase MathGameD----------------------------------------------------
+            tEmpecemos = "Empecemos con la configuración"
+            tSeleccione = "Seleccione dificultad"
+            tFacil = "Fácil"
+            tNormal = "Normal"
+            tDificil = "Dificil"
+            tSeleccionar = "(Seleccionar)"
+            #-------------------------------------------------------------------
+        if palabra == "MathGameS":
+            #Clase MathGameS----------------------------------------------------
+            tEmpecemos = "Empecemos con la configuración"
+            tQuieresSupervivencia = "¿Quieres activar el modo supervivencia?"
+            tSi = "Si"
+            tNo = "No"
+            tSupervivencia = "(Supervivencia)"
+            tSeleccionar = "(Seleccionar)"
+            #-------------------------------------------------------------------
+        if palabra == "MathGameP":
+            #Clase MathGameP----------------------------------------------------
+            tEmpecemos = "Empecemos con la configuración"
+            tCuantas = "Cuántas preguntas quieres (del 1 al 5)"
+            tSeleccionar = "(Seleccionar)"
+            #-------------------------------------------------------------------
+        if palabra == "MathGameSelOpe":
+            #Clase MathGameSelOpe-----------------------------------------------
+            tEmpecemos = "Empecemos con la configuración"
+            tProblemas = "Seleccione tipo de problemas"
+            tSumas = "Sumas"
+            tRestas = "Restas"
+            tMultiplicaciones = "Multiplicaciones"
+            tDivisiones = "Divisiones"
+            tSeleccionar = "(Seleccionar)"
+            #-------------------------------------------------------------------
+        if palabra == "MathGameOperaciones":
+            #Clase MathGameOperaciones------------------------------------------
+            tEntreOperandos = "entre dos números: "
+            tRespuesta = "Seleccione la respuesta"
+            tSalir = "Salir"
+            tFinalizado = "Has finalizado"
+            tAceptar = "Vale"
+            tSumasentre = " Sumas entre dos números: "
+            tRestasentre = " Restas entre dos números: "
+            tMultientre = " Multiplicaciones entre dos números: "
+            tDivisionentre = " Divisiones entre dos números: "
+            #Supervivencia------------------------------------------------------
+            tVidas1 = "Tienes "
+            tVidas2 = " vidas "
+            tSinvidas = "Te has quedado sin vidas"
+            #-------------------------------------------------------------------
+        if palabra == "MathGameComprobacion":
+            #Clase MathGameComprobacion-----------------------------------------
+            tResultado = "El resultado era "
+            tAceptar = "Vale"
+            tHasacertado = "¡Has acertado!"
+            #-------------------------------------------------------------------
+            tAcertar1 = "Has acertado "
+            tAcertar2 = " de un total de "
+            tSeguir = "¿Quieres seguir realizando operaciones?"
+            tSi = "Si"
+            tNo = "No"
+            #-------------------------------------------------------------------
+        if palabra == "MathGamePuntuacion":
+            #Clase MathGamePuntuacion-------------------------------------------
+            tPuntuacionL = "Puntuación: "
+            tAceptar = "Vale"
+            #-------------------------------------------------------------------
+        if palabra == "MathGameAjustes":
+            #Clase MathGameAjustes----------------------------------------------
+            tVersion = "Ajustes - v"
+            tDificultad = "Dificultad: "
+            tPreguntas = "Nº preguntas: "
+            tProblemasB = "Problemas: "
+            tMantener = "Mantener ajustes: "
+            tIdioma = "Idioma: "
+            tVolver = "Volver"
+            tSeleccionar = "(Seleccionar)"
+            tSiAjustes = "(Si)"
+            tNoAjustes = "(No)"
+            #-------------------------------------------------------------------
+        if palabra == "MathGameExtras":
+            #Clase MathGameExtras-----------------------------------------------
+            tExtrasL = "Extras"
+            tDrake = "Ecuación de Drake"
+            tVolver = "Volver"
+            #-------------------------------------------------------------------
+        if palabra == "funArchivos":
+            #Funcion de archivos------------------------------------------------
+            tFacil = "Fácil"
+            tNormal = "Normal"
+            tDificil = "Dificil"
+            tSupervivencia = "(Supervivencia)"
+            #-------------------------------------------------------------------
+
+    if idiomaApp == "En":
+        if palabra == "MathGame":
+            #Clase MathGame-----------------------------------------------------
+            tJugar = "Play"
+            tExtras = "Extras"
+            tPuntuacion = "Score"
+            tAjustes = "Settings"
+            #-------------------------------------------------------------------
+        if palabra == "MathGameIntermission":
+            #Clase MathGameIntermission-----------------------------------------
+            tVas = "You will do: "
+            tVamos = "Let's choose the desired parameters"
+            tAceptar = "Vale"
+            #-------------------------------------------------------------------
+        if palabra == "MathGameD":
+            #Clase MathGameD----------------------------------------------------
+            tEmpecemos = "Let's start"
+            tSeleccione = "Choose difficulty"
+            tFacil = "Easy"
+            tNormal = "Normal"
+            tDificil = "Hard"
+            tSeleccionar = "(Choose)"
+            #-------------------------------------------------------------------
+        if palabra == "MathGameS":
+            #Clase MathGameS----------------------------------------------------
+            tEmpecemos = "Let's start"
+            tQuieresSupervivencia = "Do you want to enable survival mode?"
+            tSi = "Yes"
+            tNo = "No"
+            tSupervivencia = "(Survival)"
+            tSeleccionar = "(Choose)"
+            #-------------------------------------------------------------------
+        if palabra == "MathGameP":
+            #Clase MathGameP----------------------------------------------------
+            tEmpecemos = "Let's start"
+            tCuantas = "How many problems do you want? (from 1 to 5)"
+            tSeleccionar = "(Choose)"
+            #-------------------------------------------------------------------
+        if palabra == "MathGameSelOpe":
+            #Clase MathGameSelOpe-----------------------------------------------
+            tEmpecemos = "Let's start"
+            tProblemas = "Choose type of problems"
+            tSumas = "Sums"
+            tRestas = "Subtractions"
+            tMultiplicaciones = "Multiplications"
+            tDivisiones = "Divisions"
+            tSeleccionar = "(Choose)"
+            #-------------------------------------------------------------------
+        if palabra == "MathGameOperaciones":
+            #Clase MathGameOperaciones------------------------------------------
+            tEntreOperandos = "Between two numbers: "
+            tRespuesta = "Choose the answer"
+            tSalir = "Exit"
+            tFinalizado = "You have finished"
+            tAceptar = "Okay"
+            tSumasentre = " Sums between two numbers: "
+            tRestasentre = " Subtractions between two numbers: "
+            tMultientre = " Multiplications between two numbers: "
+            tDivisionentre = " Divisions between two numbers: "
+            #Supervivencia------------------------------------------------------
+            tVidas1 = "You have "
+            tVidas2 = " lifes "
+            tSinvidas = "You have lost all lifes"
+            #-------------------------------------------------------------------
+        if palabra == "MathGameComprobacion":
+            #Clase MathGameComprobacion-----------------------------------------
+            tResultado = "The answer was "
+            tAceptar = "Okay"
+            tHasacertado = "¡You nailed it!"
+            #-------------------------------------------------------------------
+            tAcertar1 = "You have answered correctly "
+            tAcertar2 = " from a total of "
+            tSeguir = "Do you want to repeat?"
+            tSi = "Yes"
+            tNo = "No"
+            #-------------------------------------------------------------------
+        if palabra == "MathGamePuntuacion":
+            #Clase MathGamePuntuacion-------------------------------------------
+            tPuntuacionL = "Score: "
+            tAceptar = "Okay"
+            #-------------------------------------------------------------------
+        if palabra == "MathGameAjustes":
+            #Clase MathGameAjustes----------------------------------------------
+            tVersion = "Settings - v"
+            tDificultad = "Difficulty: "
+            tPreguntas = "Nº problems: "
+            tProblemasB = "Problems: "
+            tMantener = "Keep settings: "
+            tIdioma = "Language: "
+            tVolver = "Back"
+            tSeleccionar = "(Choose)"
+            tSiAjustes = "(Yes)"
+            tNoAjustes = "(No)"
+            #-------------------------------------------------------------------
+        if palabra == "MathGameExtras":
+            #Clase MathGameExtras-----------------------------------------------
+            tExtrasL = "Extras"
+            tDrake = "Drake's equation"
+            tVolver = "Back"
+            #-------------------------------------------------------------------
+        if palabra == "funArchivos":
+            #Funcion de archivos------------------------------------------------
+            tFacil = "Easy"
+            tNormal = "Normal"
+            tDificil = "Hard"
+            tSupervivencia = "(Survival)"
+            #-------------------------------------------------------------------
+#-------------------------------------------------------------------------------
+
+#Creación y procesado de archivos-----------------------------------------------
+def funArchivos():
+
     #Creacion Archivo Idioma----------------------------------------------------
+    global idiomaApp
+    global inicializarIdioma
+
     try:
 
         archivo = open("./idioma.txt", "x")
         archivo.write("")
         archivo.close()
-        global idiomaFirstRun
-        idiomaFirstRun = 1
+
+        inicializarIdioma = 1
 
     except:
 
@@ -40,6 +316,8 @@ def funArchivos():
         contenidoIdioma = idiomaDif.read()
 
         idiomaApp = contenidoIdioma
+
+        inicializarIdioma = 0
     #---------------------------------------------------------------------------
 
     #Creacion Archivo Puntuaciones----------------------------------------------
@@ -78,6 +356,8 @@ def funArchivos():
         contenidoAjustes = ajustesFile.read()
 
         #Procesado del archivo de ajustes---------------------------------------
+        funTraductor("funArchivos")
+
         if contenidoAjustes == "09150":
             modo_ajustes = 1
             RangoMin = 0
@@ -86,13 +366,8 @@ def funArchivos():
             vida = 5
             numPreguntas = 0
             MultiPuntuacion = 1
-            if idiomaApp == "Es":
-                mostrar_modo_dificultad = "(Fácil)"
-                mostrar_modo_numPreguntas = "(Supervivencia)"
-
-            if idiomaApp == "En":
-                mostrar_modo_dificultad = "(Easy)"
-                mostrar_modo_numPreguntas = "(Survival)"
+            mostrar_modo_dificultad = tFacil
+            mostrar_modo_numPreguntas = tSupervivencia
 
         if contenidoAjustes == "1099150":
             modo_ajustes = 1
@@ -102,13 +377,8 @@ def funArchivos():
             vida = 5
             numPreguntas = 0
             MultiPuntuacion = 2
-            if idiomaApp == "Es":
-                mostrar_modo_dificultad = "(Normal)"
-                mostrar_modo_numPreguntas = "(Supervivencia)"
-
-            if idiomaApp == "En":
-                mostrar_modo_dificultad = "(Normal)"
-                mostrar_modo_numPreguntas = "(Survival)"
+            mostrar_modo_dificultad = tNormal
+            mostrar_modo_numPreguntas = tSupervivencia
 
         if contenidoAjustes == "100999150":
             modo_ajustes = 1
@@ -118,13 +388,8 @@ def funArchivos():
             vida = 5
             numPreguntas = 0
             MultiPuntuacion = 3
-            if idiomaApp == "Es":
-                mostrar_modo_dificultad = "(Hard)"
-                mostrar_modo_numPreguntas = "(Supervivencia)"
-
-            if idiomaApp == "En":
-                mostrar_modo_dificultad = "(Hard)"
-                mostrar_modo_numPreguntas = "(Survival)"
+            mostrar_modo_dificultad = tDificil
+            mostrar_modo_numPreguntas = tSupervivencia
 
         if contenidoAjustes == "09001":
             modo_ajustes = 1
@@ -134,10 +399,7 @@ def funArchivos():
             vida = 0
             numPreguntas = 1
             MultiPuntuacion = 1
-            if idiomaApp == "Es":
-                mostrar_modo_dificultad = "(Fácil)"
-            if idiomaApp == "En":
-                mostrar_modo_dificultad = "(Easy)"
+            mostrar_modo_dificultad = tFacil
             mostrar_modo_numPreguntas = "(1)"
 
         if contenidoAjustes == "09002":
@@ -148,10 +410,7 @@ def funArchivos():
             vida = 0
             numPreguntas = 2
             MultiPuntuacion = 1
-            if idiomaApp == "Es":
-                mostrar_modo_dificultad = "(Fácil)"
-            if idiomaApp == "En":
-                mostrar_modo_dificultad = "(Easy)"
+            mostrar_modo_dificultad = tFacil
             mostrar_modo_numPreguntas = "(2)"
 
         if contenidoAjustes == "09003":
@@ -162,10 +421,7 @@ def funArchivos():
             vida = 0
             numPreguntas = 3
             MultiPuntuacion = 1
-            if idiomaApp == "Es":
-                mostrar_modo_dificultad = "(Fácil)"
-            if idiomaApp == "En":
-                mostrar_modo_dificultad = "(Easy)"
+            mostrar_modo_dificultad = tFacil
             mostrar_modo_numPreguntas = "(3)"
 
         if contenidoAjustes == "09004":
@@ -176,10 +432,7 @@ def funArchivos():
             vida = 0
             numPreguntas = 4
             MultiPuntuacion = 1
-            if idiomaApp == "Es":
-                mostrar_modo_dificultad = "(Fácil)"
-            if idiomaApp == "En":
-                mostrar_modo_dificultad = "(Easy)"
+            mostrar_modo_dificultad = tFacil
             mostrar_modo_numPreguntas = "(4)"
 
         if contenidoAjustes == "09005":
@@ -190,10 +443,7 @@ def funArchivos():
             vida = 0
             numPreguntas = 5
             MultiPuntuacion = 1
-            if idiomaApp == "Es":
-                mostrar_modo_dificultad = "(Fácil)"
-            if idiomaApp == "En":
-                mostrar_modo_dificultad = "(Easy)"
+            mostrar_modo_dificultad = tFacil
             mostrar_modo_numPreguntas = "(5)"
 
         if contenidoAjustes == "1099001":
@@ -204,10 +454,7 @@ def funArchivos():
             vida = 0
             numPreguntas = 1
             MultiPuntuacion = 2
-            if idiomaApp == "Es":
-                mostrar_modo_dificultad = "(Normal)"
-            if idiomaApp == "En":
-                mostrar_modo_dificultad = "(Normal)"
+            mostrar_modo_dificultad = tNormal
             mostrar_modo_numPreguntas = "(1)"
 
         if contenidoAjustes == "1099002":
@@ -218,10 +465,7 @@ def funArchivos():
             vida = 0
             numPreguntas = 2
             MultiPuntuacion = 2
-            if idiomaApp == "Es":
-                mostrar_modo_dificultad = "(Normal)"
-            if idiomaApp == "En":
-                mostrar_modo_dificultad = "(Normal)"
+            mostrar_modo_dificultad = tNormal
             mostrar_modo_numPreguntas = "(2)"
 
         if contenidoAjustes == "1099003":
@@ -232,10 +476,7 @@ def funArchivos():
             vida = 0
             numPreguntas = 3
             MultiPuntuacion = 2
-            if idiomaApp == "Es":
-                mostrar_modo_dificultad = "(Normal)"
-            if idiomaApp == "En":
-                mostrar_modo_dificultad = "(Normal)"
+            mostrar_modo_dificultad = tNormal
             mostrar_modo_numPreguntas = "(3)"
 
         if contenidoAjustes == "1099004":
@@ -246,10 +487,7 @@ def funArchivos():
             vida = 0
             numPreguntas = 4
             MultiPuntuacion = 2
-            if idiomaApp == "Es":
-                mostrar_modo_dificultad = "(Normal)"
-            if idiomaApp == "En":
-                mostrar_modo_dificultad = "(Normal)"
+            mostrar_modo_dificultad = tNormal
             mostrar_modo_numPreguntas = "(4)"
 
         if contenidoAjustes == "1099005":
@@ -260,10 +498,7 @@ def funArchivos():
             vida = 0
             numPreguntas = 5
             MultiPuntuacion = 2
-            if idiomaApp == "Es":
-                mostrar_modo_dificultad = "(Normal)"
-            if idiomaApp == "En":
-                mostrar_modo_dificultad = "(Normal)"
+            mostrar_modo_dificultad = tNormal
             mostrar_modo_numPreguntas = "(5)"
 
         if contenidoAjustes == "100999001":
@@ -274,10 +509,7 @@ def funArchivos():
             vida = 0
             numPreguntas = 1
             MultiPuntuacion = 3
-            if idiomaApp == "Es":
-                mostrar_modo_dificultad = "(Dificil)"
-            if idiomaApp == "En":
-                mostrar_modo_dificultad = "(Hard)"
+            mostrar_modo_dificultad = tDificil
             mostrar_modo_numPreguntas = "(1)"
 
         if contenidoAjustes == "100999002":
@@ -288,10 +520,7 @@ def funArchivos():
             vida = 0
             numPreguntas = 2
             MultiPuntuacion = 3
-            if idiomaApp == "Es":
-                mostrar_modo_dificultad = "(Dificil)"
-            if idiomaApp == "En":
-                mostrar_modo_dificultad = "(Hard)"
+            mostrar_modo_dificultad = tDificil
             mostrar_modo_numPreguntas = "(2)"
 
         if contenidoAjustes == "100999003":
@@ -302,10 +531,7 @@ def funArchivos():
             vida = 0
             numPreguntas = 3
             MultiPuntuacion = 3
-            if idiomaApp == "Es":
-                mostrar_modo_dificultad = "(Dificil)"
-            if idiomaApp == "En":
-                mostrar_modo_dificultad = "(Hard)"
+            mostrar_modo_dificultad = tDificil
             mostrar_modo_numPreguntas = "(3)"
 
         if contenidoAjustes == "100999004":
@@ -316,10 +542,7 @@ def funArchivos():
             vida = 0
             numPreguntas = 4
             MultiPuntuacion = 3
-            if idiomaApp == "Es":
-                mostrar_modo_dificultad = "(Dificil)"
-            if idiomaApp == "En":
-                mostrar_modo_dificultad = "(Hard)"
+            mostrar_modo_dificultad = tDificil
             mostrar_modo_numPreguntas = "(4)"
 
         if contenidoAjustes == "100999005":
@@ -330,10 +553,7 @@ def funArchivos():
             vida = 0
             numPreguntas = 5
             MultiPuntuacion = 3
-            if idiomaApp == "Es":
-                mostrar_modo_dificultad = "(Dificil)"
-            if idiomaApp == "En":
-                mostrar_modo_dificultad = "(Hard)"
+            mostrar_modo_dificultad = tDificil
             mostrar_modo_numPreguntas = "(5)"
 
         if contenidoAjustes == "0":
@@ -360,44 +580,27 @@ def funArchivos():
         if contenidoAjustes2 == "Sumas":
             respuestaOperaciones = "Sumas"
             operacion = "Sumas"
-            if idiomaApp == "Es":
-                mostrar_modo_problemas = "(Sumas)"
-            if idiomaApp == "En":
-                mostrar_modo_problemas = "(Sums)"
+            mostrar_modo_problemas = "(Sumas)"
 
         if contenidoAjustes2 == "Restas":
             respuestaOperaciones = "Restas"
             operacion = "Restas"
-            if idiomaApp == "Es":
-                mostrar_modo_problemas = "(Restas)"
-            if idiomaApp == "En":
-                mostrar_modo_problemas = "(Subtractions)"
+            mostrar_modo_problemas = "(Restas)"
 
         if contenidoAjustes2 == "Multiplicaciones":
             respuestaOperaciones = "Multiplicaciones"
             operacion = "Multiplicaciones"
-            if idiomaApp == "Es":
-                mostrar_modo_problemas = "(Multiplicaciones)"
-            if idiomaApp == "En":
-                mostrar_modo_problemas = "(Multiplications)"
+            mostrar_modo_problemas = "(Multiplicaciones)"
 
         if contenidoAjustes2 == "Divisiones":
             respuestaOperaciones = "Divisiones"
             operacion = "Divisiones"
-            if idiomaApp == "Es":
-                mostrar_modo_problemas = "(Divisiones)"
-            if idiomaApp == "En":
-                mostrar_modo_problemas = "(Divisions)"
+            mostrar_modo_problemas = "(Divisiones)"
         #-----------------------------------------------------------------------
 
         print("Archivo Dificultad 1")
     #---------------------------------------------------------------------------
 funArchivos()
-#-------------------------------------------------------------------------------
-
-#Necesario para la música-------------------------------------------------------
-#from kivy.core.audio import SoundLoader
-#victory = SoundLoader.load('./data/audio/victory.wav')
 #-------------------------------------------------------------------------------
 
 class MathGameSelIdioma(App):
@@ -408,8 +611,8 @@ class MathGameSelIdioma(App):
         def callback(instance):
 
             global modo_ajustes
-            global idiomaFirstRun
             global idiomaApp
+            global inicializarIdioma
 
             archivo = open("./idioma.txt", "w")
 
@@ -428,7 +631,7 @@ class MathGameSelIdioma(App):
                 archivo.close()
                 idiomaApp = "En"
 
-            idiomaFirstRun = 0 #Se deshabilita la configuración inicial---------
+            inicializarIdioma = 0
 
             #Liberación de elementos gráficos-----------------------------------
             superBox.remove_widget(cabecera)
@@ -439,6 +642,7 @@ class MathGameSelIdioma(App):
                 MathGameAjustes().run()
             else:
                 MathGame().run()
+
 
         #Interfaz---------------------------------------------------------------
         #Layout global de superBox cada widget dispuestos uno encima de otro----
@@ -1097,20 +1301,8 @@ class MathGameExtras(App):
                 MathGame().run()
         #-----------------------------------------------------------------------
 
-        #Idioma-----------------------------------------------------------------
-        if idiomaApp == "Es":
-            texto_extras = "Extras"
-            texto_drake = "Ecuación de Drake"
-            texto_volver = "Volver"
-
-        if idiomaApp  == "En":
-            texto_extras = "Extras"
-            texto_drake = "Drake's Equation"
-            texto_volver = "Back"
-
-        #-----------------------------------------------------------------------
-
         #Interfaz---------------------------------------------------------------
+        funTraductor("MathGameExtras")
         #Layout global de superBox cada widget dispuestos uno encima de otro----
         superBox = BoxLayout(orientation ='vertical')
 
@@ -1118,7 +1310,7 @@ class MathGameExtras(App):
         cabecera = BoxLayout(orientation ='horizontal') #Primer div-------------
 
         #Crear elementos de cabecera--------------------------------------------
-        consola = Label(text = texto_extras)
+        consola = Label(text = "Extras")
 
         #Añadir elementos a cabecera--------------------------------------------
         cabecera.add_widget(consola)
@@ -1127,10 +1319,10 @@ class MathGameExtras(App):
         pie = BoxLayout(orientation ='vertical')
 
         #Crear elementos del pie------------------------------------------------
-        drake = Button(text = texto_drake,background_color = (0.1,0.2,0.6,0.6))
+        drake = Button(text = "Ecuación de Drake",background_color = (0.1,0.2,0.6,0.6))
         drake.bind(on_press=callback)
 
-        volver = Button(text = texto_volver,background_color = (0.1,0.2,0.6,0.6))
+        volver = Button(text = "Volver",background_color = (0.1,0.2,0.6,0.6))
         volver.bind(on_press=callback)
 
         null = Label(text = "")
@@ -1187,20 +1379,8 @@ class MathGameIntermission(App):
                 MathGameD().run()
         #-----------------------------------------------------------------------
 
-        #Idioma-----------------------------------------------------------------
-        if idiomaApp == "Es":
-            texto_realizar = "Vas a realizar: "
-            texto_parametros = "Vamos a seleccionar los parámetros deseados"
-            texto_aceptar = "Vale"
-
-        if idiomaApp  == "En":
-            texto_realizar = "You are going to do: "
-            texto_parametros = "Let's select the desired parameters"
-            texto_aceptar = "Okay"
-
-        #-----------------------------------------------------------------------
-
         #Interfaz---------------------------------------------------------------
+        funTraductor("MathGameIntermission")
         #Layout global de superBox cada widget dispuestos uno encima de otro----
         superBox = BoxLayout(orientation ='vertical')
 
@@ -1209,9 +1389,9 @@ class MathGameIntermission(App):
 
         #Crear elementos de cabecera--------------------------------------------
         if modo_ajustes == 1:
-            consola = Label(text = texto_realizar+operacion)
+            consola = Label(text = tVas+mostrar_modo_problemas)
         else:
-            consola = Label(text = texto_parametros)
+            consola = Label(text = tVamos)
 
         #Añadir elementos a cabecera--------------------------------------------
         cabecera.add_widget(consola)
@@ -1220,7 +1400,7 @@ class MathGameIntermission(App):
         pie = BoxLayout(orientation ='vertical')
 
         #Crear elementos del pie------------------------------------------------
-        vale = Button(text = texto_aceptar,background_color = (0.1,0.2,0.6,0.6))
+        vale = Button(text = tAceptar,background_color = (0.1,0.2,0.6,0.6))
         vale.bind(on_press=callback)
 
         null = Label(text = "")
@@ -1241,291 +1421,193 @@ class MathGameIntermission(App):
 
 class MathGameAjustes(App):
 
-    global firstRun
-    global mostrar_modo_ajustes
-    global mostrar_modo_dificultad
-    global mostrar_modo_numPreguntas
-    global mostrar_modo_problemas
-    global volver_bloquear
-    global bloquear
-    global texto_seleccionar
+    global mantener_toggle
+    mantener_toggle = 0
 
     def build(self):
 
-        #Idioma-----------------------------------------------------------------
-        texto_seleccionar = "(Seleccionar)"
-
-        try:
-            if idiomaApp == "Es":
-                texto_seleccionar = "(Seleccionar)"
-
-            if idiomaApp  == "En":
-                texto_seleccionar = "(Choose)"
-        except:
-            print()
-        #-----------------------------------------------------------------------
-
-        #Comprobación Primera Ejecución-----------------------------------------
-        if firstRun == 1:
-            #El modo ajustes se inicia en la clase principal (cambiar allí)-----
-            mostrar_modo_ajustes = "(No)"
-            #-------------------------------------------------------------------
-            mostrar_modo_dificultad = texto_seleccionar
-            mostrar_modo_numPreguntas = texto_seleccionar
-            mostrar_modo_problemas = texto_seleccionar
-            volver_bloquear = 0
-            bloquear = 1
-        else:
-            mostrar_modo_ajustes = "(Si)"
-            volver_bloquear = 1
-            bloquear = 0
-        #-----------------------------------------------------------------------
-
-        def limpiarGUI():
-            superBox.remove_widget(espacio2)
-            superBox.remove_widget(header)
-            superBox.remove_widget(espacio3)
-            superBox.remove_widget(dificultad)
-            superBox.remove_widget(preguntas)
-            superBox.remove_widget(problemas)
-            superBox.remove_widget(mantener)
-            superBox.remove_widget(espacio0)
-            superBox.remove_widget(idioma)
-            superBox.remove_widget(espacio1)
-            superBox.remove_widget(volver)
+        global volver_toggle
+        volver_toggle = 0
 
         #Función que detecta el texto del botón seleccionado en pantalla--------
-        def callback(instance):
+        def funDificultad(instance):
 
             global modo_ajustes
-            global mostrar_modo_ajustes
-            global volver_bloquear
-            global bloquear
-            global RangoMin
-            global RangoMax
-            global modo_supervivencia
-            global vida
-            global numPreguntas
-            global respuestaOperaciones
-            global texto_seleccionar
 
-            Seleccion = instance.text #contiene el string del boton
             print(instance.text)
 
-            if Seleccion == texto_dificultad+mostrar_modo_dificultad:
-                if modo_ajustes == 1:
-                    limpiarGUI()
-                    MathGameD().run()
-                #Else omitido para que termine la comprobación manteniendo la pantalla
+            modo_ajustes = 1
+            superBox.remove_widget(cabecera)
+            MathGameD().run()
+
+        def funPreguntas(instance):
+
+            global modo_ajustes
+
+            print(instance.text)
+
+            modo_ajustes = 1
+            superBox.remove_widget(cabecera)
+            MathGameS().run()
+
+        def funProblemas(instance):
+
+            global modo_ajustes
+
+            print(instance.text)
+
+            modo_ajustes = 1
+            superBox.remove_widget(cabecera)
+            MathGameSelOpe().run()
+
+        def funVolver(instance):
+
+            global modo_ajustes
+            global mantener_toggle
+
+            print(instance.text)
+
+            if mantener_toggle == 1:
+                #Guardar config con guardado activo-----------------------------
+                ajustesFile = open("./ajustes.txt", "w")
+
+                RangoMinStr = str(RangoMin)
+                ajustesFile.write(RangoMinStr)
+
+                RangoMaxStr = str(RangoMax)
+                ajustesFile.write(RangoMaxStr)
+
+                modo_supervivenciaStr = str(modo_supervivencia)
+                ajustesFile.write(modo_supervivenciaStr)
+
+                vidaStr = str(vida)
+                ajustesFile.write(vidaStr)
+
+                numPreguntasStr = str(numPreguntas)
+                ajustesFile.write(numPreguntasStr)
+
+                ajustesFile.close()
+                #---------------------------------------------------------------
+                #Guardar config con guardado activo-----------------------------
+                ajustesDif = open("./ajustes2.txt", "w")
+                ajustesDif.write(respuestaOperaciones)
+                ajustesDif.close()
+                #---------------------------------------------------------------
+
+            superBox.remove_widget(cabecera)
+            MathGame().run()
+
+        def funIdioma(instance):
+
+            global modo_ajustes
+
+            print(instance.text)
+
+            modo_ajustes = 1
+            superBox.remove_widget(cabecera)
+            MathGameSelIdioma().run()
+
+        def funMantener(instance):
+
+            global modo_ajustes
+            global mantener_toggle
+
+            print(instance.text)
+
+            if mantener_toggle == 0:
+                mantener_toggle = 1
             else:
-                if Seleccion == texto_preguntas+mostrar_modo_numPreguntas:
-                    if modo_ajustes == 1:
-                        limpiarGUI()
-                        MathGameS().run()
-                    #Else omitido para que termine la comprobación manteniendo la pantalla
-                else:
-                    if Seleccion == texto_problemas+mostrar_modo_problemas:
-                        if modo_ajustes == 1:
-                            limpiarGUI()
-                            MathGameSelOpe().run()
-                        #Else omitido para que termine la comprobación manteniendo la pantalla
-                    else:
-                        if Seleccion == texto_idioma:
-                            limpiarGUI()
-                            MathGameSelIdioma().run()
-                        else:
+                mantener_toggle = 0
 
-                            if Seleccion == texto_volver:
-                                if modo_ajustes == 1:
-                                    if mostrar_modo_dificultad == texto_seleccionar:
-                                        #Comprobación para mantener la pantalla dada la condición
-                                        print()
-                                    else:
-                                        if mostrar_modo_numPreguntas == texto_seleccionar:
-                                            #Comprobación para mantener la pantalla dada la condición
-                                            print()
-                                        else:
-                                            if mostrar_modo_problemas == texto_seleccionar:
-                                                #Comprobación para mantener la pantalla dada la condición
-                                                print()
-                                            else:
-
-                                                #Si se puede almacenar el estado
-                                                if modo_ajustes == 1:
-                                                    #Guardar config con guardado activo-----
-                                                    ajustesFile = open("./ajustes.txt", "w")
-
-                                                    RangoMinStr = str(RangoMin)
-                                                    ajustesFile.write(RangoMinStr)
-
-                                                    RangoMaxStr = str(RangoMax)
-                                                    ajustesFile.write(RangoMaxStr)
-
-                                                    modo_supervivenciaStr = str(modo_supervivencia)
-                                                    ajustesFile.write(modo_supervivenciaStr)
-
-                                                    vidaStr = str(vida)
-                                                    ajustesFile.write(vidaStr)
-
-                                                    numPreguntasStr = str(numPreguntas)
-                                                    ajustesFile.write(numPreguntasStr)
-
-                                                    ajustesFile.close()
-                                                    #-------------------------------
-                                                    #Guardar config con guardado activo-----
-                                                    ajustesDif = open("./ajustes2.txt", "w")
-                                                    ajustesDif.write(respuestaOperaciones)
-                                                    ajustesDif.close()
-                                                    #-------------------------------
-
-                                                limpiarGUI()
-                                                MathGame().run()
-                                else:
-                                    limpiarGUI()
-                                    MathGame().run()
-                            else:
-                                if modo_ajustes == 1:
-                                    modo_ajustes = 0
-                                    mostrar_modo_ajustes = texto_no
-                                    volver_bloquear = 0
-                                    bloquear = 1
-
-                                    #Borrar el archivo de config----------------
-                                    ajustesFile = open("./ajustes.txt", "w")
-                                    ajustesFile.write("0")
-                                    ajustesFile.close()
-                                    #-------------------------------------------
-                                    #Borrar config con guardado activo----------
-                                    ajustesDif = open("./ajustes2.txt", "w")
-                                    ajustesDif.write("0")
-                                    ajustesDif.close()
-                                    #-------------------------------------------
-                                else:
-                                    modo_ajustes = 1
-                                    mostrar_modo_ajustes = texto_si
-                                    bloquear = 0
-
-                                    if mostrar_modo_dificultad == texto_seleccionar or mostrar_modo_numPreguntas == texto_seleccionar or mostrar_modo_problemas == texto_seleccionar:
-                                        volver_bloquear = 1
-                                    else:
-                                        #Guardar configuración al activar el guardado
-                                        ajustesFile = open("./ajustes.txt", "w")
-
-                                        RangoMinStr = str(RangoMin)
-                                        ajustesFile.write(RangoMinStr)
-
-                                        RangoMaxStr = str(RangoMax)
-                                        ajustesFile.write(RangoMaxStr)
-
-                                        modo_supervivenciaStr = str(modo_supervivencia)
-                                        ajustesFile.write(modo_supervivenciaStr)
-
-                                        vidaStr = str(vida)
-                                        ajustesFile.write(vidaStr)
-
-                                        numPreguntasStr = str(numPreguntas)
-                                        ajustesFile.write(numPreguntasStr)
-
-                                        ajustesFile.close()
-                                        #---------------------------------------
-                                        #Guardar config con guardado activo-----
-                                        ajustesDif = open("./ajustes2.txt", "w")
-                                        ajustesDif.write(respuestaOperaciones)
-                                        ajustesDif.close()
-                                        #---------------------------------------
-
-                                limpiarGUI()
-                                MathGameAjustes().run()
-        #-----------------------------------------------------------------------
-
-        #Idioma-----------------------------------------------------------------
-        if idiomaApp == "Es":
-            texto_ajustes = "Ajustes - v"
-            texto_dificultad = "Dificultad: "
-            texto_preguntas = "Nº preguntas: "
-            texto_problemas = "Problemas: "
-            texto_idioma = "Idioma"
-            texto_mantener = "Mantener ajustes: "
-            texto_volver = "Volver"
-            texto_si = "(Sí)"
-            texto_no = "(No)"
-
-        if idiomaApp  == "En":
-            texto_ajustes = "Settings - v"
-            texto_dificultad = "Difficulty: "
-            texto_preguntas = "Nº of Problems: "
-            texto_problemas = "Problems: "
-            texto_idioma = "Language"
-            texto_mantener = "Keep Settings: "
-            texto_volver = "Back"
-            texto_si = "(Yes)"
-            texto_no = "(No)"
-
+            superBox.remove_widget(cabecera)
+            MathGameAjustes().run()
         #-----------------------------------------------------------------------
 
         #Interfaz---------------------------------------------------------------
+        funTraductor("MathGameAjustes")
+
         #Layout global de superBox cada widget dispuestos uno encima de otro----
         superBox = BoxLayout(orientation ='vertical')
 
+        #Widgets de cabecera añadidos en el plano horizontal--------------------
+        cabecera = BoxLayout(orientation ='vertical') #Primer div---------------
+
         #Crear elementos de cabecera--------------------------------------------
-        header = Label(text = texto_ajustes+version)
+        consola = Label(text = tVersion+version)
+
+        #Widgets de pie de página añadidos en el plano vertical-----------------
+        pie = BoxLayout(orientation ='vertical')
 
         #Crear elementos del pie------------------------------------------------
-        if bloquear == 0:
-            dificultad = Button(text = texto_dificultad+mostrar_modo_dificultad,background_color = (0.1,0.2,0.6,0.6))
-            dificultad.bind(on_press=callback)
+        #Dificultad-------------------------------------------------------------
+        try:
+            dificultad = Button(text = tDificultad+mostrar_modo_dificultad,background_color = (0.1,0.2,0.6,0.6))
+            dificultad.bind(on_press=funDificultad)
 
-            preguntas = Button(text = texto_preguntas+mostrar_modo_numPreguntas,background_color = (0.1,0.2,0.6,0.6))
-            preguntas.bind(on_press=callback)
+        except:
+            dificultad = Button(text = tDificultad+tSeleccionar,background_color = (0.1,0.2,0.6,0.6))
+            volver_toggle = volver_toggle + 1
+            dificultad.bind(on_press=funDificultad)
 
-            problemas = Button(text = texto_problemas+mostrar_modo_problemas,background_color = (0.1,0.2,0.6,0.6))
-            problemas.bind(on_press=callback)
+        #Número preguntas-------------------------------------------------------
+        try:
+            preguntas = Button(text = tPreguntas+mostrar_modo_numPreguntas,background_color = (0.1,0.2,0.6,0.6))
+            preguntas.bind(on_press=funPreguntas)
 
+        except:
+            preguntas = Button(text = tPreguntas+tSeleccionar,background_color = (0.1,0.2,0.6,0.6))
+            volver_toggle = volver_toggle + 1
+            preguntas.bind(on_press=funPreguntas)
+
+        #Problemas--------------------------------------------------------------
+        try:
+            problemas = Button(text = tProblemasB+mostrar_modo_problemas,background_color = (0.1,0.2,0.6,0.6))
+            problemas.bind(on_press=funProblemas)
+
+        except:
+            problemas = Button(text = tProblemasB+tSeleccionar,background_color = (0.1,0.2,0.6,0.6))
+            volver_toggle = volver_toggle + 1
+            problemas.bind(on_press=funProblemas)
+
+        #Volver-----------------------------------------------------------------
+        if mantener_toggle == 1 and volver_toggle != 0:
+            volver = Button(text = tVolver,background_color = (0.1,0.2,0.6,0.3))
         else:
-            dificultad = Button(text = texto_dificultad+mostrar_modo_dificultad,background_color = (0.1,0.2,0.6,0.3))
-            dificultad.bind(on_press=callback)
+            volver = Button(text = tVolver,background_color = (0.1,0.2,0.6,0.6))
+            volver.bind(on_press=funVolver)
 
-            preguntas = Button(text = texto_preguntas+mostrar_modo_numPreguntas,background_color = (0.1,0.2,0.6,0.3))
-            preguntas.bind(on_press=callback)
-
-            problemas = Button(text = texto_problemas+mostrar_modo_problemas,background_color = (0.1,0.2,0.6,0.3))
-            problemas.bind(on_press=callback)
-
-
-        idioma = Button(text = texto_idioma,background_color = (0.1,0.2,0.6,0.6))
-        idioma.bind(on_press=callback)
-
-        mantener = Button(text = texto_mantener+mostrar_modo_ajustes,background_color = (0.1,0.2,0.6,0.6))
-        mantener.bind(on_press=callback)
-
-        espacio0 = Label()
-        espacio1 = Label()
-        espacio2 = Label()
-        espacio3 = Label()
-
-        if volver_bloquear == 0:
-            volver = Button(text = texto_volver,background_color = (0.1,0.2,0.6,0.6))
-            volver.bind(on_press=callback)
+        #Mantener---------------------------------------------------------------
+        if mantener_toggle == 0:
+            mantener = Button(text = tMantener+tNoAjustes,background_color = (0.1,0.2,0.6,0.6))
+            mantener.bind(on_press=funMantener)
         else:
-            if mostrar_modo_dificultad != texto_seleccionar and mostrar_modo_numPreguntas != texto_seleccionar and mostrar_modo_problemas != texto_seleccionar:
-                volver = Button(text = texto_volver,background_color = (0.1,0.2,0.6,0.6))
-                volver.bind(on_press=callback)
-            else:
-                volver = Button(text = texto_volver,background_color = (0.1,0.2,0.6,0.3))
-                volver.bind(on_press=callback)
+            mantener = Button(text = tMantener+tSiAjustes,background_color = (0.1,0.2,0.6,0.6))
+            mantener.bind(on_press=funMantener)
+
+        #Idioma-----------------------------------------------------------------
+        idioma = Button(text = tIdioma+idiomaApp,background_color = (0.1,0.2,0.6,0.6))
+        idioma.bind(on_press=funIdioma)
+
+        espacio0 = Label(text = "")
+        espacio1 = Label(text = "")
+        espacio2 = Label(text = "")
+        espacio3 = Label(text = "")
 
         #Añadir elementos al pie------------------------------------------------
-        superBox.add_widget(espacio2)
-        superBox.add_widget(header)
-        superBox.add_widget(espacio3)
-        superBox.add_widget(dificultad)
-        superBox.add_widget(preguntas)
-        superBox.add_widget(problemas)
-        superBox.add_widget(mantener)
-        superBox.add_widget(espacio0)
-        superBox.add_widget(idioma)
-        superBox.add_widget(espacio1)
-        superBox.add_widget(volver)
+        cabecera.add_widget(espacio3)
+        cabecera.add_widget(consola)
+        cabecera.add_widget(espacio2)
+        cabecera.add_widget(dificultad)
+        cabecera.add_widget(preguntas)
+        cabecera.add_widget(problemas)
+        cabecera.add_widget(mantener)
+        cabecera.add_widget(espacio0)
+        cabecera.add_widget(idioma)
+        cabecera.add_widget(espacio1)
+        cabecera.add_widget(volver)
+
+        #Añadir cada división al layout global----------------------------------
+        superBox.add_widget(cabecera)
 
         #Mostrar layout completo------------------------------------------------
         return superBox
@@ -1545,17 +1627,8 @@ class MathGamePuntuacion(App):
 
         archivo = open("./points.txt", "r") #Abrir archivo----------------------
 
-        #Idioma-----------------------------------------------------------------
-        if idiomaApp == "Es":
-            texto_puntuacion = "Puntuación: "
-            texto_aceptar = "Vale"
-
-        if idiomaApp  == "En":
-            texto_puntuacion = "Score: "
-            texto_aceptar = "Okay"
-        #-----------------------------------------------------------------------
-
         #Interfaz---------------------------------------------------------------
+        funTraductor("MathGamePuntuacion")
         #Layout global de superBox cada widget dispuestos uno encima de otro----
         superBox = BoxLayout(orientation ='vertical')
 
@@ -1563,7 +1636,7 @@ class MathGamePuntuacion(App):
         cabecera = BoxLayout(orientation ='horizontal') #Primer div-------------
 
         #Crear elementos de cabecera--------------------------------------------
-        consola = Label(text = texto_puntuacion+archivo.read())
+        consola = Label(text = tPuntuacionL+archivo.read())
 
         #Añadir elementos a cabecera--------------------------------------------
         cabecera.add_widget(consola)
@@ -1572,7 +1645,7 @@ class MathGamePuntuacion(App):
         pie = BoxLayout(orientation ='vertical')
 
         #Crear elementos del pie------------------------------------------------
-        aceptar = Button(text = texto_aceptar,background_color = (0.1,0.2,0.6,0.6))
+        aceptar = Button(text = tAceptar,background_color = (0.1,0.2,0.6,0.6))
         aceptar.bind(on_press=callback)
 
         null = Label(text = "")
@@ -1634,19 +1707,8 @@ class MathGameComprobacion(App):
 
         global operacion
 
-        #Idioma-----------------------------------------------------------------
-        if idiomaApp == "Es":
-            texto_resultado = "El resultado era "
-            texto_acierto = "¡Has acertado!"
-            texto_aceptar = "Vale"
-
-        if idiomaApp  == "En":
-            texto_resultado = "The correct answer was "
-            texto_acierto = "You nailed it!"
-            texto_aceptar = "Okay"
-        #-----------------------------------------------------------------------
-
         #Interfaz---------------------------------------------------------------
+        funTraductor("MathGameComprobacion")
         #Layout completo subdividido en dos sublayouts, uno vertical y otro horizontal
         superBox = BoxLayout(orientation ='vertical')
 
@@ -1661,19 +1723,19 @@ class MathGameComprobacion(App):
                 vida = vida - 1
 
             resultadoMostrar = str(resultadoreal)
-            consola = Label(text = texto_resultado+resultadoMostrar)
+            consola = Label(text = tResultado+resultadoMostrar)
 
         else:
 
             #victory.play()
-            consola = Label(text = texto_acierto)
+            consola = Label(text = tHasacertado)
 
         cabecera.add_widget(consola)
 
         #Widgets de pie de página añadidos en el plano vertical
         pie = BoxLayout(orientation ='vertical')
 
-        aceptar = Button(text = texto_aceptar,background_color = (0.1,0.2,0.6,0.6))
+        aceptar = Button(text = tAceptar,background_color = (0.1,0.2,0.6,0.6))
         aceptar.bind(on_press=callback)
 
         null = Label(text = "")
@@ -1727,7 +1789,7 @@ class MathGameResultado(App):
             respuestaSeleccionada = instance.text #contiene el string del boton
             print(instance.text)
 
-            if respuestaSeleccionada == texto_si:
+            if respuestaSeleccionada == tSi:
 
                 ContadorPreguntas = int(ContadorPreguntas)
                 puntuacion = int(puntuacion)
@@ -1786,42 +1848,28 @@ class MathGameResultado(App):
         ContadorPreguntas = str(ContadorPreguntas)
         puntuacion = str(puntuacion)
 
-        #Idioma-----------------------------------------------------------------
-        if idiomaApp == "Es":
-            texto_aciertos = "Has acertado "
-            texto_total = " de un total de "
-            texto_pregunta = "¿Quieres seguir realizando operaciones?"
-            texto_si = "Si"
-            texto_no = "No"
-
-        if idiomaApp  == "En":
-            texto_aciertos = "You have guessed "
-            texto_total = " of a total of "
-            texto_pregunta = "¿Do you want to repeat?"
-            texto_si = "Yes"
-            texto_no = "No"
-        #-----------------------------------------------------------------------
-
         #Interfaz---------------------------------------------------------------
+        funTraductor("MathGameComprobacion")
+
         #Layout completo subdividido en dos sublayouts, uno vertical y otro horizontal
         superBox = BoxLayout(orientation ='vertical')
 
         #Widgets de cabecera añadidos en el plano horizontal--------------------
         cabecera = BoxLayout(orientation ='horizontal')
 
-        consola = Label(text = texto_aciertos+puntuacion+texto_total+ContadorPreguntas)
+        consola = Label(text = tAcertar1+puntuacion+tAcertar2+ContadorPreguntas)
 
         cabecera.add_widget(consola)
 
         #Widgets de pie de página añadidos en el plano vertical-----------------
         pie = BoxLayout(orientation ='vertical')
 
-        bienvenida = Label(text = texto_pregunta)
+        bienvenida = Label(text = tSeguir)
 
-        aceptar = Button(text = texto_si,background_color = (0.1,0.2,0.6,0.6))
+        aceptar = Button(text = tSi,background_color = (0.1,0.2,0.6,0.6))
         aceptar.bind(on_press=callback)
 
-        rechazar = Button(text = texto_no,background_color = (0.1,0.2,0.6,0.6))
+        rechazar = Button(text = tNo,background_color = (0.1,0.2,0.6,0.6))
         rechazar.bind(on_press=callback)
 
         pie.add_widget(bienvenida)
@@ -1866,7 +1914,7 @@ class MathGameOperaciones(App):
             Seleccion = instance.text #contiene el string del boton
             print(instance.text)
 
-            if Seleccion == texto_salir:
+            if Seleccion == tSalir:
                 superBox.remove_widget(pie)
                 superBox.remove_widget(cabecera)
                 MathGameResultado().run()
@@ -1947,29 +1995,9 @@ class MathGameOperaciones(App):
             print(resultadoreal)
             #-------------------------------------------------------------------
 
-            #Idioma-------------------------------------------------------------
-            if idiomaApp == "Es":
-                texto_tienes = "Tienes "
-                texto_vidas = " vidas"
-                texto_sumas = "Sumas entre dos números: "
-                texto_restas = "Restas entre dos números: "
-                texto_multiplicaciones = "Multiplicaciones entre dos números: "
-                texto_divisiones = "Divisiones entre dos números: "
-                texto_respuesta = "Seleccione la respuesta"
-                texto_salir = "Salir"
-
-            if idiomaApp  == "En":
-                texto_tienes = "You have "
-                texto_vidas = " lifes"
-                texto_sumas = "Sums between two numbers: "
-                texto_restas = "Subtractions between two numbers: "
-                texto_multiplicaciones = "Multiplications between two numbers: "
-                texto_divisiones = "Divisions between two numbers: "
-                texto_respuesta = "Choose the answer"
-                texto_salir = "Exit"
-            #-------------------------------------------------------------------
-
             #Interfaz-----------------------------------------------------------
+            funTraductor("MathGameOperaciones")
+
             #Layout completo subdividido en dos sublayouts, uno vertical y otro horizontal
             superBox = BoxLayout(orientation ='vertical')
 
@@ -1980,38 +2008,38 @@ class MathGameOperaciones(App):
 
                 vidaStr = str(vida)
                 if operacion == "Sumas":
-                    consola = Label(text = texto_tienes+vidaStr+texto_vidas+" | "+texto_sumas+mostrarnumero1+" + "+mostrarnumero2)
+                    consola = Label(text = tVidas1+vidaStr+tVidas2+"|"+tSumasentre+mostrarnumero1+" + "+mostrarnumero2)
                 else:
                     if operacion == "Restas":
-                        consola = Label(text = texto_tienes+vidaStr+texto_vidas+" | "+texto_restas+mostrarnumero1+" - "+mostrarnumero2)
+                        consola = Label(text = tVidas1+vidaStr+tVidas2+"|"+tRestasentre+mostrarnumero1+" - "+mostrarnumero2)
                     else:
                         if operacion == "Multiplicaciones":
-                            consola = Label(text = texto_tienes+vidaStr+texto_vidas+" | "+texto_multiplicaciones+mostrarnumero1+" x "+mostrarnumero2)
+                            consola = Label(text = tVidas1+vidaStr+tVidas2+"|"+tMultientre+mostrarnumero1+" x "+mostrarnumero2)
                         else:
-                            consola = Label(text = texto_tienes+vidaStr+texto_vidas+" | "+texto_divisiones+mostrarnumero1+" / "+mostrarnumero2)
+                            consola = Label(text = tVidas1+vidaStr+tVidas2+"|"+tDivisionentre+mostrarnumero1+" / "+mostrarnumero2)
 
             else:
 
                 if operacion == "Sumas":
-                    consola = Label(text = texto_sumas+mostrarnumero1+" + "+mostrarnumero2)
+                    consola = Label(text = tSumasentre+mostrarnumero1+" + "+mostrarnumero2)
                 else:
                     if operacion == "Restas":
-                        consola = Label(text = texto_restas+mostrarnumero1+" - "+mostrarnumero2)
+                        consola = Label(text = tRestasentre+mostrarnumero1+" - "+mostrarnumero2)
                     else:
                         if operacion == "Multiplicaciones":
-                            consola = Label(text = texto_multiplicaciones+mostrarnumero1+" x "+mostrarnumero2)
+                            consola = Label(text = tMultientre+mostrarnumero1+" x "+mostrarnumero2)
                         else:
-                            consola = Label(text = texto_divisiones+mostrarnumero1+" / "+mostrarnumero2)
+                            consola = Label(text = tDivisionentre+mostrarnumero1+" / "+mostrarnumero2)
 
             cabecera.add_widget(consola)
 
             #Widgets de pie de página añadidos en el plano vertical-------------
             pie = BoxLayout(orientation ='vertical')
 
-            bienvenida = Button(text = texto_respuesta,background_color = (0.1,0.2,0.6,0.6))
+            bienvenida = Button(text = tRespuesta,background_color = (0.1,0.2,0.6,0.6))
             bienvenida.bind(on_press=callback)
 
-            salidaOperaciones = Button(text = texto_salir,background_color = (0.1,0.2,0.6,0.6))
+            salidaOperaciones = Button(text = tSalir,background_color = (0.1,0.2,0.6,0.6))
             salidaOperaciones.bind(on_press=callback)
 
             textinput = TextInput()
@@ -2034,18 +2062,6 @@ class MathGameOperaciones(App):
 
         finalOperacion = 1
 
-        #Idioma-----------------------------------------------------------------
-        if idiomaApp == "Es":
-            texto_sinvidas = "Te has quedado sin vidas"
-            texto_finalizar = "Has finalizado"
-            texto_aceptar = "Vale"
-
-        if idiomaApp  == "En":
-            texto_sinvidas = "You have lost all lifes"
-            texto_finalizar = "You have finished"
-            texto_aceptar = "Okay"
-        #-----------------------------------------------------------------------
-
         #InterfazFinal----------------------------------------------------------
         #Layout completo subdividido en dos sublayouts, uno vertical y otro horizontal
         superBox = BoxLayout(orientation ='vertical')
@@ -2056,18 +2072,18 @@ class MathGameOperaciones(App):
         if modo_supervivencia == 1:
 
             vidaStr = str(vida)
-            consola = Label(text = texto_sinvidas)
+            consola = Label(text = tSinvidas)
 
         else:
 
-            consola = Label(text = texto_finalizar)
+            consola = Label(text = tFinalizado)
 
         cabecera.add_widget(consola)
 
         #Widgets de pie de página añadidos en el plano vertical-----------------
         pie = BoxLayout(orientation ='vertical')
 
-        vale = Button(text = texto_aceptar,background_color = (0.1,0.2,0.6,0.6))
+        vale = Button(text = tAceptar,background_color = (0.1,0.2,0.6,0.6))
         vale.bind(on_press=callback)
 
         null = Label(text = "")
@@ -2089,8 +2105,12 @@ class MathGameSelOpe(App):
 
     def build(self):
 
+        funTraductor("MathGameSelOpe")
+
         #Función que registra el botón seleccionado-----------------------------
         def callback(instance):
+
+            funTraductor("MathGameSelOpe")
 
             global operacion
             global modo_ajustes
@@ -2100,40 +2120,40 @@ class MathGameSelOpe(App):
             respuestaOperaciones = instance.text #contiene el string del boton
             print(instance.text)
 
-            if respuestaOperaciones == texto_sumas:
+            if respuestaOperaciones == tSumas:
                 operacion = "Sumas"
                 superBox.remove_widget(pie)
                 superBox.remove_widget(cabecera)
 
                 if modo_ajustes == 1:
-                    mostrar_modo_problemas = texto_sumas
+                    mostrar_modo_problemas = tSumas
                     MathGameAjustes().run()
                 else:
-                    mostrar_modo_problemas = texto_seleccionar
+                    mostrar_modo_problemas = tSeleccionar
                     MathGameOperaciones().run()
             else:
-                if respuestaOperaciones == texto_restas:
+                if respuestaOperaciones == tRestas:
                     operacion = "Restas"
                     superBox.remove_widget(pie)
                     superBox.remove_widget(cabecera)
 
                     if modo_ajustes == 1:
-                        mostrar_modo_problemas = texto_restas
+                        mostrar_modo_problemas = tRestas
                         MathGameAjustes().run()
                     else:
-                        mostrar_modo_problemas = texto_seleccionar
+                        mostrar_modo_problemas = tSeleccionar
                         MathGameOperaciones().run()
                 else:
-                    if respuestaOperaciones == texto_multiplicaciones:
+                    if respuestaOperaciones == tMultiplicaciones:
                         operacion = "Multiplicaciones"
                         superBox.remove_widget(pie)
                         superBox.remove_widget(cabecera)
 
                         if modo_ajustes == 1:
-                            mostrar_modo_problemas = texto_multiplicaciones
+                            mostrar_modo_problemas = tMultiplicaciones
                             MathGameAjustes().run()
                         else:
-                            mostrar_modo_problemas = texto_seleccionar
+                            mostrar_modo_problemas = tSeleccionar
                             MathGameOperaciones().run()
                     else:
                         operacion = "Divisiones"
@@ -2141,56 +2161,37 @@ class MathGameSelOpe(App):
                         superBox.remove_widget(cabecera)
 
                         if modo_ajustes == 1:
-                            mostrar_modo_problemas = texto_divisiones
+                            mostrar_modo_problemas = tDivisiones
                             MathGameAjustes().run()
                         else:
-                            mostrar_modo_problemas = texto_seleccionar
+                            mostrar_modo_problemas = tSeleccionar
                             MathGameOperaciones().run()
 
-        #Idioma-----------------------------------------------------------------
-        if idiomaApp == "Es":
-            intro = "Empecemos con la configuración"
-            texto_preguntas = "Seleccione tipo de problemas"
-            texto_sumas = "Sumas"
-            texto_restas = "Restas"
-            texto_multiplicaciones = "Multiplicaciones"
-            texto_divisiones = "Divisiones"
-
-        if idiomaApp  == "En":
-            intro = "Let's start"
-            texto_preguntas = "Choose problems"
-            texto_sumas = "Sums"
-            texto_restas = "Subtractions"
-            texto_multiplicaciones = "Multiplications"
-            texto_divisiones = "Divisions"
-        #-----------------------------------------------------------------------
-
-        #Interfaz---------------------------------------------------------------
         #Layout completo subdividido en dos sublayouts, uno vertical y otro horizontal
         superBox = BoxLayout(orientation ='vertical')
 
         #Widgets de cabecera añadidos en el plano horizontal
         cabecera = BoxLayout(orientation ='horizontal')
 
-        consola = Label(text = intro)
+        consola = Label(text = tEmpecemos)
 
         cabecera.add_widget(consola)
 
         #Widgets de pie de página añadidos en el plano vertical
         pie = BoxLayout(orientation ='vertical')
 
-        bienvenida = Label(text = texto_preguntas)
+        bienvenida = Label(text = tProblemas)
 
-        sumas = Button(text = texto_sumas,background_color = (0.1,0.2,0.6,0.6))
+        sumas = Button(text = tSumas,background_color = (0.1,0.2,0.6,0.6))
         sumas.bind(on_press=callback)
 
-        restas = Button(text = texto_restas,background_color = (0.1,0.2,0.6,0.6))
+        restas = Button(text = tRestas,background_color = (0.1,0.2,0.6,0.6))
         restas.bind(on_press=callback)
 
-        multiplicaciones = Button(text = texto_multiplicaciones,background_color = (0.1,0.2,0.6,0.6))
+        multiplicaciones = Button(text = tMultiplicaciones,background_color = (0.1,0.2,0.6,0.6))
         multiplicaciones.bind(on_press=callback)
 
-        divisiones = Button(text = texto_divisiones,background_color = (0.1,0.2,0.6,0.6))
+        divisiones = Button(text = tDivisiones,background_color = (0.1,0.2,0.6,0.6))
         divisiones.bind(on_press=callback)
 
         pie.add_widget(bienvenida)
@@ -2205,14 +2206,17 @@ class MathGameSelOpe(App):
 
         #Mostrar layout completo
         return superBox
-        #-----------------------------------------------------------------------
 
 class MathGameP(App):
 
     def build(self):
 
+        funTraductor("MathGameP")
+
         #Funcion que registra el botón seleccionado-----------------------------
         def callback(instance):
+
+            funTraductor("MathGameP")
 
             global numPreguntas
             global modo_ajustes
@@ -2229,7 +2233,7 @@ class MathGameP(App):
                     mostrar_modo_numPreguntas = "(1)"
                     MathGameAjustes().run()
                 else:
-                    mostrar_modo_numPreguntas = texto_seleccionar
+                    mostrar_modo_numPreguntas = tSeleccionar
                     MathGameSelOpe().run()
             else:
                 if respuestaPreguntas == "2":
@@ -2241,7 +2245,7 @@ class MathGameP(App):
                         mostrar_modo_numPreguntas = "(2)"
                         MathGameAjustes().run()
                     else:
-                        mostrar_modo_numPreguntas = texto_seleccionar
+                        mostrar_modo_numPreguntas = tSeleccionar
                         MathGameSelOpe().run()
                 else:
                     if respuestaPreguntas == "3":
@@ -2253,7 +2257,7 @@ class MathGameP(App):
                             mostrar_modo_numPreguntas = "(3)"
                             MathGameAjustes().run()
                         else:
-                            mostrar_modo_numPreguntas = texto_seleccionar
+                            mostrar_modo_numPreguntas = tSeleccionar
                             MathGameSelOpe().run()
                     else:
                         if respuestaPreguntas == "4":
@@ -2265,7 +2269,7 @@ class MathGameP(App):
                                 mostrar_modo_numPreguntas = "(4)"
                                 MathGameAjustes().run()
                             else:
-                                mostrar_modo_numPreguntas = texto_seleccionar
+                                mostrar_modo_numPreguntas = tSeleccionar
                                 MathGameSelOpe().run()
                         else:
                             numPreguntas = 5
@@ -2276,18 +2280,8 @@ class MathGameP(App):
                                 mostrar_modo_numPreguntas = "(5)"
                                 MathGameAjustes().run()
                             else:
-                                mostrar_modo_numPreguntas = texto_seleccionar
+                                mostrar_modo_numPreguntas = tSeleccionar
                                 MathGameSelOpe().run()
-
-        #Idioma-----------------------------------------------------------------
-        if idiomaApp == "Es":
-            intro = "Empecemos con la configuración"
-            texto_preguntas = "Cuántas preguntas quieres (del 1 al 5)"
-
-        if idiomaApp  == "En":
-            intro = "Let's start"
-            texto_preguntas = "How many problems do you want (from 1 to 5)"
-        #-----------------------------------------------------------------------
 
         #Interfaz---------------------------------------------------------------
         #Layout completo subdividido en dos sublayouts, uno vertical y otro horizontal
@@ -2297,7 +2291,7 @@ class MathGameP(App):
         cabecera = BoxLayout(orientation ='horizontal')
 
         #Elementos de cabecera--------------------------------------------------
-        consola = Label(text = intro)
+        consola = Label(text = tEmpecemos)
 
         #Añadir elementos a cabecera--------------------------------------------
         cabecera.add_widget(consola)
@@ -2306,7 +2300,7 @@ class MathGameP(App):
         pie = BoxLayout(orientation ='vertical')
 
         #Elementos del pie------------------------------------------------------
-        bienvenida = Label(text = texto_preguntas)
+        bienvenida = Label(text = tCuantas)
 
         uno = Button(text = "1",background_color = (0.1,0.2,0.6,0.6))
         uno.bind(on_press=callback)
@@ -2343,8 +2337,12 @@ class MathGameS(App):
 
     def build(self):
 
+        funTraductor("MathGameS")
+
         #Función que registra el texto del botón seleccionado-------------------
         def callback(instance):
+
+            funTraductor("MathGameS")
 
             global modo_supervivencia
             global numPreguntas
@@ -2355,7 +2353,7 @@ class MathGameS(App):
 
             respuestaSupervivencia = instance.text #contiene el string del boton
             print(instance.text)
-            if respuestaSupervivencia == texto_si:
+            if respuestaSupervivencia == tSi:
 
                 modo_supervivencia = 1
                 vida = 5
@@ -2367,10 +2365,10 @@ class MathGameS(App):
                 superBox.remove_widget(cabecera)
 
                 if modo_ajustes == 1:
-                    mostrar_modo_numPreguntas = texto_supervivencia
+                    mostrar_modo_numPreguntas = tSupervivencia
                     MathGameAjustes().run()
                 else:
-                    mostrar_modo_numPreguntas = texto_seleccionar
+                    mostrar_modo_numPreguntas = tSeleccionar
                     MathGameSelOpe().run()
 
             else:
@@ -2381,22 +2379,6 @@ class MathGameS(App):
                 superBox.remove_widget(cabecera)
                 MathGameP().run()
 
-        #Idioma-----------------------------------------------------------------
-        if idiomaApp == "Es":
-            intro = "Empecemos con la configuración"
-            texto_modo = "¿Quieres activar el modo supervivencia?"
-            texto_si = "Si"
-            texto_no = "No"
-            texto_supervivencia = "(Supervivencia)"
-
-        if idiomaApp  == "En":
-            intro = "Let's start"
-            texto_modo = "Do you want to enable survival mode?"
-            texto_si = "Yes"
-            texto_no = "No"
-            texto_supervivencia = "(Survival)"
-        #-----------------------------------------------------------------------
-
         #Interfaz---------------------------------------------------------------
         #Layout global----------------------------------------------------------
         superBox = BoxLayout(orientation ='vertical')
@@ -2404,7 +2386,7 @@ class MathGameS(App):
         #Widgets de cabecera añadidos en el plano horizontal--------------------
         cabecera = BoxLayout(orientation ='horizontal')
 
-        consola = Label(text = intro)
+        consola = Label(text = tEmpecemos)
 
         cabecera.add_widget(consola)
 
@@ -2412,12 +2394,12 @@ class MathGameS(App):
         pie = BoxLayout(orientation ='vertical')
 
         #Creación de elementos--------------------------------------------------
-        bienvenida = Label(text = texto_modo)
+        bienvenida = Label(text = tQuieresSupervivencia)
 
-        aceptar = Button(text = texto_si,background_color = (0.1,0.2,0.6,0.6))
+        aceptar = Button(text = tSi,background_color = (0.1,0.2,0.6,0.6))
         aceptar.bind(on_press=callback)
 
-        rechazar = Button(text = texto_no,background_color = (0.1,0.2,0.6,0.6))
+        rechazar = Button(text = tNo,background_color = (0.1,0.2,0.6,0.6))
         rechazar.bind(on_press=callback)
 
         #Añadir elementos a pie-------------------------------------------------
@@ -2437,8 +2419,12 @@ class MathGameD(App):
 
     def build(self):
 
+        funTraductor("MathGameD")
+
         #Función que detecta el texto del botón seleccionado en pantalla--------
         def callback(instance):
+
+            funTraductor("MathGameD")
 
             global dificultad
             global RangoMin
@@ -2449,7 +2435,7 @@ class MathGameD(App):
 
             dificultadSeleccionada = instance.text #contiene el string del boton
             print(instance.text)
-            if dificultadSeleccionada == texto_facil:
+            if dificultadSeleccionada == tFacil:
                 dificultad = "F"
                 RangoMin = 0
                 RangoMax = 9
@@ -2458,13 +2444,13 @@ class MathGameD(App):
                 superBox.remove_widget(cabecera)
 
                 if modo_ajustes == 1:
-                    mostrar_modo_dificultad = texto_facil
+                    mostrar_modo_dificultad = tFacil
                     MathGameAjustes().run()
                 else:
-                    mostrar_modo_dificultad = texto_seleccionar
+                    mostrar_modo_dificultad = tSeleccionar
                     MathGameS().run()
             else:
-                if dificultadSeleccionada == texto_normal:
+                if dificultadSeleccionada == tNormal:
                     dificultad = "N"
                     RangoMin = 10
                     RangoMax = 99
@@ -2473,10 +2459,10 @@ class MathGameD(App):
                     superBox.remove_widget(cabecera)
 
                     if modo_ajustes == 1:
-                        mostrar_modo_dificultad = texto_normal
+                        mostrar_modo_dificultad = tNormal
                         MathGameAjustes().run()
                     else:
-                        mostrar_modo_dificultad = texto_seleccionar
+                        mostrar_modo_dificultad = tSeleccionar
                         MathGameS().run()
                 else:
                     dificultad = "D"
@@ -2487,27 +2473,11 @@ class MathGameD(App):
                     superBox.remove_widget(cabecera)
 
                     if modo_ajustes == 1:
-                        mostrar_modo_dificultad = texto_dificil
+                        mostrar_modo_dificultad = tDificil
                         MathGameAjustes().run()
                     else:
-                        mostrar_modo_dificultad = texto_seleccionar
+                        mostrar_modo_dificultad = tSeleccionar
                         MathGameS().run()
-        #-----------------------------------------------------------------------
-
-        #Idioma-----------------------------------------------------------------
-        if idiomaApp == "Es":
-            intro = "Empecemos con la configuración"
-            texto_dificultad = "Seleccione dificultad"
-            texto_facil = "Fácil"
-            texto_normal = "Normal"
-            texto_dificil = "Dificil"
-
-        if idiomaApp  == "En":
-            intro = "Let's start"
-            texto_dificultad = "Choose difficulty"
-            texto_facil = "Easy"
-            texto_normal = "Normal"
-            texto_dificil = "Hard"
         #-----------------------------------------------------------------------
 
         #Interfaz---------------------------------------------------------------
@@ -2518,7 +2488,7 @@ class MathGameD(App):
         cabecera = BoxLayout(orientation ='horizontal') #Primer div-------------
 
         #Crear elementos de cabecera--------------------------------------------
-        consola = Label(text = intro)
+        consola = Label(text = tEmpecemos)
 
         #Añadir elementos a cabecera--------------------------------------------
         cabecera.add_widget(consola)
@@ -2527,15 +2497,15 @@ class MathGameD(App):
         pie = BoxLayout(orientation ='vertical')
 
         #Crear elementos del pie------------------------------------------------
-        bienvenida = Label(text = texto_dificultad)
+        bienvenida = Label(text = tSeleccione)
 
-        dificultadFacil = Button(text = texto_facil,background_color = (0.1,0.2,0.6,0.6))
+        dificultadFacil = Button(text = tFacil,background_color = (0.1,0.2,0.6,0.6))
         dificultadFacil.bind(on_press=callback)
 
-        dificultadNormal = Button(text = texto_normal,background_color = (0.1,0.2,0.6,0.6))
+        dificultadNormal = Button(text = tNormal,background_color = (0.1,0.2,0.6,0.6))
         dificultadNormal.bind(on_press=callback)
 
-        dificultadDificil = Button(text = texto_dificil,background_color = (0.1,0.2,0.6,0.6))
+        dificultadDificil = Button(text = tDificil,background_color = (0.1,0.2,0.6,0.6))
         dificultadDificil.bind(on_press=callback)
 
         #Añadir elementos al pie------------------------------------------------
@@ -2554,62 +2524,60 @@ class MathGameD(App):
 
 class MathGame(App):
 
-    global firstRun
-    global idiomaFirstRun
-
-    if firstRun == 1:
-        global modo_ajustes
-        modo_ajustes = 0 #(boolean (Descomentar al quitar archivos))------------
-
     def build(self):
 
+        #Creacion Archivo Idioma------------------------------------------------
+        global idiomaApp
+
         try:
-            if idiomaFirstRun == 1:
-                MathGameSelIdioma().run()
+
+            archivo = open("./idioma.txt", "x")
+            archivo.write("")
+            archivo.close()
+
+            MathGameSelIdioma().run()
+
         except:
-            #Se confirma que no es el primer run--------------------------------
-            print()
+
+            if inicializarIdioma == 1:
+                MathGameSelIdioma().run()
+
+            idiomaDif = open("./idioma.txt", "r")
+            contenidoIdioma = idiomaDif.read()
+
+            idiomaApp = contenidoIdioma
+        #-----------------------------------------------------------------------
 
         #Función que detecta el texto del botón seleccionado en pantalla--------
         def callback(instance):
 
             Seleccion = instance.text #contiene el string del boton
             print(instance.text)
-            if Seleccion == Jugar:
+
+            if Seleccion == tJugar:
                 superBox.remove_widget(pie)
                 superBox.remove_widget(cabecera)
                 MathGameIntermission().run()
-            else:
-                if Seleccion == Puntuación:
-                    superBox.remove_widget(pie)
-                    superBox.remove_widget(cabecera)
-                    MathGamePuntuacion().run()
-                else:
-                    if Seleccion == Ajustes:
-                        superBox.remove_widget(pie)
-                        superBox.remove_widget(cabecera)
-                        MathGameAjustes().run()
-                    else:
-                        superBox.remove_widget(pie)
-                        superBox.remove_widget(cabecera)
-                        MathGameExtras().run()
-        #-----------------------------------------------------------------------
 
-        #Idioma-----------------------------------------------------------------
-        if idiomaApp == "Es":
-            Jugar = "Jugar"
-            Puntuación = "Puntuación"
-            Ajustes = "Ajustes"
-            Extras = "Extras"
+            if Seleccion == tPuntuacion:
+                superBox.remove_widget(pie)
+                superBox.remove_widget(cabecera)
+                MathGamePuntuacion().run()
 
-        if idiomaApp  == "En":
-            Jugar = "Play"
-            Puntuación = "Score"
-            Ajustes = "Settings"
-            Extras = "Extras"
+            if Seleccion == tAjustes:
+                superBox.remove_widget(pie)
+                superBox.remove_widget(cabecera)
+                MathGameAjustes().run()
+
+            if Seleccion == tExtras:
+                superBox.remove_widget(pie)
+                superBox.remove_widget(cabecera)
+                MathGameExtras().run()
         #-----------------------------------------------------------------------
 
         #Interfaz---------------------------------------------------------------
+        funTraductor("MathGame")
+
         #Layout global de superBox cada widget dispuestos uno encima de otro----
         superBox = BoxLayout(orientation ='vertical')
 
@@ -2626,16 +2594,16 @@ class MathGame(App):
         pie = BoxLayout(orientation ='vertical')
 
         #Crear elementos del pie------------------------------------------------
-        jugar = Button(text = Jugar,background_color = (0.1,0.2,0.6,0.6))
+        jugar = Button(text = tJugar,background_color = (0.1,0.2,0.6,0.6))
         jugar.bind(on_press=callback)
 
-        puntuacion = Button(text = Puntuación,background_color = (0.1,0.2,0.6,0.6))
+        puntuacion = Button(text = tPuntuacion,background_color = (0.1,0.2,0.6,0.6))
         puntuacion.bind(on_press=callback)
 
-        ajustes = Button(text = Ajustes,background_color = (0.1,0.2,0.6,0.6))
+        ajustes = Button(text = tAjustes,background_color = (0.1,0.2,0.6,0.6))
         ajustes.bind(on_press=callback)
 
-        extras = Button(text = Extras,background_color = (0.1,0.2,0.6,0.6))
+        extras = Button(text = tExtras,background_color = (0.1,0.2,0.6,0.6))
         extras.bind(on_press=callback)
 
         null = Label()
