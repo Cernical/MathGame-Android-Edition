@@ -17,6 +17,19 @@
 
 # Changelog
 
+<h2>v0.18.1</h2>
+
+<b>Features</b>
+
+- Se aumenta el número de recursividad de la app dado limitaciones actuales.
+- Mejoras en la gestión de los archivos de guardado.
+
+<b>Bugs</b>
+
+- La app se cerrará dada cierta cantidad de operaciones realizadas.
+
+<hr>
+
 <h2>v0.18.0</h2>
 
 <b>Features</b>
@@ -27,6 +40,7 @@
 <b>Bugs</b>
 
 - La app se cerrará dada cierta cantidad de operaciones realizadas.
+- Cierres en ciertas situaciones al cambiar de idioma mientras se almacena la configuración.
 
 <hr>
 
@@ -39,6 +53,7 @@
 <b>Bugs</b>
 
 - La app se cerrará dada cierta cantidad de operaciones realizadas.
+- Cierres en ciertas situaciones al cambiar de idioma mientras se almacena la configuración.
 
 <hr>
 
