@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-version = "0.18.0"
+version = "0.18.1"
 
 from kivy.app import App
 from kivy.uix.label import Label
@@ -8,6 +8,12 @@ from kivy.uix.textinput import TextInput
 from kivy.uix.boxlayout import BoxLayout
 from random import randrange
 from kivy.uix.image import Image
+
+#Permitir la recursividad (temporal)--------------------------------------------
+import resource, sys
+resource.setrlimit(resource.RLIMIT_STACK, (2**29,-1))
+sys.setrecursionlimit(10**6)
+#-------------------------------------------------------------------------------
 
 #Insertar color al cambiar de ventana-------------------------------------------
 from kivy.core.window import Window
@@ -104,7 +110,7 @@ def funTraductor(palabra):
             tQuieresSupervivencia = "¿Quieres activar el modo supervivencia?"
             tSi = "Si"
             tNo = "No"
-            tSupervivencia = "(Supervivencia)"
+            tSupervivencia = "Supervivencia"
             tSeleccionar = "(Seleccionar)"
             #-------------------------------------------------------------------
         if palabra == "MathGameP":
@@ -181,7 +187,11 @@ def funTraductor(palabra):
             tFacil = "Fácil"
             tNormal = "Normal"
             tDificil = "Dificil"
-            tSupervivencia = "(Supervivencia)"
+            tSupervivencia = "Supervivencia"
+            tSumas = "Sumas"
+            tRestas = "Restas"
+            tMultiplicaciones = "Multiplicaciones"
+            tDivisiones = "Divisiones"
             #-------------------------------------------------------------------
         if palabra == "MathGameSelTema":
             #Clase de Temas-----------------------------------------------------
@@ -218,7 +228,7 @@ def funTraductor(palabra):
             tQuieresSupervivencia = "Do you want to enable survival mode?"
             tSi = "Yes"
             tNo = "No"
-            tSupervivencia = "(Survival)"
+            tSupervivencia = "Survival"
             tSeleccionar = "(Choose)"
             #-------------------------------------------------------------------
         if palabra == "MathGameP":
@@ -295,7 +305,11 @@ def funTraductor(palabra):
             tFacil = "Easy"
             tNormal = "Normal"
             tDificil = "Hard"
-            tSupervivencia = "(Survival)"
+            tSupervivencia = "Survival"
+            tSumas = "Sums"
+            tRestas = "Subtractions"
+            tMultiplicaciones = "Multiplications"
+            tDivisiones = "Divisions"
             #-------------------------------------------------------------------
         if palabra == "MathGameSelTema":
             #Clase de Temas-----------------------------------------------------
@@ -608,25 +622,25 @@ def funArchivos():
         contenidoAjustes2 = ajustesDif.read()
 
         #Procesado del archivo de ajustes---------------------------------------
-        if contenidoAjustes2 == "Sumas":
+        if contenidoAjustes2 == "1":
             respuestaOperaciones = "Sumas"
             operacion = "Sumas"
-            mostrar_modo_problemas = "(Sumas)"
+            mostrar_modo_problemas = tSumas
 
-        if contenidoAjustes2 == "Restas":
+        if contenidoAjustes2 == "2":
             respuestaOperaciones = "Restas"
             operacion = "Restas"
-            mostrar_modo_problemas = "(Restas)"
+            mostrar_modo_problemas = tRestas
 
-        if contenidoAjustes2 == "Multiplicaciones":
+        if contenidoAjustes2 == "3":
             respuestaOperaciones = "Multiplicaciones"
             operacion = "Multiplicaciones"
-            mostrar_modo_problemas = "(Multiplicaciones)"
+            mostrar_modo_problemas = tMultiplicaciones
 
-        if contenidoAjustes2 == "Divisiones":
+        if contenidoAjustes2 == "4":
             respuestaOperaciones = "Divisiones"
             operacion = "Divisiones"
-            mostrar_modo_problemas = "(Divisiones)"
+            mostrar_modo_problemas = tDivisiones
         #-----------------------------------------------------------------------
 
         print("Archivo Dificultad 1")
@@ -1594,7 +1608,17 @@ class MathGameAjustes(App):
                 #---------------------------------------------------------------
                 #Guardar config con guardado activo-----------------------------
                 ajustesDif = open("./ajustes2.txt", "w")
-                ajustesDif.write(respuestaOperaciones)
+
+                if respuestaOperaciones == tSumas:
+                    introProblemas = "1"
+                if respuestaOperaciones == tRestas:
+                    introProblemas = "2"
+                if respuestaOperaciones == tMultiplicaciones:
+                    introProblemas = "3"
+                if respuestaOperaciones == tDivisiones:
+                    introProblemas = "4"
+
+                ajustesDif.write(introProblemas)
                 ajustesDif.close()
                 #---------------------------------------------------------------
 
