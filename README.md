@@ -17,6 +17,100 @@
 
 # Changelog
 
+<h2>v0.18.1</h2>
+
+<b>Features</b>
+
+- Se aumenta el número de recursividad de la app dado limitaciones actuales.
+- Mejoras en la gestión de los archivos de guardado.
+
+<b>Bugs</b>
+
+- La app se cerrará dada cierta cantidad de operaciones realizadas.
+
+<hr>
+
+<h2>v0.18.0</h2>
+
+<b>Features</b>
+
+- Se añade la posibilidad de cambiar el tema de la aplicación.
+- Optimizaciones del código.
+
+<b>Bugs</b>
+
+- La app se cerrará dada cierta cantidad de operaciones realizadas.
+- Cierres en ciertas situaciones al cambiar de idioma mientras se almacena la configuración.
+
+<hr>
+
+<h2>v0.17.1</h2>
+
+<b>Features</b>
+
+- Correcciones en la traducción al Inglés.
+
+<b>Bugs</b>
+
+- La app se cerrará dada cierta cantidad de operaciones realizadas.
+- Cierres en ciertas situaciones al cambiar de idioma mientras se almacena la configuración.
+
+<hr>
+
+<h2>v0.17.0</h2>
+
+<b>Features</b>
+
+- Se arreglan todos los errores anteriores causados por el cambio de idioma.
+- Optimizaciones importantes del código.
+
+<b>Bugs</b>
+
+- La app se cerrará dada cierta cantidad de operaciones realizadas.
+
+<hr>
+
+<h2>v0.16.2</h2>
+
+<b>Features</b>
+
+- Correcciones en la traducción al inglés.
+- Se corrije los cierres anteriores al guardar configuración.
+
+<b>Bugs</b>
+
+- La app se cerrará dada cierta cantidad de operaciones realizadas.
+- Cierres al cambiar de idiomas.
+
+<hr>
+
+<h2>v0.16.1</h2>
+
+<b>Features</b>
+
+- Correcciones en la traducción al inglés.
+
+<b>Bugs</b>
+
+- La app se cerrará dada cierta cantidad de operaciones realizadas.
+- Cierres al almacenar configuración en ajustes y al volver a iniciar la app.
+
+<hr>
+
+<h2>v0.16.0</h2>
+
+<b>Features</b>
+
+- Se añade soporte para idiomas y se introduce una traducción al inglés (WiP).
+- Optimizaciones del código.
+
+<b>Bugs</b>
+
+- La app se cerrará dada cierta cantidad de operaciones realizadas.
+- Cierres al almacenar configuración en ajustes y al volver a iniciar la app.
+
+<hr>
+
 <h2>v0.15.0</h2>
 
 <b>Features</b>
